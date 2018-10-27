@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>C++远征之封装篇(下) | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++">
+    <meta name="description" content="简介本课程是真正跨入C++面向对象之门，讲述了对象数组、成员、指针，this指针，常对象、引用、指针、成员函数以及深拷贝和浅拷贝，课程的最后讲述了一个迷宫案例，通过这个案例可以将C++所学知识融会贯通，所有知识均通过编码实践的方式讲解到操作层面，力求即学即会。">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++远征之封装篇(下)">
+<meta property="og:url" content="https://hankin2015.github.io/2017/12/09/20171209moocC++4/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="简介本课程是真正跨入C++面向对象之门，讲述了对象数组、成员、指针，this指针，常对象、引用、指针、成员函数以及深拷贝和浅拷贝，课程的最后讲述了一个迷宫案例，通过这个案例可以将C++所学知识融会贯通，所有知识均通过编码实践的方式讲解到操作层面，力求即学即会。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img4.mukewang.com/5a463dec0001dffa12800720.jpg">
+<meta property="og:image" content="https://img2.mukewang.com/5a2fcba30001913812800720.jpg">
+<meta property="og:image" content="https://img4.mukewang.com/59f32e250001fad512800720.jpg">
+<meta property="og:image" content="https://img3.mukewang.com/5a6549ff00010b7312800720.jpg">
+<meta property="og:updated_time" content="2018-01-26T05:02:36.238Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++远征之封装篇(下)">
+<meta name="twitter:description" content="简介本课程是真正跨入C++面向对象之门，讲述了对象数组、成员、指针，this指针，常对象、引用、指针、成员函数以及深拷贝和浅拷贝，课程的最后讲述了一个迷宫案例，通过这个案例可以将C++所学知识融会贯通，所有知识均通过编码实践的方式讲解到操作层面，力求即学即会。">
+<meta name="twitter:image" content="https://img4.mukewang.com/5a463dec0001dffa12800720.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C++远征之封装篇(下)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">C++远征之封装篇(下)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-09T06:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-12-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第1章-概述"><span class="post-toc-number">2.</span> <span class="post-toc-text">第1章 概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-C-封装概述-03-01"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1-1 C++封装概述(03:01)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第2章-对象成员与对象数组"><span class="post-toc-number">3.</span> <span class="post-toc-text">第2章 对象成员与对象数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-C-对象数组-06-08"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2-1 [C++]对象数组(06:08)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-C-对象成员-07-27"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2-5 [C++]对象成员(07:27)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第3章-深拷贝与浅拷贝"><span class="post-toc-number">4.</span> <span class="post-toc-text">第3章 深拷贝与浅拷贝</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-C-深拷贝浅拷贝-07-26"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">3-1 [C++]深拷贝浅拷贝(07:26)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-C-深拷贝实践-13-22"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">3-3 [C++]深拷贝实践(13:22)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第4章-对象指针"><span class="post-toc-number">5.</span> <span class="post-toc-text">第4章 对象指针</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-C-对象指针-04-01"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">4-1 [C++]对象指针(04:01)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-6-C-this指针-12-07"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">4-6 [C++]this指针(12:07)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-8-C-this指针实践（二）-09-23"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">4-8 [C++]this指针实践（二）(09:23)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第5章-const再现江湖"><span class="post-toc-number">6.</span> <span class="post-toc-text">第5章 const再现江湖</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-1-常对象成员和常成员函数…-07-30"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">5-1 常对象成员和常成员函数…(07:30)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-4-常指针与常引用-06-56"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">5-4 常指针与常引用(06:56)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-5-练习题"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">5-5 练习题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第6章-学以致用"><span class="post-toc-number">7.</span> <span class="post-toc-text">第6章 学以致用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-1-开篇案例-12-56"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">6-1 开篇案例(12:56)</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171209moocC++4"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C++远征之封装篇(下)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-09 14:47:41" datetime="2017-12-09T06:47:41.000Z"  itemprop="datePublished">2017-12-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本课程是真正跨入C++面向对象之门，讲述了对象数组、成员、指针，this指针，常对象、引用、指针、成员函数以及深拷贝和浅拷贝，课程的最后讲述了一个迷宫案例，通过这个案例可以将C++所学知识融会贯通，所有知识均通过编码实践的方式讲解到操作层面，力求即学即会。<br><a id="more"></a></p>
+<h1 id="第1章-概述"><a href="#第1章-概述" class="headerlink" title="第1章 概述"></a>第1章 概述</h1><h2 id="1-1-C-封装概述-03-01"><a href="#1-1-C-封装概述-03-01" class="headerlink" title="1-1 C++封装概述(03:01)"></a>1-1 C++封装概述(03:01)</h2><p>“类”和“对象”，它们呢是我们封装篇大戏中的领衔主演，不过咱们的“类”呢是抽象派，玩的呢就是概念，“对象”呢则真实而具体。那么有了主角之后呢，我们还是需要一些配角帮衬着剧情才够热闹，所以呢我们下面隆重为大家介绍各位配角。<br>配角：<br>1“数据成员和成员函数”:它们构成了精彩而完整的“类”。<br>2“构造函数和析构函数”:它们呢描述了“对象”的生生死死。<br>3“对象的复制与赋值”:使“类”的定义充满艺术。<br>4“对象的数组与对象指针”:将应用形态发挥得淋漓尽致。<br>5“this指针”:它贯穿于我们这部大戏的始终却很少崭露头角，它的加入使“类”与“对象”得以有机结合，更是为封装篇画龙点睛。<br>大家学完了这些之后相信大家的思维模式呢就逐步地从面向过程转向面向对象</p>
+<h1 id="第2章-对象成员与对象数组"><a href="#第2章-对象成员与对象数组" class="headerlink" title="第2章 对象成员与对象数组"></a>第2章 对象成员与对象数组</h1><h2 id="2-1-C-对象数组-06-08"><a href="#2-1-C-对象数组-06-08" class="headerlink" title="2-1 [C++]对象数组(06:08)"></a>2-1 [C++]对象数组(06:08)</h2><p>中内存被销毁是在整个main函数执行完后销毁；<br>而堆中由指针P所指向的内存是可手动控制何时销毁（利用delete ）可通过此来显示析构函数的存在；</p>
+<p>共执行了6次构造函数，栈中（数组）3次，堆中（new申请）3次<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img4.mukewang.com/5a463dec0001dffa12800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>从堆中申请数组的之后 想要删除申请的内存 为什么要在delete后面加中括号呢 因为申请的内存是数组 如果不加中括号的话 那么释放的内存只是数组中的第一个元素 析构函数只执行了一次 必要要加中括号才能释放数组中所申请的所有的内存 调用全部的析构函数。否则就会出现<code>内存泄漏</code>的情况。</p>
+<h2 id="2-5-C-对象成员-07-27"><a href="#2-5-C-对象成员-07-27" class="headerlink" title="2-5 [C++]对象成员(07:27)"></a>2-5 [C++]对象成员(07:27)</h2><p>对象成员：顾名思义就是一个类里的[成员]含有另一个[类]，如图中看出是在line的类中含有coordinate。<br>注意：实例化过程是先定义产生对象成员的类，然后再产生含对象成员的类（先实例化A、在实例化B、最后实例化Line），销毁的顺序相反。<br>当类coor的对象作为类line的成员时，实例化line时，先实例化coor，再实例化line，<br>删除line时，先删除line，再删除coor<br>想用line的参数来初始化coor时，必须使用初始化列表，<code>因为系统不知道是先实例化哪一个，初始参数赋值给哪一个对象。还有原因是对象的构造函数需要赋值</code><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img2.mukewang.com/5a2fcba30001913812800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img4.mukewang.com/59f32e250001fad512800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="第3章-深拷贝与浅拷贝"><a href="#第3章-深拷贝与浅拷贝" class="headerlink" title="第3章 深拷贝与浅拷贝"></a>第3章 深拷贝与浅拷贝</h1><h2 id="3-1-C-深拷贝浅拷贝-07-26"><a href="#3-1-C-深拷贝浅拷贝-07-26" class="headerlink" title="3-1 [C++]深拷贝浅拷贝(07:26)"></a>3-1 [C++]深拷贝浅拷贝(07:26)</h2><p>我们希望拷贝的时候，指向不同的内存，不是简单的拷贝地址。而是将指针所指内存的每一个元素，依次拷贝过 来。当进行数据拷贝时，不是简单的做值的拷贝，而是将堆中内存的数据也进行拷贝。  我们把这种拷贝模式称为深拷贝。</p>
+<p> 当我们去销毁arr1的时候，为了避免内存泄漏，肯定会释放掉么arr1的m_pArr所指向的内存。 我们已经释放掉这段内存了，这是如果我们再去销毁arr2这个对象的时候。我们也会释放掉arr2的m_pArr所指向的内存。同一块内存被释放了了两次。肯定就会出现问题。计算机会崩溃的。</p>
+<p>之前的拷贝称为浅拷贝。指针在浅拷贝时还是会有问题的。arr1和arr2共同指向同一段内存，如果已经给arr1赋值了，这时候给arr2赋值的话，就会覆盖掉arr1写的值。</p>
+<h2 id="3-3-C-深拷贝实践-13-22"><a href="#3-3-C-深拷贝实践-13-22" class="headerlink" title="3-3 [C++]深拷贝实践(13:22)"></a>3-3 [C++]深拷贝实践(13:22)</h2><p>system(“pause”)</p>
+<h1 id="第4章-对象指针"><a href="#第4章-对象指针" class="headerlink" title="第4章 对象指针"></a>第4章 对象指针</h1><h2 id="4-1-C-对象指针-04-01"><a href="#4-1-C-对象指针-04-01" class="headerlink" title="4-1 [C++]对象指针(04:01)"></a>4-1 [C++]对象指针(04:01)</h2><p>同样的访问限定符（如public）可以出现多次。用指针新建对象的时候，如果是默认的构造函数，后面的括号可以写可不写。<br>将<em>p括起来就变成了一个对象（</em>p）,访问的时候就可以以对象的方式 . 访问数据成员了。<br>p1-&gt;和（*p1）是一样使用的<br>对象指针往往会指向一段内存，如果内存是用new从堆中申请来的，使用结束之后一定要用delete归还给系统，否则会内存泄漏。<br>快捷键 注释：先选定内容，然后Ctrl+K+C。</p>
+<h2 id="4-6-C-this指针-12-07"><a href="#4-6-C-this指针-12-07" class="headerlink" title="4-6 [C++]this指针(12:07)"></a>4-6 [C++]this指针(12:07)</h2><p>需要一种技术，能够标记出参数和数据成员。this指针。指向对象自身数据的指针。this写在哪里，就是谁的地址。this表达什么意思，取决于他在什么位置。</p>
+<p>this指针就是指向自身数据的指针<br>同一个类，在实例化数个之后，对象的成员属性会分别放在内存的不同区域，但是这些成员函数会储存在同一片区域（这片区域在内存中叫代码区）<br>既然函数的逻辑代码都是以二进制的方式存储在代码区，参数中也没有数据成员，那么在调用数据成员的时候，怎么可能成功呢？<br>更重要的是，当存在多个对象的时候，函数该如何确定该调用哪个对象的数据成员呢？<br>要解决这个问题，归功于this指针。<br>编译时编译器自动为每个成员函数的参数列表都添加一个this 指针<br>当实例化对象并且使用它们的成员函数时 ，this指针就代表这个对象本身的地址<br>用this指向自身数据成员<br>this指代的是哪个类，取决于this位于哪个类中</p>
+<p>this指针的作用就是：解决了参数和数据成员重名的问题，让计算机清楚是参数传给了数据成员；<br>this指针一般都是系统默认调用，以防止在实例化对象调用成员函数的时候出现错误，保证一一对应，当数据成员和构造函数中的形参名字相同是，计算机会分不清楚谁给谁赋值，这是需要人工加上this指针，用来区别。</p>
+<h2 id="4-8-C-this指针实践（二）-09-23"><a href="#4-8-C-this指针实践（二）-09-23" class="headerlink" title="4-8 [C++]this指针实践（二）(09:23)"></a>4-8 [C++]this指针实践（二）(09:23)</h2><p>返回对象指针，指针的值指向的是对象的地址，如果函数声明的时候只是返回类名，该类是一个临时的对象，和在主函数中实例化的对象并不一样。所以这里定义了一个引用可以返回实例化的对象。</p>
+<p>返回值类型是Array类的对象。return <em>this  返回值是另一个对象，并不是原来的那个对象。想要返回这个对象本身，可以使用返回引用（Array&amp;）和返回this这个指针（Array</em>）。这样就可以在调用成员函数后再接着调用其他成员函数。</p>
+<p>对象各自的this指针指向各自对象的首地址，所以不同对象的this指针一定指向不同的内存地址</p>
+<h1 id="第5章-const再现江湖"><a href="#第5章-const再现江湖" class="headerlink" title="第5章 const再现江湖"></a>第5章 const再现江湖</h1><h2 id="5-1-常对象成员和常成员函数…-07-30"><a href="#5-1-常对象成员和常成员函数…-07-30" class="headerlink" title="5-1 常对象成员和常成员函数…(07:30)"></a>5-1 常对象成员和常成员函数…(07:30)</h2><p>常成员函数，编译器会理解成，this指针用const修饰。这时已经变成了常指针，通过常指针改变该指针指向的数据肯定是不被允许的。</p>
+<p>常成员函数不能改变数据成员的值。当我们定义change这个成员函数的时候。看上去貌似没有任何的参数。实际上却隐含着参数。这个参数就是this指针。</p>
+<p>要想调用常成员函数，就要初始化一个常变量，这时候调用的函数就是常成员函数。</p>
+<h2 id="5-4-常指针与常引用-06-56"><a href="#5-4-常指针与常引用-06-56" class="headerlink" title="5-4 常指针与常引用(06:56)"></a>5-4 常指针与常引用(06:56)</h2><p>const加在星号后面，表示指针指向不能变动，可以调动成员函数，但不能再给指针赋别的对象。<br>第一个错在：常对象只能调用常成员函数，这里getX()不是const类型<br>第二个错在： 常指针只有只读权限，getY（）里面指针读写权限，所以不可以、</p>
+<p>常指针和常引用用于对象时，只能调用常成员函数。<br>const放在*和变量名之间，指针的指向就是固定的了。但是他指向的地址的内容具有读写权限。但是他不能指向其他位置。pCool-&gt;getY();是正确的。下一行是错误的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img3.mukewang.com/5a6549ff00010b7312800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="5-5-练习题"><a href="#5-5-练习题" class="headerlink" title="5-5 练习题"></a>5-5 练习题</h2><p>常对象只能调用常成员函数</p>
+<p>普通对象可以调用普通成员函数和常成员函数<br>常指针和常引用都只能调用常成员函数<br>一个对象可以有多个常对象引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">class Coordinate</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    Coordinate(int x, int y)</span><br><span class="line">    &#123;</span><br><span class="line">        // 设置X,Y的坐标</span><br><span class="line">        m_iX = x;</span><br><span class="line">        m_iY = y;</span><br><span class="line">    &#125;</span><br><span class="line">    // 实现常成员函数</span><br><span class="line">    void printInfo() const</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &apos;(&apos; &lt;&lt; m_iX &lt;&lt; &apos;,&apos; &lt;&lt; m_iY &lt;&lt; &apos;)&apos; &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">public:</span><br><span class="line">    int m_iX;</span><br><span class="line">    int m_iY;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    const Coordinate coor(3, 5);</span><br><span class="line"></span><br><span class="line">    // 创建常指针p</span><br><span class="line">    const Coordinate *p = &amp;coor;</span><br><span class="line">    // 创建常引用c</span><br><span class="line">    const Coordinate &amp;c = coor;</span><br><span class="line"></span><br><span class="line">    coor.printInfo();</span><br><span class="line">    p-&gt;printInfo();</span><br><span class="line">    c.printInfo();</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="第6章-学以致用"><a href="#第6章-学以致用" class="headerlink" title="第6章 学以致用"></a>第6章 学以致用</h1><h2 id="6-1-开篇案例-12-56"><a href="#6-1-开篇案例-12-56" class="headerlink" title="6-1 开篇案例(12:56)"></a>6-1 开篇案例(12:56)</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-26T05:02:36.238Z" itemprop="dateUpdated">2018-01-26 13:02:36</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/12/09/20171209moocC++4/" target="_blank" rel="external">https://hankin2015.github.io/2017/12/09/20171209moocC++4/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/12/09/20171209moocC++4/&title=《C++远征之封装篇(下)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/12/09/20171209moocC++4/&title=《C++远征之封装篇(下)》 — HanKin的博客&source=简介本课程是真正跨入C++面向对象之门，讲述了对象数组、成员、指针，this指针，常对象、引用、指针、成员函数以及深拷贝和浅拷贝，课程的最后讲述了一个迷宫..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/12/09/20171209moocC++4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++远征之封装篇(下)》 — HanKin的博客&url=https://hankin2015.github.io/2017/12/09/20171209moocC++4/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/12/09/20171209moocC++4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/09/20171209ACM-baiduzhixing/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2017&#34;百度之星&#34;程序设计大赛 - 初赛（A）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/08/20171208SetBug/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">debug assertion failed</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/12/09/20171209moocC++4/&title=《C++远征之封装篇(下)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/12/09/20171209moocC++4/&title=《C++远征之封装篇(下)》 — HanKin的博客&source=简介本课程是真正跨入C++面向对象之门，讲述了对象数组、成员、指针，this指针，常对象、引用、指针、成员函数以及深拷贝和浅拷贝，课程的最后讲述了一个迷宫..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/12/09/20171209moocC++4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++远征之封装篇(下)》 — HanKin的博客&url=https://hankin2015.github.io/2017/12/09/20171209moocC++4/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/12/09/20171209moocC++4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/12/09/20171209moocC++4/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

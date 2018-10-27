@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>精通Linux/Unix平台上的C/C++编程 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C,C++,Linux,网络编程">
+    <meta name="description" content="1、Linux中的基础知识编辑器emacs—-编辑器之神vim—-神的编辑器vim 是vi的升级版本，它不仅兼容vi的所有指令，而且还有一些新的特性在里面。 shell （计算机壳层）在计算机科学中，Shell俗称壳（用来区别于核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command.com和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。">
+<meta name="keywords" content="C,C++,Linux,网络编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="精通Linux&#x2F;Unix平台上的C&#x2F;C++编程">
+<meta property="og:url" content="https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1、Linux中的基础知识编辑器emacs—-编辑器之神vim—-神的编辑器vim 是vi的升级版本，它不仅兼容vi的所有指令，而且还有一些新的特性在里面。 shell （计算机壳层）在计算机科学中，Shell俗称壳（用来区别于核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command.com和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-15T16:32:34.204Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="精通Linux&#x2F;Unix平台上的C&#x2F;C++编程">
+<meta name="twitter:description" content="1、Linux中的基础知识编辑器emacs—-编辑器之神vim—-神的编辑器vim 是vi的升级版本，它不仅兼容vi的所有指令，而且还有一些新的特性在里面。 shell （计算机壳层）在计算机科学中，Shell俗称壳（用来区别于核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command.com和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">精通Linux/Unix平台上的C/C++编程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">精通Linux/Unix平台上的C/C++编程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-15T13:06:41.000Z" itemprop="datePublished" class="page-time">
+  2018-03-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-研发工程师/">C++研发工程师</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、Linux中的基础知识"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、Linux中的基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编辑器"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">编辑器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#shell-（计算机壳层）"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">shell （计算机壳层）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装软件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">安装软件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sudo"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">sudo</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#cc-（cc-编译器）"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">cc （cc 编译器）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vim命令"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">vim命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#include中-lt-gt-会在标准库中查找，“”会在当前目录下查找（引号中可以写-c文件名）"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">include中&lt;&gt;会在标准库中查找，“”会在当前目录下查找（引号中可以写.c文件名）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#头文件产生的原因"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">头文件产生的原因</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、关于C-C"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、关于C/C++</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完整的main函数，可以和系统交互的"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">完整的main函数，可以和系统交互的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#gcc语句直接执行"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">gcc语句直接执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查是否成功执行"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">检查是否成功执行</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、标准输入流、输出流、错误流"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、标准输入流、输出流、错误流</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、重定向"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、重定向</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6、管道原理"><span class="post-toc-number">5.</span> <span class="post-toc-text">6、管道原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7、C语言判断相等的语句把数字放在前面，例如if（1-len）的作用是什么？？"><span class="post-toc-number">6.</span> <span class="post-toc-text">7、C语言判断相等的语句把数字放在前面，例如if（1==len）的作用是什么？？</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180315NetworkProgramming"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">精通Linux/Unix平台上的C/C++编程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-15 21:06:41" datetime="2018-03-15T13:06:41.000Z"  itemprop="datePublished">2018-03-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-研发工程师/">C++研发工程师</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1、Linux中的基础知识"><a href="#1、Linux中的基础知识" class="headerlink" title="1、Linux中的基础知识"></a>1、Linux中的基础知识</h1><h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><p>emacs—-编辑器之神<br>vim—-神的编辑器<br>vim 是vi的升级版本，它不仅兼容vi的所有指令，而且还有一些新的特性在里面。</p>
+<h3 id="shell-（计算机壳层）"><a href="#shell-（计算机壳层）" class="headerlink" title="shell （计算机壳层）"></a>shell （计算机壳层）</h3><p>在计算机科学中，Shell俗称壳（用来区别于核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command.com和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。<br><a id="more"></a></p>
+<h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><blockquote>
+<p>sudo apt-get update  更新安装包资源的下载地址（建议安装软件前更新一下）</p>
+<h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><p>sudo是linux系统管理指令，是允许系统管理员让普通用户执行一些或者全部的root命令的一个工具，如halt，reboot，su等等。这样不仅减少了root用户的登录 和管理时间，同样也提高了安全性。sudo不是对shell的一个代替，它是面向每个命令的。</p>
+</blockquote>
+<h2 id="cc-（cc-编译器）"><a href="#cc-（cc-编译器）" class="headerlink" title="cc （cc 编译器）"></a>cc （cc 编译器）</h2><p>linux下cc和gcc是同一个东西. cc 是 unix 上 C 编译器 传统 名字。linux 仿 unix，你可以用 名字 cc . linux 上 C 编译器 就是 GNU C 编译器 gcc。 unix 上 可以另装 gcc， 但 unix 自带的 cc 编译器 不是 gcc。cc是以前在unix上的编译器，gcc是GNU组织开发的编译器，功能和cc相同，甚至更强大。</p>
+<h2 id="vim命令"><a href="#vim命令" class="headerlink" title="vim命令"></a>vim命令</h2><p>/<em>使用touch命令可以创建一个空文本文件</em>/<br>ndd 删除当前及以下n行<br>a 光标后插入  shift + a 末尾插入<br>i 光标前插入   shift + i 首部插入<br>o 光标下行插入  shift + o 光标上行插入<br>:set nu 显示行号<br>:sp 文件名      vim支持多个文件窗口编写<br>ctrl + w + 下箭头 切换文件窗口<br>ndd  可以删除n行，会把文件内容放到剪切版，再按p就可以粘贴回来<br>:wqa  保存退出全部文件</p>
+<h2 id="include中-lt-gt-会在标准库中查找，“”会在当前目录下查找（引号中可以写-c文件名）"><a href="#include中-lt-gt-会在标准库中查找，“”会在当前目录下查找（引号中可以写-c文件名）" class="headerlink" title="include中&lt;&gt;会在标准库中查找，“”会在当前目录下查找（引号中可以写.c文件名）"></a>include中&lt;&gt;会在标准库中查找，“”会在当前目录下查找（引号中可以写.c文件名）</h2><h2 id="头文件产生的原因"><a href="#头文件产生的原因" class="headerlink" title="头文件产生的原因"></a>头文件产生的原因</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">项目比较大的时候，提前把一些不常改动的源代码编译成.o文件，变成静态库，这样可以节省后来编译的时间。</span><br><span class="line">把函数预先编译成静态库文件（编译而不执行），在其它函数中调用速度更快</span><br><span class="line">gcc -c 文件名 -o 文件名  //编译为静态库文件，扩展名一般为 .o</span><br><span class="line">gcc -c xx.c -o xx.o(将xx先编成机器语言静态库文件不可执行)</span><br><span class="line">gcc xx.c -o xx.out(直接翻译成机器语言可执行xx.out)</span><br><span class="line">./xx.out(执行本地可执行文件)</span><br><span class="line">cat xx.xx(直接显示文件内容)</span><br><span class="line">gcc -c min.c -o min.o</span><br><span class="line">参数：</span><br><span class="line">-c 编译文件，产生obj文件</span><br><span class="line">-o 制定编译后的文件名</span><br></pre></td></tr></table></figure>
+<h1 id="2、关于C-C"><a href="#2、关于C-C" class="headerlink" title="2、关于C/C++"></a>2、关于C/C++</h1><h2 id="完整的main函数，可以和系统交互的"><a href="#完整的main函数，可以和系统交互的" class="headerlink" title="完整的main函数，可以和系统交互的"></a>完整的main函数，可以和系统交互的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(int argv, char* argc[])</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;hello world \n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>argv是传入参数的数量，默认是文件名，所以是1。<br>argc[]里面存储的传入参数的详细。<br>98标准里面不能再for循环里初始化变量。</p>
+<h2 id="gcc语句直接执行"><a href="#gcc语句直接执行" class="headerlink" title="gcc语句直接执行"></a>gcc语句直接执行</h2><blockquote>
+<p>gcc main.c -o main.out &amp;&amp; ./main.out</p>
+</blockquote>
+<h2 id="检查是否成功执行"><a href="#检查是否成功执行" class="headerlink" title="检查是否成功执行"></a>检查是否成功执行</h2><blockquote>
+<p>echo $?    成功返回0，失败返回1<br>其中为啥返回0呢？？因为return 0。注意 命令1 &amp;&amp; 命令2，只有命令1返回0才执行命令2，所以main函数返回0是有它的道理。</p>
+</blockquote>
+<p><a href="http://www.runoob.com/linux/linux-shell-echo.html" target="_blank" rel="noopener">echo命令详解</a></p>
+<h1 id="3、标准输入流、输出流、错误流"><a href="#3、标准输入流、输出流、错误流" class="headerlink" title="3、标准输入流、输出流、错误流"></a>3、标准输入流、输出流、错误流</h1><p>stdio.h提供<br>stdin标准输入流<br>stdout标准输出流<br>stderr标准错误<br>scanf(…)实际是fscanf(stdin,…);<br>printf(…)实际是fprintf(stdout,…);<br>输出错误实际是fprintf(stderr,…);</p>
+<p>标准输入是程序可以读取其输入的位置。缺省情况下，进程从键盘读取 stdin 。<br>标准输出是程序写入其输出的位置。缺省情况下，进程将 stdout 写到终端屏幕上。<br>标准错误是程序写入其错误消息的位置。缺省情况下，进程将 stderr 写到终端屏幕上。<br>fscanf(stdin(或文件名),”%d”,&amp;a);//从文件读取数据<br>fprintf(stdout(或文件名),”%d”,a);//将数据写入文件</p>
+<h1 id="4、重定向"><a href="#4、重定向" class="headerlink" title="4、重定向"></a>4、重定向</h1><p><code>&gt;&gt;</code> 输出流重定向符号，把显示在屏幕上的内容重定向到文件中，内容会添加到文件的末尾，即不会覆盖。<br>如：ls /etc &gt;&gt; etc.txt  会把etc文件夹下的内容保存到文件中<br><code>&gt;</code>也是输出流重定向，不过会覆盖原文件内容，每次都是最新的。<br><code>1&gt;&gt;</code> 和 <code>&gt;&gt;</code>是等价的。前面也可以写2，或许是多个重定向id。</p>
+<p><code>&lt;</code>输入流重定向符号。</p>
+<p>错误流规定返回的值不能为0。</p>
+<h1 id="6、管道原理"><a href="#6、管道原理" class="headerlink" title="6、管道原理"></a>6、管道原理</h1><blockquote>
+<p>ls /etc/ | grep ab<br>|是管道符号，grep是搜索命令，显示包含ab的内容</p>
+<p>ps  -e 显示进程命令<br>ps -e | grep ssh  显示包含ssh的进程</p>
+</blockquote>
+<p>管道把多个小工具拼接起来形成另外一个工具。</p>
+<blockquote>
+<p>./input.o  |  ./avg.o<br>input.o程序是输入多个数，输出和和数量，即sum，n。<br>avg.o程序是输入两个数，计算商，输出商值。<br>利用管道就可以把两个程序进行合并。</p>
+</blockquote>
+<h1 id="7、C语言判断相等的语句把数字放在前面，例如if（1-len）的作用是什么？？"><a href="#7、C语言判断相等的语句把数字放在前面，例如if（1-len）的作用是什么？？" class="headerlink" title="7、C语言判断相等的语句把数字放在前面，例如if（1==len）的作用是什么？？"></a>7、C语言判断相等的语句把数字放在前面，例如if（1==len）的作用是什么？？</h1><p>防止由于书写错误而引起的错误，比如1=len，书写的时候少写了一个等号，则len=1就认为是赋值操作，没有问题，但是1=len就会报错了。</p>
+<p>赋值语句成功返回的值为1。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-15T16:32:34.204Z" itemprop="dateUpdated">2018-08-16 00:32:34</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/03/15/20180315NetworkProgramming/" target="_blank" rel="external">https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络编程/">网络编程</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/&title=《精通Linux/Unix平台上的C/C++编程》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/&title=《精通Linux/Unix平台上的C/C++编程》 — HanKin的博客&source=1、Linux中的基础知识编辑器emacs—-编辑器之神vim—-神的编辑器vim 是vi的升级版本，它不仅兼容vi的所有指令，而且还有一些新的特性在里面..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《精通Linux/Unix平台上的C/C++编程》 — HanKin的博客&url=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/03/18/20180318klcFormula/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">基姆拉尔森计算公式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/03/13/20180313hiho193/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hiho一下 第193周修补木桶</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/&title=《精通Linux/Unix平台上的C/C++编程》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/&title=《精通Linux/Unix平台上的C/C++编程》 — HanKin的博客&source=1、Linux中的基础知识编辑器emacs—-编辑器之神vim—-神的编辑器vim 是vi的升级版本，它不仅兼容vi的所有指令，而且还有一些新的特性在里面..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《精通Linux/Unix平台上的C/C++编程》 — HanKin的博客&url=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/03/15/20180315NetworkProgramming/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

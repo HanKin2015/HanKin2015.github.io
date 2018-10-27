@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>MySQL实战 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Sql,MySQL">
+    <meta name="description" content="一、linux下查看mysql服务的两种方式：方式一：[root@localhost bin]ps -ef|grep mysql 方式二：[root@localhost bin]netstat -nlp">
+<meta name="keywords" content="Sql,MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL实战">
+<meta property="og:url" content="https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="一、linux下查看mysql服务的两种方式：方式一：[root@localhost bin]ps -ef|grep mysql 方式二：[root@localhost bin]netstat -nlp">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-15T02:45:40.747Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL实战">
+<meta name="twitter:description" content="一、linux下查看mysql服务的两种方式：方式一：[root@localhost bin]ps -ef|grep mysql 方式二：[root@localhost bin]netstat -nlp">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">MySQL实战</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">MySQL实战</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-27T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-07-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SQL/">SQL</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、linux下查看mysql服务的两种方式："><span class="post-toc-number">1.</span> <span class="post-toc-text">一、linux下查看mysql服务的两种方式：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、linux下启动mysql服务的两种方式："><span class="post-toc-number">2.</span> <span class="post-toc-text">二、linux下启动mysql服务的两种方式：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、linux下关闭mysql服务的两种方式："><span class="post-toc-number">3.</span> <span class="post-toc-text">三、linux下关闭mysql服务的两种方式：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、登录MySQL"><span class="post-toc-number">4.</span> <span class="post-toc-text">1、登录MySQL</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、MySQL添加用户、删除用户与授权"><span class="post-toc-number">5.</span> <span class="post-toc-text">2、MySQL添加用户、删除用户与授权</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、找到第N高的成绩"><span class="post-toc-number">6.</span> <span class="post-toc-text">2、找到第N高的成绩</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Mark表"><span class="post-toc-number">7.</span> <span class="post-toc-text">Mark表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Student表"><span class="post-toc-number">8.</span> <span class="post-toc-text">Student表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#建表语句"><span class="post-toc-number">9.</span> <span class="post-toc-text">建表语句</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#问题"><span class="post-toc-number">10.</span> <span class="post-toc-text">问题</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180717MySQL_Practice"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">MySQL实战</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-27 10:47:41" datetime="2018-07-27T02:47:41.000Z"  itemprop="datePublished">2018-07-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SQL/">SQL</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、linux下查看mysql服务的两种方式："><a href="#一、linux下查看mysql服务的两种方式：" class="headerlink" title="一、linux下查看mysql服务的两种方式："></a>一、linux下查看mysql服务的两种方式：</h1><p>方式一：<br>[root@localhost bin]ps -ef|grep mysql</p>
+<p>方式二：<br>[root@localhost bin]netstat -nlp<br><a id="more"></a></p>
+<h1 id="二、linux下启动mysql服务的两种方式："><a href="#二、linux下启动mysql服务的两种方式：" class="headerlink" title="二、linux下启动mysql服务的两种方式："></a>二、linux下启动mysql服务的两种方式：</h1><p>命令行方式：<br>[root@localhost bin]cd /usr/bin<br>[root@localhost bin]./mysqld_safe &amp;</p>
+<p>服务方式：<br>[root@localhost ~]service mysql start</p>
+<p>如果服务在启动状态，直接重启服务用以下命令：<br>[root@localhost ~]service mysql restart</p>
+<h1 id="三、linux下关闭mysql服务的两种方式："><a href="#三、linux下关闭mysql服务的两种方式：" class="headerlink" title="三、linux下关闭mysql服务的两种方式："></a>三、linux下关闭mysql服务的两种方式：</h1><p>命令行方式：<br>[root@localhost ~]mysqladmin -u root shutdown</p>
+<p>服务方式：<br>[root@localhost ~]service mysql stop</p>
+<h1 id="1、登录MySQL"><a href="#1、登录MySQL" class="headerlink" title="1、登录MySQL"></a>1、登录MySQL</h1><blockquote>
+<p>mysql -u root(用户名) -p<br>输入密码</p>
+</blockquote>
+<h1 id="2、MySQL添加用户、删除用户与授权"><a href="#2、MySQL添加用户、删除用户与授权" class="headerlink" title="2、MySQL添加用户、删除用户与授权"></a>2、MySQL添加用户、删除用户与授权</h1><p><a href="https://www.cnblogs.com/wanghetao/p/3806888.html" target="_blank" rel="noopener">https://www.cnblogs.com/wanghetao/p/3806888.html</a><br><a href="https://www.cnblogs.com/xujishou/p/6306765.html" target="_blank" rel="noopener">https://www.cnblogs.com/xujishou/p/6306765.html</a></p>
+<h1 id="2、找到第N高的成绩"><a href="#2、找到第N高的成绩" class="headerlink" title="2、找到第N高的成绩"></a>2、找到第N高的成绩</h1><p>索引问题就是一个查找问题。。。<br>数据库索引，是数据库管理系统中一个排序的数据结构，以协助快速查询、更新数据库表中数据。索引的实现通常使用B树及其变种B+树。<br><a href="https://blog.csdn.net/csy288/article/details/54586410" target="_blank" rel="noopener">数据库索引使用的好处与坏处</a></p>
+<p><a href="https://www.jianshu.com/p/dc053deb94f2" target="_blank" rel="noopener">https://www.jianshu.com/p/dc053deb94f2</a><br><a href="https://blog.csdn.net/sanqima/article/details/42746419" target="_blank" rel="noopener">https://blog.csdn.net/sanqima/article/details/42746419</a><br><a href="https://baike.baidu.com/item/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F/9683982?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F/9683982?fr=aladdin</a><br><a href="https://baijiahao.baidu.com/s?id=1596169784713150436&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1596169784713150436&amp;wfr=spider&amp;for=pc</a></p>
+<h1 id="Mark表"><a href="#Mark表" class="headerlink" title="Mark表"></a>Mark表</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">ID</th>
+<th style="text-align:center">sex</th>
+<th style="text-align:center">course</th>
+<th style="text-align:center">mark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A001</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">语文</td>
+<td style="text-align:center">98</td>
+</tr>
+<tr>
+<td style="text-align:center">A002</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">语文</td>
+<td style="text-align:center">92</td>
+</tr>
+<tr>
+<td style="text-align:center">A003</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">数学</td>
+<td style="text-align:center">84</td>
+</tr>
+<tr>
+<td style="text-align:center">A004</td>
+<td style="text-align:center">女</td>
+<td style="text-align:center">英语</td>
+<td style="text-align:center">87</td>
+</tr>
+<tr>
+<td style="text-align:center">A001</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">数学</td>
+<td style="text-align:center">68</td>
+</tr>
+<tr>
+<td style="text-align:center">A007</td>
+<td style="text-align:center">女</td>
+<td style="text-align:center">英语</td>
+<td style="text-align:center">77</td>
+</tr>
+</tbody>
+</table>
+<h1 id="Student表"><a href="#Student表" class="headerlink" title="Student表"></a>Student表</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">ID</th>
+<th style="text-align:center">name</th>
+<th style="text-align:center">class</th>
+<th style="text-align:center">birth</th>
+<th style="text-align:center">native</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A001</td>
+<td style="text-align:center">张三</td>
+<td style="text-align:center">一班</td>
+<td style="text-align:center">1998</td>
+<td style="text-align:center">湖北武汉</td>
+</tr>
+<tr>
+<td style="text-align:center">A002</td>
+<td style="text-align:center">李四</td>
+<td style="text-align:center">二班</td>
+<td style="text-align:center">1992</td>
+<td style="text-align:center">重庆万州</td>
+</tr>
+<tr>
+<td style="text-align:center">A003</td>
+<td style="text-align:center">王麻子</td>
+<td style="text-align:center">一班</td>
+<td style="text-align:center">1984</td>
+<td style="text-align:center">重庆万州</td>
+</tr>
+<tr>
+<td style="text-align:center">A004</td>
+<td style="text-align:center">小美</td>
+<td style="text-align:center">一班</td>
+<td style="text-align:center">1987</td>
+<td style="text-align:center">湖北武汉</td>
+</tr>
+<tr>
+<td style="text-align:center">A005</td>
+<td style="text-align:center">小米</td>
+<td style="text-align:center">二班</td>
+<td style="text-align:center">1968</td>
+<td style="text-align:center">湖南长沙</td>
+</tr>
+</tbody>
+</table>
+<h1 id="建表语句"><a href="#建表语句" class="headerlink" title="建表语句"></a>建表语句</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
+<li>查找分数大于80的数据（ID、课程、分数）</li>
+<li>显示学生所有的信息，A001就显示第一条</li>
+<li>显示学生的年龄</li>
+<li>没有参加考试的学生姓名</li>
+<li>参加考试的学生姓名（不重复）</li>
+<li>课程平均分大于80的学生姓名</li>
+<li>显示地区分数的简单总和</li>
+<li>学生的课程平均分排名</li>
+<li>班级的课程平均分</li>
+<li>谈谈两张表在结构设计上的问题</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-15T02:45:40.747Z" itemprop="dateUpdated">2018-10-15 10:45:40</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/07/27/20180717MySQL_Practice/" target="_blank" rel="external">https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sql/">Sql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/&title=《MySQL实战》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/&title=《MySQL实战》 — HanKin的博客&source=一、linux下查看mysql服务的两种方式：方式一：[root@localhost bin]ps -ef|grep mysql
+方式二：[root@lo..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MySQL实战》 — HanKin的博客&url=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/28/20180728MulLanguage/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">多种语言实现求最大值(排序)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/07/20180707InternetLinux/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux网络管理(网络编程)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/&title=《MySQL实战》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/&title=《MySQL实战》 — HanKin的博客&source=一、linux下查看mysql服务的两种方式：方式一：[root@localhost bin]ps -ef|grep mysql
+方式二：[root@lo..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MySQL实战》 — HanKin的博客&url=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/07/27/20180717MySQL_Practice/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

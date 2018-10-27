@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>编程题中各式各样的输入格式(黑科技) | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="黑科技,输入输出">
+    <meta name="description" content="1、解决爆栈，手动加栈用C++时，可以用这句代码进行手动加栈。（#pragma comment(linker, “/STACK:1024000000,1024000000”)） 而C时，我们则要用另外一句代码：#pragma GCC optimize (“O2”)02表示一种状态，还有其他的状态GCC的#pragma优化主要分为四种 -O0 -O1 -O2 -O3-O0 表示无优化状态-O1 表示">
+<meta name="keywords" content="黑科技,输入输出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程题中各式各样的输入格式(黑科技)">
+<meta property="og:url" content="https://hankin2015.github.io/2018/08/12/20180812AcmInput/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1、解决爆栈，手动加栈用C++时，可以用这句代码进行手动加栈。（#pragma comment(linker, “/STACK:1024000000,1024000000”)） 而C时，我们则要用另外一句代码：#pragma GCC optimize (“O2”)02表示一种状态，还有其他的状态GCC的#pragma优化主要分为四种 -O0 -O1 -O2 -O3-O0 表示无优化状态-O1 表示">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-24T06:26:24.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编程题中各式各样的输入格式(黑科技)">
+<meta name="twitter:description" content="1、解决爆栈，手动加栈用C++时，可以用这句代码进行手动加栈。（#pragma comment(linker, “/STACK:1024000000,1024000000”)） 而C时，我们则要用另外一句代码：#pragma GCC optimize (“O2”)02表示一种状态，还有其他的状态GCC的#pragma优化主要分为四种 -O0 -O1 -O2 -O3-O0 表示无优化状态-O1 表示">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">编程题中各式各样的输入格式(黑科技)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">编程题中各式各样的输入格式(黑科技)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-12T13:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-08-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、解决爆栈，手动加栈"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、解决爆栈，手动加栈</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、结构体利用初始化列表赋默认值"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、结构体利用初始化列表赋默认值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、split函数"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、split函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、输入数字但是没有告诉输入的个数"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、输入数字但是没有告诉输入的个数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、输出行末无空格"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、输出行末无空格</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6、输入加速外挂"><span class="post-toc-number">6.</span> <span class="post-toc-text">6、输入加速外挂</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-1、非负整数"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">6-1、非负整数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-2、什么是输入挂"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">6-2、什么是输入挂</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-3、什么时候使用输入挂"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">6-3、什么时候使用输入挂</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-4、代码实现"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">6-4、代码实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-整数"><span class="post-toc-number">6.4.1.</span> <span class="post-toc-text">(一)整数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-浮点数"><span class="post-toc-number">6.4.2.</span> <span class="post-toc-text">(二)浮点数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-加入一行代码"><span class="post-toc-number">6.4.3.</span> <span class="post-toc-text">(三)加入一行代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-strtok和sscanf结合输入"><span class="post-toc-number">6.4.4.</span> <span class="post-toc-text">(四)strtok和sscanf结合输入</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7、输出保留两位小数"><span class="post-toc-number">7.</span> <span class="post-toc-text">7、输出保留两位小数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8、C-输出cout（bool类型）"><span class="post-toc-number">8.</span> <span class="post-toc-text">8、C++输出cout（bool类型）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9、unorder-map无法使用pair做键"><span class="post-toc-number">9.</span> <span class="post-toc-text">9、unorder_map无法使用pair做键</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#10、hash表的实现方式"><span class="post-toc-number">10.</span> <span class="post-toc-text">10、hash表的实现方式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#11、数组的多种表示方式"><span class="post-toc-number">11.</span> <span class="post-toc-text">11、数组的多种表示方式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#12、常见的ACM输入类型题"><span class="post-toc-number">12.</span> <span class="post-toc-text">12、常见的ACM输入类型题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#00、其他"><span class="post-toc-number">13.</span> <span class="post-toc-text">00、其他</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180812AcmInput"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">编程题中各式各样的输入格式(黑科技)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-12 21:47:41" datetime="2018-08-12T13:47:41.000Z"  itemprop="datePublished">2018-08-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1、解决爆栈，手动加栈"><a href="#1、解决爆栈，手动加栈" class="headerlink" title="1、解决爆栈，手动加栈"></a>1、解决爆栈，手动加栈</h1><p>用C++时，可以用这句代码进行手动加栈。（#pragma comment(linker, “/STACK:1024000000,1024000000”)）</p>
+<p>而C时，我们则要用另外一句代码：#pragma GCC optimize (“O2”)<br>02表示一种状态，还有其他的状态<br>GCC的#pragma优化主要分为四种 -O0 -O1 -O2 -O3<br>-O0 表示无优化状态<br>-O1 表示对代码进行了优化<br>-O2 表示减小目标文件大小<br>-O3 表示减小代码段及栈空间的大小<br><a id="more"></a></p>
+<p>对部分代码可以去除优化： </p>
+<blockquote>
+<p>#pragma GCC push_options </p>
+<p>#pragma GCC optimize (“O0”)</p>
+</blockquote>
+<p>或者也可以增加优化 </p>
+<blockquote>
+<p>#pragma GCC pop_options</p>
+</blockquote>
+<p>想要对代码进行进一步的优化，可以使用输入加速外挂，对C、C++均可行。</p>
+<h1 id="2、结构体利用初始化列表赋默认值"><a href="#2、结构体利用初始化列表赋默认值" class="headerlink" title="2、结构体利用初始化列表赋默认值"></a>2、结构体利用初始化列表赋默认值</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct node &#123;</span><br><span class="line">    int x, y;</span><br><span class="line">    node() : x(0), y(0) &#123;&#125;</span><br><span class="line">    node(int s, int e) : x(s), y(e) &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="3、split函数"><a href="#3、split函数" class="headerlink" title="3、split函数"></a>3、<a href="https://hankin2015.github.io/2017/12/08/20171208SplitFunction/">split函数</a></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void SplitString(const string&amp; s, vector&lt;string&gt;&amp; v, const string&amp; c)</span><br><span class="line">&#123;</span><br><span class="line">    string::size_type pos1, pos2;</span><br><span class="line">    pos2 = s.find(c);</span><br><span class="line">    pos1 = 0;</span><br><span class="line">    while (string::npos != pos2) &#123;</span><br><span class="line">        v.push_back(s.substr(pos1, pos2 - pos1));</span><br><span class="line">        pos1 = pos2 + c.size();</span><br><span class="line">        pos2 = s.find(c, pos1);</span><br><span class="line">    &#125;</span><br><span class="line">    if (pos1 != s.length()) v.push_back(s.substr(pos1));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="4、输入数字但是没有告诉输入的个数"><a href="#4、输入数字但是没有告诉输入的个数" class="headerlink" title="4、输入数字但是没有告诉输入的个数"></a>4、输入数字但是没有告诉输入的个数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">inline void SplitStr(string&amp; s, vector&lt;int&gt;&amp; v, const string&amp; c)</span><br><span class="line">&#123;</span><br><span class="line">    string title;</span><br><span class="line">    transform(s.begin(), s.end(), back_inserter(title), ::tolower);  // 转换为小写字母</span><br><span class="line">    s = &quot;&quot;;</span><br><span class="line">    for (int i = 0; i &lt; title.size(); i++) &#123;</span><br><span class="line">        if ((title[i] &gt;= &apos;0&apos; &amp;&amp; title[i] &lt;= &apos;9&apos;) || title[i] == &apos; &apos;) &#123;</span><br><span class="line">            s += title[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    string::size_type pos1, pos2;</span><br><span class="line">    pos2 = s.find(c);</span><br><span class="line">    pos1 = 0;</span><br><span class="line">    while (string::npos != pos2) &#123;</span><br><span class="line">        string str = s.substr(pos1, pos2 - pos1);</span><br><span class="line">        int tmp = 0;</span><br><span class="line">        for (int i = 0; i &lt; str.size(); i++) tmp = tmp * 10 + str[i] - &apos;0&apos;;</span><br><span class="line">        v.push_back(tmp);</span><br><span class="line"></span><br><span class="line">        pos1 = pos2 + c.size();</span><br><span class="line">        pos2 = s.find(c, pos1);</span><br><span class="line">    &#125;</span><br><span class="line">    if (pos1 != s.length()) &#123;</span><br><span class="line">        string str = s.substr(pos1);</span><br><span class="line">        int tmp = 0;</span><br><span class="line">        for (int i = 0; i &lt; str.size(); i++) tmp = tmp * 10 + str[i] - &apos;0&apos;;</span><br><span class="line">        v.push_back(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="5、输出行末无空格"><a href="#5、输出行末无空格" class="headerlink" title="5、输出行末无空格"></a>5、输出行末无空格</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; n; i++) </span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%d%c&quot;, i, i == n - 1 ? &apos;\n&apos; : &apos; &apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="6、输入加速外挂"><a href="#6、输入加速外挂" class="headerlink" title="6、输入加速外挂"></a>6、输入加速外挂</h1><p>cin和cout在大量使用的时候往往会超时，改用scanf和printf。</p>
+<h2 id="6-1、非负整数"><a href="#6-1、非负整数" class="headerlink" title="6-1、非负整数"></a>6-1、非负整数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void read(int &amp;x)&#123;</span><br><span class="line">    char ch = getchar();x = 0;</span><br><span class="line">    for (; ch &lt; &apos;0&apos; || ch &gt; &apos;9&apos;; ch = getchar());</span><br><span class="line">    for (; ch &gt;=&apos;0&apos; &amp;&amp; ch &lt;= &apos;9&apos;; ch = getchar()) x = x * 10 + ch - &apos;0&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-2、什么是输入挂"><a href="#6-2、什么是输入挂" class="headerlink" title="6-2、什么是输入挂"></a>6-2、什么是输入挂</h2><p>scanf的输入速度不cin快得多，那么有没有比scanf更快的东西呢？这就是要用到输入挂了。</p>
+<h2 id="6-3、什么时候使用输入挂"><a href="#6-3、什么时候使用输入挂" class="headerlink" title="6-3、什么时候使用输入挂"></a>6-3、什么时候使用输入挂</h2><p>当输入规模达到1x10^6次方的时候，就需要输入挂，否则很可能会超时。</p>
+<h2 id="6-4、代码实现"><a href="#6-4、代码实现" class="headerlink" title="6-4、代码实现"></a>6-4、代码实现</h2><h3 id="一-整数"><a href="#一-整数" class="headerlink" title="(一)整数"></a>(一)整数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">inline bool scan_d(int &amp;num)  </span><br><span class="line">&#123;</span><br><span class="line">    char in;bool IsN=false;</span><br><span class="line">    in=getchar();</span><br><span class="line">    if(in==EOF) return false;</span><br><span class="line">    while(in!=&apos;-&apos;&amp;&amp;(in&lt;&apos;0&apos;||in&gt;&apos;9&apos;)) in=getchar();</span><br><span class="line">    if(in==&apos;-&apos;)&#123; IsN=true;num=0;&#125;</span><br><span class="line">    else num=in-&apos;0&apos;;</span><br><span class="line">    while(in=getchar(),in&gt;=&apos;0&apos;&amp;&amp;in&lt;=&apos;9&apos;)&#123;</span><br><span class="line">        num*=10,num+=in-&apos;0&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    if(IsN) num=-num;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二-浮点数"><a href="#二-浮点数" class="headerlink" title="(二)浮点数"></a>(二)浮点数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">inline bool scan_lf(double &amp;num)  </span><br><span class="line">&#123;</span><br><span class="line">        char in;double Dec=0.1;</span><br><span class="line">        bool IsN=false,IsD=false;</span><br><span class="line">        in=getchar();</span><br><span class="line">        if(in==EOF) return false;</span><br><span class="line">        while(in!=&apos;-&apos;&amp;&amp;in!=&apos;.&apos;&amp;&amp;(in&lt;&apos;0&apos;||in&gt;&apos;9&apos;))</span><br><span class="line">                in=getchar();</span><br><span class="line">        if(in==&apos;-&apos;)&#123;IsN=true;num=0;&#125;</span><br><span class="line">        else if(in==&apos;.&apos;)&#123;IsD=true;num=0;&#125;</span><br><span class="line">        else num=in-&apos;0&apos;;</span><br><span class="line">        if(!IsD)&#123;</span><br><span class="line">                while(in=getchar(),in&gt;=&apos;0&apos;&amp;&amp;in&lt;=&apos;9&apos;)&#123;</span><br><span class="line">                        num*=10;num+=in-&apos;0&apos;;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(in!=&apos;.&apos;)&#123;</span><br><span class="line">                if(IsN) num=-num;</span><br><span class="line">                return true;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">                while(in=getchar(),in&gt;=&apos;0&apos;&amp;&amp;in&lt;=&apos;9&apos;)&#123;</span><br><span class="line">                        num+=Dec*(in-&apos;0&apos;);Dec*=0.1;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(IsN) num=-num;</span><br><span class="line">        return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三-加入一行代码"><a href="#三-加入一行代码" class="headerlink" title="(三)加入一行代码"></a>(三)加入一行代码</h3><blockquote>
+<p>ios::sync_with_stdio(false);     //false即0<br>cin.tie(0);<br>加到代码前面，可使cin cout与stdio的关联取消。<br>cin，cout之所以效率低，是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而这段语句可以来打消iostream的输入 输出缓存，可以节省许多时间，使效率与scanf与printf相差无几，还有应注意的是scanf与printf使用的头文件应是stdio.h而不是 iostream。</p>
+</blockquote>
+<p>tie是将两个stream绑定的函数，空参数的话返回当前的输出流指针。</p>
+<blockquote>
+<p>*std::cin.tie() &lt;&lt; “This is inserted into cout\n”; // 空参数调用返回默认的output stream，也就是cout。</p>
+</blockquote>
+<p>sync_with_stdio这个函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。</p>
+<h3 id="四-strtok和sscanf结合输入"><a href="#四-strtok和sscanf结合输入" class="headerlink" title="(四)strtok和sscanf结合输入"></a>(四)strtok和sscanf结合输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> *  空格作为分隔输入,读取一行的整数</span><br><span class="line"> */</span><br><span class="line">gets(buf);</span><br><span class="line"></span><br><span class="line">int v;</span><br><span class="line">char *p = strtok(but, &quot; &quot;); </span><br><span class="line">while (p)</span><br><span class="line">&#123;</span><br><span class="line">    sscanf(p, &quot;%d&quot;, &amp;v);</span><br><span class="line">    p = strtok(NULL,&quot; &quot;); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="7、输出保留两位小数"><a href="#7、输出保留两位小数" class="headerlink" title="7、输出保留两位小数"></a>7、输出保留两位小数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">cout &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; ans &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<h1 id="8、C-输出cout（bool类型）"><a href="#8、C-输出cout（bool类型）" class="headerlink" title="8、C++输出cout（bool类型）"></a>8、C++输出cout（bool类型）</h1><p>通常，cout在显示布尔值之前将它转化为int，但使用 cout.setf(ios_base::boolalpha)可以设置一个标记，使cout显示true/ false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; boolalpha &lt;&lt; flag &lt;&lt; endl;</span><br></pre></td></tr></table></figure></p>
+<h1 id="9、unorder-map无法使用pair做键"><a href="#9、unorder-map无法使用pair做键" class="headerlink" title="9、unorder_map无法使用pair做键"></a>9、unorder_map无法使用pair做键</h1><p>map使用红黑树</p>
+<h1 id="10、hash表的实现方式"><a href="#10、hash表的实现方式" class="headerlink" title="10、hash表的实现方式"></a>10、hash表的实现方式</h1><p>对于坐标点对(x,y)进行hash：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int vis[maxn][maxn];  </span><br><span class="line">memset(vis, 0, sizeof(vis));    // 32位系统在栈中不能超过10^6的连续空间</span><br><span class="line"></span><br><span class="line">int *vis[maxn] = new int[maxn];  // 用指针则可以分配堆中内存，则需要释放，也相当于是全局变量</span><br><span class="line"></span><br><span class="line">vector&lt;vector&lt;int&gt; &gt; vis(maxv, vector&lt;int&gt;(maxv, 0));  // 这个也是连续空间</span><br><span class="line"></span><br><span class="line">map&lt;pair&lt;int, int&gt;, bool&gt; vis;    // default false, unorder_map no pair重点注意</span><br><span class="line"></span><br><span class="line">unordered_map&lt;LL, int&gt; HASH;     // 巧妙</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; N; i++) &#123;</span><br><span class="line">	cin &gt;&gt; X[i] &gt;&gt; Y[i];</span><br><span class="line">        vis[make_pair(X[i], Y[i])] = true;</span><br><span class="line">        HASH[X[i] * maxv + Y[i]] = 1;   // 这种方式就非常巧妙了，将序列对组成一个整数</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="11、数组的多种表示方式"><a href="#11、数组的多种表示方式" class="headerlink" title="11、数组的多种表示方式"></a>11、数组的多种表示方式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 二维数组</span><br><span class="line">int **arr = new int*[maxn];</span><br><span class="line">for (int i = 0; i &lt; maxv; i++) arr[i] = new int[maxn];   // 注意一定要再次分配空间</span><br><span class="line"></span><br><span class="line">int arr[maxn][maxn];</span><br><span class="line">memset(arr, 0, sizeof(arr));</span><br><span class="line"></span><br><span class="line">vector&lt;vector&lt;int&gt; &gt; arr(maxn, vector&lt;int&gt;(maxn, 0));  // 赋初值</span><br><span class="line"></span><br><span class="line">int maxn = 1005;</span><br><span class="line">int **arr = new int*[maxn];</span><br><span class="line">for (int i = 0; i &lt; maxn; i++) arr[i] = new int[maxn];   // 注意一定要再次分配空间</span><br><span class="line">arr[5][5] = 23;</span><br><span class="line">memset(arr, 0, sizeof(arr));    // 使用指针这样赋值无效</span><br><span class="line">cout &lt;&lt; arr[5][5] &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<h1 id="12、常见的ACM输入类型题"><a href="#12、常见的ACM输入类型题" class="headerlink" title="12、常见的ACM输入类型题"></a>12、常见的ACM输入类型题</h1><ul>
+<li><p>（1）不指定输入个数<br>使用gets或者getline函数</p>
+</li>
+<li><p>（2）多行输入或者单行输入</p>
+</li>
+<li>（3）有空格行输入</li>
+<li>（4）大量输入（黑科技）</li>
+</ul>
+<h1 id="00、其他"><a href="#00、其他" class="headerlink" title="00、其他"></a>00、其他</h1><p>system(“pause”)语句执行系统环境中的pause命令，冻结屏幕，用户按任意键结束。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-24T06:26:24.448Z" itemprop="dateUpdated">2018-09-24 14:26:24</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/08/12/20180812AcmInput/" target="_blank" rel="external">https://hankin2015.github.io/2018/08/12/20180812AcmInput/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/输入输出/">输入输出</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/黑科技/">黑科技</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/08/12/20180812AcmInput/&title=《编程题中各式各样的输入格式(黑科技)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/08/12/20180812AcmInput/&title=《编程题中各式各样的输入格式(黑科技)》 — HanKin的博客&source=1、解决爆栈，手动加栈用C++时，可以用这句代码进行手动加栈。（#pragma comment(linker, “/STACK:1024000000,10..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/08/12/20180812AcmInput/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编程题中各式各样的输入格式(黑科技)》 — HanKin的博客&url=https://hankin2015.github.io/2018/08/12/20180812AcmInput/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/08/12/20180812AcmInput/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/15/20180815Python3/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/28/20180728MulLanguage/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">多种语言实现求最大值(排序)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/08/12/20180812AcmInput/&title=《编程题中各式各样的输入格式(黑科技)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/08/12/20180812AcmInput/&title=《编程题中各式各样的输入格式(黑科技)》 — HanKin的博客&source=1、解决爆栈，手动加栈用C++时，可以用这句代码进行手动加栈。（#pragma comment(linker, “/STACK:1024000000,10..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/08/12/20180812AcmInput/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编程题中各式各样的输入格式(黑科技)》 — HanKin的博客&url=https://hankin2015.github.io/2018/08/12/20180812AcmInput/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/08/12/20180812AcmInput/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/08/12/20180812AcmInput/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

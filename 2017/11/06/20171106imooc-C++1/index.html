@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>C++远征之起航篇(imooc) | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,imooc">
+    <meta name="description" content="慕课网中C++远征系列：起航篇、离港篇、封装篇上下、继承篇、多态篇、模板篇。 第1章 C++简介1-1 C++简介C++诞生地：贝尔实验室(Bell Lab)C++之父：比雅尼·斯特劳斯特鲁普2017年6月TIOBE编程语言排行榜PHP不再是世界上最好的编程语言Go语言可以称得上是互联网时代的C语言。人生苦短，我用python！">
+<meta name="keywords" content="C++,imooc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++远征之起航篇(imooc)">
+<meta property="og:url" content="https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="慕课网中C++远征系列：起航篇、离港篇、封装篇上下、继承篇、多态篇、模板篇。 第1章 C++简介1-1 C++简介C++诞生地：贝尔实验室(Bell Lab)C++之父：比雅尼·斯特劳斯特鲁普2017年6月TIOBE编程语言排行榜PHP不再是世界上最好的编程语言Go语言可以称得上是互联网时代的C语言。人生苦短，我用python！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img.mukewang.com/5a1851020001330b12800720.jpg">
+<meta property="og:image" content="https://img4.mukewang.com/5a0825360001607e12800720.jpg">
+<meta property="og:image" content="https://img2.mukewang.com/59b7953c000172b512800720.jpg">
+<meta property="og:image" content="https://img2.mukewang.com/59cb8bbd000157e312800720.jpg">
+<meta property="og:image" content="https://img1.mukewang.com/5a047ea70001ac6c12800720.jpg">
+<meta property="og:updated_time" content="2017-11-29T15:32:53.928Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++远征之起航篇(imooc)">
+<meta name="twitter:description" content="慕课网中C++远征系列：起航篇、离港篇、封装篇上下、继承篇、多态篇、模板篇。 第1章 C++简介1-1 C++简介C++诞生地：贝尔实验室(Bell Lab)C++之父：比雅尼·斯特劳斯特鲁普2017年6月TIOBE编程语言排行榜PHP不再是世界上最好的编程语言Go语言可以称得上是互联网时代的C语言。人生苦短，我用python！">
+<meta name="twitter:image" content="https://img.mukewang.com/5a1851020001330b12800720.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C++远征之起航篇(imooc)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">C++远征之起航篇(imooc)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-06T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-11-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第1章-C-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">第1章 C++简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-C-简介"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1-1 C++简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C-语言的应用领域"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">C++语言的应用领域</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C与C-的关系"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">C与C++的关系</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第2章IDE环境搭建"><span class="post-toc-number">2.</span> <span class="post-toc-text">第2章IDE环境搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#visual-assistx"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">visual assistx</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Resharper"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Resharper</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第4章-C-语言新特性"><span class="post-toc-number">3.</span> <span class="post-toc-text">第4章 C++语言新特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-C-语言新特性"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">4-1 C++语言新特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C语言中的数据类型"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">C语言中的数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C-中新的数据类型"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">C++中新的数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新的初始化方法"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">新的初始化方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2、4-4"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">4-2、4-4</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-6C-之namespace"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">4-6C++之namespace</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是命名空间"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">什么是命名空间</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-8-namespace演示"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">4-8 namespace演示</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171106imooc-C++1"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C++远征之起航篇(imooc)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-06 10:47:41" datetime="2017-11-06T02:47:41.000Z"  itemprop="datePublished">2017-11-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>慕课网中C++远征系列：起航篇、离港篇、封装篇上下、继承篇、多态篇、模板篇。</p>
+<h1 id="第1章-C-简介"><a href="#第1章-C-简介" class="headerlink" title="第1章 C++简介"></a>第1章 C++简介</h1><h2 id="1-1-C-简介"><a href="#1-1-C-简介" class="headerlink" title="1-1 C++简介"></a>1-1 C++简介</h2><p>C++诞生地：贝尔实验室(Bell Lab)<br>C++之父：比雅尼·斯特劳斯特鲁普<br><a href="http://baijiahao.baidu.com/s?id=1569528453242309&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">2017年6月TIOBE编程语言排行榜</a><br><a href="http://baijiahao.baidu.com/s?id=1575786655028335&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">PHP不再是世界上最好的编程语言</a><br>Go语言可以称得上是互联网时代的C语言。<br>人生苦短，我用python！<br><a id="more"></a></p>
+<h3 id="C-语言的应用领域"><a href="#C-语言的应用领域" class="headerlink" title="C++语言的应用领域"></a>C++语言的应用领域</h3><p>1.嵌入式     2. 游戏编程     3. 网络编程       4. 系统编程<br>主要优点是节省资源，和运算速率块。</p>
+<h3 id="C与C-的关系"><a href="#C与C-的关系" class="headerlink" title="C与C++的关系"></a>C与C++的关系</h3><ul>
+<li>C语言是C++的子集，c++是c语言的母集。所有c语言的代码可以不变复制到c++运行环境中运行。c语言是面向过程的语言，而C++是面向过程的语言又是面向对象的语言。C语言的运行效率比c++更好，更高效。</li>
+<li>语法角度讲，C是C++的子集，C语言的代码拿到c++的语言环境下编译是没有问题的。</li>
+<li>从历史角度来说，c++实在c语言的基础上发展而来的，C语言面向过程，C++面向过程+支持面向对象。</li>
+</ul>
+<h1 id="第2章IDE环境搭建"><a href="#第2章IDE环境搭建" class="headerlink" title="第2章IDE环境搭建"></a>第2章IDE环境搭建</h1><p>IDE:集成开发环境（Integrate Development Environment）<br>一般包括代码编辑器、编译器、调试器和图形用户界面工具。</p>
+<h2 id="visual-assistx"><a href="#visual-assistx" class="headerlink" title="visual assistx"></a>visual assistx</h2><p>Visual AssistX是一款非常好的Microsoft Visual Studio插件，它可以完全集成到您的Microsoft开发环境中，升级了您的IDE，在不改变编程习惯的同时就可以感受到Visual Assist X为您带来的好处。<br>软件支持Microsoft Visual Studio 2003-2017，C/C++，C#，ASP，VisualBasic，Java和HTML等语言，能自动识别各种关键字、系统函数、成员变量、自动给出输入提示、自动更正大小写错误、自动标示错误等。使用Visual Assist X有助于提高开发过程的自动化和开发效率。</p>
+<h2 id="Resharper"><a href="#Resharper" class="headerlink" title="Resharper"></a>Resharper</h2><p> ReSharper是一个JetBrains公司出品的著名的代码生成工具，其能帮助Microsoft Visual Studio成为一个更佳的IDE。它包括一系列丰富的能大大增加C#和Visual Basic .net开发者生产力的特征。使用ReSharper，你可以进行深度代码分析，智能代码协助，实时错误代码高亮显示，解决方案范围内代码分析，快速代码更正，一步完成代码格式化和清理，业界领先的自动代码重构，高级的集成单元测试方案，和强大的解决方案内导航和搜索。实质上，ReSharper特征可用于C#，VB.NET，XML，ASP.NET，XAML，和构建脚本。ReSharper还为C#和VB.NET提供了增强的交叉语言功能，它使开发者可以有效的控制.net混合项目。</p>
+<h1 id="第4章-C-语言新特性"><a href="#第4章-C-语言新特性" class="headerlink" title="第4章 C++语言新特性"></a>第4章 C++语言新特性</h1><h2 id="4-1-C-语言新特性"><a href="#4-1-C-语言新特性" class="headerlink" title="4-1 C++语言新特性"></a>4-1 C++语言新特性</h2><h3 id="C语言中的数据类型"><a href="#C语言中的数据类型" class="headerlink" title="C语言中的数据类型"></a>C语言中的数据类型</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.mukewang.com/5a1851020001330b12800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="C-中新的数据类型"><a href="#C-中新的数据类型" class="headerlink" title="C++中新的数据类型"></a>C++中新的数据类型</h3><p>|   |逻辑类型|真|假|<br>|：—：|：—：|：—：|：—：|<br>|C           |没提供 |非0      |       0    |<br>|C++       |bool     |true     |   false |</p>
+<h3 id="新的初始化方法"><a href="#新的初始化方法" class="headerlink" title="新的初始化方法"></a>新的初始化方法</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img4.mukewang.com/5a0825360001607e12800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>C语言所有变量定义必须位于函数体的最前面<br>C++所有变量随用随定义<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img2.mukewang.com/59b7953c000172b512800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="4-2、4-4"><a href="#4-2、4-4" class="headerlink" title="4-2、4-4"></a>4-2、4-4</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img2.mukewang.com/59cb8bbd000157e312800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>C++中的输入和输出方法分别是cin和cout<br>cin使用“&gt;&gt;”进行连接，cout使用“&lt;&lt;”进行连接<br>且使用cin和cout时不必关注数据类型，也不必使用格式控制符</p>
+<pre><code>cout&lt;&lt;oct&lt;&lt;x&lt;&lt;endl;输出八进制数
+cout&lt;&lt;dec&lt;&lt;x&lt;&lt;endl;输出十进制数
+cout&lt;&lt;hex&lt;&lt;x&lt;&lt;endl;输出十六进制数
+cout&lt;&lt;boolalpha&lt;&lt;x&lt;&lt;endl; 按照布尔方式输出
+</code></pre><h2 id="4-6C-之namespace"><a href="#4-6C-之namespace" class="headerlink" title="4-6C++之namespace"></a>4-6C++之namespace</h2><h3 id="什么是命名空间"><a href="#什么是命名空间" class="headerlink" title="什么是命名空间"></a>什么是命名空间</h3><p>简言之：为程序划片取名字<br>命名空间：为程序划定空间<br>关键字及其命名形式：namespace  空间名<br>调用方法：空间名::调用元素名称<br>命名空间关键字：namespace如：namespace A，namespace B</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img1.mukewang.com/5a047ea70001ac6c12800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">命名空间关键字：<span class="keyword">namespace</span></span><br><span class="line"><span class="keyword">namespace</span> A</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f2</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> B</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f3</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">调用已完成命名的命名空间：</span><br><span class="line"><span class="number">1.</span>调用变量：</span><br><span class="line">cont&lt;&lt;A::x&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="number">2.</span>调用函数：</span><br><span class="line">B::f1();</span><br></pre></td></tr></table></figure>
+<h2 id="4-8-namespace演示"><a href="#4-8-namespace演示" class="headerlink" title="4-8 namespace演示"></a>4-8 namespace演示</h2><p>未声明”cout””endl”标识符则需要包含<iostream>，还需要使用这个相应的命名空间namespace std，也可以用std::cout,std::endl来代替,同理推广using namespace xxx与xxx::效果相同.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"stdlib.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"iostream"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">namespace</span> A</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">x</span><span class="params">(<span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">'A'</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">namespace</span> B</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">x</span><span class="params">(<span class="number">2</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">'B'</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun2</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">'C'</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> B;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;A::x&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    A::fun();</span><br><span class="line">    fun();</span><br><span class="line">    fun2();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></iostream></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-29T15:32:53.928Z" itemprop="dateUpdated">2017-11-29 23:32:53</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/11/06/20171106imooc-C++1/" target="_blank" rel="external">https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/imooc/">imooc</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/&title=《C++远征之起航篇(imooc)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/&title=《C++远征之起航篇(imooc)》 — HanKin的博客&source=慕课网中C++远征系列：起航篇、离港篇、封装篇上下、继承篇、多态篇、模板篇。
+第1章 C++简介1-1 C++简介C++诞生地：贝尔实验室(Bell La..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++远征之起航篇(imooc)》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/08/20171108Network-flows/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">网络流</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/04/20171104hiho-175/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hiho一下 第175周</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/&title=《C++远征之起航篇(imooc)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/&title=《C++远征之起航篇(imooc)》 — HanKin的博客&source=慕课网中C++远征系列：起航篇、离港篇、封装篇上下、继承篇、多态篇、模板篇。
+第1章 C++简介1-1 C++简介C++诞生地：贝尔实验室(Bell La..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++远征之起航篇(imooc)》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/11/06/20171106imooc-C++1/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>main函数 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="main">
+    <meta name="description" content="1、main函数main函数,又称主函数,是程序执行的起点，main是相对来说的,如同音学理论之主调于泛音,泛音即程序中的除main之外的其他函数，迎合人们的思考方式而生成的而非必定的模式.有主有次，执行起来条清缕析，既可将程序模块化又实现了一个闭合的整体。 main()称之为主函数，是所有程序运行的入口。其余函数分为有参或无参两种，均由main()函数或其它一般函数调用，若调用的是有参函数，则参">
+<meta name="keywords" content="main">
+<meta property="og:type" content="article">
+<meta property="og:title" content="main函数">
+<meta property="og:url" content="https://hankin2015.github.io/2017/11/19/20171119MainFuction/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1、main函数main函数,又称主函数,是程序执行的起点，main是相对来说的,如同音学理论之主调于泛音,泛音即程序中的除main之外的其他函数，迎合人们的思考方式而生成的而非必定的模式.有主有次，执行起来条清缕析，既可将程序模块化又实现了一个闭合的整体。 main()称之为主函数，是所有程序运行的入口。其余函数分为有参或无参两种，均由main()函数或其它一般函数调用，若调用的是有参函数，则参">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-19T07:59:14.316Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="main函数">
+<meta name="twitter:description" content="1、main函数main函数,又称主函数,是程序执行的起点，main是相对来说的,如同音学理论之主调于泛音,泛音即程序中的除main之外的其他函数，迎合人们的思考方式而生成的而非必定的模式.有主有次，执行起来条清缕析，既可将程序模块化又实现了一个闭合的整体。 main()称之为主函数，是所有程序运行的入口。其余函数分为有参或无参两种，均由main()函数或其它一般函数调用，若调用的是有参函数，则参">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">main函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">main函数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-19T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-11-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、main函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、main函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、一般形式"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、一般形式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、DOS编译运行之GCC和G"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、DOS编译运行之GCC和G++</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">运行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、此外，下面有cd命令的其他用法："><span class="post-toc-number">4.</span> <span class="post-toc-text">4、此外，下面有cd命令的其他用法：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、main函数常用的调试技巧"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、main函数常用的调试技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、ifdef和ifndef"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">1、ifdef和ifndef</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、计时器"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">2、计时器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#万能头文件"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">万能头文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#π取值"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">π取值</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171119MainFuction"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">main函数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-19 10:47:41" datetime="2017-11-19T02:47:41.000Z"  itemprop="datePublished">2017-11-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1、main函数"><a href="#1、main函数" class="headerlink" title="1、main函数"></a>1、main函数</h1><p>main函数,又称主函数,是程序执行的起点，main是相对来说的,如同音学理论之主调于泛音,泛音即程序中的除main之外的其他函数，迎合人们的思考方式而生成的而非必定的模式.有主有次，执行起来条清缕析，既可将程序模块化又实现了一个闭合的整体。</p>
+<p>main()称之为主函数，是所有程序运行的入口。其余函数分为有参或无参两种，均由main()函数或其它一般函数调用，若调用的是有参函数，则参数在调用时传递。<br><a id="more"></a></p>
+<h1 id="2、一般形式"><a href="#2、一般形式" class="headerlink" title="2、一般形式"></a>2、一般形式</h1><pre><code>int　main(int argc,char *argv[])//整数类型主函数(整数类型统计参数个数,字符类型*数组指针至字符[])
+{
+//百度百科示例代码......
+}
+
+int main(void)//整数类型主函数(无类型)
+{
+...
+</code></pre><p>   do something<br>    …<br>    }<br>其中char <em>*argv可以写成char </em>argv[]，两者等价。</p>
+<h1 id="3、DOS编译运行之GCC和G"><a href="#3、DOS编译运行之GCC和G" class="headerlink" title="3、DOS编译运行之GCC和G++"></a>3、DOS编译运行之GCC和G++</h1><p>graphics.h是DOS程序的库的头文件，VS2012是不支持的。而且现在几乎没有编译器支持这个了，而且就算支持，编译出来的程序也可能运行不了。</p>
+<p><a href="https://www.zhihu.com/question/20940822" target="_blank" rel="noopener">gcc和g++到底啥关系？</a></p>
+<p>gcc 最开始的时候是 GNU C Compiler, 如你所知，就是一个c编译器。但是后来因为这个项目里边集成了更多其他不同语言的编译器，GCC就代表 the GNU Compiler Collection，所以表示一堆编译器的合集。 g++则是GCC的c++编译器。现在你在编译代码时调用的gcc，已经不是当初那个c语言编译器了，更确切的说他是一个驱动程序，根据代码的后缀名来判断调用c编译器还是c++编译器 (g++)。比如你的代码后缀是*.c，他会调用c编译器还有linker去链接c的library。如果你的代码后缀是cpp, 他会调用g++编译器，当然library call也是c++版本的。</p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
+<li>安装TMD-GCC软件，并配置环境变量。</li>
+<li>键盘win + r   （ 这里的r是run的意思）</li>
+<li>输入cmd,回车，你就看到了命令行</li>
+<li>输入gcc -v       –查看电脑中gcc版本，但我的电脑需要用gcc.exe -v或g++.exe -v。</li>
+<li>g++.exe test.cpp 编译c++文件，使用gcc.exe编译失败。最好使用gcc编译c程序，g++编译c++程序。这样默认生成的程序为a.exe。</li>
+<li>g++exe test.cpp -o test.exe  可以指定生成的执行文件名</li>
+<li>test   直接可以看到运行的结果了，后面也可以增加参数。</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>编译阶段，g++会调用gcc，对于c++代码，两者是等价的，但是因为gcc命令不能自动和C＋＋程序使用的库联接，所以通常用g++来完成链接，为了统一起见，干脆编译/链接统统用g++了，这就给人一种错觉，好像cpp程序只能用g++似的。</p>
+</blockquote>
+</blockquote>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><pre><code>//test.c or test.cpp
+#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;cstdlib&gt;
+#define pi 3.1415926
+int main(int argc, char **argv)
+{
+    if(argc &lt; 2) {
+        printf(&quot;参数数量不够！需要输入密码！\n&quot;);
+        printf(&quot;USAGE: ./MainFunction [password] [others]\n&quot;);
+        return 0;
+    }
+    if(strcmp(argv[1],&quot;pass&quot;)!=0)//设置口令的比较
+    {
+        printf(&quot;password error!\n&quot;);
+        exit(0);
+    }
+    printf(&quot;success\n&quot;);
+    printf(&quot;参数数量为%d\n&quot;, argc);
+    return 0;
+}
+</code></pre><p>使用DOS命令行运行程序，加入其他参数，如密码、赋值。</p>
+<ul>
+<li>gcc.exe test.cpp -o test.exe</li>
+<li>test pass ok yes</li>
+</ul>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>当你输入gcc时，之所以你看到了（说明你没有安装编译器或没有配置path路径）：</p>
+<blockquote>
+<blockquote>
+<p>不是内部或外部命令，也不是可运行的程序或批处理文件。</p>
+</blockquote>
+</blockquote>
+<p>当你输入gcc时，之所以你看到了（你需要使用gcc.exe）：</p>
+<blockquote>
+<blockquote>
+<p>系统找不到指定路径</p>
+</blockquote>
+</blockquote>
+<p>error: ‘exit’ was not declared in this scope</p>
+<blockquote>
+<blockquote>
+<p>添加#include <cstdlib></cstdlib></p>
+</blockquote>
+</blockquote>
+<h1 id="4、此外，下面有cd命令的其他用法："><a href="#4、此外，下面有cd命令的其他用法：" class="headerlink" title="4、此外，下面有cd命令的其他用法："></a>4、此外，下面有cd命令的其他用法：</h1><pre><code>D:              进入D盘
+C:              进入C盘
+cd myc      --可以进入到名字为myc的目录（必须C盘存在这个文件夹）
+cd..         可以返回上一层目录
+cd\         返回到根目录
+cd d:\myc   进入D盘的名字为myc的目录
+cd /?        查看cd命令的具体用法。
+</code></pre><h1 id="5、main函数常用的调试技巧"><a href="#5、main函数常用的调试技巧" class="headerlink" title="5、main函数常用的调试技巧"></a>5、main函数常用的调试技巧</h1><h2 id="1、ifdef和ifndef"><a href="#1、ifdef和ifndef" class="headerlink" title="1、ifdef和ifndef"></a>1、ifdef和ifndef</h2><pre><code>#define DEBUG
+#ifdef DEBUG
+//do something
+#endif //DEBUG
+</code></pre><h2 id="2、计时器"><a href="#2、计时器" class="headerlink" title="2、计时器"></a>2、计时器</h2><p><a href="https://www.cnblogs.com/dwdxdy/p/3214905.html" target="_blank" rel="noopener">【C/C++】计时函数比较</a><br>对于方法6-RDTSC指令，FREQUENCY指CPU的频率，查看电脑的信息，你会发现你电脑的处理器CPU。我的是3.6GHz，所以FREQUENCY的值为3.6*10^9。</p>
+<h2 id="万能头文件"><a href="#万能头文件" class="headerlink" title="万能头文件"></a>万能头文件</h2><blockquote>
+<blockquote>
+<p>#include<bits stdc++.h=""></bits></p>
+</blockquote>
+</blockquote>
+<p>但也有以下两个缺点：<br>1、因其包含的头文件的过多，导致程序编译慢.<br>2、其不属于标准库里面的头文件，只是gcc的内部实现，可移植性不好.</p>
+<h2 id="π取值"><a href="#π取值" class="headerlink" title="π取值"></a>π取值</h2><blockquote>
+<blockquote>
+<p>#define pi arctan(1)*4</p>
+</blockquote>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-19T07:59:14.316Z" itemprop="dateUpdated">2017-11-19 15:59:14</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/11/19/20171119MainFuction/" target="_blank" rel="external">https://hankin2015.github.io/2017/11/19/20171119MainFuction/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/main/">main</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/19/20171119MainFuction/&title=《main函数》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/19/20171119MainFuction/&title=《main函数》 — HanKin的博客&source=1、main函数main函数,又称主函数,是程序执行的起点，main是相对来说的,如同音学理论之主调于泛音,泛音即程序中的除main之外的其他函数，迎合人..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/19/20171119MainFuction/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《main函数》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/19/20171119MainFuction/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/19/20171119MainFuction/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/19/20171119inline/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">inline</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/16/20171116include/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">头文件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/19/20171119MainFuction/&title=《main函数》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/19/20171119MainFuction/&title=《main函数》 — HanKin的博客&source=1、main函数main函数,又称主函数,是程序执行的起点，main是相对来说的,如同音学理论之主调于泛音,泛音即程序中的除main之外的其他函数，迎合人..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/19/20171119MainFuction/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《main函数》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/19/20171119MainFuction/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/19/20171119MainFuction/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/11/19/20171119MainFuction/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

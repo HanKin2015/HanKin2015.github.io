@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Weiszfeld 算法求中位中心 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数学,坐标系">
+    <meta name="description" content="参考：https://blog.csdn.net/qianlinjun/article/details/53852306 题目给定坐标系中有n个整数点的坐标，求一个中位整点到所有n点的距离和最小，输出最小距离。 1、求算术平均数中心（一开始以为这就是结果值）2、根据公式进行迭代3、通过自定义迭代优化的限值来让迭代停止。">
+<meta name="keywords" content="数学,坐标系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Weiszfeld 算法求中位中心">
+<meta property="og:url" content="https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="参考：https://blog.csdn.net/qianlinjun/article/details/53852306 题目给定坐标系中有n个整数点的坐标，求一个中位整点到所有n点的距离和最小，输出最小距离。 1、求算术平均数中心（一开始以为这就是结果值）2、根据公式进行迭代3、通过自定义迭代优化的限值来让迭代停止。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-12T09:06:08.470Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Weiszfeld 算法求中位中心">
+<meta name="twitter:description" content="参考：https://blog.csdn.net/qianlinjun/article/details/53852306 题目给定坐标系中有n个整数点的坐标，求一个中位整点到所有n点的距离和最小，输出最小距离。 1、求算术平均数中心（一开始以为这就是结果值）2、根据公式进行迭代3、通过自定义迭代优化的限值来让迭代停止。">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Weiszfeld 算法求中位中心</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Weiszfeld 算法求中位中心</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-22T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-09-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ALGORITHM/">ALGORITHM</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#黎曼猜想"><span class="post-toc-number">2.</span> <span class="post-toc-text">黎曼猜想</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#黎曼假设"><span class="post-toc-number">3.</span> <span class="post-toc-text">黎曼假设</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解析延拓"><span class="post-toc-number">4.</span> <span class="post-toc-text">解析延拓</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#假如黎曼猜想被证明，对数学或其他领域有何重大影响？"><span class="post-toc-number">5.</span> <span class="post-toc-text">假如黎曼猜想被证明，对数学或其他领域有何重大影响？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#素数定理"><span class="post-toc-number">6.</span> <span class="post-toc-text">素数定理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#精细结构常数"><span class="post-toc-number">7.</span> <span class="post-toc-text">精细结构常数</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180922Weiszfeld"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Weiszfeld 算法求中位中心</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-22 10:47:41" datetime="2018-09-22T02:47:41.000Z"  itemprop="datePublished">2018-09-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ALGORITHM/">ALGORITHM</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>参考：<a href="https://blog.csdn.net/qianlinjun/article/details/53852306" target="_blank" rel="noopener">https://blog.csdn.net/qianlinjun/article/details/53852306</a></p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定坐标系中有n个整数点的坐标，求一个中位整点到所有n点的距离和最小，输出最小距离。</p>
+<p>1、求算术平均数中心（一开始以为这就是结果值）<br>2、根据公式进行迭代<br>3、通过自定义迭代优化的限值来让迭代停止。<br><a id="more"></a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">给定n个整数点的坐标，求一个中位整点到所有n点的距离和最小，输出最小距离。</span></span><br><span class="line"><span class="comment">n&lt;=10^5</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">思路：所有n点的x,y求平均值（错误）</span></span><br><span class="line"><span class="comment">正确的做法：Weiszfeld算法求中位中心</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> n, x[maxn], y[maxn];</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    LL sumX = <span class="number">0</span>, sumY = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x[i] &gt;&gt; y[i];</span><br><span class="line">        sumX += x[i];</span><br><span class="line">        sumY += y[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> X = sumX / n, Y = sumY / n;</span><br><span class="line">    <span class="keyword">int</span> preX = X, preY = Y;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">double</span> sum1 = <span class="number">0</span>, sum2 = <span class="number">0</span>, sum3 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">double</span> dis = <span class="built_in">sqrt</span>((x[i] - X) * (x[i] - X) + (y[i] - Y) * (y[i] - Y));</span><br><span class="line">            sum1 += x[i] / dis;</span><br><span class="line">            sum2 += y[i] / dis;</span><br><span class="line">            sum3 += <span class="number">1</span> / dis;</span><br><span class="line">        &#125;</span><br><span class="line">        preX = X, preY = Y;</span><br><span class="line">        X = sum1 / sum3;</span><br><span class="line">        Y = sum2 / sum3;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">abs</span>(X - preX) &gt; <span class="number">2</span> || <span class="built_in">abs</span>(Y - preY) &gt; <span class="number">2</span>) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">double</span> dis = <span class="built_in">sqrt</span>((x[i] - preX) * (x[i] - preX) + (y[i] - preY) * (y[i] - preY));</span><br><span class="line">        ans += dis;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">样例1:</span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">1 1</span></span><br><span class="line"><span class="comment">2 2</span></span><br><span class="line"><span class="comment">3 3</span></span><br><span class="line"><span class="comment">样例2:</span></span><br><span class="line"><span class="comment">5</span></span><br><span class="line"><span class="comment">1 4</span></span><br><span class="line"><span class="comment">2 3</span></span><br><span class="line"><span class="comment">5 2</span></span><br><span class="line"><span class="comment">3 5</span></span><br><span class="line"><span class="comment">4 1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">样例1:</span></span><br><span class="line"><span class="comment">2.8284</span></span><br><span class="line"><span class="comment">样例2:</span></span><br><span class="line"><span class="comment">9.6410</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">爸爸当上领导后，从来不敢多说话，生怕给别人带来压力。上个月，爸爸的下属小李叔叔到我家来玩，爸爸随口说了句：“家里没空调，比较热，见笑了。”   </span><br><span class="line">第二天，小李叔叔带师傅给我家安装了5匹的大空调！怎么也不肯收钱。</span><br><span class="line">上个星期，爸爸看到老张伯伯在办公室吃午饭，其中有煎的鱼，随口说了句：“哎呦，真香！”！</span><br><span class="line">当天晚上。老张伯伯给我家送了一箱鲜鱼来。</span><br><span class="line">有天晚上在路上，碰到单位的小王叔叔和他老婆逛街，爸爸随口称赞道：“哎呦，小王，你媳妇真漂亮！”</span><br><span class="line">第二天晚上，妈妈不在家，突然听到有人敲门，打开门一看，小王叔叔的媳妇站在门口，见到爸爸就满脸的微笑说：“领导，我们家小王说嫂子不在家，让我来陪陪你！”</span><br><span class="line">当领导真好，我长大以后也要像爸爸一样当领导。</span><br><span class="line">当领导真好，怪不得那么多人喜欢当领导！ 儿子对他当局长的爸爸说：“我很喜欢楼下周副局长家的女儿！”</span><br><span class="line">局长偷偷说：“不行，那是你同父异母的妹妹！”</span><br><span class="line">儿子又说：“那我也喜欢隔壁王科长家的女儿！”</span><br><span class="line">局长又说：“那也不行，亦是你同父异母的妹妹，千万别对你妈说。”</span><br><span class="line">儿子只好偷偷跟妈妈说了。妈妈安慰儿子：“你喜欢谁就娶谁，别理他，市委黄书记才是你亲爹！</span><br><span class="line">天黑路滑，社会太复杂。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">不是一家人，不入一个坑。大水淹了龙王庙，自家人掉自家坑。</span><br><span class="line">内行看门道，外行看热闹。</span><br><span class="line">飞鱼语录：当你为一千块钱发愁时，你就去用各种办法挣钱。洗盘子抗麻袋打零工，当你挣到这一千块时，你会发现你有了挣一万块的能力。而这时你也树立起了自己的第一个小目标：挣到第一个十万。</span><br><span class="line">平头白发银披风，一生都在征战中。豺狼虎豹全不怕，唯独不敢下广东。</span><br><span class="line">我不是在打架，就是在打架的路上。</span><br><span class="line">我的iPhone x被摔碎了，将碎片拼好之后，它竟然扇扇翅膀飞走了。仔细一看原来是我拼错，拼成了Phoenix。</span><br><span class="line">左手也疯狂。</span><br><span class="line">高不成低不就。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">女儿问爸爸，什么是爱情。</span><br><span class="line">爸爸说：“爱情就是爸爸什么都没有，妈妈依然嫁给了爸爸。”</span><br><span class="line">女儿又问：“什么是亲情呢？”</span><br><span class="line">爸爸说：“亲情就是妈妈绝不会让你嫁给一个什么都没有的人。” </span><br><span class="line">女儿又问妈妈，什么是爱情，</span><br><span class="line">妈妈说：“爱情就是爸爸什么都有了依然爱妈妈。”</span><br><span class="line">女儿又问：“什么是亲情？”</span><br><span class="line">妈妈说：“亲情就是爸爸绝对不会让你嫁给一个什么都有却不爱你的人。“</span><br></pre></td></tr></table></figure>
+<h1 id="黎曼猜想"><a href="#黎曼猜想" class="headerlink" title="黎曼猜想"></a>黎曼猜想</h1><p><a href="https://weibo.com/tv/v/GAYSnAy95?fid=1034:4288133395864422" target="_blank" rel="noopener">李永乐老师讲解黎曼猜想</a><br>全体自然数的和是否等于-1/12。</p>
+<h1 id="黎曼假设"><a href="#黎曼假设" class="headerlink" title="黎曼假设"></a>黎曼假设</h1><p>黎曼假设（或称黎曼猜想）是关于黎曼ζ函数ζ(s)的零点分布的猜想，由数学家波恩哈德·黎曼于1859年提出。德国数学家戴维·希尔伯特在第二届国际数学家大会上提出了20世纪数学家应当努力解决的23个数学问题，其中便包括黎曼假设。现今克雷数学研究所悬赏的世界七大数学难题中也包括黎曼假设。 [1]<br>虽然在知名度上，黎曼猜想不及费尔马猜想和哥德巴赫猜想，但它在数学上的重要性要远远超过后两者，是当今数学界最重要的数学难题，当今数学文献中已有超过一千条数学命题以黎曼猜想（或其推广形式）的成立为前提。<br>2018年9月，迈克尔·阿蒂亚声明证明黎曼猜想，将于9月24日海德堡获奖者论坛上宣讲。 [1-4]  9月24日，迈克尔·阿蒂亚贴出了他证明黎曼假设（猜想）的预印本。</p>
+<h1 id="解析延拓"><a href="#解析延拓" class="headerlink" title="解析延拓"></a>解析延拓</h1><p>假定函数f1(z)与f2(z)分别在区域D1与D2中解析，D1与D2有一公共部分，在其上f1(z)=f2z)成立。于是将f1(z)与f2(z)在D1及D2内的全体点上的数值集合看成一个解析函数f(z)，则f(z)在D=D1+D2中解析，在D1中f(z)=f2(z)，而在D2中f(z)=f2(z)。<br>函数f2(z)可以看成由拓展f1(z)的定义区域所得，故称它为f1(z)的解析延拓。当然，根据同样理由，f1(z)是f2(z)的解析延拓，这种拓展原给函数定义的方法称为解析延拓。</p>
+<h1 id="假如黎曼猜想被证明，对数学或其他领域有何重大影响？"><a href="#假如黎曼猜想被证明，对数学或其他领域有何重大影响？" class="headerlink" title="假如黎曼猜想被证明，对数学或其他领域有何重大影响？"></a>假如黎曼猜想被证明，对数学或其他领域有何重大影响？</h1><p>　　卢昌海：如前所述，当今数学文献中有1，000条以上的数学命题是以黎曼猜想或其推广形式的成立为前提的。因此，黎曼猜想及其推广形式一旦被证明，数学中将史无前例地于“一夜间”新增1，000多条定理，这将对数学的面貌产生非同小可的影响。所有直接间接用到那些命题的领域也将程度不等地受到影响。</p>
+<p>定理，用推理的方法判断为真的命题叫做定理。<br>定律，是为实践和事实所证明，反映事物在一定条件下发展变化的客观规律的论断。<br>公理，是指依据人类理性的不证自明的基本事实，经过人类长期反复实践的考验，不需要再加证明的基本命题。</p>
+<h1 id="素数定理"><a href="#素数定理" class="headerlink" title="素数定理"></a>素数定理</h1><p>素数又被称为质数，其含义就是除了数字一和本身之外不能被其他任何的数字除尽，根据算术基本定理，每一个比1大的整数，要么本身是一个质数，要么可以写成一系列质数的乘积，最小的素数是2。而素数定理能够准确的描述素数的分布，素数分布规律，以36N（N+1）为单位，随着N的增大，素数的个数发波浪形式渐渐增多。素数定理可以给出第n个素数p(n)的渐近估计： 它也给出从整数中抽到素数的概率。从不大于n的自然数随机选一个，它是素数的概率大约是1/ln n。</p>
+<p>“我跟导师聊起阿蒂亚证明黎曼假说的事。他说每个人，不管 (前一秒) 是在带孩子，还是在呼吸，还是在干嘛，都纷纷放下手上的事，开始证明黎曼假说了。”</p>
+<p>妄自解读了一下这条评论，大概是说，这样就能证明的话，是人都能证明了。</p>
+<h1 id="精细结构常数"><a href="#精细结构常数" class="headerlink" title="精细结构常数"></a>精细结构常数</h1><p>精细结构常数，是物理学中一个重要的无量纲数，常用希腊字母α表示。精细结构常数表示电子在第一玻尔轨道上的运动速度和真空中光速的比值，计算公式为 α=e2/(4πε0cħ)（其中e是电子的电荷，ε0 是真空介电常数， ħ是约化普朗克常数，c 是真空中的光速）。<br>精细结构常数是一个数字,量纲为1(或说是无单位)1/α≈137(更近似为137.03599976)</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-12T09:06:08.470Z" itemprop="dateUpdated">2018-10-12 17:06:08</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/09/22/20180922Weiszfeld/" target="_blank" rel="external">https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坐标系/">坐标系</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学/">数学</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/&title=《Weiszfeld 算法求中位中心》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/&title=《Weiszfeld 算法求中位中心》 — HanKin的博客&source=参考：https://blog.csdn.net/qianlinjun/article/details/53852306
+题目给定坐标系中有n个整数点的坐..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Weiszfeld 算法求中位中心》 — HanKin的博客&url=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/09/23/20180923/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">学习python机器学习2018.9.23</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/08/16/20180816InstallType/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux中各种后缀格式安装包的安装总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/&title=《Weiszfeld 算法求中位中心》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/&title=《Weiszfeld 算法求中位中心》 — HanKin的博客&source=参考：https://blog.csdn.net/qianlinjun/article/details/53852306
+题目给定坐标系中有n个整数点的坐..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Weiszfeld 算法求中位中心》 — HanKin的博客&url=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/09/22/20180922Weiszfeld/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

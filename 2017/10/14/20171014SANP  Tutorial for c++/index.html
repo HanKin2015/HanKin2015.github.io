@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SNAP Practice | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="SNAP,Stanford,Network">
+    <meta name="description" content="官方教程 安装 SNAP 4.0 (2017年7月27日) Gnuplot，绘图和绘图包，用于绘制网络的结构属性（如度数分布）; Graphviz是绘图和可视化小图所需的绘图包; NodeXL，一个将网络分析和SNAP集成到Microsoft Office和Excel中的图形前端。它允许没有编程技能的用户使用SNAP。  设置PATH环境变量设置系统PATH变量，以便Gnuplot和Graphvi">
+<meta name="keywords" content="SNAP,Stanford,Network">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SNAP Practice">
+<meta property="og:url" content="https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="官方教程 安装 SNAP 4.0 (2017年7月27日) Gnuplot，绘图和绘图包，用于绘制网络的结构属性（如度数分布）; Graphviz是绘图和可视化小图所需的绘图包; NodeXL，一个将网络分析和SNAP集成到Microsoft Office和Excel中的图形前端。它允许没有编程技能的用户使用SNAP。  设置PATH环境变量设置系统PATH变量，以便Gnuplot和Graphvi">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_snap%20make%20err.png">
+<meta property="og:updated_time" content="2017-10-21T12:00:39.218Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SNAP Practice">
+<meta name="twitter:description" content="官方教程 安装 SNAP 4.0 (2017年7月27日) Gnuplot，绘图和绘图包，用于绘制网络的结构属性（如度数分布）; Graphviz是绘图和可视化小图所需的绘图包; NodeXL，一个将网络分析和SNAP集成到Microsoft Office和Excel中的图形前端。它允许没有编程技能的用户使用SNAP。  设置PATH环境变量设置系统PATH变量，以便Gnuplot和Graphvi">
+<meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_snap%20make%20err.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SNAP Practice</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SNAP Practice</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-14T13:36:41.000Z" itemprop="datePublished" class="page-time">
+  2017-10-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Social-Network/">Social Network</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#设置PATH环境变量"><span class="post-toc-number">2.</span> <span class="post-toc-text">设置PATH环境变量</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SNAP程序编译"><span class="post-toc-number">3.</span> <span class="post-toc-text">SNAP程序编译</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#‘make’不是内部或外部命令，也不是可运行的程序或批处理文件，"><span class="post-toc-number">4.</span> <span class="post-toc-text">‘make’不是内部或外部命令，也不是可运行的程序或批处理文件，</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一次尝试"><span class="post-toc-number">5.</span> <span class="post-toc-text">第一次尝试</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第二次尝试SNAP在Windows与Visual-Studio"><span class="post-toc-number">6.</span> <span class="post-toc-text">第二次尝试SNAP在Windows与Visual Studio</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Installation-on-Windows"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">Installation on Windows</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#VS-Creating-New-Project"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">VS:Creating New Project</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#然而事情并没有那么简单！！！"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">然而事情并没有那么简单！！！</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bug1-无法查找或打开pdb文件"><span class="post-toc-number">6.3.1.</span> <span class="post-toc-text">bug1:无法查找或打开pdb文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bug2-错误-C1083-无法打开包括文件-“Snap-h”-No-such-file-or-directory"><span class="post-toc-number">6.3.2.</span> <span class="post-toc-text">bug2:错误  C1083   无法打开包括文件: “Snap.h”: No such file or directory</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bug3-错误-LNK2019-无法解析的外部符号"><span class="post-toc-number">6.3.3.</span> <span class="post-toc-text">bug3:错误  LNK2019 无法解析的外部符号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BUG4-错误-C4996-‘fopen’-This-function-or-variable-may-be-unsafe"><span class="post-toc-number">6.3.4.</span> <span class="post-toc-text">BUG4:错误  C4996   ‘fopen’: This function or variable may be unsafe.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bug5-错误-C4996-‘putenv’-The-POSIX-name-for-this-item-is-deprecated"><span class="post-toc-number">6.3.5.</span> <span class="post-toc-text">bug5:错误  C4996   ‘putenv’: The POSIX name for this item is deprecated.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BUG6：错误-C4700-使用了未初始化的局部变量“ct”-snap-4-0-snap-core-sim-cpp-209"><span class="post-toc-number">6.3.6.</span> <span class="post-toc-text">BUG6：错误  C4700   使用了未初始化的局部变量“ct”  snap-4.0\snap-core\sim.cpp  209</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171014SANP  Tutorial for c++"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SNAP Practice</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-14 21:36:41" datetime="2017-10-14T13:36:41.000Z"  itemprop="datePublished">2017-10-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Social-Network/">Social Network</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><a href="http://snap.stanford.edu/proj/snap-icwsm/SNAP-ICWSM14-part5.pdf" target="_blank" rel="noopener">官方教程</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
+<li><a href="http://snap.stanford.edu/releases/Snap-4.0.zip" target="_blank" rel="noopener">SNAP 4.0</a> (2017年7月27日)</li>
+<li><a href="http://www.gnuplot.info/" target="_blank" rel="noopener">Gnuplot</a>，绘图和绘图包，用于绘制网络的结构属性（如度数分布）;</li>
+<li><a href="http://www.graphviz.org/" target="_blank" rel="noopener">Graphviz</a>是绘图和可视化小图所需的绘图包;</li>
+<li><a href="http://nodexl.codeplex.com/" target="_blank" rel="noopener">NodeXL</a>，一个将网络分析和SNAP集成到Microsoft Office和Excel中的图形前端。它允许没有编程技能的用户使用SNAP。</li>
+</ul>
+<h1 id="设置PATH环境变量"><a href="#设置PATH环境变量" class="headerlink" title="设置PATH环境变量"></a>设置PATH环境变量</h1><p>设置系统PATH变量，以便Gnuplot和Graphviz可用，或将可执行文件放在工作目录中。</p>
+<a id="more"></a>
+<h1 id="SNAP程序编译"><a href="#SNAP程序编译" class="headerlink" title="SNAP程序编译"></a>SNAP程序编译</h1><p>确保在系统上安装了带有C ++编译器的GCC包。</p>
+<p>在主SNAP目录中运行“make all”。这将编译核心SNAP库和所有应用示例。</p>
+<p>对于其他平台，请修改主SNAP目录中的Makefile.config。</p>
+<h1 id="‘make’不是内部或外部命令，也不是可运行的程序或批处理文件，"><a href="#‘make’不是内部或外部命令，也不是可运行的程序或批处理文件，" class="headerlink" title="‘make’不是内部或外部命令，也不是可运行的程序或批处理文件，"></a>‘make’不是内部或外部命令，也不是可运行的程序或批处理文件，</h1><p>如果用的是windows的mingw平台， 用 mingw32-make命令而不是书上讲的make命令, 构建可执行文件。然后从dos进入debug文件夹，直接输入可执行文件名（不包含后缀）</p>
+<p>mingw32-make就是mingw提供的工具，实现linux下的make。<br>直接双击当然不行，你把用到的dll文件拷贝在.exe同一个文件夹里再试试</p>
+<h1 id="第一次尝试"><a href="#第一次尝试" class="headerlink" title="第一次尝试"></a>第一次尝试</h1><p>Linux下有make命令，windows10安装了TDD-GCC编译器，直接使用mingw32-make命令编译失败。<br>发现SNAP应该只能在Mac OS X，Linux直接编译，但在Windows上使用必须Cygwin虚拟机，即unix环境。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_snap%20make%20err.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="第二次尝试SNAP在Windows与Visual-Studio"><a href="#第二次尝试SNAP在Windows与Visual-Studio" class="headerlink" title="第二次尝试SNAP在Windows与Visual Studio"></a>第二次尝试SNAP在Windows与Visual Studio</h1><h2 id="Installation-on-Windows"><a href="#Installation-on-Windows" class="headerlink" title="Installation on Windows"></a>Installation on Windows</h2><ul>
+<li>Install Visual Studio or Visual Studio Express</li>
+<li>Download and Unzip Snap package</li>
+<li>Go to subfolder examples</li>
+<li>Open project SnapExamples*.sln<br>  Visual Studio 2008 and 2010 projects are available</li>
+</ul>
+<h2 id="VS-Creating-New-Project"><a href="#VS-Creating-New-Project" class="headerlink" title="VS:Creating New Project"></a>VS:Creating New Project</h2><ol>
+<li>Open Visual Studio and create a project Or start with examples/testgraph and modify it.</li>
+<li>Include Snap.h in your main program #include “Snap.h”.</li>
+<li>Include the path to directories “snap-core”, “glib-core” and “snap-adv” in your project.<br>右键单击项目   </li>
+</ol>
+<blockquote>
+<p>Properties(属性) -&gt; Configuration Properties(配置属性) -&gt; VC++ Directories(VC++目录) -&gt; Include Directories(包含目录)</p>
+</blockquote>
+<ol>
+<li>Character set must be configured to Multi-Byte:<br>右键单击项目</li>
+</ol>
+<blockquote>
+<p>Properties(属性) -&gt; Configuration Properties(配置属性) -&gt; General(常规) -&gt; Projects Defaults(项目默认值) -&gt;  Character Set(字符集) -&gt; Select “Use MultiByte Character Set”(选择“使用多字节字符集”)</p>
+</blockquote>
+<p>配置Visual Studio与SNAP一起使用，需要将字符集设置为多字节，并指定SNAP包含目录的位置。</p>
+<ul>
+<li><p>要将字符集设置为多字节，请右键单击项目，转到属性 - &gt; 配置属性 - &gt; 常规 - &gt; 项目默认值 - &gt; 字符集 - &gt; 选择“使用多字节字符集“。</p>
+</li>
+<li><p>要指定SNAP包含目录的位置，请转到选项 - &gt; 首选项 - &gt; C ++目录 - &gt; 包含目录，并将系统上的路径添加到SNAP文件夹glib-core，snap-core和snap-adv。</p>
+</li>
+</ul>
+<h2 id="然而事情并没有那么简单！！！"><a href="#然而事情并没有那么简单！！！" class="headerlink" title="然而事情并没有那么简单！！！"></a>然而事情并没有那么简单！！！</h2><h3 id="bug1-无法查找或打开pdb文件"><a href="#bug1-无法查找或打开pdb文件" class="headerlink" title="bug1:无法查找或打开pdb文件"></a>bug1:无法查找或打开pdb文件</h3><p>运行程序后闪退！<br>在return 0前加一行代码，system(“pause”);重新编译运行即可。</p>
+<h3 id="bug2-错误-C1083-无法打开包括文件-“Snap-h”-No-such-file-or-directory"><a href="#bug2-错误-C1083-无法打开包括文件-“Snap-h”-No-such-file-or-directory" class="headerlink" title="bug2:错误  C1083   无法打开包括文件: “Snap.h”: No such file or directory"></a>bug2:错误  C1083   无法打开包括文件: “Snap.h”: No such file or directory</h3><p>解决方法：将SNAP文件夹glib-core，snap-core和snap-adv的路径添加到项目系统上。</p>
+<h3 id="bug3-错误-LNK2019-无法解析的外部符号"><a href="#bug3-错误-LNK2019-无法解析的外部符号" class="headerlink" title="bug3:错误  LNK2019 无法解析的外部符号"></a>bug3:错误  LNK2019 无法解析的外部符号</h3><p>“int <strong>cdecl gettimeofday(struct timeval <em>,struct timezone </em>)” (?gettimeofday@@YAHPAUtimeval@@PAUtimezone@@@Z)，该符号在函数 “double </strong>cdecl `anonymous namespace’::WallClockTime(void)” (?WallClockTime@?A0x1244efcf@@YANXZ) 中被引用      </p>
+<p>这个问题很严重，因为阿丁同学也遇到了这个问题。在查看了snap-4.0中的example程序，运行后毫无问题，完美运行。仔细查看，发现缺少了snap.cpp文件和snap.h文件。<br>右键单击项目-&gt;添加-&gt;现有项<br>其实这样就基本OK了，但我的程序又出现了其他的BUG。</p>
+<h3 id="BUG4-错误-C4996-‘fopen’-This-function-or-variable-may-be-unsafe"><a href="#BUG4-错误-C4996-‘fopen’-This-function-or-variable-may-be-unsafe" class="headerlink" title="BUG4:错误  C4996   ‘fopen’: This function or variable may be unsafe."></a>BUG4:错误  C4996   ‘fopen’: This function or variable may be unsafe.</h3><p>Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. snap-4.0\glib-core\bd.cpp   56  </p>
+<p>右键单击项目-属性-配置属性-C/C++-预处理器-预处理器定义-编辑-预处理器定义：<br>添加一句命令：_CRT_SECURE_NO_WARNINGS</p>
+<h3 id="bug5-错误-C4996-‘putenv’-The-POSIX-name-for-this-item-is-deprecated"><a href="#bug5-错误-C4996-‘putenv’-The-POSIX-name-for-this-item-is-deprecated" class="headerlink" title="bug5:错误  C4996   ‘putenv’: The POSIX name for this item is deprecated."></a>bug5:错误  C4996   ‘putenv’: The POSIX name for this item is deprecated.</h3><p> Instead, use the ISO C and C++ conformant name: _putenv. See online help for details. TestSNAP2   c:\users\administrator\desktop\communitynetwork\snap-4.0\glib-core\env.cpp  289 </p>
+<p>这个问题在VS 2012之前的版本中是不会当做错误的，只是提出一个警告。为了避免报错，可以使用以下两个宏定义来屏蔽掉这种错误。</p>
+<pre><code>#define _CRT_SECURE_NO_DEPRECATE 1
+#define _CRT_NONSTDC_NO_DEPRECATE 1
+</code></pre><p>也可以在预处理器定义中添加两句命令：<br>_CRT_SECURE_NO_DEPRECATE<br>_CRT_NONSTDC_NO_DEPRECATE</p>
+<h3 id="BUG6：错误-C4700-使用了未初始化的局部变量“ct”-snap-4-0-snap-core-sim-cpp-209"><a href="#BUG6：错误-C4700-使用了未初始化的局部变量“ct”-snap-4-0-snap-core-sim-cpp-209" class="headerlink" title="BUG6：错误  C4700   使用了未初始化的局部变量“ct”  snap-4.0\snap-core\sim.cpp  209"></a>BUG6：错误  C4700   使用了未初始化的局部变量“ct”  snap-4.0\snap-core\sim.cpp  209</h3><p>郁闷，官网自己写的程序也有这种错误。<br>修改 int ct = 0;<br>好奇怪，我查看了snap-4.0\testgraph\sim.cpp 209，它里面就已经初始化为0，不会报错。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-21T12:00:39.218Z" itemprop="dateUpdated">2017-10-21 20:00:39</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/10/14/20171014SANP  Tutorial for c++/" target="_blank" rel="external">https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SNAP/">SNAP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stanford/">Stanford</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/&title=《SNAP Practice》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/&title=《SNAP Practice》 — HanKin的博客&source=官方教程
+安装
+SNAP 4.0 (2017年7月27日)
+Gnuplot，绘图和绘图包，用于绘制网络的结构属性（如度数分布）;
+Graphviz是绘图和..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SNAP Practice》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/14/20171015makefile/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">makefile</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/14/20171103hiho-171/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SNAP Practice</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/&title=《SNAP Practice》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/&title=《SNAP Practice》 — HanKin的博客&source=官方教程
+安装
+SNAP 4.0 (2017年7月27日)
+Gnuplot，绘图和绘图包，用于绘制网络的结构属性（如度数分布）;
+Graphviz是绘图和..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SNAP Practice》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/10/14/20171014SANP  Tutorial for c++/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南) | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python,Python3">
+    <meta name="description" content="菜鸟教程廖雪峰的官方网站Python 入门指南">
+<meta name="keywords" content="Python,Python3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)">
+<meta property="og:url" content="https://hankin2015.github.io/2018/08/15/20180815Python3/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="菜鸟教程廖雪峰的官方网站Python 入门指南">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-12T13:45:27.748Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)">
+<meta name="twitter:description" content="菜鸟教程廖雪峰的官方网站Python 入门指南">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-14T16:59:41.000Z" itemprop="datePublished" class="page-time">
+  2018-08-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/PYTHON/">PYTHON</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、简介和科普"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、简介和科普</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、工作环境和工具"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、工作环境和工具</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、注释"><span class="post-toc-number">3.</span> <span class="post-toc-text">4、注释</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、数字-Number"><span class="post-toc-number">4.</span> <span class="post-toc-text">5、数字(Number)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-1、Python-支持三种不同的数值类型"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">5-1、Python 支持三种不同的数值类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-2、数字运算"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">5-2、数字运算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-3、数学函数math"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">5-3、数学函数math</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-4、随机数函数random"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">5-4、随机数函数random</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-5、三角函数"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">5-5、三角函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-6、数学常量"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">5-6、数学常量</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6、字符串"><span class="post-toc-number">5.</span> <span class="post-toc-text">6、字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7、数据结构"><span class="post-toc-number">6.</span> <span class="post-toc-text">7、数据结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#del语句"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">del语句</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#集合"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">集合</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字典"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">字典</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#循环技巧"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">循环技巧</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8、模块"><span class="post-toc-number">7.</span> <span class="post-toc-text">8、模块</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、使用Python解释器"><span class="post-toc-number">8.</span> <span class="post-toc-text">1、使用Python解释器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、Python简介"><span class="post-toc-number">9.</span> <span class="post-toc-text">2、Python简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数字"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">数字</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符串"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">字符串</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表-数组"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">列表(数组)</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180815Python3"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-15 00:59:41" datetime="2018-08-14T16:59:41.000Z"  itemprop="datePublished">2018-08-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/PYTHON/">PYTHON</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><a href="http://www.runoob.com/python3/python3-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a><br><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰的官方网站</a><br><a href="http://www.runoob.com/manual/pythontutorial3/docs/html/" target="_blank" rel="noopener">Python 入门指南</a><br><a id="more"></a></p>
+<h1 id="1、简介和科普"><a href="#1、简介和科普" class="headerlink" title="1、简介和科普"></a>1、简介和科普</h1><p>Python的3.0版本，常被称为Python 3000，或简称Py3k。为了不带入过多的累赘，Python 3.0在设计的时候没有考虑向下兼容。</p>
+<h1 id="2、工作环境和工具"><a href="#2、工作环境和工具" class="headerlink" title="2、工作环境和工具"></a>2、工作环境和工具</h1><p>查看python版本python -V(大写字母)</p>
+<p>Python 解释器可不止一种哦，有 CPython、IPython、Jython、PyPy 等。<br>顾名思义，CPython 就是用 C 语言开发的了，是官方标准实现，拥有良好的生态，所以应用也就最为广泛了。<br>而 IPython 是在 CPython 的基础之上在交互式方面得到增强的解释器（<a href="http://ipython.org/）。" target="_blank" rel="noopener">http://ipython.org/）。</a><br>Jython 是专为 Java 平台设计的 Python 解释器（<a href="http://www.jython.org/），它把" target="_blank" rel="noopener">http://www.jython.org/），它把</a> Python 代码编译成 Java 字节码执行。<br>PyPy 是 Python 语言（2.7.13和3.5.3）的一种快速、兼容的替代实现（<a href="http://pypy.org/），以速度快著称。" target="_blank" rel="noopener">http://pypy.org/），以速度快著称。</a></p>
+<p>##3、初学者注意事项</p>
+<ul>
+<li>True和False首字母大写</li>
+<li><p>#!/usr/bin/env python<br>此方法不支持windows环境,仅仅在linux或unix系统下有作用，在windows下无论在代码里加什么都无法直接运行一个文件名后缀为.py的脚本，因为在windows下文件名对文件的打开方式起了决定性作用。但是这个理论不完全正确<br>然后修改脚本权限，使其有执行权限，命令如下：</p>
+<blockquote>
+<p>chmod +x hello.py</p>
+</blockquote>
+</li>
+<li><p>退出交互式解释器exit()或ctrl+D</p>
+</li>
+<li><p>解决双击脚本后一闪而过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 第一种解决方法</span><br><span class="line">import os</span><br><span class="line">os.system(&quot;pause&quot;)</span><br><span class="line"></span><br><span class="line"># 第二种解决办法</span><br><span class="line">python2.*后面加上：raw_input()</span><br><span class="line">python3.*后面加上：input()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="4、注释"><a href="#4、注释" class="headerlink" title="4、注释"></a>4、注释</h1><p>单行注释以 # 开头，多行注释用三个单引号 ‘’’ 或者三个双引号 “”” 将注释括起来。<br>以下实例我们可以输出函数的注释：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def a():</span><br><span class="line">    &apos;&apos;&apos;这是文档字符串&apos;&apos;&apos;</span><br><span class="line">    pass</span><br><span class="line">print(a.__doc__)</span><br><span class="line"></span><br><span class="line">输出结果为：</span><br><span class="line">&gt;&gt;&gt;这是文档字符串</span><br></pre></td></tr></table></figure></p>
+<h1 id="5、数字-Number"><a href="#5、数字-Number" class="headerlink" title="5、数字(Number)"></a>5、数字(Number)</h1><p>Python 数字数据类型用于存储数值。<br>数据类型是不允许改变的,这就意味着如果改变数字数据类型的值，将重新分配内存空间。</p>
+<p>可以使用del语句删除一些数字对象的引用。</p>
+<h2 id="5-1、Python-支持三种不同的数值类型"><a href="#5-1、Python-支持三种不同的数值类型" class="headerlink" title="5-1、Python 支持三种不同的数值类型"></a>5-1、Python 支持三种不同的数值类型</h2><ul>
+<li>整型(Int)<br>通常被称为是整型或整数，是正或负整数，不带小数点。Python3 整型是没有限制大小的，可以当作 Long 类型使用，所以 Python3 没有 Python2 的 Long 类型。</li>
+<li>浮点型(float)<br>浮点型由整数部分与小数部分组成，浮点型也可以使用科学计数法表示（2.5e2 = 2.5 x 102 = 250）</li>
+<li>复数( (complex))<br>复数由实数部分和虚数部分构成，可以用a + bj,或者complex(a,b)表示， 复数的实部a和虚部b都是浮点型。</li>
+</ul>
+<p>complex(x) 将x转换到一个复数，实数部分为 x，虚数部分为 0。<br>complex(x, y) 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 y。x 和 y 是数字表达式。</p>
+<h2 id="5-2、数字运算"><a href="#5-2、数字运算" class="headerlink" title="5-2、数字运算"></a>5-2、数字运算</h2><ul>
+<li><p>// 整数除法返回向下取整后的结果。<br>注意：// 得到的并不一定是整数类型的数，它与分母分子的数据类型有关系。</p>
+</li>
+<li><p>使用 ** 操作来进行幂运算。</p>
+</li>
+<li>在交互模式中，最后被输出的表达式结果被赋值给变量 _ 。</li>
+</ul>
+<h2 id="5-3、数学函数math"><a href="#5-3、数学函数math" class="headerlink" title="5-3、数学函数math"></a>5-3、数学函数math</h2><ul>
+<li>abs(x)</li>
+<li>ceil(x)     返回数字的上入整数</li>
+<li>cmp(x, y) Python 3已废弃。使用<code>(x&gt;y)-(x&lt;y)</code>替换</li>
+<li>exp(x)     2.718281828459045</li>
+<li>fabs(x)    返回浮点型</li>
+<li>floor(x)   返回数字的下舍整数</li>
+<li>log(x)      如math.log(math.e)返回1.0</li>
+<li>log10(x)</li>
+<li>max(x1, x2,…)       </li>
+<li>min(x1, x2,…)</li>
+<li>modf(x) 返回x的整数部分与小数部分，两部分的数值符号与x相同，整数部分以浮点型表示</li>
+<li>pow(x, y)        </li>
+<li>round(x [,n])   返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。</li>
+<li>sqrt(x)   </li>
+</ul>
+<h2 id="5-4、随机数函数random"><a href="#5-4、随机数函数random" class="headerlink" title="5-4、随机数函数random"></a>5-4、随机数函数random</h2><ul>
+<li>choice(seq)    从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数。</li>
+<li>randrange ([start,] stop [,step])    从指定范围内，按指定基数递增的集合中获取一个随机数，基数缺省值为1。如可以在1-100中随机选择一个奇数randrange(1,100, 2)。</li>
+<li>random()        随机生成下一个实数，它在[0,1)范围内。</li>
+<li>seed([x])         改变随机数生成器的种子seed。如果你不了解其原理，你不必特别去设定seed，Python会帮你选择seed。</li>
+<li>shuffle(lst)      将序列的所有元素随机排序</li>
+<li>uniform(x, y) 随机生成下一个实数，它在[x,y]范围内。</li>
+</ul>
+<h2 id="5-5、三角函数"><a href="#5-5、三角函数" class="headerlink" title="5-5、三角函数"></a>5-5、三角函数</h2><ul>
+<li>acos(x)   返回x的反余弦弧度值。</li>
+<li>asin(x)     返回x的反正弦弧度值。</li>
+<li>atan(x)     返回x的反正切弧度值。</li>
+<li>atan2(y, x)      返回给定的 X 及 Y 坐标值的反正切值。</li>
+<li>cos(x)     返回x的弧度的余弦值。</li>
+<li>hypot(x, y)        返回欧几里德范数 sqrt(x<em>x + y</em>y)。</li>
+<li>sin(x)         返回的x弧度的正弦值。</li>
+<li>tan(x)        返回x弧度的正切值。</li>
+<li>degrees(x)        将弧度转换为角度,如degrees(math.pi/2) ， 返回90.0</li>
+<li>radians(x)         将角度转换为弧度</li>
+</ul>
+<h2 id="5-6、数学常量"><a href="#5-6、数学常量" class="headerlink" title="5-6、数学常量"></a>5-6、数学常量</h2><ul>
+<li>pi      数学常量 pi（圆周率，一般以π来表示）</li>
+<li>e       数学常量 e，e即自然常数（自然常数）。</li>
+</ul>
+<h1 id="6、字符串"><a href="#6、字符串" class="headerlink" title="6、字符串"></a>6、字符串</h1><p>Python 不支持单字符类型，单字符在 Python 中也是作为一个字符串使用。<br>Python 访问子字符串，可以使用方括号来截取字符串，左闭右开，如str[3:6]。</p>
+<h1 id="7、数据结构"><a href="#7、数据结构" class="headerlink" title="7、数据结构"></a>7、数据结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [66.25, 333, 333, 1, 1234.5]</span><br><span class="line">&gt;&gt;&gt; print(a.count(333), a.count(66.25), a.count(&apos;x&apos;))</span><br><span class="line">2 1 0</span><br><span class="line">&gt;&gt;&gt; a.insert(2, -1)</span><br><span class="line">&gt;&gt;&gt; a.append(333)</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">[66.25, 333, -1, 333, 1, 1234.5, 333]</span><br><span class="line">&gt;&gt;&gt; a.index(333)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; a.remove(333)</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">[66.25, -1, 333, 1, 1234.5, 333]</span><br><span class="line">&gt;&gt;&gt; a.reverse()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">[333, 1234.5, 1, 333, -1, 66.25]</span><br><span class="line">&gt;&gt;&gt; a.sort()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">[-1, 1, 66.25, 333, 333, 1234.5]</span><br><span class="line">&gt;&gt;&gt; a.pop()</span><br><span class="line">1234.5</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">[-1, 1, 66.25, 333, 333]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; from collections import deque</span><br><span class="line">&gt;&gt;&gt; queue = deque([&quot;Eric&quot;, &quot;John&quot;, &quot;Michael&quot;])</span><br><span class="line">&gt;&gt;&gt; queue.append(&quot;Terry&quot;)           # Terry arrives</span><br><span class="line">&gt;&gt;&gt; queue.append(&quot;Graham&quot;)          # Graham arrives</span><br><span class="line">&gt;&gt;&gt; queue.popleft()                 # The first to arrive now leaves</span><br><span class="line">&apos;Eric&apos;</span><br><span class="line">&gt;&gt;&gt; queue.popleft()                 # The second to arrive now leaves</span><br><span class="line">&apos;John&apos;</span><br><span class="line">&gt;&gt;&gt; queue                           # Remaining queue in order of arrival</span><br><span class="line">deque([&apos;Michael&apos;, &apos;Terry&apos;, &apos;Graham&apos;])</span><br></pre></td></tr></table></figure>
+<p>把列表当作堆栈使用</p>
+<p>对于python中长长的for循环赋值可以看作是多个for循环叠加。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]</span><br><span class="line">[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]</span><br></pre></td></tr></table></figure></p>
+<h2 id="del语句"><a href="#del语句" class="headerlink" title="del语句"></a>del语句</h2><h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>set （集合）。集合是一个<code>无序</code>不重复元素的集。基本功能包括关系测试和消除重复元素。集合对象还支持 union（联合），intersection（交），difference（差）和 sysmmetric difference（对称差集）等数学运算。</p>
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>keys<br>sorted<br>del</p>
+<h2 id="循环技巧"><a href="#循环技巧" class="headerlink" title="循环技巧"></a>循环技巧</h2><p>在字典中循环时，关键字和对应的值可以使用 items() 方法同时解读出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; knights = &#123;&apos;gallahad&apos;: &apos;the pure&apos;, &apos;robin&apos;: &apos;the brave&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; for k, v in knights.items():</span><br><span class="line">...     print(k, v)</span><br></pre></td></tr></table></figure></p>
+<p>在序列中循环时，索引位置和对应值可以使用 enumerate() 函数同时得到<br>同时循环两个或更多的序列，可以使用 zip() 整体打包<br>需要逆向循环序列的话，先正向定位序列，然后调用 reversed() 函数</p>
+<h1 id="8、模块"><a href="#8、模块" class="headerlink" title="8、模块"></a>8、模块</h1><p>模块是包括 Python 定义和声明的文件。文件名就是模块名加上 .py 后缀。模块的模块名（做为一个字符串）可以由全局变量 <strong>name</strong> 得到。</p>
+<p>因为没有一见钟情的皮囊，也没有日久生情的耐心。 ​​​​</p>
+<h1 id="1、使用Python解释器"><a href="#1、使用Python解释器" class="headerlink" title="1、使用Python解释器"></a>1、使用Python解释器</h1><ul>
+<li>Python解释器：/usr/local/bin/python目录</li>
+<li>Unix shell 的搜索路径：<a href="https://blog.csdn.net/embedded_sky/article/details/42217215" target="_blank" rel="noopener">Linux/Unix配置环境变量</a></li>
+<li>Windows添加路径：set path=%path%;C:\python35</li>
+<li>文件结束符：Unix系统是 Control-D，Windows系统是 Control-Z，解释器是quit()</li>
+<li>源程序编码：# -<em>- coding: encoding -</em>-</li>
+</ul>
+<h1 id="2、Python简介"><a href="#2、Python简介" class="headerlink" title="2、Python简介"></a>2、Python简介</h1><ul>
+<li>注释符：#</li>
+</ul>
+<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><ul>
+<li>除法取整：//</li>
+<li>除法取余：%</li>
+<li>幂乘方：**</li>
+<li><p>最近一个表达式的值变量：_</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">此变量对于用户是只读的。不要尝试给它赋值 —— 你只会创建一个独立的同名局部变量，它屏蔽了系统内置变量的魔术效果。</span><br><span class="line"> </span><br><span class="line">除了 int 和 float，Python 还支持其它数字类型，例如 Decimal 和 Fraction。Python 还内建支持 复数 ，使用后缀 j 或 J 表示虚数部分（例如，3+5j）。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保留n位小数(四舍五入)：round(3.1415926, n)</p>
+</li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
+<li>如果字符串中只有单引号而没有双引号，就用双引号引用，否则用单引号引用。</li>
+<li><p>两者唯一的区别是在单引号中，你不需要转义 “ （但你必须转义 \’ )，反之亦然。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &apos;spam eggs&apos; # single quotes</span><br><span class="line">&apos;spam eggs&apos;</span><br><span class="line">&gt;&gt;&gt; &apos;doesn\&apos;t&apos; # use \&apos; to escape the single quote...</span><br><span class="line">&quot;doesn&apos;t&quot;</span><br><span class="line">&gt;&gt;&gt; &quot;doesn&apos;t&quot; # ...or use double quotes instead</span><br><span class="line">&quot;doesn&apos;t&quot;</span><br><span class="line">&gt;&gt;&gt; &apos;&quot;Yes,&quot; he said.&apos;</span><br><span class="line">&apos;&quot;Yes,&quot; he said.&apos;</span><br><span class="line">&gt;&gt;&gt; &quot;\&quot;Yes,\&quot; he said.&quot;</span><br><span class="line">&apos;&quot;Yes,&quot; he said.&apos;</span><br><span class="line">&gt;&gt;&gt; &apos;&quot;Isn\&apos;t,&quot; she said.&apos;</span><br><span class="line">&apos;&quot;Isn\&apos;t,&quot; she said.&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果你前面带有 \ 的字符被当作特殊字符，你可以使用 原始字符串，方法是在第一个引号前面加上一个 r:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(&apos;C:\some\name&apos;) # here \n means newline!</span><br><span class="line">C:\some</span><br><span class="line">ame</span><br><span class="line">&gt;&gt;&gt; print(r&apos;C:\some\name&apos;) # note the r before the quote</span><br><span class="line">C:\some\name</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>使用三引号：”””…””” 或者 ‘’’…’’’。行尾换行符会被自动包含到字符串中，但是可以在行尾加上 \ 来避免这个行为。下面的示例： 可以使用反斜杠为行结尾的连续字符串，它表示下一行在逻辑上是本行的后续内容。</p>
+</li>
+<li><p>字符串可以由 + 操作符连接(粘到一起)，可以由 * 表示重复。</p>
+</li>
+<li><p>相邻的两个字符串文本自动连接在一起，只用于两个字符串文本，不能用于字符串表达式。</p>
+</li>
+<li><p>一个字符就是一个简单的长度为1的字符串。</p>
+</li>
+<li><p>和C/C++区别是索引(下标)也可以是负数，这将导致从右边开始计算。</p>
+</li>
+<li><p>截取(检索)、索引、切片</p>
+</li>
+<li><p>注意，包含起始的字符，不包含末尾的字符。这使得 s[:i] + s[i:] 永远等于 s。省略的第一个索引默认为零，省略的第二个索引默认为切片的字符串的大小。</p>
+</li>
+<li><p>Python字符串不可以被更改 — 它们是 不可变的 。</p>
+</li>
+<li>len函数</li>
+</ul>
+<h2 id="列表-数组"><a href="#列表-数组" class="headerlink" title="列表(数组)"></a>列表(数组)</h2><ul>
+<li>append、len函数</li>
+<li>列表是 可变的，它允许修改元素。</li>
+<li>清空列表：letters[:] = []<br>-</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-12T13:45:27.748Z" itemprop="dateUpdated">2018-09-12 21:45:27</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/08/15/20180815Python3/" target="_blank" rel="external">https://hankin2015.github.io/2018/08/15/20180815Python3/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python3/">Python3</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/08/15/20180815Python3/&title=《Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/08/15/20180815Python3/&title=《Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)》 — HanKin的博客&source=菜鸟教程廖雪峰的官方网站Python 入门指南" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/08/15/20180815Python3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)》 — HanKin的博客&url=https://hankin2015.github.io/2018/08/15/20180815Python3/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/08/15/20180815Python3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/15/20180815PythonMetaProgramming/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python中的元编程</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/08/12/20180812AcmInput/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">编程题中各式各样的输入格式(黑科技)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/08/15/20180815Python3/&title=《Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/08/15/20180815Python3/&title=《Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)》 — HanKin的博客&source=菜鸟教程廖雪峰的官方网站Python 入门指南" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/08/15/20180815Python3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python3学习笔记(菜鸟教程、廖雪峰、Python 入门指南)》 — HanKin的博客&url=https://hankin2015.github.io/2018/08/15/20180815Python3/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/08/15/20180815Python3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/08/15/20180815Python3/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

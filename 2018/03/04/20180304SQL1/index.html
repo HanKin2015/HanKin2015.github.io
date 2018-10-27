@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SQL学习笔记1(初级) | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Sql">
+    <meta name="description" content="SQL教程SQL快速参考手册SQL数据类型">
+<meta name="keywords" content="Sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL学习笔记1(初级)">
+<meta property="og:url" content="https://hankin2015.github.io/2018/03/04/20180304SQL1/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="SQL教程SQL快速参考手册SQL数据类型">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img4.imgtn.bdimg.com/it/u=3180313571,4153410603&fm=27&gp=0.jpg">
+<meta property="og:updated_time" content="2018-08-14T16:19:04.485Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL学习笔记1(初级)">
+<meta name="twitter:description" content="SQL教程SQL快速参考手册SQL数据类型">
+<meta name="twitter:image" content="http://img4.imgtn.bdimg.com/it/u=3180313571,4153410603&fm=27&gp=0.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SQL学习笔记1(初级)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SQL学习笔记1(初级)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-04T01:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-03-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SQL/">SQL</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MySQL的安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">MySQL的安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加用户-新建数据库-用户授权-删除用户-修改密码"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">添加用户,新建数据库,用户授权,删除用户,修改密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除账户及权限："><span class="post-toc-number">1.2.</span> <span class="post-toc-text">删除账户及权限：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动mysql服务"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">启动mysql服务</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、SQL-Structured-Query-Language-简介"><span class="post-toc-number">2.</span> <span class="post-toc-text">1、SQL(Structured Query Language)简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、SQL语法"><span class="post-toc-number">3.</span> <span class="post-toc-text">2、SQL语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MySQL-非root用户创建database"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">MySQL 非root用户创建database</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用语句"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">常用语句</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特殊条件"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">特殊条件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文本字段-vs-数值字段"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">文本字段 vs. 数值字段</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180304SQL1"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SQL学习笔记1(初级)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-04 09:47:41" datetime="2018-03-04T01:47:41.000Z"  itemprop="datePublished">2018-03-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SQL/">SQL</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img4.imgtn.bdimg.com/it/u=3180313571,4153410603&fm=27&gp=0.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><a href="http://www.runoob.com/sql/sql-tutorial.html" target="_blank" rel="noopener">SQL教程</a><br><a href="http://www.runoob.com/sql/sql-quickref.html" target="_blank" rel="noopener">SQL快速参考手册</a><br><a href="http://www.runoob.com/sql/sql-datatypes.html" target="_blank" rel="noopener">SQL数据类型</a></p>
+<a id="more"></a>
+<h1 id="MySQL的安装"><a href="#MySQL的安装" class="headerlink" title="MySQL的安装"></a>MySQL的安装</h1><blockquote>
+<p>sudo apt-get install mysql-server-5.7</p>
+</blockquote>
+<h2 id="添加用户-新建数据库-用户授权-删除用户-修改密码"><a href="#添加用户-新建数据库-用户授权-删除用户-修改密码" class="headerlink" title="添加用户,新建数据库,用户授权,删除用户,修改密码"></a>添加用户,新建数据库,用户授权,删除用户,修改密码</h2><p><a href="http://blog.csdn.net/adu198888/article/details/54092857" target="_blank" rel="noopener">http://blog.csdn.net/adu198888/article/details/54092857</a><br>创建test用户，密码是1234。登录命令：mysql -u 用户名 -p 密码</p>
+<blockquote>
+<p>mysql -u root -p<br>CREATE USER “test”@”localhost” IDENTIFIED BY “1234”; #本地登录<br>CREATE USER “test”@”%” IDENTIFIED BY “1234”; #远程登录<br>quit<br>mysql -u test -p #测试是否创建成功</p>
+</blockquote>
+<h2 id="删除账户及权限："><a href="#删除账户及权限：" class="headerlink" title="删除账户及权限："></a>删除账户及权限：</h2><blockquote>
+<p>drop user 用户名@’%’;<br>drop user 用户名@ localhost;</p>
+</blockquote>
+<h2 id="启动mysql服务"><a href="#启动mysql服务" class="headerlink" title="启动mysql服务"></a>启动mysql服务</h2><blockquote>
+<p>sudo service mysqld start</p>
+</blockquote>
+<p>在服务器启动服务后，可以在windows上使用MySQL workbench或者naivget软件远程连接。<br>mysql workbench 修改字体大小后需要重启。</p>
+<h1 id="1、SQL-Structured-Query-Language-简介"><a href="#1、SQL-Structured-Query-Language-简介" class="headerlink" title="1、SQL(Structured Query Language)简介"></a>1、SQL(Structured Query Language)简介</h1><p>SQL 是用于访问和处理数据库的ANSI（American National Standards Institute 美国国家标准化组织）标准的计算机语言。</p>
+<p><code>注意：</code>虽然 SQL 是一门 ANSI（American National Standards Institute 美国国家标准化组织）标准的计算机语言，但是仍然存在着多种不同版本的 SQL 语言。</p>
+<p>然而，为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的命令（比如 SELECT、UPDATE、DELETE、INSERT、WHERE 等等）。</p>
+<h1 id="2、SQL语法"><a href="#2、SQL语法" class="headerlink" title="2、SQL语法"></a>2、SQL语法</h1><h2 id="MySQL-非root用户创建database"><a href="#MySQL-非root用户创建database" class="headerlink" title="MySQL 非root用户创建database"></a>MySQL 非root用户创建database</h2><p>mysql 用户无法直接通过create database创建数据库（access denied by 。。。），必须在root用户下先创建个数据库再通过授权语句把该database的权限给用户，grant all on user.* to  user@host identified by password。</p>
+<p>在root用户的数据库中有多个数据库，但是普通用户开始可能就只有一个test，需要给普通用户授权后，普通用户才能看得见授权后的数据库可见。</p>
+<p>因此准备工作：为普通用户授权</p>
+<ul>
+<li><p>a.授权格式：grant 权限 on 数据库.* to 用户名@登录主机 identified by “密码”;　</p>
+</li>
+<li><p>b.登录MYSQL，这里以ROOT身份登录：</p>
+</li>
+</ul>
+<blockquote>
+<p>mysql -u root -p</p>
+</blockquote>
+<ul>
+<li>c.为用户创建一个数据库(testDB)：</li>
+</ul>
+<blockquote>
+<p>create database testDB;<br>create database testDB default charset utf8 collate utf8_general_ci;</p>
+</blockquote>
+<ul>
+<li>d.授权test用户拥有testDB数据库的所有权限：</li>
+</ul>
+<blockquote>
+<p>grant all privileges on testDB.* to “test”@”localhost” identified by “1234”;<br>flush privileges; #刷新系统权限表</p>
+</blockquote>
+<ul>
+<li>e.指定部分权限给用户:</li>
+</ul>
+<blockquote>
+<p>grant select,update on testDB.* to “test”@”localhost” identified by “1234”;<br>flush privileges; #刷新系统权限表</p>
+</blockquote>
+<ul>
+<li>f.授权test用户拥有所有数据库的某些权限： 　</li>
+</ul>
+<blockquote>
+<p>grant select,delete,update,create,drop on . to test@”%” identified by “1234”; #”%” 表示对所有非本地主机授权，不包括localhost</p>
+</blockquote>
+<h2 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h2><p>show databases;    显示数据库<br>select database();  显示当前路径<br>use 数据库名;   进入某个数据库<br>source sql文件地址;    从外部导入sql文件<br>set names utf8;     命令用于设置使用的字符集。<br>SELECT * FROM 表名;     读取数据表的信息。<br>SELECT column_name,column_name FROM table_name;</p>
+<p>请记住：SQL 对大小写不敏感：SELECT 与 select 是相同的。<br>分号是在数据库系统中分隔每条 SQL 语句的标准方法，这样就可以在对服务器的相同请求中执行一条以上的 SQL 语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SELECT - 从数据库中提取数据</span><br><span class="line">UPDATE - 更新数据库中的数据</span><br><span class="line">DELETE - 从数据库中删除数据</span><br><span class="line">INSERT INTO - 向数据库中插入新数据</span><br><span class="line">CREATE DATABASE - 创建新数据库</span><br><span class="line">ALTER DATABASE - 修改数据库</span><br><span class="line">CREATE TABLE - 创建新表</span><br><span class="line">ALTER TABLE - 变更（改变）数据库表</span><br><span class="line">DROP TABLE - 删除表</span><br><span class="line">CREATE INDEX - 创建索引（搜索键）</span><br><span class="line">DROP INDEX - 删除索引</span><br></pre></td></tr></table></figure>
+<ul>
+<li>SQL SELECT DISTINCT 语句<br>在表中，一个列可能会包含多个重复值，有时您也许希望仅仅列出不同（distinct）的值。</li>
+</ul>
+<p>DISTINCT 关键词用于返回唯一不同的值。</p>
+<blockquote>
+<p>SELECT DISTINCT column_name,column_name FROM table_name;</p>
+</blockquote>
+<ul>
+<li>SQL WHERE 子句<br>WHERE 子句用于提取那些满足指定标准的记录。</li>
+</ul>
+<blockquote>
+<p>SELECT column_name,column_name FROM table_name WHERE column_name operator value;</p>
+</blockquote>
+<p>下面的运算符可以在 WHERE 子句中使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">运算符 描述</span><br><span class="line">=   等于</span><br><span class="line">&lt;&gt;  不等于。注释：在 SQL 的一些版本中，该操作符可被写成 !=</span><br><span class="line">&gt;   大于</span><br><span class="line">&lt;   小于</span><br><span class="line">&gt;=  大于等于</span><br><span class="line">&lt;=  小于等于</span><br><span class="line">BETWEEN 在某个范围内</span><br><span class="line">LIKE    搜索某种模式</span><br><span class="line">IN  指定针对某个列的多个可能值</span><br></pre></td></tr></table></figure></p>
+<p>逻辑运算的优先级：()    not        and         or</p>
+<h2 id="特殊条件"><a href="#特殊条件" class="headerlink" title="特殊条件"></a>特殊条件</h2><ol>
+<li>空值判断： is null</li>
+</ol>
+<blockquote>
+<p>Select * from emp where comm is null;<br>查询 emp 表中 comm 列中的空值。</p>
+</blockquote>
+<ol>
+<li>between and (在 之间的值)</li>
+</ol>
+<blockquote>
+<p>Select * from emp where sal between 1500 and 3000;<br>查询 emp 表中 SAL 列中大于 1500 的小于 3000 的值。</p>
+</blockquote>
+<p>注意：大于等于 1500 且小于等于 3000， 1500 为下限，3000 为上限，下限在前，上限在后，查询的范围包涵有上下限的值。</p>
+<ol>
+<li>In</li>
+</ol>
+<blockquote>
+<p>Select * from emp where sal in (5000,3000,1500);<br>查询 EMP 表 SAL 列中等于 5000，3000，1500 的值。</p>
+</blockquote>
+<ol>
+<li>like(模糊查询)</li>
+</ol>
+<blockquote>
+<p>Select * from emp where ename like ‘M%’;<br>查询 EMP 表中 Ename 列中有 M 的值，M 为要查询内容中的模糊信息。</p>
+</blockquote>
+<p> % 表示多个字值，<em> 下划线表示一个字符；<br> M% : 为能配符，正则表达式，表示的意思为模糊查询信息为 M 开头的。<br> %M% : 表示查询包含M的所有内容。<br> %M</em> : 表示查询以M在倒数第二位的所有内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">不带比较运算符的 WHERE 子句：</span><br><span class="line"></span><br><span class="line">WHERE子句并不一定带比较运算符，当不带运算符时，会执行一个隐式转换。当0时转化为 false，当其他值是转化为true。例如：</span><br><span class="line"></span><br><span class="line">SELECT studentNO FROM student WHERE 0</span><br><span class="line">则会返回一个空集，因为每一行记录WHERE都返回false。</span><br><span class="line"></span><br><span class="line">SELECT  studentNO  FROM student WHERE 1</span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">SELECT studentNO FROM student WHERE &apos;abc&apos;</span><br><span class="line">都将返回student表所有行记录的studentNO列。因为每一行记录WHERE都返回true。</span><br></pre></td></tr></table></figure>
+<h2 id="文本字段-vs-数值字段"><a href="#文本字段-vs-数值字段" class="headerlink" title="文本字段 vs. 数值字段"></a>文本字段 vs. 数值字段</h2><p>SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。</p>
+<p>如果是数值字段，请不要使用引号。</p>
+<ul>
+<li>SQL ORDER BY 关键字<br>ORDER BY 关键字用于对结果集按照一个列或者多个列进行排序。<br>ORDER BY 关键字默认按照升序对记录进行排序。如果需要按照降序对记录进行排序，您可以使用 DESC 关键字。</li>
+</ul>
+<blockquote>
+<p>SELECT column_name,column_name FROM table_name ORDER BY column_name,column_name ASC|DESC;</p>
+</blockquote>
+<p>ORDER BY 多列的时候，先按照第一个column name排序，再按照第二个column name排序</p>
+<ul>
+<li>INSERT INTO 语句可以有两种编写形式。</li>
+</ul>
+<p>第一种形式无需指定要插入数据的列名，只需提供被插入的值即可：</p>
+<blockquote>
+<p>INSERT INTO table_name<br>VALUES (value1,value2,value3,…);</p>
+</blockquote>
+<p>第二种形式需要指定列名及被插入的值：</p>
+<blockquote>
+<p>INSERT INTO table_name (column1,column2,column3,…)<br>VALUES (value1,value2,value3,…);</p>
+</blockquote>
+<ul>
+<li>SQL UPDATE 语法</li>
+</ul>
+<blockquote>
+<p>UPDATE table_name SET column1=value1,column2=value2,… WHERE some_column=some_value;</p>
+</blockquote>
+<p>执行没有 WHERE 子句的 UPDATE 要慎重，再慎重。<br>在 MySQL 中可以通过设置 sql_safe_updates 这个自带的参数来解决，当该参数开启的情况下，你必须在update 语句后携带 where 条件，否则就会报错。</p>
+<p>set sql_safe_updates=1; 表示开启该参数</p>
+<ul>
+<li>SQL DELETE 语法</li>
+</ul>
+<blockquote>
+<p>DELETE FROM table_name WHERE some_column=some_value;<br>WHERE 子句规定哪条记录或者哪些记录需要删除。如果您省略了 WHERE 子句，所有的记录都将被删除!</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">SQL关于删除的三个语句，DROP;TRUNCATE;DELETE的区别。</span><br><span class="line"></span><br><span class="line">DROP:</span><br><span class="line"></span><br><span class="line">DROP test;</span><br><span class="line">删除表test，并释放空间，将test删除的一干二净。</span><br><span class="line"></span><br><span class="line">TRUNCATE:</span><br><span class="line"></span><br><span class="line">TRUNCATE test;</span><br><span class="line">删除表test里的内容，并释放空间，但不删除表的定义，表的结构还在。</span><br><span class="line"></span><br><span class="line">DELETE:</span><br><span class="line"></span><br><span class="line">1、删除指定数据</span><br><span class="line"></span><br><span class="line">删除表test中年龄等于30的且国家为US的数据</span><br><span class="line"></span><br><span class="line">DELETE FROM test WHERE age=30 AND country=&apos;US&apos;;</span><br><span class="line">2、删除整个表</span><br><span class="line"></span><br><span class="line">仅删除表test内的所有内容，保留表的定义，不释放空间。</span><br><span class="line"></span><br><span class="line">DELETE * FROM test; 或者 DELETE FROM test;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-14T16:19:04.485Z" itemprop="dateUpdated">2018-08-15 00:19:04</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/03/04/20180304SQL1/" target="_blank" rel="external">https://hankin2015.github.io/2018/03/04/20180304SQL1/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sql/">Sql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/03/04/20180304SQL1/&title=《SQL学习笔记1(初级)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/03/04/20180304SQL1/&title=《SQL学习笔记1(初级)》 — HanKin的博客&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/03/04/20180304SQL1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQL学习笔记1(初级)》 — HanKin的博客&url=https://hankin2015.github.io/2018/03/04/20180304SQL1/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/03/04/20180304SQL1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/03/11/20180311BitwiseOperation/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">位运算应用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/02/25/20171212ACM-NEUQ1501/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">NEUQ1501:奶牛学算术</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/03/04/20180304SQL1/&title=《SQL学习笔记1(初级)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/03/04/20180304SQL1/&title=《SQL学习笔记1(初级)》 — HanKin的博客&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/03/04/20180304SQL1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQL学习笔记1(初级)》 — HanKin的博客&url=https://hankin2015.github.io/2018/03/04/20180304SQL1/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/03/04/20180304SQL1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/03/04/20180304SQL1/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

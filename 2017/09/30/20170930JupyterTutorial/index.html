@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JUpyter Notebook学习 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JupyterNotebook">
+    <meta name="description" content="1、简介&amp;emsp;&amp;emsp;jupyter,一个一体化的语言,IDE及通用分布式架构环境。比WEB更自然，jupyter用于通用软件开发的创新意义：使任何传统程序秒变WEB。Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。">
+<meta name="keywords" content="JupyterNotebook">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JUpyter Notebook学习">
+<meta property="og:url" content="https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1、简介&amp;emsp;&amp;emsp;jupyter,一个一体化的语言,IDE及通用分布式架构环境。比WEB更自然，jupyter用于通用软件开发的创新意义：使任何传统程序秒变WEB。Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-15T14:37:52.888Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JUpyter Notebook学习">
+<meta name="twitter:description" content="1、简介&amp;emsp;&amp;emsp;jupyter,一个一体化的语言,IDE及通用分布式架构环境。比WEB更自然，jupyter用于通用软件开发的创新意义：使任何传统程序秒变WEB。Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JUpyter Notebook学习</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JUpyter Notebook学习</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-30T09:58:41.000Z" itemprop="datePublished" class="page-time">
+  2017-09-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/PYTHON/">PYTHON</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、参考"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、参考</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、修改工作路径"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、修改工作路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1、方法一"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3-1、方法一</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#The-directory-to-use-for-notebooks-and-kernels"><span class="post-toc-number">4.</span> <span class="post-toc-text">The directory to use for notebooks and kernels.</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2、方法二"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">3-2、方法二</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3、方法三"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">3-3、方法三</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-4、方法四"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">3-4、方法四</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、添加登录密码"><span class="post-toc-number">5.</span> <span class="post-toc-text">4、添加登录密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、运行BUG"><span class="post-toc-number">6.</span> <span class="post-toc-text">5、运行BUG</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1、IOPub-data-rate-exceeded"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">5-1、IOPub data rate exceeded.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2、Python中matplotlib-pyplot-hist显示x-must-be-1D-or-2D"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">5-2、Python中matplotlib.pyplot.hist显示x must be 1D or 2D</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-3、Python-‘TypeError’-‘Generator’-object-is-not-subscriptable"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">5-3、Python ‘TypeError’: ‘Generator’ object is not subscriptable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-4、消除警告提示语"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">5-4、消除警告提示语</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、修改jupyter-notebook主题、字体和启动路径"><span class="post-toc-number">7.</span> <span class="post-toc-text">6、修改jupyter notebook主题、字体和启动路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-1、安装主题"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">6-1、安装主题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-2、切换"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">6-2、切换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-3、修改字体"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">6-3、修改字体</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-4、启动路径"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">6-4、启动路径</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20170930JupyterTutorial"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JUpyter Notebook学习</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-30 17:58:41" datetime="2017-09-30T09:58:41.000Z"  itemprop="datePublished">2017-09-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/PYTHON/">PYTHON</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p>&emsp;&emsp;jupyter,一个一体化的语言,IDE及通用分布式架构环境。比WEB更自然，jupyter用于通用软件开发的创新意义：使任何传统程序秒变WEB。Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。</p>
+<a id="more"></a>
+<p>&emsp;&emsp;目前用过的python ide有spyder, pycharm以及近年出的仿R studio的Rodeo，还是感觉jupyter notebook用的最得心应手。特别是在数据分析、机器学习等python编程的主力领域，我们的研究过程常常是探索性的，导入数据，查看数据的统计特征，试试这个模型，试试那个处理方法等，在这种情况下，notebook确实可以为我们提供一个高级“草稿本”，有了它，我们可以展示我们的探索过程，也可以在事后删去那些不相关的部分。应该说，jupyter notebook的流行是和特定领域的工作方式分不开的。比如，在python的网络开发领域，更流行的应该是pycharm，因为大家的工作并不一样。jupyter notebook的另外一个妙用是：提供了一种新的代码复用的方式。编程领域常见的代码复用方式编写一个新的外部库，然后提交到pypi或github,然后大家需要pip安装，整个流程还是比较复杂的。这种方式对于那些大型的库是很好的，但对于一些处理小问题的小脚本就有点大材小用了。比如，我只是想写一个绘制函数图像的脚本，其中预设一些绘图的格式，我就是只需要将相关功能实现在一个Notebook中，像这样：使用matplotlib绘制函数图像，当你把notebook下载起来，安装必要的库，然后就可以直接在notebook是使用相应的功能了。在notebook常用的领域中，像科学计算、数据分析与机器学习，这种代码复用的方式是非常方便的。至于notebook可能造成的滥用问题，我觉得这个可以通过使用者的代码规范来加以解决，适当设计整个book的结构，比如第一行写上这个Notebook的作者，联系方式，主要用途等信息，第二行导入所有必要的库，然后之下的每一行都是一个单独的功能模块，这样整个代码的结构就会清晰很多。这个方面，一些kaggle上面优秀的notebook很值得学习。</p>
+<h2 id="2、参考"><a href="#2、参考" class="headerlink" title="2、参考"></a>2、参考</h2><p><a href="http://blog.csdn.net/tina_ttl/article/details/51031113" target="_blank" rel="noopener">Python·Jupyter Notebook各种使用方法记录</a></p>
+<p><a href="http://liuchengxu.org/pelican-blog/jupyter-notebook-tips.html" target="_blank" rel="noopener">27 个Jupyter Notebook的小提示与技巧</a></p>
+<p><a href="http://www.cnblogs.com/alan-babyblog/p/5194399.html" target="_blank" rel="noopener">Python的functools.reduce用法</a></p>
+<p>我们需要使用其他类型的单元格，即 Header单元格和 Markdown单元格。</p>
+<p>首先，我们在顶部添加一个 notebook 的标题。选中第一个单元格，然后点击Insert -&gt; Insert单元格above（在上方插入单元格）。你会发现，文档的顶部马上就出现了一个新的单元格。点击在快捷键栏中的单元格类型，将其变成一个标题单元格（heading cell）</p>
+<p>要想在 Jupyter notebook 中使用 matplotlib，需要告诉 Jupyter 获取 matplotlib 生成的所有图形，并将其嵌入 notebook 中。为此，需要计算：</p>
+<p>%matplotlib inline</p>
+<h2 id="3、修改工作路径"><a href="#3、修改工作路径" class="headerlink" title="3、修改工作路径"></a>3、修改工作路径</h2><p>网上很多教程，然而在我的windows10系统上毫无作用，有很多人跟我有<a href="https://www.zhihu.com/question/31600197" target="_blank" rel="noopener">相同的情况</a>。<br>根据方法一，在我的笔记本上成功，相同的环境，不懂。</p>
+<h3 id="3-1、方法一"><a href="#3-1、方法一" class="headerlink" title="3-1、方法一"></a>3-1、方法一</h3><ol>
+<li>cmd: jupyter notebook –generate-config</li>
+<li>找到 ~.jupyter 中的文件 jupyter_notebook_config.py</li>
+<li>修改c.NotebookApp.notebook_dir = ‘你的目录’</li>
+<li><p>注意<code>\</code>这个是转义字符。</p>
+<h2 id="The-directory-to-use-for-notebooks-and-kernels"><a href="#The-directory-to-use-for-notebooks-and-kernels" class="headerlink" title="The directory to use for notebooks and kernels."></a>The directory to use for notebooks and kernels.</h2><p> #c.NotebookApp.notebook_dir = u’C:\Users\Administrator\Desktop\JupyterNotebook’</p>
+</li>
+</ol>
+<h3 id="3-2、方法二"><a href="#3-2、方法二" class="headerlink" title="3-2、方法二"></a>3-2、方法二</h3><p>windows下一种解决方案：在你要打开的目录里新建文本文档输入以下内容<br>    rem – start_ipython_notebook_here.bat —<br>    dir<br>    ipython notebook<br>    pause<br>保存另存为.bat文件，使用时双击即可。</p>
+<h3 id="3-3、方法三"><a href="#3-3、方法三" class="headerlink" title="3-3、方法三"></a>3-3、方法三</h3><pre><code>## The default URL to redirect to from `/`
+c.NotebookApp.default_url = &apos;/tree/Desktop/JupyterNotebook&apos;
+</code></pre><h3 id="3-4、方法四"><a href="#3-4、方法四" class="headerlink" title="3-4、方法四"></a>3-4、方法四</h3><p>第一步进入cmd，然后输入工作文件夹路径cd进入，最后运行jupyter-notebook命令即可。    </p>
+<h2 id="4、添加登录密码"><a href="#4、添加登录密码" class="headerlink" title="4、添加登录密码"></a>4、<a href="https://www.jianshu.com/p/a9de7a089834" target="_blank" rel="noopener">添加登录密码</a></h2><pre><code># Preparing a hashed password使用python运行为 Jupyter 创建密钥
+&gt;&gt;from notebook.auth import passwd
+&gt;&gt;passwd()
+Enter password: 
+Verify password: 
+&apos;sha1:67c9e60bb8b6:9ffede0825894254b2e042ea597d771089e11aed&apos;
+
+# 修改配置文件
+c.NotebookApp.password = u&apos;sha1:67c9e60bb8b6:9ffede0825894254b2e042ea597d771089e11aed&apos;
+</code></pre><h2 id="5、运行BUG"><a href="#5、运行BUG" class="headerlink" title="5、运行BUG"></a>5、运行BUG</h2><h3 id="5-1、IOPub-data-rate-exceeded"><a href="#5-1、IOPub-data-rate-exceeded" class="headerlink" title="5-1、IOPub data rate exceeded."></a>5-1、IOPub data rate exceeded.</h3><pre><code>The notebook server will temporarily stop sending output
+to the client in order to avoid crashing it.
+To change this limit, set the config variable
+`--NotebookApp.iopub_data_rate_limit`.
+</code></pre><h3 id="5-2、Python中matplotlib-pyplot-hist显示x-must-be-1D-or-2D"><a href="#5-2、Python中matplotlib-pyplot-hist显示x-must-be-1D-or-2D" class="headerlink" title="5-2、Python中matplotlib.pyplot.hist显示x must be 1D or 2D"></a>5-2、Python中matplotlib.pyplot.hist显示x must be 1D or 2D</h3><p>只需要将倒数第二行的h=plot.hist(deg.values(),100)改为h=plot.hist(list(deg.values()),100)就可以了，python 3.x。</p>
+<h3 id="5-3、Python-‘TypeError’-‘Generator’-object-is-not-subscriptable"><a href="#5-3、Python-‘TypeError’-‘Generator’-object-is-not-subscriptable" class="headerlink" title="5-3、Python ‘TypeError’: ‘Generator’ object is not subscriptable"></a>5-3、Python ‘TypeError’: ‘Generator’ object is not subscriptable</h3><pre><code>def gcd1(a,b):
+    &quot;&quot;&quot; the euclidean algorithm &quot;&quot;&quot;
+    while a:
+            a, b = b%a, a
+    return b
+for x in set1:
+    print(gcd1(x, set2[x]))
+</code></pre><p>A:This means that set2 is a generator, to get around this just turn it into a list.</p>
+<pre><code>set2_list = list(set2)
+for x in set1:
+    print(gcd1(x, set2_list[x]))
+</code></pre><h3 id="5-4、消除警告提示语"><a href="#5-4、消除警告提示语" class="headerlink" title="5-4、消除警告提示语"></a>5-4、消除警告提示语</h3><pre><code>import warnings
+warnings.filterwarnings(&quot;ignore&quot;)
+</code></pre><h2 id="6、修改jupyter-notebook主题、字体和启动路径"><a href="#6、修改jupyter-notebook主题、字体和启动路径" class="headerlink" title="6、修改jupyter notebook主题、字体和启动路径"></a>6、修改jupyter notebook主题、字体和启动路径</h2><h3 id="6-1、安装主题"><a href="#6-1、安装主题" class="headerlink" title="6-1、安装主题"></a>6-1、安装主题</h3><p>window在cmd中输入</p>
+<blockquote>
+<p>pip install –upgrade jupyterthemes</p>
+</blockquote>
+<p>完成后输入查看</p>
+<blockquote>
+<p>jt -l</p>
+</blockquote>
+<p>就提示有</p>
+<blockquote>
+<p>Available Themes:<br>chesterish<br>grade3<br>monokai<br>oceans16<br>onedork<br>solarizedd<br>solarizedl</p>
+</blockquote>
+<h3 id="6-2、切换"><a href="#6-2、切换" class="headerlink" title="6-2、切换"></a>6-2、切换</h3><p>输入</p>
+<blockquote>
+<p>jt -t 主题名 -N -T</p>
+</blockquote>
+<p>如果命令是‘jt -t 主题名’的形式切换的主题没有工具栏<br>执行后重启jupyter就行，恢复默认风格则</p>
+<blockquote>
+<p>jt -r</p>
+</blockquote>
+<h3 id="6-3、修改字体"><a href="#6-3、修改字体" class="headerlink" title="6-3、修改字体"></a>6-3、修改字体</h3><p>在浏览器中修改字体即可，这里将chrome的设置-&gt;高级中修改Consolas。</p>
+<h3 id="6-4、启动路径"><a href="#6-4、启动路径" class="headerlink" title="6-4、启动路径"></a>6-4、启动路径</h3><p>先在cmd中查找启动路径：</p>
+<blockquote>
+<p>jupyter notebook –generate-config</p>
+</blockquote>
+<p>选择是否要替换默认的</p>
+<blockquote>
+<p>C:\Users\Administrator.jupyter\jupyter_notebook_config.py with default config? [y/N]n    # 选择不替换为默认配置</p>
+</blockquote>
+<p>然后到指定路径下打开文件jupyter_notebook_config.py，搜索<em>**</em>并修改路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## The directory to use for notebooks and kernels.</span><br><span class="line">#c.NotebookApp.notebook_dir = &apos;&apos;</span><br><span class="line">c.NotebookApp.notebook_dir = &apos;D:\\newfolder&apos;</span><br></pre></td></tr></table></figure></p>
+<p>保存重启就可以。但是经常通过快捷方式启动，发现还是默认路径，原因在于快捷方式的属性中还是使用了%USERPROFILE%。将这个删除就行！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-15T14:37:52.888Z" itemprop="dateUpdated">2018-08-15 22:37:52</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/09/30/20170930JupyterTutorial/" target="_blank" rel="external">https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JupyterNotebook/">JupyterNotebook</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/&title=《JUpyter Notebook学习》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/&title=《JUpyter Notebook学习》 — HanKin的博客&source=1、简介&emsp;&emsp;jupyter,一个一体化的语言,IDE及通用分布式架构环境。比WEB更自然，jupyter用于通用软件开发的创新意义：使..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JUpyter Notebook学习》 — HanKin的博客&url=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/30/20170930git_study/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">git学习</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/30/20170930QtTutorial/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">QT学习</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/&title=《JUpyter Notebook学习》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/&title=《JUpyter Notebook学习》 — HanKin的博客&source=1、简介&emsp;&emsp;jupyter,一个一体化的语言,IDE及通用分布式架构环境。比WEB更自然，jupyter用于通用软件开发的创新意义：使..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JUpyter Notebook学习》 — HanKin的博客&url=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/09/30/20170930JupyterTutorial/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

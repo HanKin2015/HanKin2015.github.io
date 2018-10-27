@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>机器学习python应用 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ML,python">
+    <meta name="description" content="[TOC] Python与机器学习01-开篇-书籍&amp;amp;课程介绍机器学习简介机器学习的目标机器学习是实现人工智能的手段，其主要研究内容是如何利用数据或经验进行学习，改善具体算法的性能• 多领域交叉，涉及概率论、统计学，算法复杂度理论等多门学科• 广泛应用于网络搜索、垃圾邮件过滤、推荐系统、广告投放、信用评价、欺诈检测、股票交易和医疗诊断等应用">
+<meta name="keywords" content="ML,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习python应用">
+<meta property="og:url" content="https://hankin2015.github.io/2017/09/02/20170902ML-lixin/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="[TOC] Python与机器学习01-开篇-书籍&amp;amp;课程介绍机器学习简介机器学习的目标机器学习是实现人工智能的手段，其主要研究内容是如何利用数据或经验进行学习，改善具体算法的性能• 多领域交叉，涉及概率论、统计学，算法复杂度理论等多门学科• 广泛应用于网络搜索、垃圾邮件过滤、推荐系统、广告投放、信用评价、欺诈检测、股票交易和医疗诊断等应用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://i2.bvimg.com/605023/3065c75419b72296.png">
+<meta property="og:image" content="http://i2.bvimg.com/605023/ba039d4922d12919.png">
+<meta property="og:image" content="http://i2.bvimg.com/605023/db332623f68964d0.png">
+<meta property="og:image" content="http://i2.bvimg.com/605023/adeef45f02654686.png">
+<meta property="og:image" content="http://i2.bvimg.com/605023/83481a93f4b556af.png">
+<meta property="og:image" content="http://i2.bvimg.com/605023/383970f4b08ae45a.png">
+<meta property="og:image" content="http://i2.bvimg.com/605023/b5e228f4f04a13dc.png">
+<meta property="og:image" content="http://i2.bvimg.com/605023/65a00acb56d4db6b.png">
+<meta property="og:image" content="http://i2.bvimg.com/605023/38a7810b2ef74570.png">
+<meta property="og:image" content="http://i1.bvimg.com/605023/ec28cdaae24a346f.png">
+<meta property="og:image" content="http://i1.bvimg.com/605023/d26ec6e1085c1c36.png">
+<meta property="og:updated_time" content="2017-09-12T08:16:26.100Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习python应用">
+<meta name="twitter:description" content="[TOC] Python与机器学习01-开篇-书籍&amp;amp;课程介绍机器学习简介机器学习的目标机器学习是实现人工智能的手段，其主要研究内容是如何利用数据或经验进行学习，改善具体算法的性能• 多领域交叉，涉及概率论、统计学，算法复杂度理论等多门学科• 广泛应用于网络搜索、垃圾邮件过滤、推荐系统、广告投放、信用评价、欺诈检测、股票交易和医疗诊断等应用">
+<meta name="twitter:image" content="http://i2.bvimg.com/605023/3065c75419b72296.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">机器学习python应用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">机器学习python应用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-02T14:58:41.000Z" itemprop="datePublished" class="page-time">
+  2017-09-02
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python与机器学习"><span class="post-toc-number">1.</span> <span class="post-toc-text">Python与机器学习</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#01-开篇-书籍-amp-课程介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">01-开篇-书籍&amp;课程介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#机器学习简介"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">机器学习简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#机器学习的目标"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">机器学习的目标</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#机器学习分类"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">机器学习分类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Python-Scikit-learn"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">Python Scikit-learn</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Scikit-learn常用函数"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">Scikit-learn常用函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相关书籍及课程推荐"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">相关书籍及课程推荐</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#02-sklearn库的安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">02-sklearn库的安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn库的简介"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">sklearn库的简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sklearn库"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">sklearn库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Numpy库"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">Numpy库</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn库的安装"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">sklearn库的安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装包的下载"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">安装包的下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装顺序"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">安装顺序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">安装</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#03-sklearn库中的标准数据集及基本功能"><span class="post-toc-number">4.</span> <span class="post-toc-text">03-sklearn库中的标准数据集及基本功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn库中的标准数据集"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">sklearn库中的标准数据集</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#波士顿房价数据集-属性描述"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">波士顿房价数据集-属性描述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#波士顿房价数据集"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">波士顿房价数据集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#鸢尾花数据集"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">鸢尾花数据集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#手写数字数据集"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">手写数字数据集</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn库的基本功能"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">sklearn库的基本功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sklearn库的基本功能-1"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">sklearn库的基本功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分类任务"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">分类任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#降维任务"><span class="post-toc-number">4.2.3.</span> <span class="post-toc-text">降维任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#回归任务"><span class="post-toc-number">4.2.4.</span> <span class="post-toc-text">回归任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#聚类任务"><span class="post-toc-number">4.2.5.</span> <span class="post-toc-text">聚类任务</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#04-无监督学习简介"><span class="post-toc-number">5.</span> <span class="post-toc-text">04-无监督学习简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#无监督学习的目标"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">无监督学习的目标</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#聚类-clustering"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">聚类(clustering)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#欧氏距离"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">欧氏距离</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#曼哈顿距离"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">曼哈顿距离</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#马氏距离"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">马氏距离</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#夹角余弦"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">夹角余弦</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sklearn-vs-聚类"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">Sklearn vs. 聚类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn-cluster"><span class="post-toc-number">5.8.</span> <span class="post-toc-text">sklearn.cluster</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn-cluster-1"><span class="post-toc-number">5.9.</span> <span class="post-toc-text">sklearn.cluster</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#降维"><span class="post-toc-number">5.10.</span> <span class="post-toc-text">降维</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#聚类-vs-降维"><span class="post-toc-number">5.11.</span> <span class="post-toc-text">聚类 vs.降维</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn-vs-降维"><span class="post-toc-number">5.12.</span> <span class="post-toc-text">sklearn vs.降维</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn-decomposition"><span class="post-toc-number">5.13.</span> <span class="post-toc-text">sklearn.decomposition</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#未来任务"><span class="post-toc-number">5.14.</span> <span class="post-toc-text">未来任务</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#05-无监督学习-31省消费水平-聚类"><span class="post-toc-number">6.</span> <span class="post-toc-text">05-无监督学习-31省消费水平(聚类)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#K-means方法及应用"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">K-means方法及应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#K-means聚类算法"><span class="post-toc-number">6.1.1.</span> <span class="post-toc-text">K-means聚类算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#K-means的应用"><span class="post-toc-number">6.1.2.</span> <span class="post-toc-text">K-means的应用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验过程："><span class="post-toc-number">6.1.3.</span> <span class="post-toc-text">实验过程：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拓展-amp-amp-改进"><span class="post-toc-number">6.1.4.</span> <span class="post-toc-text">拓展&amp;&amp;改进</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#06-无监督-DBSCAN-学生上网分析"><span class="post-toc-number">7.</span> <span class="post-toc-text">06-无监督-DBSCAN-学生上网分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DBSCAN方法及应用"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">DBSCAN方法及应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DBSCAN密度聚类"><span class="post-toc-number">7.1.1.</span> <span class="post-toc-text">DBSCAN密度聚类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DBSCAN密度聚类-1"><span class="post-toc-number">7.1.2.</span> <span class="post-toc-text">DBSCAN密度聚类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DBSCAN密度聚类-2"><span class="post-toc-number">7.1.3.</span> <span class="post-toc-text">DBSCAN密度聚类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DBSCAN的应用实例"><span class="post-toc-number">7.1.4.</span> <span class="post-toc-text">DBSCAN的应用实例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据实例："><span class="post-toc-number">7.1.5.</span> <span class="post-toc-text">数据实例：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验过程：-1"><span class="post-toc-number">7.1.6.</span> <span class="post-toc-text">实验过程：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调用DBSCAN方法进行训练，labels为每个数据的簇标签"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">调用DBSCAN方法进行训练，labels为每个数据的簇标签</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#07-无监督学习-降维"><span class="post-toc-number">8.</span> <span class="post-toc-text">07-无监督学习-降维</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PCA方法及其应用"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">PCA方法及其应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主成分分析（PCA）"><span class="post-toc-number">8.1.1.</span> <span class="post-toc-text">主成分分析（PCA）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主成分分析"><span class="post-toc-number">8.1.2.</span> <span class="post-toc-text">主成分分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方差"><span class="post-toc-number">8.1.3.</span> <span class="post-toc-text">方差</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#协方差"><span class="post-toc-number">8.1.4.</span> <span class="post-toc-text">协方差</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#特征向量"><span class="post-toc-number">8.1.5.</span> <span class="post-toc-text">特征向量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原理"><span class="post-toc-number">8.1.6.</span> <span class="post-toc-text">原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sklearn中主成分分析"><span class="post-toc-number">8.1.7.</span> <span class="post-toc-text">sklearn中主成分分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PCA实现高维数据可视化"><span class="post-toc-number">8.1.8.</span> <span class="post-toc-text">PCA实现高维数据可视化</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#08-无监督学习-降维"><span class="post-toc-number">9.</span> <span class="post-toc-text">08-无监督学习-降维</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NMF方法及实例"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">NMF方法及实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#非负矩阵分解（NMF）"><span class="post-toc-number">9.1.1.</span> <span class="post-toc-text">非负矩阵分解（NMF）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#非负矩阵分解"><span class="post-toc-number">9.1.2.</span> <span class="post-toc-text">非负矩阵分解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sklearn中非负矩阵分解"><span class="post-toc-number">9.1.3.</span> <span class="post-toc-text">sklearn中非负矩阵分解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NMF人脸数据特征提取"><span class="post-toc-number">9.1.4.</span> <span class="post-toc-text">NMF人脸数据特征提取</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#09-无监督学习"><span class="post-toc-number">10.</span> <span class="post-toc-text">09-无监督学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基于聚类的“图像分割”实例编写"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">基于聚类的“图像分割”实例编写</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图像分割"><span class="post-toc-number">10.1.1.</span> <span class="post-toc-text">图像分割</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实例描述"><span class="post-toc-number">10.1.2.</span> <span class="post-toc-text">实例描述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验过程"><span class="post-toc-number">10.1.3.</span> <span class="post-toc-text">实验过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验分析"><span class="post-toc-number">10.1.4.</span> <span class="post-toc-text">实验分析</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#11-监督学习-课程导学"><span class="post-toc-number">11.</span> <span class="post-toc-text">11-监督学习-课程导学</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#监督学习的目标"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">监督学习的目标</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类学习"><span class="post-toc-number">11.2.</span> <span class="post-toc-text">分类学习</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类学习-评价"><span class="post-toc-number">11.3.</span> <span class="post-toc-text">分类学习-评价</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类学习-评价标准"><span class="post-toc-number">11.4.</span> <span class="post-toc-text">分类学习-评价标准</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#精确率"><span class="post-toc-number">11.4.1.</span> <span class="post-toc-text">精确率</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#召回率"><span class="post-toc-number">11.4.2.</span> <span class="post-toc-text">召回率</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类学习-评价标准-1"><span class="post-toc-number">11.5.</span> <span class="post-toc-text">分类学习-评价标准</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sklearn-vs-分类"><span class="post-toc-number">11.6.</span> <span class="post-toc-text">Sklearn vs. 分类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类算法的应用"><span class="post-toc-number">11.7.</span> <span class="post-toc-text">分类算法的应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#回归分析"><span class="post-toc-number">11.8.</span> <span class="post-toc-text">回归分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sklearn-vs-回归"><span class="post-toc-number">11.9.</span> <span class="post-toc-text">Sklearn vs. 回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#回归应用"><span class="post-toc-number">11.10.</span> <span class="post-toc-text">回归应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#12-人体运动状态预测-实例分析"><span class="post-toc-number">12.</span> <span class="post-toc-text">12-人体运动状态预测-实例分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景介绍"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">背景介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据介绍"><span class="post-toc-number">12.2.</span> <span class="post-toc-text">数据介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据介绍-label"><span class="post-toc-number">12.3.</span> <span class="post-toc-text">数据介绍-label</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务介绍"><span class="post-toc-number">12.4.</span> <span class="post-toc-text">任务介绍</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#13-基本分类模型"><span class="post-toc-number">13.</span> <span class="post-toc-text">13-基本分类模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#K近邻分类器-KNN"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">K近邻分类器(KNN)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn中的K近邻分类器"><span class="post-toc-number">13.2.</span> <span class="post-toc-text">sklearn中的K近邻分类器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#交叉验证法"><span class="post-toc-number">13.3.</span> <span class="post-toc-text">交叉验证法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#K近邻分类器的使用"><span class="post-toc-number">13.4.</span> <span class="post-toc-text">K近邻分类器的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#KNN的使用经验"><span class="post-toc-number">13.5.</span> <span class="post-toc-text">KNN的使用经验</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#决策树"><span class="post-toc-number">13.6.</span> <span class="post-toc-text">决策树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#洛伦兹曲线-编辑"><span class="post-toc-number">13.7.</span> <span class="post-toc-text">洛伦兹曲线 编辑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基尼系数-编辑"><span class="post-toc-number">13.8.</span> <span class="post-toc-text">基尼系数 编辑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn中的决策树"><span class="post-toc-number">13.9.</span> <span class="post-toc-text">sklearn中的决策树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#交叉验证基本思想"><span class="post-toc-number">13.10.</span> <span class="post-toc-text">交叉验证基本思想</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#决策树-1"><span class="post-toc-number">13.11.</span> <span class="post-toc-text">决策树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#朴素贝叶斯"><span class="post-toc-number">13.12.</span> <span class="post-toc-text">朴素贝叶斯</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn中的朴素贝叶斯"><span class="post-toc-number">13.13.</span> <span class="post-toc-text">sklearn中的朴素贝叶斯</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#朴素贝叶斯-1"><span class="post-toc-number">13.14.</span> <span class="post-toc-text">朴素贝叶斯</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#14-运动状态-程序编写"><span class="post-toc-number">14.</span> <span class="post-toc-text">14-运动状态-程序编写</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算法流程"><span class="post-toc-number">14.1.</span> <span class="post-toc-text">算法流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块导入"><span class="post-toc-number">14.2.</span> <span class="post-toc-text">模块导入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据导入函数"><span class="post-toc-number">14.3.</span> <span class="post-toc-text">数据导入函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主函数-数据准备"><span class="post-toc-number">14.4.</span> <span class="post-toc-text">主函数-数据准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#课后思考"><span class="post-toc-number">14.5.</span> <span class="post-toc-text">课后思考</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#15-监督学习-上证指数涨跌预测"><span class="post-toc-number">15.</span> <span class="post-toc-text">15-监督学习-上证指数涨跌预测</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上证指数涨跌预测"><span class="post-toc-number">15.1.</span> <span class="post-toc-text">上证指数涨跌预测</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实验过程：-2"><span class="post-toc-number">15.2.</span> <span class="post-toc-text">实验过程：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#16-线性回归-房价与房屋尺寸关系的线性拟合"><span class="post-toc-number">16.</span> <span class="post-toc-text">16-线性回归+房价与房屋尺寸关系的线性拟合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线性回归"><span class="post-toc-number">16.1.</span> <span class="post-toc-text">线性回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线性回归-1"><span class="post-toc-number">16.2.</span> <span class="post-toc-text">线性回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线性回归的实际用途"><span class="post-toc-number">16.3.</span> <span class="post-toc-text">线性回归的实际用途</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线性回归的应用"><span class="post-toc-number">16.4.</span> <span class="post-toc-text">线性回归的应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例数据"><span class="post-toc-number">16.5.</span> <span class="post-toc-text">实例数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可行性分析"><span class="post-toc-number">16.6.</span> <span class="post-toc-text">可行性分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实验过程-1"><span class="post-toc-number">16.7.</span> <span class="post-toc-text">实验过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现步骤——1-建立工程并导入sklearn包"><span class="post-toc-number">16.8.</span> <span class="post-toc-text">实现步骤——1.建立工程并导入sklearn包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现步骤——2-加载训练数据，建立回归方程"><span class="post-toc-number">16.9.</span> <span class="post-toc-text">实现步骤——2.加载训练数据，建立回归方程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现步骤——3-可视化处理"><span class="post-toc-number">16.10.</span> <span class="post-toc-text">实现步骤——3.可视化处理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多项式回归-房价与房屋尺寸关系的非线性拟合"><span class="post-toc-number">17.</span> <span class="post-toc-text">多项式回归+房价与房屋尺寸关系的非线性拟合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多项式回归"><span class="post-toc-number">17.1.</span> <span class="post-toc-text">多项式回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多项式回归的应用"><span class="post-toc-number">17.2.</span> <span class="post-toc-text">多项式回归的应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实验过程-2"><span class="post-toc-number">17.3.</span> <span class="post-toc-text">实验过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现步骤——1-建立工程并导入sklearn包-1"><span class="post-toc-number">17.4.</span> <span class="post-toc-text">实现步骤——1.建立工程并导入sklearn包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#岭回归及其应用实例"><span class="post-toc-number">18.</span> <span class="post-toc-text">岭回归及其应用实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线性回归-2"><span class="post-toc-number">18.1.</span> <span class="post-toc-text">线性回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#岭回归"><span class="post-toc-number">18.2.</span> <span class="post-toc-text">岭回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn中的岭回归"><span class="post-toc-number">18.3.</span> <span class="post-toc-text">sklearn中的岭回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#交通流量预测实例"><span class="post-toc-number">18.4.</span> <span class="post-toc-text">交通流量预测实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据特征如下："><span class="post-toc-number">18.5.</span> <span class="post-toc-text">数据特征如下：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#19-“手写识别”实例介绍"><span class="post-toc-number">19.</span> <span class="post-toc-text">19-“手写识别”实例介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图像识别"><span class="post-toc-number">19.1.</span> <span class="post-toc-text">图像识别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#手写识别"><span class="post-toc-number">19.2.</span> <span class="post-toc-text">手写识别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MNIST数据集"><span class="post-toc-number">19.3.</span> <span class="post-toc-text">MNIST数据集</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DBRHD数据集"><span class="post-toc-number">19.4.</span> <span class="post-toc-text">DBRHD数据集</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#“手写识别”实例"><span class="post-toc-number">19.5.</span> <span class="post-toc-text">“手写识别”实例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#20-神经网络实现“手写识别”"><span class="post-toc-number">20.</span> <span class="post-toc-text">20-神经网络实现“手写识别”</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务介绍-1"><span class="post-toc-number">20.1.</span> <span class="post-toc-text">任务介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MLP的输入"><span class="post-toc-number">20.2.</span> <span class="post-toc-text">MLP的输入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MLP的输出"><span class="post-toc-number">20.3.</span> <span class="post-toc-text">MLP的输出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MLP结构"><span class="post-toc-number">20.4.</span> <span class="post-toc-text">MLP结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MLP手写识别实例构建"><span class="post-toc-number">20.5.</span> <span class="post-toc-text">MLP手写识别实例构建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步骤3：训练神经网络"><span class="post-toc-number">20.6.</span> <span class="post-toc-text">步骤3：训练神经网络</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实验效果"><span class="post-toc-number">20.7.</span> <span class="post-toc-text">实验效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实验效果-1"><span class="post-toc-number">20.8.</span> <span class="post-toc-text">实验效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实验效果-2"><span class="post-toc-number">20.9.</span> <span class="post-toc-text">实验效果</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#21-KNN实现“手写识别”"><span class="post-toc-number">21.</span> <span class="post-toc-text">21-KNN实现“手写识别”</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第三周强化学习"><span class="post-toc-number">22.</span> <span class="post-toc-text">第三周强化学习</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20170902ML-lixin"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">机器学习python应用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-02 22:58:41" datetime="2017-09-02T14:58:41.000Z"  itemprop="datePublished">2017-09-02</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>[TOC]</p>
+<h1 id="Python与机器学习"><a href="#Python与机器学习" class="headerlink" title="Python与机器学习"></a><center>Python与机器学习</center></h1><h1 id="01-开篇-书籍-amp-课程介绍"><a href="#01-开篇-书籍-amp-课程介绍" class="headerlink" title="01-开篇-书籍&amp;课程介绍"></a>01-开篇-书籍&amp;课程介绍</h1><h2 id="机器学习简介"><a href="#机器学习简介" class="headerlink" title="机器学习简介"></a>机器学习简介</h2><h3 id="机器学习的目标"><a href="#机器学习的目标" class="headerlink" title="机器学习的目标"></a>机器学习的目标</h3><p>机器学习是实现人工智能的手段，其主要研究内容是如何利用数据或经<br>验进行学习，改善具体算法的性能<br>• 多领域交叉，涉及概率论、统计学，算法复杂度理论等多门学科<br>• 广泛应用于网络搜索、垃圾邮件过滤、推荐系统、广告投放、信用评价、<br>欺诈检测、股票交易和医疗诊断等应用</p>
+<a id="more"></a>
+<h3 id="机器学习分类"><a href="#机器学习分类" class="headerlink" title="机器学习分类"></a>机器学习分类</h3><p>机器学习一般分为下面几种类别<br>• 监督学习 （Supervised Learning）<br>• 无监督学习 （Unsupervised Learning）<br>• 强化学习（Reinforcement Learning，增强学习）<br>• 半监督学习（Semi-supervised Learning）<br>• 深度学习 (Deep Learning)</p>
+<h3 id="Python-Scikit-learn"><a href="#Python-Scikit-learn" class="headerlink" title="Python Scikit-learn"></a>Python Scikit-learn</h3><p>• <a href="http://scikit-learn.org/stable/" target="_blank" rel="noopener">http://scikit-learn.org/stable/</a><br>• Machine Leaning in Python<br>• 一组简单有效的工具集<br>• 依赖Python的NumPy，SciPy和matplotlib库<br>• 开源、可复用</p>
+<h3 id="Scikit-learn常用函数"><a href="#Scikit-learn常用函数" class="headerlink" title="Scikit-learn常用函数"></a>Scikit-learn常用函数</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i2.bvimg.com/605023/3065c75419b72296.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="相关书籍及课程推荐"><a href="#相关书籍及课程推荐" class="headerlink" title="相关书籍及课程推荐"></a>相关书籍及课程推荐</h3><p>图书-机器学习（西瓜书）-周志华<br>图书-PRML-Bishop（早知此书，PhD早毕业2年）<br>课程-Machine Learning-Andrew Ng（吴恩达）<br>课程-CS231n-Fei-Fei Li（深度学习）<br>课程-Reinforcement Learning-David Silver（增强学习）</p>
+<h1 id="02-sklearn库的安装"><a href="#02-sklearn库的安装" class="headerlink" title="02-sklearn库的安装"></a>02-sklearn库的安装</h1><h2 id="sklearn库的简介"><a href="#sklearn库的简介" class="headerlink" title="sklearn库的简介"></a>sklearn库的简介</h2><h3 id="sklearn库"><a href="#sklearn库" class="headerlink" title="sklearn库"></a>sklearn库</h3><p>sklearn是scikit-learn的简称，是一个基于Python的第三方模块。sklearn库集成了一些常用的机器学习方法，在进行机器学习任务时，并不需要实现算法，只需要简单的调用sklearn库中提供的模块就能完成大多数的机器学习任务。<br>sklearn库是在Numpy、Scipy和matplotlib的基础上开发而成的，因此在介绍sklearn的安装前，需要先安装这些依赖库。</p>
+<h3 id="Numpy库"><a href="#Numpy库" class="headerlink" title="Numpy库"></a>Numpy库</h3><p>Numpy（Numerical Python的缩写）是一个开源的Python科学计算库。在Python中虽然提供了list容器和array模块，但这些结构并不适合于进行数值计算，因此需要借助于Numpy库创建常用的数据结构（如：多维数组，矩阵等）以及进行常用的科学计算（如：矩阵运算）。<br>Scipy库是sklearn库的基础，它是基于Numpy的一个集成了多种数学算法和函数的Python模块。它的不同子模块有不同的应用，如：积分、插值、优化和信号处理等。<br>matplotlib是基于Numpy的一套Python工具包，它提供了大量的数据绘图工具，主要用于绘制一些统计图形，将大量的数据转换成更加容易被接受的图表。<br>（注意要先安装numpy再安装matplotlib库）</p>
+<h2 id="sklearn库的安装"><a href="#sklearn库的安装" class="headerlink" title="sklearn库的安装"></a>sklearn库的安装</h2><h3 id="安装包的下载"><a href="#安装包的下载" class="headerlink" title="安装包的下载"></a>安装包的下载</h3><p>下载地址：<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#（官方下载链接）" target="_blank" rel="noopener">http://www.lfd.uci.edu/~gohlke/pythonlibs/#（官方下载链接）</a></p>
+<h3 id="安装顺序"><a href="#安装顺序" class="headerlink" title="安装顺序"></a>安装顺序</h3><p>安装顺序如下：</p>
+<ol>
+<li>Numpy库</li>
+<li>Scipy库</li>
+<li>matplotlib库</li>
+<li>sklearn库</li>
+</ol>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>本课程使用的是Python3.5的64位版<br>pip install “numpy-1.11.3+mkl-cp35-cp35m-win_amd64.whl”<br>pip install scipy-0.19.0-cp35-cp35m-win_amd64.whl<br>pip install matplotlib-2.0.0-cp35-cp35m-win_amd64.whl<br>pip install scikit_learn-0.18.1-cp35-cp35m-win_amd64.whl</p>
+<h1 id="03-sklearn库中的标准数据集及基本功能"><a href="#03-sklearn库中的标准数据集及基本功能" class="headerlink" title="03-sklearn库中的标准数据集及基本功能"></a>03-sklearn库中的标准数据集及基本功能</h1><h2 id="sklearn库中的标准数据集"><a href="#sklearn库中的标准数据集" class="headerlink" title="sklearn库中的标准数据集"></a>sklearn库中的标准数据集</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i2.bvimg.com/605023/ba039d4922d12919.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="波士顿房价数据集-属性描述"><a href="#波士顿房价数据集-属性描述" class="headerlink" title="波士顿房价数据集-属性描述"></a>波士顿房价数据集-属性描述</h3><p>CRIM：城镇人均犯罪率。<br>ZN：住宅用地超过 25000 sq.ft. 的比例。<br>INDUS：城镇非零售商用土地的比例。<br>CHAS：查理斯河空变量（如果边界是河流，则为1；否则为0）<br>NOX：一氧化氮浓度。<br>RM：住宅平均房间数。<br>AGE：1940 年之前建成的自用房屋比例。<br>DIS：到波士顿五个中心区域的加权距离。<br>RAD：辐射性公路的接近指数。<br>TAX：每 10000 美元的全值财产税率。<br>PTRATIO：城镇师生比例。<br>B：1000（Bk-0.63）^ 2，其中 Bk 指代城镇中黑人的比例。<br>LSTAT：人口中地位低下者的比例。<br>MEDV：自住房的平均房价，以千美元计。</p>
+<h3 id="波士顿房价数据集"><a href="#波士顿房价数据集" class="headerlink" title="波士顿房价数据集"></a>波士顿房价数据集</h3><p>使用sklearn.datasets.load_boston即可加载相关数据集其重要参数为：<br>• return_X_y:表示是否返回target（即价格），默认为False，只返回data（即属性）。</p>
+<h3 id="鸢尾花数据集"><a href="#鸢尾花数据集" class="headerlink" title="鸢尾花数据集"></a>鸢尾花数据集</h3><p>鸢尾花数据集采集的是鸢尾花的测量数据以及其所属的类别。<br>测量数据包括：萼片长度、萼片宽度、花瓣长度、花瓣宽度。<br>类别共分为三类：Iris Setosa，Iris Versicolour，Iris Virginica。该数据集可用于多分类问题。</p>
+<p>使用sklearn.datasets. load_iris即可加载相关数据集其参数有：<br>• return_X_y:若为True，则以（data, target）形式返回数据；默认为False，表示以字典形式返回数据全部信息（包括data和target）。</p>
+<h3 id="手写数字数据集"><a href="#手写数字数据集" class="headerlink" title="手写数字数据集"></a>手写数字数据集</h3><p>使用sklearn.datasets.load_digits即可加载相关数据集其参数包括：<br>• return_X_y:若为True，则以（data, target）形式返回数据；默认为False，表示以字典形式返回数据全部信息（包括data和target）；<br>• n_class：表示返回数据的类别数，如：n_class=5,则返回0到4的数据样本。</p>
+<h2 id="sklearn库的基本功能"><a href="#sklearn库的基本功能" class="headerlink" title="sklearn库的基本功能"></a>sklearn库的基本功能</h2><h3 id="sklearn库的基本功能-1"><a href="#sklearn库的基本功能-1" class="headerlink" title="sklearn库的基本功能"></a>sklearn库的基本功能</h3><p>sklearn库的共分为6大部分，分别用于完成分类任务、回归任务、聚类任务、降维任务、模型选择以及数据的预处理。</p>
+<h3 id="分类任务"><a href="#分类任务" class="headerlink" title="分类任务"></a>分类任务</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i2.bvimg.com/605023/db332623f68964d0.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="降维任务"><a href="#降维任务" class="headerlink" title="降维任务"></a>降维任务</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i2.bvimg.com/605023/adeef45f02654686.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="回归任务"><a href="#回归任务" class="headerlink" title="回归任务"></a>回归任务</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i2.bvimg.com/605023/83481a93f4b556af.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="聚类任务"><a href="#聚类任务" class="headerlink" title="聚类任务"></a>聚类任务</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i2.bvimg.com/605023/383970f4b08ae45a.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="04-无监督学习简介"><a href="#04-无监督学习简介" class="headerlink" title="04-无监督学习简介"></a>04-无监督学习简介</h1><h2 id="无监督学习的目标"><a href="#无监督学习的目标" class="headerlink" title="无监督学习的目标"></a>无监督学习的目标</h2><p>利用无标签的数据学习数据的分布或数据与数据之间的关系被称作无监督学习。<br>• 有监督学习和无监督学习的最大区别在于数据是否有标签<br>• 无监督学习最常应用的场景是聚类(clustering)和降维(DimensionReduction)</p>
+<h2 id="聚类-clustering"><a href="#聚类-clustering" class="headerlink" title="聚类(clustering)"></a>聚类(clustering)</h2><p>聚类(clustering)，就是根据数据的“相似性”将数据分为多类的过程。<br>评估两个不同样本之间的“相似性” ，通常使用的方法就是计算两个样本之间的“距离”。使用不同的方法计算样本间的距离会关系到聚类结果的好坏。</p>
+<h2 id="欧氏距离"><a href="#欧氏距离" class="headerlink" title="欧氏距离"></a>欧氏距离</h2><p>欧氏距离是最常用的一种距离度量方法，源于欧式空间中两点的距离。其计算方法如下：<br>$$ d = \sqrt{\sum<em>{k=1}^n(x</em>{1k}-x_{2k})^2} $$</p>
+<h2 id="曼哈顿距离"><a href="#曼哈顿距离" class="headerlink" title="曼哈顿距离"></a>曼哈顿距离</h2><p>曼哈顿距离也称作“城市街区距离”，类似于在城市之中驾车行驶，从一个十字路口到另外一个十字楼口的距离。其计算方法如下：<br>$$ d = \sum<em>{k=1}^n|x</em>{1k}-x_{2k}| $$<br>例如在二维空间中：$d=|x_1-x_2|+|y_1-y_2|$  </p>
+<h2 id="马氏距离"><a href="#马氏距离" class="headerlink" title="马氏距离"></a>马氏距离</h2><p>马氏距离表示数据的协方差距离，是一种尺度无关的度量方式。也就是说马氏距离会先将样本点的各个属性标准化，再计算样本间的距离。其计算方式如下：（s是协方差矩阵，如图）<br>$$ d(x_i,x_j) = \sqrt{(x_i-x_j)^Ts^{-1}(x_i-x_j)} $$<br>与欧氏距离差别大。</p>
+<h2 id="夹角余弦"><a href="#夹角余弦" class="headerlink" title="夹角余弦"></a>夹角余弦</h2><p>余弦相似度用向量空间中两个向量夹角的余弦值作为衡量两个样本差异的大小。余弦值越接近1，说明两个向量夹角越接近0度，表明两个向量越相似。其计算方法如下：<br>$$ cos(\theta) = \frac{\sum<em>{k=1}^nx</em>{1k}x<em>{2k}}{\sqrt{\sum</em>{k=1}^nx<em>{1k}^2}\sqrt{\sum</em>{k=1}^nx_{2k}^2}} $$</p>
+<h2 id="Sklearn-vs-聚类"><a href="#Sklearn-vs-聚类" class="headerlink" title="Sklearn vs. 聚类"></a>Sklearn vs. 聚类</h2><p>scikit-learn库（以后简称sklearn库）提供的常用聚类算法函数包含在sklearn.cluster这个模块中，如：K-Means，近邻传播算法，DBSCAN，等。<br>以同样的数据集应用于不同的算法，可能会得到不同的结果，算法所耗费的时间也不尽相同，这是由算法的特性决定的。</p>
+<h2 id="sklearn-cluster"><a href="#sklearn-cluster" class="headerlink" title="sklearn.cluster"></a>sklearn.cluster</h2><p>sklearn.cluster模块提供的各聚类算法函数可以使用不同的数据形式作为输入:<br>标准数据输入格式:[样本个数，特征个数]定义的矩阵形式。<br>相似性矩阵输入格式：即由[样本数目，样本数目]定义的矩阵形式，矩阵中的每一个元素为两个样本的相似度，如DBSCAN， AffinityPropagation(近邻传播算法)接受这种输入。如果以余弦相似度为例，则对角线元素全为1. 矩阵中每个元素的取值范围为[0,1]。</p>
+<h2 id="sklearn-cluster-1"><a href="#sklearn-cluster-1" class="headerlink" title="sklearn.cluster"></a>sklearn.cluster</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i2.bvimg.com/605023/b5e228f4f04a13dc.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h2><p>降维，就是在保证数据所具有的代表性特性或者分布的情况下，将高维数据转化为低维数据的过程：</p>
+<ul>
+<li>数据的可视化</li>
+<li>精简数据</li>
+</ul>
+<h2 id="聚类-vs-降维"><a href="#聚类-vs-降维" class="headerlink" title="聚类 vs.降维"></a>聚类 vs.降维</h2><p>聚类和降维都是无监督学习的典型任务，任务之间存在关联，比如某些高维数据的聚类可以通过降维处理更好的获得，另外学界研究也表明代表性的聚类算法如k-means与降维算法如NMF之间存在等价性，在此我们就不展开讨论了，有兴趣的同学可以参考我们推荐的阅读内容。</p>
+<h2 id="sklearn-vs-降维"><a href="#sklearn-vs-降维" class="headerlink" title="sklearn vs.降维"></a>sklearn vs.降维</h2><ul>
+<li>降维是机器学习领域的一个重要研究内容，有很多被工业界和学术界接受的典型算法，截止到目前sklearn库提供7种降维算法。</li>
+<li>降维过程也可以被理解为对数据集的组成成份进行分解（decomposition）的过程，因此sklearn为降维模块命名为decomposition, 在对降维算法调用需要使用sklearn.decomposition模块</li>
+</ul>
+<h2 id="sklearn-decomposition"><a href="#sklearn-decomposition" class="headerlink" title="sklearn.decomposition"></a>sklearn.decomposition</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i2.bvimg.com/605023/65a00acb56d4db6b.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="未来任务"><a href="#未来任务" class="headerlink" title="未来任务"></a>未来任务</h2><p>大家可以通过本次的讲授先行思考下面的问题哪些<br>是聚类问题，哪些是降维任务？：</p>
+<ul>
+<li>31省市居民家庭消费调查</li>
+<li>学生月上网时间分布调查</li>
+<li>人脸图像特征抽取</li>
+<li>图像分割</li>
+</ul>
+<h1 id="05-无监督学习-31省消费水平-聚类"><a href="#05-无监督学习-31省消费水平-聚类" class="headerlink" title="05-无监督学习-31省消费水平(聚类)"></a>05-无监督学习-31省消费水平(聚类)</h1><h2 id="K-means方法及应用"><a href="#K-means方法及应用" class="headerlink" title="K-means方法及应用"></a>K-means方法及应用</h2><h3 id="K-means聚类算法"><a href="#K-means聚类算法" class="headerlink" title="K-means聚类算法"></a>K-means聚类算法</h3><p>k-means算法以k为参数，把n个对象分成k个簇，使簇内具有较高的相似度，而簇间的相似度较低。<br>其处理过程如下：<br>1.随机选择k个点作为初始的聚类中心；<br>2.对于剩下的点，根据其与聚类中心的距离，将其归入最近的簇<br>3.对每个簇，计算所有点的均值作为新的聚类中心<br>4.重复2、3直到聚类中心不再发生改变</p>
+<h3 id="K-means的应用"><a href="#K-means的应用" class="headerlink" title="K-means的应用"></a>K-means的应用</h3><p>数据介绍：<br>现有1999年全国31个省份城镇居民家庭平均每人全年消费性支出的八个主要变量数据，这八个变量分别是：食品、衣着、家庭设备用品及服务、医疗保健、交通和通讯、娱乐教育文化服务、居住以及杂项商品和服务。利用已有数据，对31个省份进行聚类。<br>实验目的：<br>通过聚类，了解1999年各个省份的消费水平在国内的情况。<br>技术路线：sklearn.cluster.Kmeans</p>
+<h3 id="实验过程："><a href="#实验过程：" class="headerlink" title="实验过程："></a>实验过程：</h3><p>• 使用算法： K-means聚类算法<br>• 实现过程：</p>
+<ol>
+<li>建立工程，导入sklearn相关包</li>
+</ol>
+<ul>
+<li>import numpy as np</li>
+<li>from sklearn.cluster import KMeans<br>关于一些相关包的介绍：</li>
+<li>NumPy是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。</li>
+<li>使用sklearn.cluster.KMeans可以调用K-means算法进行聚类</li>
+</ul>
+<ol>
+<li><p>加载数据，创建K-means算法实例，并进行训练，获得标签：<br>调用KMeans方法所需参数：<br>• n_clusters：用于指定聚类中心的个数<br>• init：初始聚类中心的初始化方法<br>• max_iter：最大的迭代次数<br>• 一般调用时只用给出n_clusters即可，init默认是k-means++，max_iter默认是300<br>其它参数：<br>• data：加载的数据<br>• label：聚类后各数据所属的标签<br>• axis: 按行求和<br>• fit_predict()：计算簇中心以及为簇分配序号</p>
+</li>
+<li><p>输出标签，查看结果<br>将城市按照消费水平n_clusters类，消费水平相近的城市聚集在一类中<br>expense：聚类中心点的数值加和，也就是平均消费水平</p>
+</li>
+</ol>
+<h3 id="拓展-amp-amp-改进"><a href="#拓展-amp-amp-改进" class="headerlink" title="拓展&amp;&amp;改进"></a>拓展&amp;&amp;改进</h3><p>计算两条数据相似性时，Sklearn 的K-Means默认用的是欧式距离。虽然还有余弦相似度，马氏距离等多种方法，但没有设定计算距离方法的参数。<br>建议使用 scipy.spatial.distance.cdist 方法<br>使用形式：scipy.spatial.distance.cdist(A, B, metric=‘cosine’)<br>重要参数：<br>• A：A向量<br>• B：B向量<br>• metric: 计算A和B距离的方法，更改此参数可以更改调用的计算距离的方法</p>
+<p>www.python123.org    去中国慕课网课程网页  github   百度云</p>
+<h1 id="06-无监督-DBSCAN-学生上网分析"><a href="#06-无监督-DBSCAN-学生上网分析" class="headerlink" title="06-无监督-DBSCAN-学生上网分析"></a>06-无监督-DBSCAN-学生上网分析</h1><h2 id="DBSCAN方法及应用"><a href="#DBSCAN方法及应用" class="headerlink" title="DBSCAN方法及应用"></a>DBSCAN方法及应用</h2><h3 id="DBSCAN密度聚类"><a href="#DBSCAN密度聚类" class="headerlink" title="DBSCAN密度聚类"></a>DBSCAN密度聚类</h3><p>DBSCAN算法是一种基于密度的聚类算法：<br>• 聚类的时候不需要预先指定簇的个数<br>• 最终的簇的个数不定</p>
+<h3 id="DBSCAN密度聚类-1"><a href="#DBSCAN密度聚类-1" class="headerlink" title="DBSCAN密度聚类"></a>DBSCAN密度聚类</h3><p>DBSCAN算法将数据点分为三类：<br>• 核心点：在半径Eps内含有超过MinPts数目的点<br>• 边界点：在半径Eps内点的数量小于MinPts，但是落在核心点的邻域内<br>• 噪音点：既不是核心点也不是边界点的点<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i2.bvimg.com/605023/38a7810b2ef74570.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="DBSCAN密度聚类-2"><a href="#DBSCAN密度聚类-2" class="headerlink" title="DBSCAN密度聚类"></a>DBSCAN密度聚类</h3><p>DBSCAN算法流程：</p>
+<ol>
+<li>将所有点标记为核心点、边界点或噪声点；</li>
+<li>删除噪声点；</li>
+<li>为距离在Eps之内的所有核心点之间赋予一条边；</li>
+<li>每组连通的核心点形成一个簇；</li>
+<li>将每个边界点指派到一个与之关联的核心点的簇中（哪一个核心点的半径范围之内）。</li>
+</ol>
+<h3 id="DBSCAN的应用实例"><a href="#DBSCAN的应用实例" class="headerlink" title="DBSCAN的应用实例"></a>DBSCAN的应用实例</h3><p>数据介绍：<br>现有大学校园网的日志数据，290条大学生的校园网使用情况数据，数据包括用户ID，设备的MAC地址，IP地址，开始上网时间，停止上网时间，上网时长，校园网套餐等。利用已有数据，分析学生上网的模式。<br>实验目的：<br>通过DBSCAN聚类，分析学生上网时间和上网时长的模式。<br>技术路线：sklearn.cluster.DBSCAN</p>
+<h3 id="数据实例："><a href="#数据实例：" class="headerlink" title="数据实例："></a>数据实例：</h3><table>
+<thead>
+<tr>
+<th style="text-align:right">表格名称</th>
+<th style="text-align:left">学生上网日志（单条数据格式）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">记录编号</td>
+<td style="text-align:left">2c929293466b97a6014754607e457d68</td>
+</tr>
+<tr>
+<td style="text-align:right">学生编号</td>
+<td style="text-align:left">U201215025</td>
+</tr>
+<tr>
+<td style="text-align:right">MAC地址</td>
+<td style="text-align:left">A417314EEA7B</td>
+</tr>
+<tr>
+<td style="text-align:right">IP地址</td>
+<td style="text-align:left">10.12.49.26</td>
+</tr>
+<tr>
+<td style="text-align:right">开始上网时间</td>
+<td style="text-align:left">2014-07-20 22:44:18.540000000</td>
+</tr>
+<tr>
+<td style="text-align:right">停止上网时间</td>
+<td style="text-align:left">2014-07-20 23:10:16.540000000</td>
+</tr>
+<tr>
+<td style="text-align:right">上网时长</td>
+<td style="text-align:left">1558</td>
+</tr>
+</tbody>
+</table>
+<h3 id="实验过程：-1"><a href="#实验过程：-1" class="headerlink" title="实验过程："></a>实验过程：</h3><p>• 使用算法： DBSCAN聚类算法<br>• 实现过程：    </p>
+<ol>
+<li>建立工程，导入sklearn相关包<br>import numpy as np<br>from sklearn.cluster import DBSCAN<br>例：sklearn.cluster.DBSCAN(eps=0.5, min_samples=5, metric=’euclidean’)<br>DBSCAN主要参数：</li>
+</ol>
+<ul>
+<li>eps: 两个样本被看作邻居节点的最大距离</li>
+<li>min_samples: 簇的样本数</li>
+<li>metric：距离计算方式<br>详细：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html#sklearn.cluster.DBSCAN" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html#sklearn.cluster.DBSCAN</a></li>
+</ul>
+<ol>
+<li>读入数据并进行处理</li>
+<li>上网时间聚类，创建DBSCAN算法实例，并进行训练，获得标签：</li>
+<li>输出标签，查看结果</li>
+<li>画直方图，分析实验结果<br>可观察到：上网时间大多聚集在22：00和23：00</li>
+</ol>
+<p>—–&gt;对上网时长进行聚类<br>修改上面代码中的：<br>X=real_X[:,0:1]#只得到上网（开始）时间</p>
+<h2 id="调用DBSCAN方法进行训练，labels为每个数据的簇标签"><a href="#调用DBSCAN方法进行训练，labels为每个数据的簇标签" class="headerlink" title="调用DBSCAN方法进行训练，labels为每个数据的簇标签"></a>调用DBSCAN方法进行训练，labels为每个数据的簇标签</h2><p>db=DBSCAN(eps=0.01,min_samples=20).fit(X)<br>为：<br>X=real_X[:,1:]#只得到上网时长</p>
+<p>db=DBSCAN(eps=0.14,min_samples=10).fit(X)<br>这就值得注意了，所有数据都被划分为噪声数据，以至于没有一个核心点。<br>为此，绘制出原始数据的直方图分布，可看到原始数据是不适合用于聚类分析的，因此我们这里使用对数变换来解决该类问题：<br>因此，需要修改<br>X=real_X[:,1:]#只得到上网时长<br>为：<br>X=np.log(1+real_X[:,1:])#只得到上网时长，这里+1是为了防止为0的情况<br>简单分析：<br>简单从聚类数目来看，时长聚类效果不如时间的聚类效果明显。</p>
+<h1 id="07-无监督学习-降维"><a href="#07-无监督学习-降维" class="headerlink" title="07-无监督学习-降维"></a>07-无监督学习-降维</h1><h2 id="PCA方法及其应用"><a href="#PCA方法及其应用" class="headerlink" title="PCA方法及其应用"></a>PCA方法及其应用</h2><h3 id="主成分分析（PCA）"><a href="#主成分分析（PCA）" class="headerlink" title="主成分分析（PCA）"></a>主成分分析（PCA）</h3><ul>
+<li>主成分分析（Principal Component Analysis，PCA）是最常用的一种降维方法，通常用于高维数据集的探索与可视化，还可以用作数据压缩和预处理等。</li>
+<li>PCA可以把具有相关性的高维变量合成为线性无关的低维变量，称为主成分。主成分能够尽可能保留原始数据的信息。</li>
+</ul>
+<h3 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h3><p>在介绍PCA的原理之前需要回顾涉及到的相关术语：<br>• 方差<br>• 协方差<br>• 协方差矩阵<br>• 特征向量和特征值</p>
+<h3 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h3><p>方差：是各个样本和样本均值的差的平方和的均值，用来度量一组<br>数据的分散程度。<br>$$ S^2 = \frac{\sum_{i=1}^n(x_i-x)^2}{n-1} $$</p>
+<h3 id="协方差"><a href="#协方差" class="headerlink" title="协方差"></a>协方差</h3><p>协方差：用于度量两个变量之间的线性相关性程度，若两个变量的协方差为0，则可认为二者线性无关。协方差矩阵则是由变量的协方差值构成的矩阵（对称阵）。<br>$$ Cov(X,Y) = \frac{\sum_{i=1}^n(X_i-\bar{X})(Y_i-\bar{Y})}{n-1} $$</p>
+<h3 id="特征向量"><a href="#特征向量" class="headerlink" title="特征向量"></a>特征向量</h3><p>特征向量：矩阵的特征向量是描述数据集结构的非零向量，并满足如下公式：<br>$$ A\vec{v} = \lambda\vec{v} $$<br>A是方阵， $\vec{v}$是特征向量，𝝀是特征值。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>原理：矩阵的主成分就是其协方差矩阵对应的特征向量，按照对应的特征值大小进行排序，最大的特征值就是第一主成分，其次是第二主成分，以此类推。</p>
+<h3 id="sklearn中主成分分析"><a href="#sklearn中主成分分析" class="headerlink" title="sklearn中主成分分析"></a>sklearn中主成分分析</h3><p>在sklearn库中，可以使用sklearn.decomposition.PCA加载PCA进行降维，主要参数有：<br>• n_components：指定主成分的个数，即降维后数据的维度<br>• svd_solver ：设置特征值分解的方法，默认为‘auto’,其他可选有‘full’, ‘arpack’, ‘randomized’。</p>
+<h3 id="PCA实现高维数据可视化"><a href="#PCA实现高维数据可视化" class="headerlink" title="PCA实现高维数据可视化"></a>PCA实现高维数据可视化</h3><p>目标：已知鸢尾花数据是4维的，共三类样本。使用PCA实现对鸢尾花数据进行降维，实现在二维平面上的可视化。</p>
+<h1 id="08-无监督学习-降维"><a href="#08-无监督学习-降维" class="headerlink" title="08-无监督学习-降维"></a>08-无监督学习-降维</h1><h2 id="NMF方法及实例"><a href="#NMF方法及实例" class="headerlink" title="NMF方法及实例"></a>NMF方法及实例</h2><h3 id="非负矩阵分解（NMF）"><a href="#非负矩阵分解（NMF）" class="headerlink" title="非负矩阵分解（NMF）"></a>非负矩阵分解（NMF）</h3><p>非负矩阵分解（Non-negative Matrix Factorization ，NMF）是在矩阵中所有元素均为非负数约束条件之下的矩阵分解方法。<br>基本思想：给定一个非负矩阵V，NMF能够找到一个非负矩阵W和一个非负矩阵H，使得矩阵W和H的乘积近似等于矩阵V中的值。<br>$$ V<em>{n*m} = W</em>{n<em>k}</em>H_{k*m} $$</p>
+<h3 id="非负矩阵分解"><a href="#非负矩阵分解" class="headerlink" title="非负矩阵分解"></a>非负矩阵分解</h3><p>• W矩阵：基础图像矩阵，相当于从原矩阵V中抽取出来的特征<br>• H矩阵：系数矩阵。<br>• NMF能够广泛应用于图像分析、文本挖掘和语音处理等领域。<br>矩阵分解优化目标：最小化W矩阵H矩阵的乘积和原始矩阵之间的差别，目标函数如下：<br>$$ argmin\frac{1}{2}||X-WH||^2 = \frac{1}{2}\sum<em>{ij}(X</em>{ij}-WH<em>{ij})^2 $$<br>基于KL散度的优化目标，损失(代价)函数如下：<br>$$ argminJ(W,H) = \sum</em>{ij}(X<em>{ij}ln\frac{X</em>{ij}}{WH<em>{ij}}-X</em>{ij}+WH_{ij})$$<br>至于公式的推导，就不在课程中讲述了，有兴趣的同学可以参考下面的链接。<br>参考链接：<a href="http://blog.csdn.net/acdreamers/article/details/44663421/" target="_blank" rel="noopener">http://blog.csdn.net/acdreamers/article/details/44663421/</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i1.bvimg.com/605023/ec28cdaae24a346f.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="sklearn中非负矩阵分解"><a href="#sklearn中非负矩阵分解" class="headerlink" title="sklearn中非负矩阵分解"></a>sklearn中非负矩阵分解</h3><p>在sklearn库中，可以使用sklearn.decomposition.NMF加载NMF算法，主要参数有：<br>• n_components：用于指定分解后矩阵的单个维度k；<br>• init：W矩阵和H矩阵的初始化方式，默认为‘nndsvdar’。</p>
+<h3 id="NMF人脸数据特征提取"><a href="#NMF人脸数据特征提取" class="headerlink" title="NMF人脸数据特征提取"></a>NMF人脸数据特征提取</h3><p>目标：已知Olivetti人脸数据共400个，每个数据是64*64大小。由于NMF分解得到的W矩阵相当于从原始矩阵中提取的特征，那么就可以使用NMF对400个人脸数据进行特征提取。<br>通过设置k的大小，设置提取的特征的数目。在本实验中设置k=6，随后将提取的特征以图像的形式展示出来。</p>
+<h1 id="09-无监督学习"><a href="#09-无监督学习" class="headerlink" title="09-无监督学习"></a>09-无监督学习</h1><h2 id="基于聚类的“图像分割”实例编写"><a href="#基于聚类的“图像分割”实例编写" class="headerlink" title="基于聚类的“图像分割”实例编写"></a>基于聚类的“图像分割”实例编写</h2><h3 id="图像分割"><a href="#图像分割" class="headerlink" title="图像分割"></a>图像分割</h3><p>图像分割：利用图像的灰度、颜色、纹理、形状等特征，把图像分成若干个互不重叠的区域，并使这些特征在同一区域内呈现相似性，在不同的区域之间存在明显的差异性。然后就可以将分割的图像中具有独特性质的区域提取出来用于不同的研究。<br>图像分割技术已在实际生活中得到广泛的应用。例如：在机车检验领域，可以应用到轮毂裂纹图像的分割，及时发现裂纹，保证行车安全；在生物医学工程方面，对肝脏CT图像进行分割，为临床治疗和病理学研究提供帮助。</p>
+<p>图像分割常用方法：</p>
+<ol>
+<li>阈值分割：对图像灰度值进行度量，设置不同类别的阈值，达到分割的目的。</li>
+<li>边缘分割：对图像边缘进行检测，即检测图像中灰度值发生跳变的地方，则为一片区域的边缘。</li>
+<li>直方图法：对图像的颜色建立直方图，而直方图的波峰波谷能够表示一块区域的颜色值的范围，来达到分割的目的。</li>
+<li>特定理论：基于聚类分析、小波变换等理论完成图像分割。</li>
+</ol>
+<h3 id="实例描述"><a href="#实例描述" class="headerlink" title="实例描述"></a>实例描述</h3><p>目标：利用K-means聚类算法对图像像素点颜色进行聚类实现简单的图像分割<br>输出：同一聚类中的点使用相同颜色标记，不同聚类颜色不同<br>技术路线：sklearn.cluster.KMeans</p>
+<h3 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h3><p>使用算法：Kmeans<br>实现步骤：<br>1.建立工程并导入sklearn包<br>2.加载图片并进行预处理<br>3.加载Kmeans聚类算法<br>4.对像素点进行聚类并输出<br>关于一些相关包的介绍：<br> PIL包：因为本实验涉及图像的加载和创建，因此需要使用到PIL包，如未安装，请下载相关包自行安装。</p>
+<h3 id="实验分析"><a href="#实验分析" class="headerlink" title="实验分析"></a>实验分析</h3><p>通过设置不同的k值，能够得到不同的聚类结果。同时，k值的不确定也是Kmeans算法的一个缺点。往往为了达到好的实验结果，需要进行多次尝试才能够选取最优的k值。而像层次聚类的算法，就无需指定k值，只要给定限制条件，就能自动地得到类别数k。</p>
+<h1 id="11-监督学习-课程导学"><a href="#11-监督学习-课程导学" class="headerlink" title="11-监督学习-课程导学"></a>11-监督学习-课程导学</h1><h2 id="监督学习的目标"><a href="#监督学习的目标" class="headerlink" title="监督学习的目标"></a>监督学习的目标</h2><p>利用一组带有标签的数据，学习从输入到输出的映射，然后将这种映射关系应用到未知数据上，达到分类或回归的目的。<br>分类：当输出是离散的，学习任务为分类任务。<br>回归：当输出是连续的，学习任务为回归任务。</p>
+<h2 id="分类学习"><a href="#分类学习" class="headerlink" title="分类学习"></a>分类学习</h2><p>输入：一组有标签的训练数据(也称观察和评估)，标签表明了这些数据（观察）的所署类别。<br>输出：分类模型根据这些训练数据，训练自己的模型参数，学习出一个适合这组数据的分类器，当有新数据（非训练数据）需要进行类别判断，就可以将这组新数据作为输入送给学好的分类器进行判断。</p>
+<h2 id="分类学习-评价"><a href="#分类学习-评价" class="headerlink" title="分类学习-评价"></a>分类学习-评价</h2><p>• 训练集(training set):顾名思义用来训练模型的已标注数据，用来建立模型，发现规律。<br>• 测试集(testing set):也是已标注数据，通常做法是将标注隐藏，输送给训练好的模型，通过结果与真实标注进行对比，评估模型的学习能力。<br>训练集/测试集的划分方法：根据已有标注数据，随机选出一部分数据（70%）数据作为训练数据，余下的作为测试数据，此外还有交叉验证法，自助法用来评估分类模型。</p>
+<h2 id="分类学习-评价标准"><a href="#分类学习-评价标准" class="headerlink" title="分类学习-评价标准"></a>分类学习-评价标准</h2><h3 id="精确率"><a href="#精确率" class="headerlink" title="精确率"></a>精确率</h3><p>精确率：精确率是针对我们预测结果而言的，（以二分类为例）它表示的是预测为正的样本中有多少是真正的正样本。那么预测为正就有两种可能了，一种就是把正类预测为正类(TP)，另一种就是把负类预测为正类(FP)，也就是<br>$$ P = \frac{TP}{TP+FP} $$</p>
+<h3 id="召回率"><a href="#召回率" class="headerlink" title="召回率"></a>召回率</h3><p>召回率：是针对我们原来的样本而言的，它表示的是样本中的正例有多少被预测正确了。那也有两种可能，一种是把原来的正类预测成正类(TP)，另一种就是把原来的正类预测为负类(FN)，也就是<br>$$ R = \frac{TP}{TP+FN} $$</p>
+<h2 id="分类学习-评价标准-1"><a href="#分类学习-评价标准-1" class="headerlink" title="分类学习-评价标准"></a>分类学习-评价标准</h2><p>假设我们手上有60个正样本，40个负样本，我们要找出所有的正样本，分类算法查找出50个，其中只有40个是真正的正样本，TP: 将正类预测为正类数 40；FN: 将正类预测为负类数 20；FP: 将负类预测为正类数 10；TN: 将负类预测为负类数 30<br>准确率（accuracy）=预测对的/所有 = (TP+TN)/(TP+FN+FP+TN) = 70%<br>精确率（precision）=?  80%<br>召回率（recall）=?  66.7%</p>
+<h2 id="Sklearn-vs-分类"><a href="#Sklearn-vs-分类" class="headerlink" title="Sklearn vs. 分类"></a>Sklearn vs. 分类</h2><p>与聚类算法被统一封装在sklearn.cluster模块不同，sklearn库中的分类算法并未被统一封装在一个子模块中，因此对分类算法的import方式各有不同。</p>
+<p>Sklearn提供的分类函数包括：<br>• k近邻（knn）<br>• 朴素贝叶斯（naivebayes），<br>• 支持向量机（svm），<br>• 决策树 （decision tree）<br>• 神经网络模型（Neural networks）等<br>• 这其中有线性分类器，也有非线性分类器。</p>
+<h2 id="分类算法的应用"><a href="#分类算法的应用" class="headerlink" title="分类算法的应用"></a>分类算法的应用</h2><ul>
+<li>金融：贷款是否批准进行评估</li>
+<li>医疗诊断：判断一个肿瘤是恶性还是良性</li>
+<li>欺诈检测：判断一笔银行的交易是否涉嫌欺诈</li>
+<li>网页分类：判断网页的所属类别，财经或者是娱乐？</li>
+</ul>
+<h2 id="回归分析"><a href="#回归分析" class="headerlink" title="回归分析"></a>回归分析</h2><p>回归：统计学分析数据的方法，目的在于了解两个或多个变数间是否相关、研究其相关方向与强度，并建立数学模型以便观察特定变数来预测研究者感兴趣的变数。回归分析可以帮助人们了解在自变量变化时因变量的变化量。一般来说，通过回归分析我们可以由给出的自变量估计因变量的条件期望。</p>
+<h2 id="Sklearn-vs-回归"><a href="#Sklearn-vs-回归" class="headerlink" title="Sklearn vs. 回归"></a>Sklearn vs. 回归</h2><p>Sklearn提供的回归函数主要被封装在两个子模块中，分别是sklearn.linear_model和sklearn.preprocessing。<br>sklearn.linear_modlel封装的是一些线性函数，线性回归函数包括有：<br>• 普通线性回归函数（ LinearRegression ）<br>• 岭回归（Ridge）<br>• Lasso（Lasso）<br>非线性回归函数，如多项式回归（PolynomialFeatures）则通过sklearn.preprocessing子模块进行调用</p>
+<h2 id="回归应用"><a href="#回归应用" class="headerlink" title="回归应用"></a>回归应用</h2><p>回归方法适合对一些带有时序信息的数据进行预测或者趋势拟合，常用在金融及其他涉及时间序列分析的领域：<br>• 股票趋势预测<br>• 交通流量预测</p>
+<h1 id="12-人体运动状态预测-实例分析"><a href="#12-人体运动状态预测-实例分析" class="headerlink" title="12-人体运动状态预测-实例分析"></a>12-人体运动状态预测-实例分析</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>• 可穿戴式设备的流行，让我们可以更便利地使用传感器获取人体的各项数据，甚至生理数据。<br>• 当传感器采集到大量数据后，我们就可以通过对数据进行分析和建模，通过各项特征的数值进行用户状态的判断，根据用户所处的状态提供给用户更加精准、便利的服务。</p>
+<h2 id="数据介绍"><a href="#数据介绍" class="headerlink" title="数据介绍"></a>数据介绍</h2><p>• 我们现在收集了来自 A,B,C,D,E 5位用户的可穿戴设备上的传感器数据，每位用户的数据集包含一个特征文件（a.feature）和一个标签文件（a.label）。<br>• 特征文件中每一行对应一个时刻的所有传感器数值，标签文件中每行记录了和特征文件中对应时刻的标记过的用户姿态，两个文件的行数相同，相同行之间互相对应。</p>
+<h2 id="数据介绍-label"><a href="#数据介绍-label" class="headerlink" title="数据介绍-label"></a>数据介绍-label</h2><p>标签文件内容如图所示，每一行代表与特征文件中对应行的用户姿态类别。总共有0-24共25种身体姿态，如，无活动状态，坐态、跑态等。标签文件作为训练集的标准参考准则，可以进行特征的监督学习。</p>
+<h2 id="任务介绍"><a href="#任务介绍" class="headerlink" title="任务介绍"></a>任务介绍</h2><ul>
+<li>假设现在出现了一个新用户，但我们只有传感器采集的数据，那么该如何得到这个新用户的姿态呢？</li>
+<li>又或者对同一用户如果传感器采集了新的数据，怎么样根据新的数据判断当前用户处于什么样的姿态呢？</li>
+</ul>
+<h1 id="13-基本分类模型"><a href="#13-基本分类模型" class="headerlink" title="13-基本分类模型"></a>13-基本分类模型</h1><h2 id="K近邻分类器-KNN"><a href="#K近邻分类器-KNN" class="headerlink" title="K近邻分类器(KNN)"></a>K近邻分类器(KNN)</h2><p>KNN：通过计算待分类数据点，与已有数据集中的所有数据点的距离。取距离最小的前K个点，根据“少数服从多数“的原则，将这个数据点划分为出现次数最多的那个类别。</p>
+<h2 id="sklearn中的K近邻分类器"><a href="#sklearn中的K近邻分类器" class="headerlink" title="sklearn中的K近邻分类器"></a>sklearn中的K近邻分类器</h2><p>在sklearn库中，可以使用sklearn.neighbors.KNeighborsClassifier创建一个K近邻分类器，主要参数有：<br>• n_neighbors：用于指定分类器中K的大小(默认值为5，注意与kmeans的区别)<br>• weights：设置选中的K个点对分类结果影响的权重（默认值为平均权重“uniform”，可以选择“distance”代表越近的点权重越高，或者传入自己编写的以距离为参数的权重计算函数）</p>
+<p>它的主要参数还有：<br>• algorithm：设置用于计算临近点的方法，因为当数据量很大的情况下计算当前点和所有点的距离再选出最近的k各点，这个计算量是很费时的，所以（选项中有ball_tree、kd_tree和brute，分别代表不同的寻找邻居的优化算法，默认值为auto，根据训练数据自动选择）</p>
+<h2 id="交叉验证法"><a href="#交叉验证法" class="headerlink" title="交叉验证法"></a>交叉验证法</h2><p>交叉验证的基本思想是把在某种意义下将原始数据(dataset)进行分组,一部分做为训练集(train set),另一部分做为验证集(validation set or test set),首先用训练集对分类器进行训练,再利用验证集来测试训练得到的模型(model),以此来做为评价分类器的性能指标。</p>
+<h2 id="K近邻分类器的使用"><a href="#K近邻分类器的使用" class="headerlink" title="K近邻分类器的使用"></a>K近邻分类器的使用</h2><p>创建一组数据 X 和它对应的标签 y：<br>使用 import 语句导入 K 近邻分类器。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>X = [[0], [1], [2], [3]]<br>y = [0, 0, 1, 1]<br>from sklearn.neighbors import KNeighborsClassifier</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>参数 n_neighbors 设置为 3，即使用最近的3个邻居作为分类的依据，其他参数保持默认值，并将创建好的实例赋给变量 neigh。<br>调用 fit() 函数，将训练数据 X 和 标签 y 送入分类器进行学习。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>neigh = KNeighborsClassifier(n_neighbors=3)<br>neigh.fit(X, y)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>调用 predict() 函数，对未知分类样本 [1.1] 分类，可以直接并将需要分类<br>的数据构造为数组形式作为参数传入，得到分类标签作为返回值。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print(neigh.predict([[1.1]]))<br>    [0]<br>样例输出值是 0，表示K近邻分类器通过计算样本 [1.1] 与训练数据的距离，取 0,1,2 这 3 个邻居作为依据，根据“投票法”最终将样本分为类别 0。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="KNN的使用经验"><a href="#KNN的使用经验" class="headerlink" title="KNN的使用经验"></a>KNN的使用经验</h2><p>在实际使用时，我们可以使用所有训练数据构成特征 X 和标签 y，使用fit() 函数进行训练。在正式分类时，通过一次性构造测试集或者一个一个输入样本的方式，得到样本对应的分类结果。有关K 的取值：<br>• 如果较大，相当于使用较大邻域中的训练实例进行预测，可以减小估计误差，但是距离较远的样本也会对预测起作用，导致预测错误。<br>• 相反地，如果 K 较小，相当于使用较小的邻域进行预测，如果邻居恰好是噪声点，会导致过拟合。<br>• 一般情况下，K 会倾向选取较小的值，并使用交叉验证法选取最优 K 值。</p>
+<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>决策树是一种树形结构的分类器，通过顺序询问分类点的属性决定分类点最终的类别。通常根据特征的信息增益或其他指标，构建一颗决策树。在分类时，只需要按照决策树中的结点依次进行判断，即可得到样本所属类别。<br>例如，根据右图这个构造好的分类决策树，一个无房产，单身，年收入55K的人的会被归入无法偿还信用卡这个类别。</p>
+<h2 id="洛伦兹曲线-编辑"><a href="#洛伦兹曲线-编辑" class="headerlink" title="洛伦兹曲线 编辑"></a>洛伦兹曲线 编辑</h2><p>本词条缺少名片图，补充相关内容使词条更完整，还能快速升级，赶紧来编辑吧！<br>洛伦兹曲线（Lorenz curve），也译为“劳伦兹曲线”。就是，在一个总体（国家、地区）内，以“最贫穷的人口计算起一直到最富有人口”的人口百分比对应各个人口百分比的收入百分比的点组成的曲线。为了研究国民收入在国民之间的分配问题，美国统计学家（或说奥地利统计学家）M.O.洛伦兹（Max Otto Lorenz，1876- 1959）1907年（或说1905年）提出了著名的洛伦兹曲线。</p>
+<h2 id="基尼系数-编辑"><a href="#基尼系数-编辑" class="headerlink" title="基尼系数 编辑"></a>基尼系数 编辑</h2><p>基尼系数是1943年美国经济学家阿尔伯特·赫希曼根据洛伦兹曲线所定义的判断收入分配公平程度的指标。基尼系数是比例数值，在0和1之间，是国际上用来综合考察居民内部收入分配差异状况的一个重要分析指标。<br>长久以来，人们错误的把这个指标归到基尼名下。但1964年，赫希曼在AER发表了一页纸的澄清文字，标题是《一项指标的父权认证》（the Paternity of An Index）。[1]  据此，我们得知，基尼系数并非基尼发明的，也不是赫芬道尔重新发明的，而是赫希曼发明的。</p>
+<p>基尼系数说明财富在社会成员之间的分配程度。<br>　　基尼系数是国际上用来综合考察居民内部收入分配差异状况的一个重要分析指标。它是一个比值，数值在0和1之间。<br>　　基尼指数的数值越高（越大），表明财富在社会成员之间的分配不均匀。贫富差距太大。<br>　　基尼指数的数值越（越小），表明财富在社会成员之间的分配越均匀。一般发达国家的基尼指数在0.24到0.36之间。<br>　　按照联合国有关组织规定：<br>　　低于0.2收入绝对平均。<br>　　0.2-0.3收入比较平均。<br>　　0.3-0.4收入相对合理。<br>　　0.4-0.5收入差距较大。<br>　　0.5以上收入差距悬殊。</p>
+<h2 id="sklearn中的决策树"><a href="#sklearn中的决策树" class="headerlink" title="sklearn中的决策树"></a>sklearn中的决策树</h2><p>在sklearn库中，可以使用sklearn.tree.DecisionTreeClassifier创建一个决策树用于分类，其主要参数有：<br>• criterion ：用于选择属性的准则，可以传入“gini”代表基尼系数，或者“entropy”代表信息增益。<br>• max_features ：表示在决策树结点进行分裂时，从多少个特征中选择最优特征。可以设定固定数目、百分比或其他标准。它的默认值是使用所有特征个数。</p>
+<p>criterion标准</p>
+<h2 id="交叉验证基本思想"><a href="#交叉验证基本思想" class="headerlink" title="交叉验证基本思想"></a>交叉验证基本思想</h2><p>交叉验证法先将数据集D划分为k个大小相似的互斥子集，每个自己都尽可能保持数据分布的一致性，即从D中通过分层采样得到。 然后，每次用k-1个子集的并集作为训练集，余下的那个子集作为测试集；这样就可获得k组训练/测试集，从而可进行k次训练和测试，最终返回的是这个k个测试结果的均值。 通常把交叉验证法称为“k者交叉验证” , k最常用的取值是10，此时称为10折交叉验证。</p>
+<h2 id="决策树-1"><a href="#决策树-1" class="headerlink" title="决策树"></a>决策树</h2><p>• 决策树本质上是寻找一种对特征空间上的划分，旨在构建一个训练数据拟合的好，并且复杂度小的决策树。<br>• 在实际使用中，需要根据数据情况，调整DecisionTreeClassifier类中传入的参数，比如选择合适的criterion，设置随机变量等。</p>
+<h2 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><p>朴素贝叶斯分类器是一个以贝叶斯定理为基础的多分类的分类器。<br>对于给定数据，首先基于特征的条件独立性假设，学习输入输出的联合概率分布，然后基于此模型，对给定的输入x，利用贝叶斯定理求出后验概率最大的输出y。<br>$$ p(A|B) = \frac{p(B|A)*p(A)}{p(B)} $$</p>
+<h2 id="sklearn中的朴素贝叶斯"><a href="#sklearn中的朴素贝叶斯" class="headerlink" title="sklearn中的朴素贝叶斯"></a>sklearn中的朴素贝叶斯</h2><p>在sklearn库中，可以使用sklearn.naive_bayes.GaussianNB创建一个高斯朴素贝叶斯分类器，其参数有：<br>• priors ：给定各个类别的先验概率。如果为空，则按训练数据的实际情况进行统计；如果给定先验概率，则在训练过程中不能更改。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://i1.bvimg.com/605023/d26ec6e1085c1c36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="朴素贝叶斯-1"><a href="#朴素贝叶斯-1" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><p>朴素贝叶斯是典型的生成学习方法，由训练数据学习联合概率分布，并求得后验概率分布。<br>朴素贝叶斯一般在小规模数据上的表现很好，适合进行多分类任务</p>
+<h1 id="14-运动状态-程序编写"><a href="#14-运动状态-程序编写" class="headerlink" title="14-运动状态-程序编写"></a>14-运动状态-程序编写</h1><h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><ul>
+<li>需要从特征文件和标签文件中将所有数据加载到内存中，由于存在缺失值，此步骤还需要进行简单的数据预处理。</li>
+<li>创建对应的分类器，并使用训练数据进行训练。</li>
+<li>利用测试集预测，通过使用真实值和预测值的比对，计算模型整体的准确率和召回率，来评测模型。</li>
+</ul>
+<h2 id="模块导入"><a href="#模块导入" class="headerlink" title="模块导入"></a>模块导入</h2><ul>
+<li>导入numpy库和pandas库。</li>
+<li>从sklearn库中导入预处理模块Imputer</li>
+<li>导入自动生成训练集和测试集的模块train_test_split</li>
+<li>导入预测结果评估模块classification_report</li>
+<li>接下来，从sklearn库中依次导入三个分类器模块：K近邻分类器KNeighborsClassifier、决策树分类器DecisionTreeClassifier和高斯朴素贝叶斯函数GaussianNB。</li>
+</ul>
+<h2 id="数据导入函数"><a href="#数据导入函数" class="headerlink" title="数据导入函数"></a>数据导入函数</h2><ul>
+<li>编写数据导入函数，设置传入两个参数，分别是特征文件的列表feature_paths和标签文件的列表label_paths。</li>
+<li>定义feature数组变量，列数量和特征维度一致为41；定义空的标签变量，列数量与标签维度一致为1。</li>
+<li>使用pandas库的read_table函数读取一个特征文件的内容，其中指定分隔符为逗号、缺失值为问号且文件不包含表头行。</li>
+<li>使用Imputer函数，通过设定strategy参数为‘mean’，使用平均值对缺失数据进行补全。fit()函数用于训练预处理器，transform()函数用于生成预处理结果。</li>
+<li>将预处理后的数据加入feature，依次遍历完所有特征文件</li>
+<li>遵循与处理特征文件相同的思想，我们首先使用pandas库的read_table函数读取一个标签文件的内容，其中指定分隔符为逗号且文件不包含表头行。</li>
+<li>由于标签文件没有缺失值，所以直接将读取到的新数据加入label集合，依次遍历完所有标签文件，得到标签集合label。</li>
+<li>最后函数将特征集合feature与标签集合label返回。</li>
+</ul>
+<h2 id="主函数-数据准备"><a href="#主函数-数据准备" class="headerlink" title="主函数-数据准备"></a>主函数-数据准备</h2><ul>
+<li>设置数据路径feature_paths和label_paths。</li>
+<li>使用python的分片方法，将数据路径中的前4个值作为训练集，并作为参数传入load_dataset()函数中，得到训练集合的特征x_train，训练集的标签y_train。</li>
+<li>将最后一个值对应的数据作为测试集，送入load_dataset()函数中，得到测试集合的特征x_test，测试集的标签y_test。</li>
+<li>使用train_test_split()函数，通过设置测试集比例test_size为0，将数据随机打乱，便于后续分类器的初始化和训练。</li>
+<li>使用classification_report函数对分类结果，从精确率precision、召回率recall、f1值f1-score和支持度support四个维度进行衡量。</li>
+</ul>
+<h2 id="课后思考"><a href="#课后思考" class="headerlink" title="课后思考"></a>课后思考</h2><p> 在所有的特征数据中，可能存在缺失值或者冗余特征。如果将这些特征不加处<br>理地送入后续的计算，可能会导致模型准确度下降并且增大计算量。<br> 在特征选择阶段，通常需要借助辅助软件（例如Weka）将数据进行可视化并进<br>行统计。<br> 请大家可以通过课外学习思考如何筛选冗余特征，提高模型训练效率，也可以<br>尝试调用sklearn提供的其他分类器进行数据预测。</p>
+<h1 id="15-监督学习-上证指数涨跌预测"><a href="#15-监督学习-上证指数涨跌预测" class="headerlink" title="15-监督学习-上证指数涨跌预测"></a>15-监督学习-上证指数涨跌预测</h1><h2 id="上证指数涨跌预测"><a href="#上证指数涨跌预测" class="headerlink" title="上证指数涨跌预测"></a>上证指数涨跌预测</h2><p>数据介绍：<br>网易财经上获得的上证指数的历史数据，爬取了150天的上证指数数据。<br>实验目的：<br>根据给出当前时间前150天的历史数据，预测当天上证指数的涨跌。<br>技术路线：sklearn.svm.SVC</p>
+<h2 id="实验过程：-2"><a href="#实验过程：-2" class="headerlink" title="实验过程："></a>实验过程：</h2><p>• 使用算法： SVM，<br>• 实现过程：</p>
+<ol>
+<li>建立工程，导入sklearn相关包<br> import pandas as pd<br> import numpy as np<br> from sklearn import svm<br> from sklearn import cross_validation<br>关于一些相关包的介绍：</li>
+</ol>
+<ul>
+<li>pandas：用来加载CSV数据的工具包</li>
+<li>numpy：支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。</li>
+<li>sklearn下svm：SVM算法</li>
+<li>sklearn下cross_validation：交叉验证</li>
+</ul>
+<ol>
+<li>数据加载&amp;&amp;数据预处理<br> data=pd.read_csv(‘stock/000777.csv’,encoding=’gbk’,parse_dates=[0],index_col=0)<br> data.sort_index(0,ascending=True,inplace=True)<br> dayfeature=150<br> featurenum=5*dayfeature<br> x=np.zeros((data.shape[0]-dayfeature,featurenum+1))<br> y=np.zeros((data.shape[0]-dayfeature))<br>一些参数解释：读入数据<br>pd：pandas包的实例参数<br>read_csv( )：详细解释（<a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html）" target="_blank" rel="noopener">http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html）</a><br>pandas.read_csv（数据源, encoding=编码格式为gbk， parse_dates=第0列解析为日期， index_col=用作行索引的列编号）<br>sort_index( )：详细解释（ <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.sort_index.html" target="_blank" rel="noopener">http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.sort_index.html</a> ）<br>DataFrame.sort_index(axis=0 (按0列排), ascending=True（升序）, inplace=False（排序后是否覆盖原数据））data 按照时间升序排列</li>
+</ol>
+<p>参数解释：<br>选取5列数据作为特征：收盘价 最高价 最低价 开盘价 成交量<br>dayfeature：选取150天的数据<br>featurenum：选取的5个特征<em>天数<br>x：记录150天的5个特征值<br>y：记录涨或者跌<br>data.shape[0]-dayfeature意思是因为我们要用150天数据做训练，对于条目为200条的数据，只有50条数<br>据是有前150天的数据来训练的，所以训练集的大小就是200-150， 对于每一条数据，他的特征是前150<br>天的所有特征数据，即150</em>5， +1是将当天的开盘价引入作为一条特征数据</p>
+<ol>
+<li><p>数据加载&amp;&amp;数据预处理<br> for i in range(0,data.shape[0]-dayfeature):</p>
+<pre><code>x[i,0:featurenum]=np.array(data[i:i+dayfeature]\
+    [[u&apos;收盘价&apos;,u&apos;最高价&apos;,u&apos;最低价&apos;,u&apos;开盘价&apos;,u&apos;成交量&apos;]]).reshape((1,featurenum))
+    //将数据中的“收盘价”“最高价”“开盘价”“成交量”存入x数组中
+x[i,featurenum]=data.ix[i+dayfeature][u&apos;开盘价&apos;]
+    //最后一列记录当日的开盘价
+</code></pre><p> for i in range(0,data.shape[0]-dayfeature):</p>
+<pre><code>if data.ix[i+dayfeature][u&apos;收盘价&apos;]&gt;=data.ix[i+dayfeature][u&apos;开盘价&apos;]:
+    y[i]=1
+else:
+    y[i]=0
+</code></pre><p> //如果当天收盘价高于开盘价，y[i]=1代表涨，0代表跌</p>
+<p> 参数解释：<br> u:unicode编码<br> reshape:转换成1行，featurenum列<br> ix :索引</p>
+</li>
+<li><p>创建SVM并进行交叉验证<br> clf=svm.SVC(kernel=’rbf’)<br> //调用svm函数，并设置kernel参数，默认是rbf，其它：‘linear’‘poly’‘sigmoid’<br> result = []<br> for i in range(5):<br> x_train, x_test, y_train, y_test = cross_validation.train_test_split(x, y, test_size = 0.2)<br> //x和y的验证集和测试集，切分80-20%的测试集<br> clf.fit(x_train, y_train)<br> //训练数据进行训练<br> result.append(np.mean(y_test == clf.predict(x_test)))<br> //将预测数据和测试集的验证数据比对<br> print(“svm classifier accuacy:”)<br> print(result)</p>
+</li>
+</ol>
+<h1 id="16-线性回归-房价与房屋尺寸关系的线性拟合"><a href="#16-线性回归-房价与房屋尺寸关系的线性拟合" class="headerlink" title="16-线性回归+房价与房屋尺寸关系的线性拟合"></a>16-线性回归+房价与房屋尺寸关系的线性拟合</h1><h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><p> 线性回归(Linear Regression)是利用数理统计中回归分析，<br>来确定两种或两种以上变量间相互依赖的定量关系的一种统计分<br>析方法。<br> 线性回归利用称为线性回归方程的最小平方函数对一个或多个自<br>变量和因变量之间关系进行建模。这种函数是一个或多个称为回<br>归系数的模型参数的线性组合。只有一个自变量的情况称为简单<br>回归,大于一个自变量情况的叫做多元回归。</p>
+<h2 id="线性回归-1"><a href="#线性回归-1" class="headerlink" title="线性回归"></a>线性回归</h2><p>线性回归：使用形如y=wTx+b的线性模型拟合数据输入和输出之间的映射关系的。</p>
+<h2 id="线性回归的实际用途"><a href="#线性回归的实际用途" class="headerlink" title="线性回归的实际用途"></a>线性回归的实际用途</h2><p>线性回归有很多实际的用途，分为以下两类：<br>1.如果目标是预测或者映射，线性回归可以用来对观测数据集的y和X的值拟合出一个预测模型。当完成这样一个模型以后，对于一个新增的X值，在没有给定与它相配对的y的情况下，可以用这个拟合过的模型预测出一个y值。<br>2.给定一个变量y和一些变量X1, ⋯ , 𝑋𝑝,这些变量有可能与y相关，线性回归分析可以用来量化y与X𝑗 之间相关性的强度，评估出与y不相关的X𝑗 ，并识别出哪些X𝑗的子集包含了关于y的冗余信息。</p>
+<h2 id="线性回归的应用"><a href="#线性回归的应用" class="headerlink" title="线性回归的应用"></a>线性回归的应用</h2><p>背景：与房价密切相关的除了单位的房价，还有房屋的尺寸。我们可以根<br>据已知的房屋成交价和房屋的尺寸进行线性回归，继而可以对已知房屋尺<br>寸，而未知房屋成交价格的实例进行成交价格的预测。<br>目标：对房屋成交信息建立回归方程，并依据回归方程对房屋价格进行预测<br>技术路线：sklearn.linear_model.LinearRegression</p>
+<h2 id="实例数据"><a href="#实例数据" class="headerlink" title="实例数据"></a>实例数据</h2><p>为了方便展示，成交信息只使用了房屋的面积以及对应的成交价格。<br>其中：<br>• 房屋面积单位为平方英尺（ft2）房<br>• 屋成交价格单位为万</p>
+<h2 id="可行性分析"><a href="#可行性分析" class="headerlink" title="可行性分析"></a>可行性分析</h2><p>• 简单而直观的方式是通过数据的可视化直接观察房屋成交价格与房<br>屋尺寸间是否存在线性关系。<br>• 对于本实验的数据来说，散点图就可以很好的将其在二维平面中进<br>行可视化表示。</p>
+<h2 id="实验过程-1"><a href="#实验过程-1" class="headerlink" title="实验过程"></a>实验过程</h2><p>使用算法：线性回归<br>实现步骤：<br>1.建立工程并导入sklearn包<br>2.加载训练数据，建立回归方程<br>3.可视化处理<br>关于一些相关包的介绍：<br> NumPy是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函<br>数库。<br> matplotlib的pyplot子库提供了和matlab类似的绘图API，方便用户快速绘制2D图表。</p>
+<h2 id="实现步骤——1-建立工程并导入sklearn包"><a href="#实现步骤——1-建立工程并导入sklearn包" class="headerlink" title="实现步骤——1.建立工程并导入sklearn包"></a>实现步骤——1.建立工程并导入sklearn包</h2><p>• 创建house.py文件<br>• 导入sklearn相关包<br>• import matplotlib.pyplot as plt<br>• from sklearn import linear_model<br>表示，matplotlib的pyplot子库，它提供了和matlab类似的绘图API。<br>表示，可以调用sklearn中的linear_model模块进行线性回归。</p>
+<h2 id="实现步骤——2-加载训练数据，建立回归方程"><a href="#实现步骤——2-加载训练数据，建立回归方程" class="headerlink" title="实现步骤——2.加载训练数据，建立回归方程"></a>实现步骤——2.加载训练数据，建立回归方程</h2><p>• datasets_X = []<br>• datasets_Y = []<br>• fr = open(‘prices.txt’,’r’)<br>• lines = fr.readlines()<br>• for line in lines:<br>• items = line.strip().split(‘,’)<br>• datasets_X.append(int(items[0]))<br>• datasets_Y.append(int(items[1]))<br>• length = len(datasets_X)<br>• datasets_X = np.array(datasets_X).reshape([length,1])<br>• datasets_Y = np.array(datasets_Y)</p>
+<p>线性回归fit函数用于拟合输入输出数据，调用形式为linear.fit(X,y, sample_weight=None)：<br>• X : X为训练向量；<br>• y : y为相对于X的目标向量；<br>• sample_weight : 分配给各个样本的权重数组，一般不需要使用，可省略。</p>
+<p>• 如果有需要，可以通过两个属性查看回归方程的系数及截距。<br>• 具体的代码如下：   </p>
+<ul>
+<li>查看回归方程系数<br>print(‘Coefficients:’, linear.coef_)</li>
+<li>查看回归方程截距：<br>print(‘intercept:’, linear.intercept_)</li>
+</ul>
+<h2 id="实现步骤——3-可视化处理"><a href="#实现步骤——3-可视化处理" class="headerlink" title="实现步骤——3.可视化处理"></a>实现步骤——3.可视化处理</h2><p>• plt.scatter(datasets_X, datasets_Y, color = ‘red’)<br>• plt.plot(X, linear.predict(X), color = ‘blue’)<br>• plt.xlabel(‘Area’)<br>• plt.ylabel(‘Price’)<br>• plt.show()</p>
+<h1 id="多项式回归-房价与房屋尺寸关系的非线性拟合"><a href="#多项式回归-房价与房屋尺寸关系的非线性拟合" class="headerlink" title="多项式回归+房价与房屋尺寸关系的非线性拟合"></a>多项式回归+房价与房屋尺寸关系的非线性拟合</h1><h2 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h2><ul>
+<li>多项式回归(Polynomial Regression)是研究一个因变量与一个或多个自变量间多项式的回归分析方法。如果自变量只有一个时，称为一元多项式回归；如果自变量有多个时，称为多元多项式回归。</li>
+<li>一元m次多项式回归方程为：<br>$$ \bar{y} = b_0+b_1x+b_2x^2+…+b_mx^m $$</li>
+<li><p>二元二次多项式回归方程为：<br>$$ \bar{y} = b_0+b_1x_1+b_2x_2+b_3x_1^2+b_4x_2^2+b_5x_1x_2 $$</p>
+</li>
+<li><p>在一元回归分析中，如果依变量y与自变量x的关系为非线性的，但<br>是又找不到适当的函数曲线来拟合，则可以采用一元多项式回归。</p>
+</li>
+<li>多项式回归的最大优点就是可以通过增加x的高次项对实测点进行逼<br>近，直至满意为止。</li>
+<li>事实上，多项式回归可以处理相当一类非线性问题，它在回归分析<br>中占有重要的地位，因为任一函数都可以分段用多项式来逼近。</li>
+<li>之前提到的线性回归实例中，是运用直线来拟合数据输入与输出之间的线性关系。不同于线性回归，多项式回归是使用曲线拟合数据的输入与输出的映射关系。</li>
+</ul>
+<h2 id="多项式回归的应用"><a href="#多项式回归的应用" class="headerlink" title="多项式回归的应用"></a>多项式回归的应用</h2><p>应用背景：我们在前面已经根据已知的房屋成交价和房屋的尺寸进行了线性回归，继而可以对已知房屋尺寸，而未知房屋成交价格的实例进行了成交价格的预测，但是在实际的应用中这样的拟合往往不够好，因此我们在此对该数据集进行多项式回归。<br>目标：对房屋成交信息建立多项式回归方程，并依据回归方程对房屋价格进行预测<br>技术路线：sklearn.preprocessing.PolynomialFeatures</p>
+<h2 id="实验过程-2"><a href="#实验过程-2" class="headerlink" title="实验过程"></a>实验过程</h2><p>使用算法：线性回归<br>实现步骤：<br>1.建立工程并导入sklearn包<br>2.加载训练数据，建立回归方程<br>3.可视化处理<br>关于一些相关包的介绍：<br> NumPy是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函<br>数库。<br> matplotlib的pyplot子库提供了和matlab类似的绘图API，方便用户快速绘制2D图表。</p>
+<h2 id="实现步骤——1-建立工程并导入sklearn包-1"><a href="#实现步骤——1-建立工程并导入sklearn包-1" class="headerlink" title="实现步骤——1.建立工程并导入sklearn包"></a>实现步骤——1.建立工程并导入sklearn包</h2><p>sklearn中多项式回归：<br>这里的多项式回归实际上是先将变量X处理成多项式特征，然后使用线性模型学<br>习多项式特征的参数，以达到多项式回归的目的。<br>例如：X = [x1, x2]<br>1.使用PolynomialFeatures构造X的二次多项式特征X_Poly:<br>X_Poly = [x1, x2, x1x2, x1^2, x2^2]<br>2.使用linear_model学习X_Poly和y之间的映射关系，即参数：<br>𝒘𝟏𝒙𝟏 + 𝒘𝟐𝒙𝟐 + 𝒘𝟑𝒙𝟏𝒙𝟐 + 𝒘𝟒𝒙𝟏^𝟐 + 𝒘𝟓𝒙𝟐^𝟐= y</p>
+<h1 id="岭回归及其应用实例"><a href="#岭回归及其应用实例" class="headerlink" title="岭回归及其应用实例"></a>岭回归及其应用实例</h1><h2 id="线性回归-2"><a href="#线性回归-2" class="headerlink" title="线性回归"></a>线性回归</h2><p>对于一般地线性回归问题，参数的求解采用的是最小二乘法，其目标函<br>数如下：<br>𝒂𝒓𝒈𝒎𝒊𝒏||𝑿𝒘 − 𝒚||^2<br>参数w的求解，也可以使用如下矩阵方法进行：<br>𝒘 = (𝑿^𝑻𝑿)^−1𝑿^𝑻y<br>对于矩阵X，若某些列线性相关性较大（即训练样本中某些属性线性相关），就会导致𝑿𝑻𝑿的值接近0，在计算 𝑿𝑻𝑿−𝟏时就会出现不稳定性：<br>结论：传统的基于最小二乘的线性回归法缺乏稳定性。</p>
+<h2 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h2><p>岭回归的优化目标：<br>𝒂𝒓𝒈𝒎𝒊𝒏||𝑿𝒘 − 𝒚||^𝟐 + 𝜶||𝒘||^𝟐<br>对应的矩阵求解方法为：<br>𝒘 = (𝑿^𝑻𝑿 + 𝜶𝑰)^−𝟏𝑿^𝑻y  </p>
+<ul>
+<li>岭回归(ridge regression)是一种专用于共线性数据分析的有偏估计回归方<br>法</li>
+<li>是一种改良的最小二乘估计法，对某些数据的拟合要强于最小二乘法。</li>
+</ul>
+<h2 id="sklearn中的岭回归"><a href="#sklearn中的岭回归" class="headerlink" title="sklearn中的岭回归"></a>sklearn中的岭回归</h2><p>在sklearn库中，可以使用sklearn.linear_model.Ridge调用岭回归模型，其<br>主要参数有：<br>• alpha：正则化因子，对应于损失函数中的𝜶<br>• fit_intercept：表示是否计算截距，<br>• solver：设置计算参数的方法，可选参数‘auto’、‘svd’、‘sag’等</p>
+<h2 id="交通流量预测实例"><a href="#交通流量预测实例" class="headerlink" title="交通流量预测实例"></a>交通流量预测实例</h2><p>数据介绍：<br>数据为某路口的交通流量监测数据，记录全年小时级别的车流量。<br>实验目的：<br>根据已有的数据创建多项式特征，使用岭回归模型代替一般的线性模型，对车流量的信息进行多项式回归。<br>技术路线：sklearn.linear_model.Ridgefrom<br>sklearn.preprocessing.PolynomialFeatures</p>
+<p><a href="http://blog.csdn.net/silencegtx/article/details/50697560" target="_blank" rel="noopener">机器学习一小步</a><br><a href="https://www.zhihu.com/question/28641663" target="_blank" rel="noopener">特征方程</a><br><a href="http://blog.csdn.net/dream_angel_z/article/details/49406573" target="_blank" rel="noopener">预处理</a><br><a href="http://map.whu.edu.cn/" target="_blank" rel="noopener">武汉大学地图</a></p>
+<h2 id="数据特征如下："><a href="#数据特征如下：" class="headerlink" title="数据特征如下："></a>数据特征如下：</h2><p>HR：一天中的第几个小时（0-23）<br>WEEK_DAY：一周中的第几天（0-6）<br>DAY_OF_YEAR：一年中的第几天（1-365）<br>WEEK_OF_YEAR：一年中的第几周（1-53）<br>TRAFFIC_COUNT：交通流量<br>全部数据集包含2万条以上数据（21626）</p>
+<p>Titanic是Kaggle入门竞赛的第一个问题，泰坦尼克号已经是众所周知的事情，在这场灾难中存活下来的人非常少，运用机器学习的知识预测某个人在这场灾难中是否能够存活是这道题目的目的。这道题一共做了三次，总结一下做本题的步骤：<br>（1）首先是读取数据，使用python的数据分析包pandas，numpy等读取csv格式的数据；<br>（2）查看是否有缺失值，使用第三方模块missingno可以十分直观的查看数据是否有缺失值，在网上学到了处理缺失值的方法：如果缺失值达到15%以上即可删掉，或者可以再去查看一下有缺失值的变量的异常值分布，如果既有缺失值同时异常值也较多那么该变量可能对最终的结果分析没太大作用，可以考虑删掉。这样简单粗暴的做法会对预测的结果产生影响吗？应该会，不过影响不会很大；<br>（3）填充缺失值，对于那些缺失值较少的变量，还是有填充的必要的，可以用loc寻找缺失值的位置，然后用直接赋值的方法填充数据；<br>（4）对各个变量进行分析。分析每个变量之前，可以先画一个热度图(heatmap)，查看每个变量与survived之间的相关性，热度图可以让我们对数据有一个比较全面的认识，在分析每个变量的时候，可以用seaborn模块画箱图，直方图，因子图(factorplot)，不知道是不是这么翻译的)等，观察变量与是否存活的关系，对于一些出现频数高，但与survived相关性小的变量可以选择删掉;<br>（5）训练模型：当前面的数据预处理部分都做的差不多的时候，可以用模型对数据进行训练了，这个过程中如果能对模型进行调参就更好了~~<br>（6）提交结果，最终的结果分为两列，一个是PassengerId，另一个是Survived，把模型预测的结果写为csv格式后便可提交了~<br>另外：1.放入模型训练的数据要转化成int或float型，并且数据不能有缺失值，之前做实验的对结果预测的时候程序一直报错，Input contains NAN,infinit or a value too large…后来查看数据发现Ticket1这个变量有一个缺失值==这个错误找了很久，可能是1308和1309长得比较像吧。。导致之前用info()查看数据的时候没有发现==<br>2.对于Name这个变量，我选择直接删除了，因为觉得没什么作用，但是看到别人的分析，名字中的Miss，Master中暗含了此人的年龄范围，所以可以通过姓名来推测Age中的缺失值，这样比随机填充一个数值要更准确，这种方法非常可取</p>
+<p>dummy coding虚拟编码</p>
+<h1 id="19-“手写识别”实例介绍"><a href="#19-“手写识别”实例介绍" class="headerlink" title="19-“手写识别”实例介绍"></a>19-“手写识别”实例介绍</h1><h2 id="图像识别"><a href="#图像识别" class="headerlink" title="图像识别"></a>图像识别</h2><p> 图像识别（Image Recognition）是指利用计算机对图像进行处理、分析<br>和理解，以识别各种不同模式的目标和对像的技术。<br> 图像识别的发展经历了三个阶段：文字识别、数字图像处理与识别、物体<br>识别。机器学习领域一般将此类识别问题转化为分类问题。</p>
+<h2 id="手写识别"><a href="#手写识别" class="headerlink" title="手写识别"></a>手写识别</h2><p> 手写识别是常见的图像识别任务。计算机通过手写体图片来识别出图片<br>中的字，与印刷字体不同的是，不同人的手写体风格迥异，大小不一，<br>造成了计算机对手写识别任务的一些困难。<br> 数字手写体识别由于其有限的类别（0~9共10个数字）成为了相对简单<br>的手写识别任务。DBRHD和MNIST是常用的两个数字手写识别数据集。</p>
+<h2 id="MNIST数据集"><a href="#MNIST数据集" class="headerlink" title="MNIST数据集"></a>MNIST数据集</h2><p>MNIST的下载链接：<a href="http://yann.lecun.com/exdb/mnist/。" target="_blank" rel="noopener">http://yann.lecun.com/exdb/mnist/。</a><br>MNIST是一个包含数字0~9的手写体图片数据集，图片已归一化为以手写数<br>字为中心的28<em>28规格的图片。MNIST由训练集与测试集两个部分组成，各部分<br>规模如下：<br> 训练集：60,000个手写体图片及对应标签<br> 测试集：10,000个手写体图片及对应标签MNIST数据集的手写数字样例：<br> MNIST数据集中的每一个图片由28</em>28个像素点组成<br> 每个像素点的值区间为0~255，0表示白色，255表示黑色。</p>
+<h2 id="DBRHD数据集"><a href="#DBRHD数据集" class="headerlink" title="DBRHD数据集"></a>DBRHD数据集</h2><p>DBRHD（Pen-Based Recognition of Handwritten Digits Data Set）是UCI的机器<br>学习中心提供的数字手写体数据库： <a href="https://archive.ics.uci.edu/ml/datasets/PenBased+Recognition+of+Handwritten+Digits。" target="_blank" rel="noopener">https://archive.ics.uci.edu/ml/datasets/PenBased+Recognition+of+Handwritten+Digits。</a><br>DBRHD数据集包含大量的数字0~9的手写体图片，这些图片来源于44位不同的人的手<br>写数字，图片已归一化为以手写数字为中心的32<em>32规格的图片。DBRHD的训练集与测试<br>集组成如下：<br> 训练集：7,494个手写体图片及对应标签，来源于40位手写者<br> 测试集：3,498个手写体图片及对应标签，来源于14位手写者<br>DBRHD数据集特点：<br> 去掉了图片颜色等复杂因素，将手写体数字图片转化为训练数据为大小32</em>32的文本矩阵<br> 空白区域使用0代表，字迹区域使用1表示。</p>
+<h2 id="“手写识别”实例"><a href="#“手写识别”实例" class="headerlink" title="“手写识别”实例"></a>“手写识别”实例</h2><p>已有许多模型在MNIST或DBRHD数据集上进行了实验，有些模型对数据集进行了偏斜<br>矫正，甚至在数据集上进行了人为的扭曲、偏移、缩放及失真等操作以获取更加多样性的<br>样本，使得模型更具有泛化性。<br> 常用于数字手写体的分类器：<br>1） 线性分类器 2） K最近邻分类器<br>3） Boosted Stumps 4） 非线性分类器<br>5） SVM 6） 多层感知器<br>7） 卷积神经网络<br> 后续任务：利用全连接的神经网络实现手写识别的任务</p>
+<h1 id="20-神经网络实现“手写识别”"><a href="#20-神经网络实现“手写识别”" class="headerlink" title="20-神经网络实现“手写识别”"></a>20-神经网络实现“手写识别”</h1><h2 id="任务介绍-1"><a href="#任务介绍-1" class="headerlink" title="任务介绍"></a>任务介绍</h2><p>手写数字识别是一个多分类问题，共有10个分类，每个手写数字图像的类别标签是0~9中的其中一个数。例如下面这三张图片的标签分别是0，1，2。<br>任务：利用sklearn来训练一个简单的全连接神经网络，即多层感知机（Multilayer perceptron，MLP）用于识别数据集DBRHD的手写数字。</p>
+<h2 id="MLP的输入"><a href="#MLP的输入" class="headerlink" title="MLP的输入"></a>MLP的输入</h2><p> DBRHD数据集的每个图片是一个由0或1组成的32<em>32的文本矩阵；<br> 多层感知机的输入为图片矩阵展开的1</em>1024个神经元。</p>
+<h2 id="MLP的输出"><a href="#MLP的输出" class="headerlink" title="MLP的输出"></a>MLP的输出</h2><p>MLP输出：“one-hot vectors”<br> 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0。<br> 图片标签将表示成一个只有在第n维度（从0开始）数字为1的10维向量。<br>比如，标签0将表示成[1,0,0,0,0,0,0,0,0,0,0]。即，MLP输出层具有10<br>个神经元。</p>
+<h2 id="MLP结构"><a href="#MLP结构" class="headerlink" title="MLP结构"></a>MLP结构</h2><p> MLP的输入与输出层，中间隐藏层的层数和神经元的个数设置都将影响该MLP模型的准确率。<br> 在本实例中，我们只设置一层隐藏层，在后续实验中比较该隐藏层神经元个数为50、100、200时的MLP效果。</p>
+<h2 id="MLP手写识别实例构建"><a href="#MLP手写识别实例构建" class="headerlink" title="MLP手写识别实例构建"></a>MLP手写识别实例构建</h2><p>本实例的构建步骤如下：<br> 步骤1：建立工程并导入sklearn包<br> 步骤2：加载训练数据<br> 步骤3：训练神经网络<br> 步骤4：测试集评价</p>
+<h2 id="步骤3：训练神经网络"><a href="#步骤3：训练神经网络" class="headerlink" title="步骤3：训练神经网络"></a>步骤3：训练神经网络</h2><p>1）在sklearnBP.py文件中，构建神经网络：设置网络的隐藏层数、各隐<br>藏层神经元个数、激活函数、学习率、优化方法、最大迭代次数。<br> 设置含100个神经元的隐藏层。<br> hidden_layer_sizes 存放的是一个元组，表示第i层隐藏层里神经元的个<br>数<br> 使用logistic激活函数和adam优化方法，并令初始学习率为0.0001</p>
+<h2 id="实验效果"><a href="#实验效果" class="headerlink" title="实验效果"></a>实验效果</h2><p>隐藏层神经元个数影响：<br>运行隐藏层神经元个数为50、100、200的多层感知机，对比实验效果：<br>神经元个数 50 100 200<br>错误数量 47 40 37<br>正确率 0.9503 0.9577 0.9608<br> 随着隐藏层神经元个数的增加，MLP的正确率持上升趋势；<br> 大量的隐藏层神经元带来的计算负担与对结果的提升并不对等，因此，如何选取合适的<br>隐藏神经元个数是一个值得探讨的问题。</p>
+<h2 id="实验效果-1"><a href="#实验效果-1" class="headerlink" title="实验效果"></a>实验效果</h2><p>迭代次数影响分析:<br>我们设隐藏层神经元个数为100，初始学习率为0.0001，最大迭代次数分别为500、<br>1000、1500、2000, 结果如下：<br>学习率 500 1000 1500 2000<br>错误数量 50 41 41 40<br>正确率 0.9471 0.9567 0.9567 0.9577<br> 过小的迭代次数可能使得MLP早停，造成较低的正确率。<br> 当最大迭代次数&gt;1000时，正确率基本保持不变，这说明MLP在第1000迭代时已收敛，<br>剩余的迭代次数不再进行。<br> 一般设置较大的最大迭代次数来保证多层感知机能够收敛，达到较高的正确率。</p>
+<h2 id="实验效果-2"><a href="#实验效果-2" class="headerlink" title="实验效果"></a>实验效果</h2><p>学习率影响分析：<br>改用随机梯度下降优化算法即将MLPclassifer的参数（ solver=‘sgd’, ），设隐藏层<br>神经元个数为100，最大迭代次数为2000，学习率分别为：0.1、0.01、0.001、0.0001，<br>结果如下：<br>学习率 0.1 0.01 0.001 0.0001<br>错误数量 35 41 49 222<br>正确率 0.9630 0.9567 0.9482 0.7653<br>结论：较小的学习率带来了更低的正确率，这是因为较小学习率无法在2000次迭代内<br>完成收敛，而步长较大的学习率使得MLP在2000次迭代内快速收敛到最优解。因此，较小<br>的学习率一般要配备较大的迭代次数以保证其收敛。</p>
+<h1 id="21-KNN实现“手写识别”"><a href="#21-KNN实现“手写识别”" class="headerlink" title="21-KNN实现“手写识别”"></a>21-KNN实现“手写识别”</h1><h1 id="第三周强化学习"><a href="#第三周强化学习" class="headerlink" title="第三周强化学习"></a>第三周强化学习</h1>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-09-12T08:16:26.100Z" itemprop="dateUpdated">2017-09-12 16:16:26</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/09/02/20170902ML-lixin/" target="_blank" rel="external">https://hankin2015.github.io/2017/09/02/20170902ML-lixin/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/">ML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/&title=《机器学习python应用》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/&title=《机器学习python应用》 — HanKin的博客&source=[TOC]
+Python与机器学习01-开篇-书籍&amp;课程介绍机器学习简介机器学习的目标机器学习是实现人工智能的手段，其主要研究内容是如何利用数据或..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《机器学习python应用》 — HanKin的博客&url=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/02/20170902MaShiBing-Hadoop/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">马士兵大数据应用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/02/20170902python-and-data/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">利用python进行数据分析</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/&title=《机器学习python应用》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/&title=《机器学习python应用》 — HanKin的博客&source=[TOC]
+Python与机器学习01-开篇-书籍&amp;课程介绍机器学习简介机器学习的目标机器学习是实现人工智能的手段，其主要研究内容是如何利用数据或..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《机器学习python应用》 — HanKin的博客&url=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/09/02/20170902ML-lixin/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

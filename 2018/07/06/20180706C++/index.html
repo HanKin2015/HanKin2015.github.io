@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>问题技巧汇总 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C,C++,Python">
+    <meta name="description" content="1、vector数组的初始化和清零clear不能清除干净is_meet.assign(max_memory, 0); //改成全局变量了，记得清理，clear()并没有什么卵用，这个应该当作初始化">
+<meta name="keywords" content="C,C++,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="问题技巧汇总">
+<meta property="og:url" content="https://hankin2015.github.io/2018/07/06/20180706C++/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1、vector数组的初始化和清零clear不能清除干净is_meet.assign(max_memory, 0); //改成全局变量了，记得清理，clear()并没有什么卵用，这个应该当作初始化">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-22T04:42:38.236Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="问题技巧汇总">
+<meta name="twitter:description" content="1、vector数组的初始化和清零clear不能清除干净is_meet.assign(max_memory, 0); //改成全局变量了，记得清理，clear()并没有什么卵用，这个应该当作初始化">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">问题技巧汇总</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">问题技巧汇总</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-06T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-07-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/OTHER/">OTHER</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、vector数组的初始化和清零"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、vector数组的初始化和清零</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、python代码报错：ParserError-Error-tokenizing-data-C-error-Expected-1-fields-in-line-122-saw-2"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、python代码报错：ParserError: Error tokenizing data. C error: Expected 1 fields in line 122, saw 2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、利用Pandas读取文件路径或文件名称包含中文的csv文件"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、利用Pandas读取文件路径或文件名称包含中文的csv文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、vector空间的动态增长"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、vector空间的动态增长</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、size-type和size-t的的区别"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、size_type和size_t的的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#我们为什么不适用int变量来保存string的size呢？"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">我们为什么不适用int变量来保存string的size呢？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是size-t类型呢？其实本质上和size-type没有多大区别"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">什么是size_t类型呢？其实本质上和size_type没有多大区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6、BitSet"><span class="post-toc-number">6.</span> <span class="post-toc-text">6、BitSet</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7、Bitmap"><span class="post-toc-number">7.</span> <span class="post-toc-text">7、Bitmap</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8、map的遍历"><span class="post-toc-number">8.</span> <span class="post-toc-text">8、map的遍历</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9、C-C-库函数（tolower-toupper）实现字母的大小写转换"><span class="post-toc-number">9.</span> <span class="post-toc-text">9、C/C++库函数（tolower/toupper）实现字母的大小写转换</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#10、swtich和case语句中，定义变量要加花括号"><span class="post-toc-number">10.</span> <span class="post-toc-text">10、swtich和case语句中，定义变量要加花括号</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#11、输入字符串中有空格的时候-gets-and-getline"><span class="post-toc-number">11.</span> <span class="post-toc-text">11、输入字符串中有空格的时候(gets and getline)</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180706C++"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">问题技巧汇总</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-06 10:47:41" datetime="2018-07-06T02:47:41.000Z"  itemprop="datePublished">2018-07-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/OTHER/">OTHER</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1、vector数组的初始化和清零"><a href="#1、vector数组的初始化和清零" class="headerlink" title="1、vector数组的初始化和清零"></a>1、vector数组的初始化和清零</h1><p>clear不能清除干净<br>is_meet.assign(max_memory, 0); //改成全局变量了，记得清理，clear()并没有什么卵用，这个应该当作初始化<br><a id="more"></a></p>
+<h1 id="2、python代码报错：ParserError-Error-tokenizing-data-C-error-Expected-1-fields-in-line-122-saw-2"><a href="#2、python代码报错：ParserError-Error-tokenizing-data-C-error-Expected-1-fields-in-line-122-saw-2" class="headerlink" title="2、python代码报错：ParserError: Error tokenizing data. C error: Expected 1 fields in line 122, saw 2"></a>2、python代码报错：ParserError: Error tokenizing data. C error: Expected 1 fields in line 122, saw 2</h1><p>解决方法：<br>加入参数error_bad_lines=False</p>
+<h1 id="3、利用Pandas读取文件路径或文件名称包含中文的csv文件"><a href="#3、利用Pandas读取文件路径或文件名称包含中文的csv文件" class="headerlink" title="3、利用Pandas读取文件路径或文件名称包含中文的csv文件"></a>3、利用Pandas读取文件路径或文件名称包含中文的csv文件</h1><p>f=open(‘E:/学习相关/Python/数据样例/用户侧数据/账单.csv’)<br>df=pd.read_csv(f)</p>
+<h1 id="4、vector空间的动态增长"><a href="#4、vector空间的动态增长" class="headerlink" title="4、vector空间的动态增长"></a>4、vector空间的动态增长</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;int&gt; a;</span><br><span class="line">    cout &lt;&lt; &quot;a.size(): &quot; &lt;&lt; a.size() &lt;&lt; &quot;       a.capacity(): &quot; &lt;&lt; a.capacity() &lt;&lt; endl;</span><br><span class="line">    for (int i = 0; i &lt; 10; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a.push_back(i);</span><br><span class="line">        cout &lt;&lt; &quot;a.size(): &quot; &lt;&lt; a.size() &lt;&lt; &quot;   a.capacity(): &quot; &lt;&lt; a.capacity() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    vector&lt;int&gt; b;</span><br><span class="line">    b.reserve(10);</span><br><span class="line">    for (int i = 0; i &lt; 10; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        b.push_back(i);</span><br><span class="line">        cout &lt;&lt; &quot;b.size(): &quot; &lt;&lt; b.size() &lt;&lt; &quot;   b.capacity(): &quot; &lt;&lt; b.capacity() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    b.push_back(11);</span><br><span class="line">    cout &lt;&lt; &quot;b.size(): &quot; &lt;&lt; b.size() &lt;&lt; &quot;       b.capacity(): &quot; &lt;&lt; b.capacity() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    b.reserve(15);</span><br><span class="line">    cout &lt;&lt; &quot;after b.reserve(15):&quot; &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;b.size(): &quot; &lt;&lt; b.size() &lt;&lt; &quot;       b.capacity(): &quot; &lt;&lt; b.capacity() &lt;&lt; endl;</span><br><span class="line">    b.resize(5);</span><br><span class="line">    cout &lt;&lt; &quot;after b.resize(5):&quot; &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;b.size(): &quot; &lt;&lt; b.size() &lt;&lt; &quot;       b.capacity(): &quot; &lt;&lt; b.capacity() &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为啥在vs中的增长是1.5倍<a href="https://blog.csdn.net/dengheCSDN/article/details/78985684" target="_blank" rel="noopener">STL vector(四) vector 扩容为什么要以1.5倍或者2倍扩容</a></p>
+<h1 id="5、size-type和size-t的的区别"><a href="#5、size-type和size-t的的区别" class="headerlink" title="5、size_type和size_t的的区别"></a>5、size_type和size_t的的区别</h1><p>由string类类型和vector类类型定义的类型，用以保存任意string对象或vector对象的长度，标准库类型将size_type定义为unsigned类型，string抽象意义是字符串， size()的抽象意义是字符串的尺寸， string::size_type抽象意义是尺寸单位类型。</p>
+<p>string::size_type从本质上来说，是一个整型数。关键是由于机器的环境，它的长度有可能不同。 例如：我们在使用 string::find的函数的时候，它返回的类型就是 string::size_type类型。而当find找不到所要找的字符的时候，它返回的是 npos的值，这个值是与size_type相关的。假如，你是用 string s; int rc = s.find(…..); 然后判断，if ( rc == string::npos ) 这样在不同的机器平台上表现就不一样了。如果，你的平台的string::size_type的长度正好和int相匹配，那么这个判断会侥幸正确。但换成另外的平台，有可能 string::size_type的类型是64位长度的，那么判断就完全不正确了。 所以，正确的应该是： string::size_type rc = s.find(…..); 这个时候使用 if ( rc == string::npos )就回正确了。</p>
+<p>st.size()表示st中的字符数量，字符数量的统计是由 1 开始累计计算的，所以字符数量正好比字符串的下标索引数（由 0 开始累计计算）大 1 ，这里的index != st.size();的效果等同于index &lt; st.size();</p>
+<p>size_t不是容器概念。<br>size_type是容器概念，没有容器不能使用。<br>见例程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;  </span><br><span class="line">#include&lt;vector&gt;  </span><br><span class="line">using namespace std;  </span><br><span class="line">int main()  </span><br><span class="line">&#123;  </span><br><span class="line"> cout&lt;&lt;&quot; typeid(size_t).name() = &quot;&lt;&lt;typeid(size_t).name()&lt;&lt;endl;  </span><br><span class="line"> cout&lt;&lt;&quot; typeid(vector&lt;int&gt;::size_type).name() = &quot;&lt;&lt;typeid(vector&lt;int&gt;::size_type).name()&lt;&lt;endl;  </span><br><span class="line">  </span><br><span class="line"> return 0;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>from:<a href="http://blog.sina.com.cn/s/blog_5ff6e6ed0100da4j.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_5ff6e6ed0100da4j.html</a></p>
+<p>先是看到了在看标准库string时size_type，后来在学习标准库bitset的时候有碰到了size_t，晕啊<br>标准库string里面有个函数size，用来返回字符串中的字符个数，具体用法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string st(&quot;The expense of spirit/n&quot;);</span><br><span class="line">cout &lt;&lt; &quot;The size of &quot;&lt;&lt;st&lt;&lt;&quot;is&quot;&lt;&lt;st.size() &lt;&lt; &quot;characters, including the newline&quot;&lt;&lt;endl;</span><br></pre></td></tr></table></figure></p>
+<p>size_type被定义为与unsigned型（unsigned int, unsigned long）具有相同的含义，而且可以保证足够大能够存储任意string对象的长度。为而来使用由string类型定义的size_type类型。程序员必须加上作用于操作符来说明所使用的size_type类型是由string类定义的。</p>
+<h2 id="我们为什么不适用int变量来保存string的size呢？"><a href="#我们为什么不适用int变量来保存string的size呢？" class="headerlink" title="我们为什么不适用int变量来保存string的size呢？"></a>我们为什么不适用int变量来保存string的size呢？</h2><p>使用int变量的问题是：有些机器上的int变量的表示范围太小，甚至无法存储实际并不长的string对象。如在有16位int型的机器上，int类型变量最大只能表示32767个字符的string对象。而能容纳一个文件内容的string对象轻易就能超过这个数字，因此，为了避免溢出，保存一个string对象的size的最安全的方法就是使用标准库类型string：：size_type().<br>一点注意：虽然是在学习标准库string的时候巧遇了size_type类型，但是，其实vector库也可以定义size_type类型，在vector库中还有一个difference_type类型，该类型用来存储任何两个迭代器对象间的距离，所以是signed类型的。</p>
+<h2 id="什么是size-t类型呢？其实本质上和size-type没有多大区别"><a href="#什么是size-t类型呢？其实本质上和size-type没有多大区别" class="headerlink" title="什么是size_t类型呢？其实本质上和size_type没有多大区别"></a>什么是size_t类型呢？其实本质上和size_type没有多大区别</h2><p>其实size_t和size_type类似，size_t 类型定义在cstddef头文件中,该文件是C标准库的头文件stddef.h的C++版本.它是一个与机器相关的unsigned类型,其大小足以保证存储内存中对象的大小。用法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bitset&lt;32&gt; bitvec;</span><br><span class="line">size_t sz=bitvec.size();</span><br></pre></td></tr></table></figure></p>
+<p>另外sizeof操作符的返回值的类型也为size_t哦</p>
+<h1 id="6、BitSet"><a href="#6、BitSet" class="headerlink" title="6、BitSet"></a>6、BitSet</h1><p>C++语言的一个类库，用来方便地管理一系列的bit位而不用程序员自己来写代码。<br>bitset除了可以访问指定下标的bit位以外，还可以把它们作为一个整数来进行某些统计。</p>
+<p>可以如下声明一个该类型变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bitset&lt;N&gt;varm (M)</span><br><span class="line">其中varm为变量名。</span><br><span class="line">N表示该类型在内存中占的位数，是二进制。</span><br><span class="line">M表示变量varm的初始值。</span><br></pre></td></tr></table></figure></p>
+<p>用整值类型表示位向量的问题在于：使用位操作符来设置复位和测试单独的位层次比较低也比较复杂.<br>例如：用整值类型将第27 位设置为1, 我们这样写<br>quizl |= 1&lt;&lt;27;<br>而用bitset 来做我们可以写<br>quizl[ 27 ] = 1;<br>或<br>quizl.set( 27 );<br>要使用bitset 类我们必须包含相关的头文件</p>
+<p>#include <bitset></bitset></p>
+<h1 id="7、Bitmap"><a href="#7、Bitmap" class="headerlink" title="7、Bitmap"></a>7、Bitmap</h1><h1 id="8、map的遍历"><a href="#8、map的遍历" class="headerlink" title="8、map的遍历"></a>8、map的遍历</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; m;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> it = m.begin(); it != m.end(); it++) &#123;</span><br><span class="line">	it-&gt;first;</span><br><span class="line">	it-&gt;second;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="9、C-C-库函数（tolower-toupper）实现字母的大小写转换"><a href="#9、C-C-库函数（tolower-toupper）实现字母的大小写转换" class="headerlink" title="9、C/C++库函数（tolower/toupper）实现字母的大小写转换"></a>9、C/C++库函数（tolower/toupper）实现字母的大小写转换</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[] = <span class="string">"THIS IS A STRING"</span>;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(str); i++) &#123;</span><br><span class="line">        str[i] = <span class="built_in">tolower</span>(str[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="built_in">stringstream</span> ss;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">ss &lt;&lt; i;</span><br><span class="line"><span class="built_in">string</span> str = ss.str();</span><br><span class="line"></span><br><span class="line">itoa(i, str, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="10、swtich和case语句中，定义变量要加花括号"><a href="#10、swtich和case语句中，定义变量要加花括号" class="headerlink" title="10、swtich和case语句中，定义变量要加花括号"></a>10、swtich和case语句中，定义变量要加花括号</h1><p>报错：hankin.cpp:14:8: 错误： 跳转至 case 标号 [-fpermissive]<br>原因：系统不允许我们在case中定义一个变量，原因是我们在一个case中定义的变量，假如在另一个case中被使用就会出现错误，因为一般来说switch语句中的case只能被执行一个。<br>但是我们假如是想要定义一个在case中使用的临时变量，那该怎么办呢。当然是有办法的其实也很简单就是我们在写case语句时给每一个case加一个大括号就行了。</p>
+<h1 id="11、输入字符串中有空格的时候-gets-and-getline"><a href="#11、输入字符串中有空格的时候-gets-and-getline" class="headerlink" title="11、输入字符串中有空格的时候(gets and getline)"></a>11、输入字符串中有空格的时候(gets and getline)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">char</span> s1[maxn];</span><br><span class="line"><span class="built_in">string</span> s2;</span><br><span class="line"><span class="built_in">cin</span>.getline(s1, maxn);</span><br><span class="line">getline(<span class="built_in">cin</span>, s2);</span><br><span class="line">gets(s1);</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-22T04:42:38.236Z" itemprop="dateUpdated">2018-09-22 12:42:38</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/07/06/20180706C++/" target="_blank" rel="external">https://hankin2015.github.io/2018/07/06/20180706C++/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/07/06/20180706C++/&title=《问题技巧汇总》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/07/06/20180706C++/&title=《问题技巧汇总》 — HanKin的博客&source=1、vector数组的初始化和清零clear不能清除干净is_meet.assign(max_memory, 0); //改成全局变量了，记得清理，cle..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/07/06/20180706C++/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《问题技巧汇总》 — HanKin的博客&url=https://hankin2015.github.io/2018/07/06/20180706C++/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/07/06/20180706C++/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/06/20180706hiho205/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">hiho一下 第205周 Building Heap</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/16/20180616hiho206/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hiho一下206周《Guess Number with Lower or Higher Hints》</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/07/06/20180706C++/&title=《问题技巧汇总》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/07/06/20180706C++/&title=《问题技巧汇总》 — HanKin的博客&source=1、vector数组的初始化和清零clear不能清除干净is_meet.assign(max_memory, 0); //改成全局变量了，记得清理，cle..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/07/06/20180706C++/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《问题技巧汇总》 — HanKin的博客&url=https://hankin2015.github.io/2018/07/06/20180706C++/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/07/06/20180706C++/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/07/06/20180706C++/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

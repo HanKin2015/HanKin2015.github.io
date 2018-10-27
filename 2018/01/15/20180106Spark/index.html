@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Spark从零开始 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Sublime">
+    <meta name="description" content="简介Spark作为新一代大数据计算引擎，因为内存计算的特性，具有比hadoop更快的计算速度。本教程涉及Spark基础概念RDD，KeyValueRDD，RDD的常用Transformation和Action操作等。">
+<meta name="keywords" content="Sublime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark从零开始">
+<meta property="og:url" content="https://hankin2015.github.io/2018/01/15/20180106Spark/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="简介Spark作为新一代大数据计算引擎，因为内存计算的特性，具有比hadoop更快的计算速度。本教程涉及Spark基础概念RDD，KeyValueRDD，RDD的常用Transformation和Action操作等。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img1.mukewang.com/5a4d828100010b4d19201080.jpg">
+<meta property="og:image" content="https://img3.mukewang.com/59cb9815000125a519201080.jpg">
+<meta property="og:image" content="https://img4.mukewang.com/58de0c8800013b5519201080.jpg">
+<meta property="og:image" content="https://img4.mukewang.com/59ba43290001309619201080.jpg">
+<meta property="og:image" content="https://img2.mukewang.com/59414a480001408f19201080.jpg">
+<meta property="og:updated_time" content="2018-01-17T06:07:22.258Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spark从零开始">
+<meta name="twitter:description" content="简介Spark作为新一代大数据计算引擎，因为内存计算的特性，具有比hadoop更快的计算速度。本教程涉及Spark基础概念RDD，KeyValueRDD，RDD的常用Transformation和Action操作等。">
+<meta name="twitter:image" content="https://img1.mukewang.com/5a4d828100010b4d19201080.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Spark从零开始</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Spark从零开始</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-15T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-01-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第1章-Spark介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">第1章 Spark介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-Spark简介-03-59"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1-1 Spark简介 (03:59)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-Spark生态介绍-04-25"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">1-2 Spark生态介绍 (04:25)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#spark组件："><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">spark组件：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第2章-Spark的下载和安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">第2章 Spark的下载和安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-spark安装-10-19"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2-1 spark安装 (10:19)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改日志级别"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">修改日志级别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RDD"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">RDD</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第3章-开发第一个Spark程序"><span class="post-toc-number">4.</span> <span class="post-toc-text">第3章 开发第一个Spark程序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-Spark开发环境搭建-10-39"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">3-1 Spark开发环境搭建 (10:39)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置环境变量"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">配置环境变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-开发第一个Spark程序-18-13"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">3-2 开发第一个Spark程序 (18:13)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第4章-Rdds"><span class="post-toc-number">5.</span> <span class="post-toc-text">第4章 Rdds</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-Rdds介绍-17-25"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">4-1 Rdds介绍 (17:25)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-RDDs基本操作之Transformations（一）-13-05"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">4-2 RDDs基本操作之Transformations（一） (13:05)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-RDDs基本操作之Transformations（二）-06-44"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">4-3 RDDs基本操作之Transformations（二） (06:44)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-4-RDD基本操作之Action-07-09"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">4-4 RDD基本操作之Action (07:09)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-5-RDDS的特性-08-09"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">4-5 RDDS的特性 (08:09)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-6-KeyValue对RDDs-一-13-35"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">4-6 KeyValue对RDDs(一) (13:35)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-7-KeyValue对RDDs-二-17-44"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">4-7 KeyValue对RDDs(二) (17:44)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第5章-课程总结"><span class="post-toc-number">6.</span> <span class="post-toc-text">第5章 课程总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-1-Spark课程总结-04-33"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">5-1 Spark课程总结 (04:33)</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180106Spark"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Spark从零开始</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-15 10:47:41" datetime="2018-01-15T02:47:41.000Z"  itemprop="datePublished">2018-01-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Spark作为新一代大数据计算引擎，因为内存计算的特性，具有比hadoop更快的计算速度。本教程涉及Spark基础概念RDD，KeyValueRDD，RDD的常用Transformation和Action操作等。<br><a id="more"></a></p>
+<h1 id="第1章-Spark介绍"><a href="#第1章-Spark介绍" class="headerlink" title="第1章 Spark介绍"></a>第1章 Spark介绍</h1><h2 id="1-1-Spark简介-03-59"><a href="#1-1-Spark简介-03-59" class="headerlink" title="1-1 Spark简介 (03:59)"></a>1-1 Spark简介 (03:59)</h2><ul>
+<li>Spark是一个快速且通用的集群计算平台。</li>
+<li>Spark是快速的：<br>   Spark扩充了流行的MapReduce计算模型；<br>   Spark是基于内存的计算。</li>
+<li>Spark是通用的：<br>   Spark的设计容纳了其它分布式系统拥有的功能；<br>   批处理，迭代式计算，交互查询和流处理等。<br>   优点：降低维护成本。</li>
+<li>spark是高度开放的 ：<br>  提供了python，java，Scala，SQL的API和丰富的内置库。<br>  与其他的大数据工具整合的很好。</li>
+</ul>
+<p>快速：秒和分级别，相比hadoop的分和时<br>通用：应用场景多<br>快速：<br>1、扩充hadoop的Mapreduce计算模型<br>2、基于内存计算章节<br>通用：<br>1、容纳其他分布式系统功能，具有批计算，迭代式计算，交互查询和流处理<br>2、高度开发，提供多yu8yan的API，具有丰富的内置库</p>
+<h2 id="1-2-Spark生态介绍-04-25"><a href="#1-2-Spark生态介绍-04-25" class="headerlink" title="1-2 Spark生态介绍 (04:25)"></a>1-2 Spark生态介绍 (04:25)</h2><p>spark历史：伯克利实验室研究项目，基于Hadoop的Mapreduce机制，引入内存管理机制，提高了迭代式计算和交互式中的效率。</p>
+<h3 id="spark组件："><a href="#spark组件：" class="headerlink" title="spark组件："></a>spark组件：</h3><p>spark core:spark基本功能，包括任务调度，内存管理，容错机制<br>内部定义了RDDs(弹性分布式数据集),提供多个APIs调用，为其他组件提供底层服务</p>
+<p>spark sql:spark处理结构化数据的库，类似Hive SQL,MySql，主要为企业提供报表统计</p>
+<p>spark streaming：实时数据流处理组件，类似Storm，提供API操作实时流数据，企业中用来从Kafka中接收数据做实时统计</p>
+<p>Mlib:机器学习功能包，包括聚类，回归，模型评估和数据导入。同时支持集群平台上的横向扩展</p>
+<p>Graphx：处理图的库，并进行图的并行计算</p>
+<p>Cluster Manager是：spark自带的集群管理</p>
+<p>Spark紧密集成的优点：<br>Spark底层优化了，基于Spark底层的组件，也得到了相应的优化。<br>紧密集成，节省了各个组件组合使用时的部署，测试等时间。<br>向Spark增加新的组件时，其他组件，立刻享用新组建的功能<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img1.mukewang.com/5a4d828100010b4d19201080.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p> 1-3 Spark与Hadoop的比较 (01:58)<br>Hadoop应用场景：<br>离线处理，时效性要求不高的场景：Hadoop中间数据落到硬盘上，导致Hadoop处理大数据时，时效性不高，时间在几分钟到几小时不等，但数据可以存储。<br>Spark应用场景：<br>时效性要求高的场景和机器学习：Spark基于内存，中间数据多在内存中，数据处理块，但Spark不具备hdfs存储功能，需借助hdfs</p>
+<p>Doug Cutting 的观点：<br>这是个生态系统，每个组件都有其作用，各姗其职即可，<br>Spark不具有HDFS的存储能力，要借助HDFS等持久数据<br>大数据将会孕育出更多的新技术</p>
+<h1 id="第2章-Spark的下载和安装"><a href="#第2章-Spark的下载和安装" class="headerlink" title="第2章 Spark的下载和安装"></a>第2章 Spark的下载和安装</h1><h2 id="2-1-spark安装-10-19"><a href="#2-1-spark安装-10-19" class="headerlink" title="2-1 spark安装 (10:19)"></a>2-1 spark安装 (10:19)</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img3.mukewang.com/59cb9815000125a519201080.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>1、下载<br>wget <a href="http://mirror.bit.edu.cn/apache/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz" target="_blank" rel="noopener">http://mirror.bit.edu.cn/apache/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz</a></p>
+<p>2、解压缩<br>tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz</p>
+<p>3、改文件夹名字<br>mv spark-2.2.1-bin-hadoop2.7 spark</p>
+<p>4、Spark Shell<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img4.mukewang.com/58de0c8800013b5519201080.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>Python Shell: bin/pyspark<br>Scala Shell: bin/spark-shell</p>
+<p>进入使用：./spark-shell(因为这是执行文件)</p>
+<p>spark shell 实例<br>建立一个文件夹testfile，新建文件helloSpark<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hello Spark!</span><br><span class="line">Hello Scala!</span><br><span class="line">Hello HanKin!</span><br><span class="line">Hello HeJian!</span><br></pre></td></tr></table></figure></p>
+<p>val lines = sc.textFile(“../../testfile/helloSpark”)<br>lines.count()      显示文件中行数<br>lines.first()       显示文件中第一行的内容<br>把文本文件加载成RDD复制给lines的RDD</p>
+<h2 id="修改日志级别"><a href="#修改日志级别" class="headerlink" title="修改日志级别"></a>修改日志级别</h2><p>spark-2.2.1-bin-hadoop2.7/conf/log4j.properties.template<br>cp log4j.properties.template log4j.properties<br>修改为log4j.rootCategory=WARN, console</p>
+<h2 id="RDD"><a href="#RDD" class="headerlink" title="RDD"></a>RDD</h2><h1 id="第3章-开发第一个Spark程序"><a href="#第3章-开发第一个Spark程序" class="headerlink" title="第3章 开发第一个Spark程序"></a>第3章 开发第一个Spark程序</h1><h2 id="3-1-Spark开发环境搭建-10-39"><a href="#3-1-Spark开发环境搭建-10-39" class="headerlink" title="3-1 Spark开发环境搭建 (10:39)"></a>3-1 Spark开发环境搭建 (10:39)</h2><ul>
+<li>First, make sure you have the Java 8 JDK installed.</li>
+<li>Then, install Scala:<br>wget <a href="https://downloads.lightbend.com/scala/2.12.4/scala-2.12.4.tgz" target="_blank" rel="noopener">https://downloads.lightbend.com/scala/2.12.4/scala-2.12.4.tgz</a><br>tar -zxvf scala-2.12.4.tgz<br>mkdir scala</li>
+</ul>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>sudo vim /etc/profile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#define hejian&apos;s environment variable</span><br><span class="line">export SCALA_HOME=/home/hejian/scala/scala-2.12.4</span><br><span class="line">export PATH=$PATH:$SCALA_HOME/bin</span><br><span class="line">export SPARK_HOME=/home/hejian/spark/spark-2.2.1-bin-hadoop2.7</span><br><span class="line">export PATH=$PATH:$SPARK_HOME/bin</span><br></pre></td></tr></table></figure></p>
+<p>source /etc/profile</p>
+<h2 id="3-2-开发第一个Spark程序-18-13"><a href="#3-2-开发第一个Spark程序-18-13" class="headerlink" title="3-2 开发第一个Spark程序 (18:13)"></a>3-2 开发第一个Spark程序 (18:13)</h2><p>配置ssh无秘钥登陆<br>ssh-keygen<br>.ssh下有个公钥文件，将其放置authorized_keys中，这个文件夹是自己创建的<br>改变文件权限</p>
+<p>启动集群：<br>  启动master ./sbin/start-master.sh<br>  启动worker ./bin/spark-class<br>  提交作业   ./bin/spark-submit</p>
+<p>启动master<br>./sbin/start-master.sh<br>启动worker<br>./bin/spark-class org.apache.spark.deploy.worker.Worker spark://sklse:7077<br>提交作业<br>./bin/spark-submit  –master spark://sklse:7077 –class WordCount /home/hejian/spark/scala.jar<br>./bin/spark-submit  –master spark://sklse:7077 –class RecommendMusic /home/hejian/parallelcompute/parallelcompute.jar</p>
+<p>地址相关路径<br><a href="http://192.168.201.17:8080/" target="_blank" rel="noopener">http://192.168.201.17:8080/</a><br><a href="http://192.168.201.171:8081/" target="_blank" rel="noopener">http://192.168.201.171:8081/</a></p>
+<h1 id="第4章-Rdds"><a href="#第4章-Rdds" class="headerlink" title="第4章 Rdds"></a>第4章 Rdds</h1><h2 id="4-1-Rdds介绍-17-25"><a href="#4-1-Rdds介绍-17-25" class="headerlink" title="4-1 Rdds介绍 (17:25)"></a>4-1 Rdds介绍 (17:25)</h2><p> Driver program:包含了main方法<br>sparkContext:链接spark集群，一般直接使用shell创建好的对象sc即可<br>rdds:弹性分布数据集，spark如果大数据量时会自动将片分配到每一个节点上，各个片的总名称就是rdds 对象<br>创建rdds的两种对象：<br>1.使用sc.prilize对象<br>2.使用sc.textFile()加载外部对象<br>3.scala：匿名函数和类型推断。<br>line2.Filter(line=&gt;line.contains(“world”))<br>即line2通过Filter的方法将每一行赋值给line,然后line在调用contains方法确认哪一行是否包含有world,这个单词，有则返回给line2.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">val lines = sc.textFile(&quot;/home/hejian/spark/testfile/helloSpark&quot;)</span><br><span class="line">lines.count()</span><br><span class="line">val rdd = sc.parallelize(Array(1,2,2,4), 4)</span><br><span class="line">rdd.count()</span><br><span class="line">rdd.foreach(print)</span><br><span class="line">4212</span><br><span class="line">scala&gt; rdd.foreach(println)</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">2</span><br><span class="line">出来的结果是随机的，因为数据被分片到了4个分区，输出的时候是随机的。</span><br><span class="line">val lines2 = lines.filter(line =&gt; line.contains(&quot;Spark!&quot;))</span><br><span class="line">lines2.foreach(print)</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-RDDs基本操作之Transformations（一）-13-05"><a href="#4-2-RDDs基本操作之Transformations（一）-13-05" class="headerlink" title="4-2 RDDs基本操作之Transformations（一） (13:05)"></a>4-2 RDDs基本操作之Transformations（一） (13:05)</h2><p>rdd.transfomat操作：<br>1.map操作：将一个rdd变成一个可以和原来不同的内容排序的rdd<br>2.fileter:返回一个只符合条件的rdd<br>3.flatMap:将数据进行压扁生成一个新的rdd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">RDD 基本操作 Transformation（转换）</span><br><span class="line">val lines = sc.parallelize(Array(&quot;hello&quot;,&quot;spark&quot;,&quot;spark&quot;,&quot;hello&quot;,&quot;！&quot;))</span><br><span class="line">lines.foreach(println)</span><br><span class="line">val lines2 = lines.map(word=&gt;(word,1)) //每一个元素+1</span><br><span class="line">lines2.foreach(println)</span><br><span class="line"></span><br><span class="line">val lines3 = lines.filter(word=&gt;word.contains(&quot;hello&quot;))</span><br><span class="line">lines3.foreach(println)</span><br><span class="line">flatMap() 压扁，返回一个新的Rdd</span><br><span class="line"></span><br><span class="line">val inputs = sc.textFile(&quot;/home/hejian/spark/testfile/helloSpark&quot;)</span><br><span class="line">inputs.foreach(println)</span><br><span class="line">val  lines = inputs.flatmap(line=&gt;line.split(&quot; &quot;))</span><br><span class="line">lines.foreach(println)</span><br><span class="line">val lines2 = lines.map(word=&gt;(word,1))</span><br><span class="line">lines.foreach(println)</span><br></pre></td></tr></table></figure>
+<h2 id="4-3-RDDs基本操作之Transformations（二）-06-44"><a href="#4-3-RDDs基本操作之Transformations（二）-06-44" class="headerlink" title="4-3 RDDs基本操作之Transformations（二） (06:44)"></a>4-3 RDDs基本操作之Transformations（二） (06:44)</h2><p>rdd transformations(转换二)操作：集合运算<br>1.distinct :去除重复<br>2.subturast: rdd1.subtruast(rdd2),rdd1中有的，而rdd2中没有的<br>3.union。并集：rdd1.union(rdd2),取rdd1和rdd2中所有的数据<br>4.innter:交集：取rdd1与rdd2相同的部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">val rdd1 = sc.parallelize(Array(&quot;coffe&quot;, &quot;coffe&quot;, &quot;panda&quot;, &quot;monky&quot;, &quot;tea&quot;))</span><br><span class="line">rdd1.foreach(println)</span><br><span class="line">val rdd2 = sc.parallelize(Array(&quot;coffe&quot;, &quot;monky&quot;, &quot;kitty&quot;))</span><br><span class="line">rdd2.foreach(println)</span><br><span class="line">//去重</span><br><span class="line">val rdd_distinct = rdd1.distinct()</span><br><span class="line">rdd_distinct.foreach(println)</span><br><span class="line">//并集</span><br><span class="line">val rdd_union = rdd1.union(rdd2)</span><br><span class="line">rdd_union.foreach(println)</span><br><span class="line">//交集</span><br><span class="line">val rdd_inter = rdd1.intersection(rdd2)</span><br><span class="line">rdd_inter.foreach(println)</span><br><span class="line">//排斥集</span><br><span class="line">val rdd_sub = rdd1.subtract(rdd2)</span><br><span class="line">rdd_sub.foreach(println)</span><br></pre></td></tr></table></figure>
+<h2 id="4-4-RDD基本操作之Action-07-09"><a href="#4-4-RDD基本操作之Action-07-09" class="headerlink" title="4-4 RDD基本操作之Action (07:09)"></a>4-4 RDD基本操作之Action (07:09)</h2><p>Action 操作：返回最终的结果的操作</p>
+<ul>
+<li>Collect()遍历整个RDD 向drive program返回RDD的内容 需要单机内存能够容纳下（因为要拷贝给driver，一般测试使用），大数据的时候，使用saveAsTextFile() action保存文件中去。</li>
+<li>raduce() 接收一个函数，作用在RDD两个类型相同的元素上，返回新元素。可以实现RDD中元素的累加，计数，和其他类型的聚集操作。val sum=rdd.reduce((x,y)=&gt;x+y)。</li>
+<li>top()根据RDD中的数据的比较器</li>
+<li>take(n) 返回RDD的n个元素（同时尝试访问最少的partitions）返回结果是无序的，一般测试使用。</li>
+<li>foreach()计算RDD中的每个元素，但不返回到本地。可以配合println()友好的打印出数据。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">val rdd = sc.parallelize(Array(1,2,3,3))</span><br><span class="line">rdd.collect()</span><br><span class="line">rdd.reduce((x,y)=&gt;x+y)</span><br><span class="line">rdd.take(2)</span><br><span class="line">rdd.top(3)</span><br></pre></td></tr></table></figure>
+<h2 id="4-5-RDDS的特性-08-09"><a href="#4-5-RDDS的特性-08-09" class="headerlink" title="4-5 RDDS的特性 (08:09)"></a>4-5 RDDS的特性 (08:09)</h2><p>RDDS的特性<br>RDDS的血统关系图，Spark维护着RDDS之间的依赖关系以及创建关系，叫做血统关系图，Spark使用血统关系图来计算每个RDD的需求和恢复丢失的数据。<br>延迟计算，没有action，转换操作没有意义。<br>持久化：如果想重复利用一个RDD，可以使用RDD.persist()来持久化到缓存中，因为默认每次在RDDS上action操作时，Spark都要重新计算RDDS</p>
+<h2 id="4-6-KeyValue对RDDs-一-13-35"><a href="#4-6-KeyValue对RDDs-一-13-35" class="headerlink" title="4-6 KeyValue对RDDs(一) (13:35)"></a>4-6 KeyValue对RDDs(一) (13:35)</h2><p>创建KeyValue对RDDs：<br>使用map()函数，返回key/value对<br>例如，包含数行数据的RDD，把每行数据的第一个单词作为keys<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">val rdd = sc.textFile(&quot;/home/hejian/spark/testfile/helloSpark&quot;)</span><br><span class="line">val rdd2 = rdd.map(line=&gt;(line.split(&quot; &quot;)(0), line))</span><br><span class="line">rdd2.foreach(println)</span><br><span class="line"></span><br><span class="line">val rdd3 = sc.parallelize(Array((1,2), (3,4), (3,6)))</span><br><span class="line">val rdd4 = rdd3.reduceByKey((x,y)=&gt;x+y)</span><br><span class="line">rdd4.foreach(println)</span><br><span class="line">val rdd5 = rdd3.groupByKey()</span><br><span class="line">rdd5.foreach(println)</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img4.mukewang.com/59ba43290001309619201080.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img2.mukewang.com/59414a480001408f19201080.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="4-7-KeyValue对RDDs-二-17-44"><a href="#4-7-KeyValue对RDDs-二-17-44" class="headerlink" title="4-7 KeyValue对RDDs(二) (17:44)"></a>4-7 KeyValue对RDDs(二) (17:44)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">val scores = sc.parallelize(Array((&quot;jake&quot;, 80.0), (&quot;jake&quot;, 85.0), (&quot;jake&quot;,90.0), (&quot;mike&quot;, 85.0), (&quot;mike&quot;, 92.0), (&quot;mike&quot;, 90.0)))</span><br><span class="line">scores.foreach(println)</span><br><span class="line">val scores2 = scores.combineByKey(score=&gt;(1, score), (c1:(Int, Double), newScore) =&gt; (c1._1+1, c1._2+newScore), (c1:(Int, Double), c2:(Int, Double))=&gt;(c1._1+c2._1, c1._2+c2._2))</span><br><span class="line">scores2.foreach(println)</span><br><span class="line">val average = scores2.map&#123;case(name,(num,score)) =&gt; (name,score/num)&#125;</span><br><span class="line">average.foreach(println)</span><br></pre></td></tr></table></figure>
+<h1 id="第5章-课程总结"><a href="#第5章-课程总结" class="headerlink" title="第5章 课程总结"></a>第5章 课程总结</h1><h2 id="5-1-Spark课程总结-04-33"><a href="#5-1-Spark课程总结-04-33" class="headerlink" title="5-1 Spark课程总结 (04:33)"></a>5-1 Spark课程总结 (04:33)</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-17T06:07:22.258Z" itemprop="dateUpdated">2018-01-17 14:07:22</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/01/15/20180106Spark/" target="_blank" rel="external">https://hankin2015.github.io/2018/01/15/20180106Spark/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/01/15/20180106Spark/&title=《Spark从零开始》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/01/15/20180106Spark/&title=《Spark从零开始》 — HanKin的博客&source=简介Spark作为新一代大数据计算引擎，因为内存计算的特性，具有比hadoop更快的计算速度。本教程涉及Spark基础概念RDD，KeyValueRDD，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/01/15/20180106Spark/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spark从零开始》 — HanKin的博客&url=https://hankin2015.github.io/2018/01/15/20180106Spark/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/01/15/20180106Spark/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/15/20171212ACM-NEUQ1769/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">NEUQ1769:那么大奶牛之神</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/15/20180115CPU/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">电脑处理器核数和逻辑处理器</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/01/15/20180106Spark/&title=《Spark从零开始》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/01/15/20180106Spark/&title=《Spark从零开始》 — HanKin的博客&source=简介Spark作为新一代大数据计算引擎，因为内存计算的特性，具有比hadoop更快的计算速度。本教程涉及Spark基础概念RDD，KeyValueRDD，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/01/15/20180106Spark/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spark从零开始》 — HanKin的博客&url=https://hankin2015.github.io/2018/01/15/20180106Spark/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/01/15/20180106Spark/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/01/15/20180106Spark/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

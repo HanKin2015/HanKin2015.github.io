@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JSON学习笔记 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Json">
+    <meta name="description" content="1、什么是 JSON ？ JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）。 JSON 是轻量级的文本数据交换格式，是存储和交换文本信息的语法。类似 XML。 JSON 使用 JavaScript 语法来描述数据对象，但是 JSON 仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。 JSON 具有自我描述性，更">
+<meta name="keywords" content="Json">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON学习笔记">
+<meta property="og:url" content="https://hankin2015.github.io/2017/12/05/20171205json/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1、什么是 JSON ？ JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）。 JSON 是轻量级的文本数据交换格式，是存储和交换文本信息的语法。类似 XML。 JSON 使用 JavaScript 语法来描述数据对象，但是 JSON 仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。 JSON 具有自我描述性，更">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-05T08:11:04.029Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSON学习笔记">
+<meta name="twitter:description" content="1、什么是 JSON ？ JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）。 JSON 是轻量级的文本数据交换格式，是存储和交换文本信息的语法。类似 XML。 JSON 使用 JavaScript 语法来描述数据对象，但是 JSON 仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。 JSON 具有自我描述性，更">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JSON学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JSON学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-05T07:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-12-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/StudyNote/">StudyNote</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、什么是-JSON-？"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、什么是 JSON ？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、JSON-转换为-JavaScript-对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、JSON - 转换为 JavaScript 对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义和用法"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">定义和用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#说明"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#抛出"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">抛出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提示和注释"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">提示和注释</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出："><span class="post-toc-number">2.7.</span> <span class="post-toc-text">输出：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、每一章中用到的实例"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、每一章中用到的实例</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、实例"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、实例</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-1、类似-XML"><span class="post-toc-number">5.</span> <span class="post-toc-text">5-1、类似 XML</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-2、相比-XML-的不同之处"><span class="post-toc-number">6.</span> <span class="post-toc-text">5-2、相比 XML 的不同之处</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6、为什么使用-JSON？"><span class="post-toc-number">7.</span> <span class="post-toc-text">6、为什么使用 JSON？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-XML"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">使用 XML</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-JSON"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">使用 JSON</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7、JSON-语法规则"><span class="post-toc-number">8.</span> <span class="post-toc-text">7、JSON 语法规则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-1-JSON-名称-值对"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">7-1 JSON 名称/值对</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8、JSON-文件"><span class="post-toc-number">9.</span> <span class="post-toc-text">8、JSON 文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9、-把-JSON-文本转换为-JavaScript-对象"><span class="post-toc-number">10.</span> <span class="post-toc-text">9、 把 JSON 文本转换为 JavaScript 对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSON-实例-来自字符串的对象"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">JSON 实例 - 来自字符串的对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#10、JSON-解析器"><span class="post-toc-number">11.</span> <span class="post-toc-text">10、JSON 解析器</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171205json"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JSON学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-05 15:47:41" datetime="2017-12-05T07:47:41.000Z"  itemprop="datePublished">2017-12-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/StudyNote/">StudyNote</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1、什么是-JSON-？"><a href="#1、什么是-JSON-？" class="headerlink" title="1、什么是 JSON ？"></a>1、什么是 JSON ？</h1><ul>
+<li>JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）。</li>
+<li>JSON 是轻量级的文本数据交换格式，是存储和交换文本信息的语法。类似 XML。</li>
+<li>JSON 使用 JavaScript 语法来描述数据对象，但是 JSON 仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。</li>
+<li>JSON 具有自我描述性，更易理解。</li>
+<li>JSON 比 XML 更小、更快，更易解析。<a id="more"></a>
+</li>
+</ul>
+<h1 id="2、JSON-转换为-JavaScript-对象"><a href="#2、JSON-转换为-JavaScript-对象" class="headerlink" title="2、JSON - 转换为 JavaScript 对象"></a>2、JSON - 转换为 JavaScript 对象</h1><p>JSON 文本格式在语法上与创建 JavaScript 对象的代码相同。由于这种相似性，无需解析器，JavaScript 程序能够使用内建的 <a href="http://www.w3school.com.cn/jsref/jsref_eval.asp" target="_blank" rel="noopener">eval() 函数</a>，用 JSON 数据来生成原生的 JavaScript 对象。</p>
+<h2 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h2><p>eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>eval(string)<br>string  必需。要计算的字符串，其中含有要计算的 JavaScript 表达式或要执行的语句。<br>返回值: 通过计算 string 得到的值（如果有的话）。</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>该方法只接受原始字符串作为参数，如果 string 参数不是原始字符串，那么该方法将不作任何改变地返回。因此请不要为 eval() 函数传递 String 对象来作为参数。<br>如果试图覆盖 eval 属性或把 eval() 方法赋予另一个属性，并通过该属性调用它，则 ECMAScript 实现允许抛出一个 EvalError 异常。</p>
+<h2 id="抛出"><a href="#抛出" class="headerlink" title="抛出"></a>抛出</h2><p>如果参数中没有合法的表达式和语句，则抛出 SyntaxError 异常。<br>如果非法调用 eval()，则抛出 EvalError 异常。<br>如果传递给 eval() 的 Javascript 代码生成了一个异常，eval() 将把该异常传递给调用者。</p>
+<h2 id="提示和注释"><a href="#提示和注释" class="headerlink" title="提示和注释"></a>提示和注释</h2><p>提示：虽然 eval() 的功能非常强大，但在实际使用中用到它的情况并不多。</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>在本例中，我们将在几个字符串上运用 eval()，并看看返回的结果：<br>    <script type="text/javascript"><br>    eval(“x=10;y=20;document.write(x*y)”)<br>    document.write(eval(“2+2”))<br>    var x=10<br>    document.write(eval(x+17))<br>    </script></p>
+<h2 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h2><pre><code>200
+4
+27
+</code></pre><h1 id="3、每一章中用到的实例"><a href="#3、每一章中用到的实例" class="headerlink" title="3、每一章中用到的实例"></a>3、每一章中用到的实例</h1><pre><code>{
+    &quot;employees&quot;: [
+         { &quot;firstName&quot;:&quot;Bill&quot; , &quot;lastName&quot;:&quot;Gates&quot; },
+         { &quot;firstName&quot;:&quot;George&quot; , &quot;lastName&quot;:&quot;Bush&quot; },
+        { &quot;firstName&quot;:&quot;Thomas&quot; , &quot;lastName&quot;:&quot;Carter&quot; }
+    ]
+}
+</code></pre><p>这个 employee 对象是包含 3 个员工记录（对象）的数组。</p>
+<h1 id="4、实例"><a href="#4、实例" class="headerlink" title="4、实例"></a>4、实例</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span> &gt;</span>在 JavaScript 中创建 JSON 对象<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">Name: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"jname"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">Age: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"jage"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">Address: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"jstreet"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">Phone: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"jphone"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> JSONObject= &#123;</span></span><br><span class="line"><span class="javascript"><span class="string">"name"</span>:<span class="string">"Bill Gates"</span>,</span></span><br><span class="line"><span class="javascript"><span class="string">"street"</span>:<span class="string">"Fifth Avenue New York 666"</span>,</span></span><br><span class="line"><span class="javascript"><span class="string">"age"</span>:<span class="number">56</span>,</span></span><br><span class="line"><span class="javascript"><span class="string">"phone"</span>:<span class="string">"555 1234567"</span>&#125;;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">"jname"</span>).innerHTML=JSONObject.name</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">"jage"</span>).innerHTML=JSONObject.age</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">"jstreet"</span>).innerHTML=JSONObject.street</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">"jphone"</span>).innerHTML=JSONObject.phone</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="5-1、类似-XML"><a href="#5-1、类似-XML" class="headerlink" title="5-1、类似 XML"></a>5-1、类似 XML</h1><ul>
+<li>JSON 是纯文本</li>
+<li>JSON 具有“自我描述性”（人类可读）</li>
+<li>JSON 具有层级结构（值中存在值）</li>
+<li>JSON 可通过 JavaScript 进行解析</li>
+<li>JSON 数据可使用 AJAX 进行传输</li>
+</ul>
+<h1 id="5-2、相比-XML-的不同之处"><a href="#5-2、相比-XML-的不同之处" class="headerlink" title="5-2、相比 XML 的不同之处"></a>5-2、相比 XML 的不同之处</h1><ul>
+<li>没有结束标签</li>
+<li>更短</li>
+<li>读写的速度更快</li>
+<li>能够使用内建的 JavaScript eval() 方法进行解析</li>
+<li>使用数组</li>
+<li>不使用保留字</li>
+</ul>
+<h1 id="6、为什么使用-JSON？"><a href="#6、为什么使用-JSON？" class="headerlink" title="6、为什么使用 JSON？"></a>6、为什么使用 JSON？</h1><p>对于 AJAX 应用程序来说，JSON 比 XML 更快更易使用：</p>
+<h2 id="使用-XML"><a href="#使用-XML" class="headerlink" title="使用 XML"></a>使用 XML</h2><ul>
+<li>读取 XML 文档</li>
+<li>使用 XML DOM 来循环遍历文档</li>
+<li>读取值并存储在变量中</li>
+</ul>
+<h2 id="使用-JSON"><a href="#使用-JSON" class="headerlink" title="使用 JSON"></a>使用 JSON</h2><ul>
+<li>读取 JSON 字符串</li>
+<li>用 eval() 处理 JSON 字符串</li>
+</ul>
+<h1 id="7、JSON-语法规则"><a href="#7、JSON-语法规则" class="headerlink" title="7、JSON 语法规则"></a>7、JSON 语法规则</h1><p>JSON 语法是 JavaScript 对象表示法语法的子集。</p>
+<ul>
+<li>数据在名称/值对中</li>
+<li>数据由逗号分隔</li>
+<li>花括号保存对象</li>
+<li>方括号保存数组</li>
+</ul>
+<h2 id="7-1-JSON-名称-值对"><a href="#7-1-JSON-名称-值对" class="headerlink" title="7-1 JSON 名称/值对"></a>7-1 JSON 名称/值对</h2><p>JSON 数据的书写格式是：名称/值对。<br>名称/值对包括字段名称（在双引号中），后面写一个冒号，然后是值：</p>
+<blockquote>
+<blockquote>
+<p>“firstName” : “John”</p>
+</blockquote>
+</blockquote>
+<p>这很容易理解，等价于这条 JavaScript 语句：</p>
+<blockquote>
+<blockquote>
+<p>firstName = “John”</p>
+</blockquote>
+</blockquote>
+<p>JSON 值<br>JSON 值可以是：</p>
+<ul>
+<li>数字（整数或浮点数）</li>
+<li>字符串（在双引号中）</li>
+<li>逻辑值（true 或 false）</li>
+<li>数组（在方括号中）</li>
+<li>对象（在花括号中）</li>
+<li>null</li>
+</ul>
+<p>JSON 对象<br>JSON 对象在花括号中书写：<br>对象可以包含多个名称/值对：</p>
+<blockquote>
+<blockquote>
+<p>{ “firstName”:”John” , “lastName”:”Doe” }</p>
+</blockquote>
+</blockquote>
+<p>这一点也容易理解，与这条 JavaScript 语句等价：</p>
+<pre><code>firstName = &quot;John&quot;
+lastName = &quot;Doe&quot;
+</code></pre><p>JSON 数组<br>JSON 数组在方括号中书写：<br>数组可包含多个对象：</p>
+<pre><code>{
+&quot;employees&quot;: [
+{ &quot;firstName&quot;:&quot;John&quot; , &quot;lastName&quot;:&quot;Doe&quot; },
+{ &quot;firstName&quot;:&quot;Anna&quot; , &quot;lastName&quot;:&quot;Smith&quot; },
+{ &quot;firstName&quot;:&quot;Peter&quot; , &quot;lastName&quot;:&quot;Jones&quot; }
+]
+}
+</code></pre><p>在上面的例子中，对象 “employees” 是包含三个对象的数组。每个对象代表一条关于某人（有姓和名）的记录。<br>JSON 使用 JavaScript 语法<br>因为 JSON 使用 JavaScript 语法，所以无需额外的软件就能处理 JavaScript 中的 JSON。<br>通过 JavaScript，您可以创建一个对象数组，并像这样进行赋值：</p>
+<pre><code>var employees = [
+{ &quot;firstName&quot;:&quot;Bill&quot; , &quot;lastName&quot;:&quot;Gates&quot; },
+{ &quot;firstName&quot;:&quot;George&quot; , &quot;lastName&quot;:&quot;Bush&quot; },
+{ &quot;firstName&quot;:&quot;Thomas&quot; , &quot;lastName&quot;: &quot;Carter&quot; }
+];
+</code></pre><p>可以像这样访问 JavaScript 对象数组中的第一项：</p>
+<blockquote>
+<blockquote>
+<p>employees[0].lastName;</p>
+</blockquote>
+</blockquote>
+<p>返回的内容是：</p>
+<blockquote>
+<blockquote>
+<p>Gates</p>
+</blockquote>
+</blockquote>
+<p>可以像这样修改数据：</p>
+<blockquote>
+<blockquote>
+<p>employees[0].lastName = “Jobs”;</p>
+</blockquote>
+</blockquote>
+<h1 id="8、JSON-文件"><a href="#8、JSON-文件" class="headerlink" title="8、JSON 文件"></a>8、JSON 文件</h1><p>JSON 文件的文件类型是 “.json”<br>JSON 文本的 <a href="https://baike.baidu.com/item/MIME/2900607?fr=aladdin" target="_blank" rel="noopener">MIME 类型</a>是 “application/json”</p>
+<h1 id="9、-把-JSON-文本转换为-JavaScript-对象"><a href="#9、-把-JSON-文本转换为-JavaScript-对象" class="headerlink" title="9、 把 JSON 文本转换为 JavaScript 对象"></a>9、 把 JSON 文本转换为 JavaScript 对象</h1><p>JSON 最常见的用法之一，是从 web 服务器上读取 JSON 数据（作为文件或作为 HttpRequest），将 JSON 数据转换为 JavaScript 对象，然后在网页中使用该数据。<br>为了更简单地为您讲解，我们使用字符串作为输入进行演示（而不是文件）。</p>
+<h2 id="JSON-实例-来自字符串的对象"><a href="#JSON-实例-来自字符串的对象" class="headerlink" title="JSON 实例 - 来自字符串的对象"></a>JSON 实例 - 来自字符串的对象</h2><p>创建包含 JSON 语法的 JavaScript 字符串：</p>
+<pre><code>var txt = &apos;{ &quot;employees&quot; : [&apos; +
+&apos;{ &quot;firstName&quot;:&quot;Bill&quot; , &quot;lastName&quot;:&quot;Gates&quot; },&apos; +
+&apos;{ &quot;firstName&quot;:&quot;George&quot; , &quot;lastName&quot;:&quot;Bush&quot; },&apos; +
+&apos;{ &quot;firstName&quot;:&quot;Thomas&quot; , &quot;lastName&quot;:&quot;Carter&quot; } ]}&apos;;
+</code></pre><p>由于 JSON 语法是 JavaScript 语法的子集，JavaScript 函数 eval() 可用于将 JSON 文本转换为 JavaScript 对象。<br>eval() 函数使用的是 JavaScript 编译器，可解析 JSON 文本，然后生成 JavaScript 对象。必须把文本包围在括号中，这样才能避免语法错误：<br>var obj = eval (“(“ + txt + “)”);<br>在网页中使用 JavaScript 对象：</p>
+<pre><code>&lt;p&gt;
+First Name: &lt;span id=&quot;fname&quot;&gt;&lt;/span&gt;&lt;br /&gt;
+Last Name: &lt;span id=&quot;lname&quot;&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;/p&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+document.getElementById(&quot;fname&quot;).innerHTML = obj.employees[1].firstName
+document.getElementById(&quot;lname&quot;).innerHTML = obj.employees[1].lastName
+&lt;/script&gt;
+</code></pre><h1 id="10、JSON-解析器"><a href="#10、JSON-解析器" class="headerlink" title="10、JSON 解析器"></a>10、JSON 解析器</h1><p>提示：eval() 函数可编译并执行任何 JavaScript 代码。这隐藏了一个潜在的安全问题。<br>使用 JSON 解析器将 JSON 转换为 JavaScript 对象是更安全的做法。JSON 解析器只能识别 JSON 文本，而不会编译脚本。<br>在浏览器中，这提供了原生的 JSON 支持，而且 JSON 解析器的速度更快。<br>较新的浏览器和最新的 ECMAScript (JavaScript) 标准中均包含了原生的对 JSON 的支持。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-05T08:11:04.029Z" itemprop="dateUpdated">2017-12-05 16:11:04</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/12/05/20171205json/" target="_blank" rel="external">https://hankin2015.github.io/2017/12/05/20171205json/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Json/">Json</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/12/05/20171205json/&title=《JSON学习笔记》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/12/05/20171205json/&title=《JSON学习笔记》 — HanKin的博客&source=1、什么是 JSON ？
+JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）。
+JSON 是轻量级..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/12/05/20171205json/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JSON学习笔记》 — HanKin的博客&url=https://hankin2015.github.io/2017/12/05/20171205json/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/12/05/20171205json/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/05/20171205snap-time/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Snap中的计时器</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/30/20171130moocC++3/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">C++远征之封装篇(上)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/12/05/20171205json/&title=《JSON学习笔记》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/12/05/20171205json/&title=《JSON学习笔记》 — HanKin的博客&source=1、什么是 JSON ？
+JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）。
+JSON 是轻量级..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/12/05/20171205json/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JSON学习笔记》 — HanKin的博客&url=https://hankin2015.github.io/2017/12/05/20171205json/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/12/05/20171205json/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/12/05/20171205json/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

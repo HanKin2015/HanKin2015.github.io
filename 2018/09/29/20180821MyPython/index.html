@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>python使用中解决技巧 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ML,Python">
+    <meta name="description" content="1、格式化输出【Python笔记】1、格式化输出（%用法和format用法） 1print(&amp;apos;%d + %d = %d&amp;apos; % (a, b, c)) 2、Pandas的DataFrame输出截断和省略问题12pd.set_option(&amp;apos;display.width&amp;apos;,200)pd.set_option(&amp;apos;display.max_colwidth&amp;ap">
+<meta name="keywords" content="ML,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python使用中解决技巧">
+<meta property="og:url" content="https://hankin2015.github.io/2018/09/29/20180821MyPython/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1、格式化输出【Python笔记】1、格式化输出（%用法和format用法） 1print(&amp;apos;%d + %d = %d&amp;apos; % (a, b, c)) 2、Pandas的DataFrame输出截断和省略问题12pd.set_option(&amp;apos;display.width&amp;apos;,200)pd.set_option(&amp;apos;display.max_colwidth&amp;ap">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-15T10:03:09.638Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python使用中解决技巧">
+<meta name="twitter:description" content="1、格式化输出【Python笔记】1、格式化输出（%用法和format用法） 1print(&amp;apos;%d + %d = %d&amp;apos; % (a, b, c)) 2、Pandas的DataFrame输出截断和省略问题12pd.set_option(&amp;apos;display.width&amp;apos;,200)pd.set_option(&amp;apos;display.max_colwidth&amp;ap">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">python使用中解决技巧</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">python使用中解决技巧</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-29T11:48:41.000Z" itemprop="datePublished" class="page-time">
+  2018-09-29
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ML/">ML</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、格式化输出"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、格式化输出</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、Pandas的DataFrame输出截断和省略问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、Pandas的DataFrame输出截断和省略问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、jupyter-notebook中美化pandas中DataFrame的输出"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、jupyter notebook中美化pandas中DataFrame的输出</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、Python-Jupyter-Notebook显示行号"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、Python Jupyter Notebook显示行号</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、保留三位小数"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、保留三位小数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6、文件传入参数"><span class="post-toc-number">6.</span> <span class="post-toc-text">6、文件传入参数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7、取整操作"><span class="post-toc-number">7.</span> <span class="post-toc-text">7、取整操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8、输入操作"><span class="post-toc-number">8.</span> <span class="post-toc-text">8、输入操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、sklearn的train-test-split函数用法"><span class="post-toc-number">9.</span> <span class="post-toc-text">1、sklearn的train_test_split函数用法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、工欲善其事必先利其器（sublime）"><span class="post-toc-number">10.</span> <span class="post-toc-text">2、工欲善其事必先利其器（sublime）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、Python-zip-函数"><span class="post-toc-number">11.</span> <span class="post-toc-text">3、Python zip() 函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、范数"><span class="post-toc-number">12.</span> <span class="post-toc-text">4、范数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#范数"><span class="post-toc-number">12.0.1.</span> <span class="post-toc-text">范数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、支持度、置信度、提升度"><span class="post-toc-number">13.</span> <span class="post-toc-text">5、支持度、置信度、提升度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例子"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">例子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#置信区间"><span class="post-toc-number">13.2.</span> <span class="post-toc-text">置信区间</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#贝叶斯公式"><span class="post-toc-number">14.</span> <span class="post-toc-text">贝叶斯公式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#技巧"><span class="post-toc-number">15.</span> <span class="post-toc-text">技巧</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6、数据诊断"><span class="post-toc-number">16.</span> <span class="post-toc-text">6、数据诊断</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#describe-函数"><span class="post-toc-number">17.</span> <span class="post-toc-text">describe()函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Series和Dataframe的区别"><span class="post-toc-number">18.</span> <span class="post-toc-text">Series和Dataframe的区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#astype、dtype"><span class="post-toc-number">19.</span> <span class="post-toc-text">astype、dtype</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#factorize-函数"><span class="post-toc-number">20.</span> <span class="post-toc-text">factorize()函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#标称型数据和数值型数据"><span class="post-toc-number">21.</span> <span class="post-toc-text">标称型数据和数值型数据</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#判断两个数是否相等用异或运算啊"><span class="post-toc-number">22.</span> <span class="post-toc-text">判断两个数是否相等用异或运算啊</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#判断一个数是否为奇数-amp-1"><span class="post-toc-number">23.</span> <span class="post-toc-text">判断一个数是否为奇数&amp;1</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一个数乘以或者除以2则左移右移"><span class="post-toc-number">24.</span> <span class="post-toc-text">一个数乘以或者除以2则左移右移</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#future模块"><span class="post-toc-number">25.</span> <span class="post-toc-text">future模块</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#混淆矩阵"><span class="post-toc-number">26.</span> <span class="post-toc-text">混淆矩阵</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#范数-1"><span class="post-toc-number">27.</span> <span class="post-toc-text">范数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#凡是出现-1-IND00-基本可以肯定是发生了除0错误。"><span class="post-toc-number">28.</span> <span class="post-toc-text">凡是出现-1.#IND00.基本可以肯定是发生了除0错误。</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180821MyPython"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">python使用中解决技巧</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-29 19:48:41" datetime="2018-09-29T11:48:41.000Z"  itemprop="datePublished">2018-09-29</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ML/">ML</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1、格式化输出"><a href="#1、格式化输出" class="headerlink" title="1、格式化输出"></a>1、格式化输出</h1><p><a href="https://www.cnblogs.com/fat39/p/7159881.html" target="_blank" rel="noopener">【Python笔记】1、格式化输出（%用法和format用法）</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;%d + %d = %d&apos; % (a, b, c))</span><br></pre></td></tr></table></figure>
+<h1 id="2、Pandas的DataFrame输出截断和省略问题"><a href="#2、Pandas的DataFrame输出截断和省略问题" class="headerlink" title="2、Pandas的DataFrame输出截断和省略问题"></a>2、Pandas的DataFrame输出截断和省略问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pd.set_option(&apos;display.width&apos;,200)</span><br><span class="line">pd.set_option(&apos;display.max_colwidth&apos;,100)</span><br></pre></td></tr></table></figure>
+<p>同样，我们还可以控制max_row，max_column等参数，使得我们根据实际数据的显示要求进行设置。更多的设置项详见：<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.set_option.html" target="_blank" rel="noopener">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.set_option.html</a></p>
+<h1 id="3、jupyter-notebook中美化pandas中DataFrame的输出"><a href="#3、jupyter-notebook中美化pandas中DataFrame的输出" class="headerlink" title="3、jupyter notebook中美化pandas中DataFrame的输出"></a>3、jupyter notebook中美化pandas中DataFrame的输出</h1><p><a href="https://blog.csdn.net/xiaodongxiexie/article/details/71202279" target="_blank" rel="noopener">https://blog.csdn.net/xiaodongxiexie/article/details/71202279</a></p>
+<h1 id="4、Python-Jupyter-Notebook显示行号"><a href="#4、Python-Jupyter-Notebook显示行号" class="headerlink" title="4、Python Jupyter Notebook显示行号"></a>4、Python Jupyter Notebook显示行号</h1><p>Jupyter Notebook默认不显示行号，不方便我们调试排错。操作如下：<br>找到菜单View找到Toggle Line Numbers<br>好了，那我继续调错了……/(ㄒoㄒ)/~~</p>
+<h1 id="5、保留三位小数"><a href="#5、保留三位小数" class="headerlink" title="5、保留三位小数"></a>5、保留三位小数</h1><p>print(round(3.1415926, 3))   # 四舍五入保留3位小数<br>print( format(x*0.4463,’0.1f’))</p>
+<h1 id="6、文件传入参数"><a href="#6、文件传入参数" class="headerlink" title="6、文件传入参数"></a>6、文件传入参数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">print(sys.argv[<span class="number">0</span>]) <span class="comment"># 当前文件的绝对路径</span></span><br><span class="line"><span class="comment"># print(sys.argv[1]) # 空参数</span></span><br></pre></td></tr></table></figure>
+<h1 id="7、取整操作"><a href="#7、取整操作" class="headerlink" title="7、取整操作"></a>7、取整操作</h1><p><a href="https://www.jb51.net/article/102248.htm" target="_blank" rel="noopener">https://www.jb51.net/article/102248.htm</a><br>双斜杠：53 // 8</p>
+<h1 id="8、输入操作"><a href="#8、输入操作" class="headerlink" title="8、输入操作"></a>8、输入操作</h1><p>学到了：h1, m1, h2, m2 = map(int, input().split())<br>datetime.timedelta似乎<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import datetime</span><br><span class="line"></span><br><span class="line">s = input().split()</span><br><span class="line"></span><br><span class="line">t1 = datetime.datetime(2018, 10, 2, int(s[0]), int(s[1]))</span><br><span class="line">t2 = datetime.datetime(2018, 10, 2, int(s[2]), int(s[3]))</span><br><span class="line">seconds = (t2 - t1).seconds</span><br><span class="line">print(seconds // 3600, seconds % 3600 // 60)</span><br></pre></td></tr></table></figure></p>
+<h1 id="1、sklearn的train-test-split函数用法"><a href="#1、sklearn的train-test-split函数用法" class="headerlink" title="1、sklearn的train_test_split函数用法"></a>1、sklearn的train_test_split函数用法</h1><p><a href="https://blog.csdn.net/sinat_23338865/article/details/80248599" target="_blank" rel="noopener">https://blog.csdn.net/sinat_23338865/article/details/80248599</a><br>用于将矩阵随机划分为训练子集和测试子集，并返回划分好的训练集测试集样本和训练集测试集标签。</p>
+<h1 id="2、工欲善其事必先利其器（sublime）"><a href="#2、工欲善其事必先利其器（sublime）" class="headerlink" title="2、工欲善其事必先利其器（sublime）"></a>2、工欲善其事必先利其器（sublime）</h1><p>使用sublime运行python：</p>
+<ul>
+<li>1、添加python环境变量，即可ctrl+B运行python</li>
+<li>2、sublime无法解决输入问题，方法有二：<ul>
+<li>cmd窗口输入设置</li>
+<li>安装sublimeREPL</li>
+</ul>
+</li>
+<li>3、添加快捷键（f5键）</li>
+</ul>
+<p>有时候ctrl+B后会出现控制台，但是关闭有些麻烦，快捷键ctrl+`。</p>
+<h1 id="3、Python-zip-函数"><a href="#3、Python-zip-函数" class="headerlink" title="3、Python zip() 函数"></a>3、Python zip() 函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a = [1,2,3]</span><br><span class="line">&gt;&gt;&gt; b = [4,5,6]</span><br><span class="line">&gt;&gt;&gt; c = [4,5,6,7,8]</span><br><span class="line">&gt;&gt;&gt; zipped = zip(a,b)     # 打包为元组的列表</span><br><span class="line">[(1, 4), (2, 5), (3, 6)]</span><br><span class="line">&gt;&gt;&gt; zip(a,c)              # 元素个数与最短的列表一致</span><br><span class="line">[(1, 4), (2, 5), (3, 6)]</span><br><span class="line">&gt;&gt;&gt; zip(*zipped)          # 与 zip 相反，*zipped 可理解为解压，返回二维矩阵式</span><br><span class="line">[(1, 2, 3), (4, 5, 6)]</span><br></pre></td></tr></table></figure>
+<h1 id="4、范数"><a href="#4、范数" class="headerlink" title="4、范数"></a>4、范数</h1><p><a href="https://blog.csdn.net/Yaphat/article/details/53304255" target="_blank" rel="noopener">范数&amp;距离</a><br><a href="https://blog.csdn.net/shijing_0214/article/details/51757564" target="_blank" rel="noopener">几种范数的简单介绍</a></p>
+<h3 id="范数"><a href="#范数" class="headerlink" title="范数"></a>范数</h3><p>范数(norm)是数学中的一种基本概念。在泛函分析中，它定义在赋范线性空间中，并满足一定的条件，即①非负性；②齐次性；③三角不等式。它常常被用来度量某个向量空间（或矩阵）中的每个向量的长度或大小。</p>
+<p>说白了：常用欧式距离，即平方差（方差）就是L2范数。</p>
+<ul>
+<li>L1范数:  ||x|| 为x向量各个元素绝对值之和。 </li>
+<li>L2范数:  ||x||为x向量各个元素平方和的1/2次方，L2范数又称Euclidean范数或者Frobenius范数 </li>
+<li>Lp范数:  ||x||为x向量各个元素绝对值p次方和的1/p次方 </li>
+<li>L∞范数:  ||x||为x向量各个元素绝对值最大那个元素的绝对值</li>
+</ul>
+<h1 id="5、支持度、置信度、提升度"><a href="#5、支持度、置信度、提升度" class="headerlink" title="5、支持度、置信度、提升度"></a>5、支持度、置信度、提升度</h1><p><a href="https://www.jianshu.com/p/dc053deb94f2" target="_blank" rel="noopener">数据挖掘关联分析中的支持度、置信度和提升度</a></p>
+<ul>
+<li>联系：关联规则或频繁项集</li>
+<li>关联分析：两个变量之间A、B</li>
+<li>项在事务中出现比不出现更重要，因此项是非对称的的二元变量。</li>
+<li>事务的宽度：事务中出现的项的个数</li>
+<li>A对B的置信度：做了A事务的人有多少概率也会做B事务。</li>
+<li>为啥有提升度：查看A、B是否联系-相关、排斥、无关</li>
+<li>提升度受零事务影响大</li>
+<li>KULC度量+不平衡比（IR） 。它们可以有效的降低零事务造成的影响。</li>
+<li>KULC = 两个置信度的均值</li>
+<li>IR = 两个置信度的比值</li>
+<li>置信度就是贝叶斯公式啊</li>
+</ul>
+<p>Support（支持度）：表示同时包含A和B的事务占所有事务的比例。如果用P(A)表示使用A事务的比例，那么Support=P(A&amp;B)</p>
+<p>Confidence（置信度）：表示使用包含A的事务中同时包含B事务的比例，即同时包含A和B的事务占包含A事务的比例。公式表达：Confidence=P(A&amp;B)/P(A)=P(B|A)</p>
+<p>Lift（提升度）：表示“包含A的事务中同时包含B事务的比例”与“包含B事务的比例”的比值。公式表达：Lift=( P(A&amp;B)/P(A))/P(B)=P(A&amp;B)/P(A)/P(B)。</p>
+<p>提升度反映了关联规则中的A与B的相关性，提升度&gt;1且越高表明正相关性越高，提升度&lt;1且越低表明负相关性越高，提升度=1表明没有相关性。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h2 id="置信区间"><a href="#置信区间" class="headerlink" title="置信区间"></a>置信区间</h2><p>获得一个区间，例如，对这个问题的一个可能的答案是：「我 95％ 相信在美国足球爱好者的比例是 58％ 至 62％」。这就是置信区间名字的来源，我们有一个区间，并且我们对它此一定的信心。</p>
+<h1 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h1><p>贝叶斯定理由英国数学家贝叶斯 ( Thomas Bayes 1702-1761 ) 发展，用来描述两个条件概率之间的关系，比如 P(A|B) 和 P(B|A)。按照乘法法则，可以立刻导出：P(A∩B) = P(A)<em>P(B|A)=P(B)</em>P(A|B)。如上公式也可变形为：P(B|A) = P(A|B)*P(B) / P(A)。</p>
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li>pd.set_option(‘display.max_columns’, None)   强制显示所有属性值</li>
+<li>label = df[‘TARGET’]    dataframe对大小写非常敏感，写成TARGeT就会报错</li>
+<li>axis = 1是对列进行操作</li>
+<li>drop函数删除相应的行和列</li>
+<li>iloc表示下标访问，loc是条件访问<br>df.loc[df[‘a’]&gt;3, ‘a’] = df[‘a’] / 3<br>print(df)</li>
+<li>apply函数和lambda函数常常一起使用</li>
+<li>reset_index()重构索引，重构索引后会自动增加一列index(原始)，需要删除</li>
+</ul>
+<p># </p>
+<h1 id="6、数据诊断"><a href="#6、数据诊断" class="headerlink" title="6、数据诊断"></a>6、数据诊断</h1><p>数量（样本）、值数量（范围）、是否有零值、数据类型、mean平均数值、median中位数、mode众数、mode_percent众数比例</p>
+<p>零值、异常值</p>
+<p>了解特征的分布、缺失和异常的情况。<br>缺失值填充：-1、0、1、中位数、众数、平均值</p>
+<p>numpy:数组、列表<br>pandas:把数据读成dataframe形式，读写<br>scipy:计算，函数，众数等计算</p>
+<p>导入division确保一个数除以另外一个数不等于0，返回值是一个浮点型的数<br>导入pd，np，scipy中的stats函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">依赖包的导入</span><br><span class="line"># coding:utf-8</span><br><span class="line">from __future__ import division</span><br><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">from scipy import stats</span><br></pre></td></tr></table></figure>
+<p>统计指标介绍：</p>
+<ul>
+<li>均值/中位数/最大值/最小值等</li>
+<li>计数类：多少0值，多少1值，多少缺失值…..</li>
+<li>缺失值/方差等：当某个特征的方差为0，则这个特征无效基本相同；缺失值过多可删除</li>
+<li>分位点/值的频数等：</li>
+</ul>
+<p>##1.Basic Analysis##</p>
+<p>#(1)Missing Value#<br>missSet = [np.nan, 9999999999, -999999]</p>
+<p>#(2)Count distinct#<br>len(df.iloc[:, 0].unique())<br>count_un = df.iloc[:,0:3].apply(lambda x:len(x.unique()))</p>
+<p>#(3)Zero Values#<br>np.sum(df.iloc[:0] == 0)<br>count_zero = df.iloc[:, 0:3].apply(lambda x:np.sum(x == 0))</p>
+<h1 id="describe-函数"><a href="#describe-函数" class="headerlink" title="describe()函数"></a>describe()函数</h1><p><a href="https://blog.csdn.net/g_66_hero/article/details/72899377" target="_blank" rel="noopener">https://blog.csdn.net/g_66_hero/article/details/72899377</a><br>生成描述性统计，总结数据集分布的中心趋势，分散和形状，不包括NaN值。<br>对于数值数据，结果的索引将包括计数，平均值，标准差，最小值，最大值以及较低的百分位数和50。默认情况下，较低的百分位数为25，较高的百分位数为75.50百分位数与中位数相同。</p>
+<p>对于对象数据（例如字符串或时间戳），结果的索引将包括count，unique，top和freq。顶部是最常见的价值。频率是最常见的频率。时间戳还包括第一个和最后一个项目。</p>
+<p>可以使用include和exclude参数来限制DataFrame中哪些列被分析输出。分析系列时，参数将被忽略。</p>
+<p>describe()函数自动计算的字段有count（非空值数）、unique（唯一值数）、top（频数最高者）、freq（最高频数）、mean（平均值）、std（方差）、min（最小值）、50%（中位数）、max（最大值</p>
+<h1 id="Series和Dataframe的区别"><a href="#Series和Dataframe的区别" class="headerlink" title="Series和Dataframe的区别"></a>Series和Dataframe的区别</h1><p><a href="https://geektutu.com/post/pandas-dataframe-series.html" target="_blank" rel="noopener">https://geektutu.com/post/pandas-dataframe-series.html</a><br>DataFrame和Series是pandas中最常见的2种数据结构。DataFrame可以理解为Excel中的一张表，Series可以理解为一张Excel表的一行或一列数据。<br>Series可以理解为一维数组numpy.array，它和一维数组的区别，在于Series具有索引。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1=pd.Series([1,2,4,6,7,2])</span><br><span class="line">s2=pd.Series([4,3,1,57,8],index=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;])</span><br></pre></td></tr></table></figure></p>
+<p>定长的字典。<br>DataFrame相当于表格，有行表头和列表头。<br>series可以看做一个一维的字典，而dataframe可以看作是一个多维的字典。</p>
+<h1 id="astype、dtype"><a href="#astype、dtype" class="headerlink" title="astype、dtype"></a>astype、dtype</h1><ul>
+<li>ndim返回的是数组的维度，返回的只有一个数，该数即表示数组的维度。</li>
+<li>shape：表示各位维度大小的元组。返回的是一个元组。</li>
+<li>dtype：一个用于说明数组数据类型的对象。返回的是该数组的数据类型。由于图中的数据都为整型，所以返回的都是int32。如果数组中有数据带有小数点，那么就会返回float64。</li>
+<li>astype：转换数组的数据类型。</li>
+</ul>
+<h1 id="factorize-函数"><a href="#factorize-函数" class="headerlink" title="factorize()函数"></a>factorize()函数</h1><p>factorize函数可以将Series中的标称型数据映射称为一组数字，相同的标称型映射为相同的数字。<br>factorize函数的返回值是一个tuple（元组），元组中包含两个元素。<br>第一个元素是一个array，其中的元素是标称型元素映射为的数字(从0开始)；<br>第二个元素是Index类型，其中的元素是所有标称型元素，没有重复。</p>
+<h1 id="标称型数据和数值型数据"><a href="#标称型数据和数值型数据" class="headerlink" title="标称型数据和数值型数据"></a>标称型数据和数值型数据</h1><p>在学习机器学习的工程中，发现有一种名为标称型的数据，具体如下：</p>
+<p>标称型：一般在有限的数据中取，而且只存在‘是’和‘否’两种不同的结果（一般用于分类）</p>
+<p>数值型：可以在无限的数据中取，而且数值比较具体化，例如4.02,6.23这种值（一般用于回归分析）</p>
+<h1 id="判断两个数是否相等用异或运算啊"><a href="#判断两个数是否相等用异或运算啊" class="headerlink" title="判断两个数是否相等用异或运算啊"></a>判断两个数是否相等用异或运算啊</h1><h1 id="判断一个数是否为奇数-amp-1"><a href="#判断一个数是否为奇数-amp-1" class="headerlink" title="判断一个数是否为奇数&amp;1"></a>判断一个数是否为奇数&amp;1</h1><h1 id="一个数乘以或者除以2则左移右移"><a href="#一个数乘以或者除以2则左移右移" class="headerlink" title="一个数乘以或者除以2则左移右移"></a>一个数乘以或者除以2则左移右移</h1><h1 id="future模块"><a href="#future模块" class="headerlink" title="future模块"></a><strong>future</strong>模块</h1><p>从Python 2.7到Python 3.x就有不兼容的一些改动，比如2.x里的字符串用’xxx’表示str，Unicode字符串用u’xxx’表示unicode，而在3.x中，所有字符串都被视为unicode，因此，写u’xxx’和’xxx’是完全一致的，而在2.x中以’xxx’表示的str就必须写成b’xxx’，以此表示“二进制字符串”。</p>
+<p>要直接把代码升级到3.x是比较冒进的，因为有大量的改动需要测试。相反，可以在2.7版本中先在一部分代码中测试一些3.x的特性，如果没有问题，再移植到3.x不迟。</p>
+<p>Python提供了<strong>future</strong>模块，把下一个新版本的特性导入到当前版本，于是我们就可以在当前版本中测试一些新版本的特性。</p>
+<h1 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h1><p>混淆矩阵也称误差矩阵，是表示精度评价的一种标准格式，用n行n列的矩阵形式来表示。具体评价指标有总体精度、制图精度、用户精度等，这些精度指标从不同的侧面反映了图像分类的精度。 在人工智能中，混淆矩阵（confusion matrix）是可视化工具，特别用于监督学习，在无监督学习一般叫做匹配矩阵。在图像精度评价中，主要用于比较分类结果和实际测得值，可以把分类结果的精度显示在一个混淆矩阵里面。混淆矩阵是通过将每个实测像元的位置和分类与分类图像中的相应位置和分类相比较计算的。</p>
+<h1 id="范数-1"><a href="#范数-1" class="headerlink" title="范数"></a>范数</h1><p>范数(norm)是数学中的一种基本概念。在泛函分析中，它定义在赋范线性空间中，并满足一定的条件，即①非负性；②齐次性；③三角不等式。它常常被用来度量某个向量空间（或矩阵）中的每个向量的长度或大小。</p>
+<h1 id="凡是出现-1-IND00-基本可以肯定是发生了除0错误。"><a href="#凡是出现-1-IND00-基本可以肯定是发生了除0错误。" class="headerlink" title="凡是出现-1.#IND00.基本可以肯定是发生了除0错误。"></a>凡是出现-1.#IND00.基本可以肯定是发生了除0错误。</h1>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-15T10:03:09.638Z" itemprop="dateUpdated">2018-10-15 18:03:09</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/09/29/20180821MyPython/" target="_blank" rel="external">https://hankin2015.github.io/2018/09/29/20180821MyPython/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/">ML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/09/29/20180821MyPython/&title=《python使用中解决技巧》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/09/29/20180821MyPython/&title=《python使用中解决技巧》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/09/29/20180821MyPython/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python使用中解决技巧》 — HanKin的博客&url=https://hankin2015.github.io/2018/09/29/20180821MyPython/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/09/29/20180821MyPython/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/03/20181003GuoQin/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">国庆七天乐</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/29/20180929Note/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">手记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/09/29/20180821MyPython/&title=《python使用中解决技巧》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/09/29/20180821MyPython/&title=《python使用中解决技巧》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/09/29/20180821MyPython/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python使用中解决技巧》 — HanKin的博客&url=https://hankin2015.github.io/2018/09/29/20180821MyPython/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/09/29/20180821MyPython/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/09/29/20180821MyPython/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>学习python机器学习2018.9.23 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python">
+    <meta name="description" content="0、学习资料(天池)机器学习快速入门 kaggle动手学习深度学习LintCode 背包问题：0-1背包、完全背包和多重背包 1、PyPIPyPI（Python Package Index）是 Python 官方的第三方库的仓库，所有人都可以下载第三方库或上传自己开发的库到 PyPI。PyPI 推荐使用 pip 包管理器来下载第三方库。https://docs.python.org/3/libra">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习python机器学习2018.9.23">
+<meta property="og:url" content="https://hankin2015.github.io/2018/09/23/20180923/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="0、学习资料(天池)机器学习快速入门 kaggle动手学习深度学习LintCode 背包问题：0-1背包、完全背包和多重背包 1、PyPIPyPI（Python Package Index）是 Python 官方的第三方库的仓库，所有人都可以下载第三方库或上传自己开发的库到 PyPI。PyPI 推荐使用 pip 包管理器来下载第三方库。https://docs.python.org/3/libra">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-24T03:26:16.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习python机器学习2018.9.23">
+<meta name="twitter:description" content="0、学习资料(天池)机器学习快速入门 kaggle动手学习深度学习LintCode 背包问题：0-1背包、完全背包和多重背包 1、PyPIPyPI（Python Package Index）是 Python 官方的第三方库的仓库，所有人都可以下载第三方库或上传自己开发的库到 PyPI。PyPI 推荐使用 pip 包管理器来下载第三方库。https://docs.python.org/3/libra">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">学习python机器学习2018.9.23</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">学习python机器学习2018.9.23</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-23T09:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-09-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/面试/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#0、学习资料"><span class="post-toc-number">1.</span> <span class="post-toc-text">0、学习资料</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、PyPI"><span class="post-toc-number">2.</span> <span class="post-toc-text">1、PyPI</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、在GitHub上使用ipynb"><span class="post-toc-number">3.</span> <span class="post-toc-text">2、在GitHub上使用ipynb</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、机器学习算法"><span class="post-toc-number">4.</span> <span class="post-toc-text">3、机器学习算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、最小二乘法"><span class="post-toc-number">5.</span> <span class="post-toc-text">4、最小二乘法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、常见的机器学习算法"><span class="post-toc-number">6.</span> <span class="post-toc-text">5、常见的机器学习算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（1）线性回归：找到一条直线来预测目标值"><span class="post-toc-number">6.0.1.</span> <span class="post-toc-text">（1）线性回归：找到一条直线来预测目标值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（2）逻辑回归：找到一条直线来分类数据"><span class="post-toc-number">6.0.2.</span> <span class="post-toc-text">（2）逻辑回归：找到一条直线来分类数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（3）K-近邻：用距离度量最相邻的分类标签"><span class="post-toc-number">6.0.3.</span> <span class="post-toc-text">（3）K-近邻：用距离度量最相邻的分类标签</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（4）朴素贝叶斯：选择后验概率最大的类为分类标签"><span class="post-toc-number">6.0.4.</span> <span class="post-toc-text">（4）朴素贝叶斯：选择后验概率最大的类为分类标签</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#L1范数和L2范数的区别"><span class="post-toc-number">7.</span> <span class="post-toc-text">L1范数和L2范数的区别</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180923"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">学习python机器学习2018.9.23</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-23 17:47:41" datetime="2018-09-23T09:47:41.000Z"  itemprop="datePublished">2018-09-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/面试/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="0、学习资料"><a href="#0、学习资料" class="headerlink" title="0、学习资料"></a>0、学习资料</h1><p><a href="https://tianchi.aliyun.com/learn/index.htm?spm=5176.100066.5610778.9.4aa233afpZU3PP" target="_blank" rel="noopener">(天池)机器学习快速入门</a></p>
+<p><a href="https://www.kaggle.com/" target="_blank" rel="noopener">kaggle</a><br><a href="">动手学习深度学习</a><br><a href="https://www.lintcode.com/ai/" target="_blank" rel="noopener">LintCode</a></p>
+<p><a href="https://www.cnblogs.com/fengziwei/p/7750849.html" target="_blank" rel="noopener">背包问题：0-1背包、完全背包和多重背包</a></p>
+<h1 id="1、PyPI"><a href="#1、PyPI" class="headerlink" title="1、PyPI"></a>1、PyPI</h1><p>PyPI（Python Package Index）是 Python 官方的第三方库的仓库，所有人都可以下载第三方库或上传自己开发的库到 PyPI。PyPI 推荐使用 pip 包管理器来下载第三方库。<br><a href="https://docs.python.org/3/library/" target="_blank" rel="noopener">https://docs.python.org/3/library/</a><br><a href="https://pypi.org/search/" target="_blank" rel="noopener">https://pypi.org/search/</a></p>
+<h1 id="2、在GitHub上使用ipynb"><a href="#2、在GitHub上使用ipynb" class="headerlink" title="2、在GitHub上使用ipynb"></a>2、在GitHub上使用ipynb</h1><p>GitHub能直接看，但有时候可能加载慢或加载不出来，所以使用第三方工具。<br>网站：<a href="https://nbviewer.jupyter.org/" target="_blank" rel="noopener">https://nbviewer.jupyter.org/</a><br>分享：<a href="http://nbviewer.ipython.org/github/" target="_blank" rel="noopener">http://nbviewer.ipython.org/github/</a><url></url></p>
+<h1 id="3、机器学习算法"><a href="#3、机器学习算法" class="headerlink" title="3、机器学习算法"></a>3、机器学习算法</h1><p>机器学习最大的特点是利用数据而不是指令来进行各种工作，其学习过程主要包括：数据的特征提取、数据预处理、训练模型、测试模型、模型评估改进等几部分。</p>
+<p>机器学习算法可以分为传统的机器学习算法和深度学习。传统机器学习算法主要包括以下五类：</p>
+<p>回归：建立一个回归方程来预测目标值，用于连续型分布预测</p>
+<p>分类：给定大量带标签的数据，计算出未知标签样本的标签取值</p>
+<p>聚类：将不带标签的数据根据距离聚集成不同的簇，每一簇数据有共同的特征</p>
+<p>关联分析：计算出数据之间的频繁项集合</p>
+<p>降维：原高维空间中的数据点映射到低维度的空间中</p>
+<p>人工神经网络<br>深度学习</p>
+<h1 id="4、最小二乘法"><a href="#4、最小二乘法" class="headerlink" title="4、最小二乘法"></a>4、最小二乘法</h1><h1 id="5、常见的机器学习算法"><a href="#5、常见的机器学习算法" class="headerlink" title="5、常见的机器学习算法"></a>5、常见的机器学习算法</h1><h3 id="（1）线性回归：找到一条直线来预测目标值"><a href="#（1）线性回归：找到一条直线来预测目标值" class="headerlink" title="（1）线性回归：找到一条直线来预测目标值"></a>（1）线性回归：找到一条直线来预测目标值</h3><p>回归是指确定两种或两种以上变量间相互依赖的定量关系的一种统计分析方法，通过建立一个回归方程（函数）来估计特征值对应的目标变量的可能取值。</p>
+<h3 id="（2）逻辑回归：找到一条直线来分类数据"><a href="#（2）逻辑回归：找到一条直线来分类数据" class="headerlink" title="（2）逻辑回归：找到一条直线来分类数据"></a>（2）逻辑回归：找到一条直线来分类数据</h3><p>逻辑回归虽然名字叫回归，却是属于分类算法，是通过Sigmoid函数将线性函数的结果映射到Sigmoid函数中，预估事件出现的概率并分类。Sigmoid是归一化的函数，可以把连续数值转化为0到1的范围，提供了一种将连续型的数据离散化为离散型数据的方法。</p>
+<p>因此，逻辑回归从直观上来说是画出了一条分类线。位于分类线一侧的数据，概率&gt;0.5,属于分类A；位于分类线另一侧的数据，概率&lt;0.5,属于分类B。</p>
+<h3 id="（3）K-近邻：用距离度量最相邻的分类标签"><a href="#（3）K-近邻：用距离度量最相邻的分类标签" class="headerlink" title="（3）K-近邻：用距离度量最相邻的分类标签"></a>（3）K-近邻：用距离度量最相邻的分类标签</h3><h3 id="（4）朴素贝叶斯：选择后验概率最大的类为分类标签"><a href="#（4）朴素贝叶斯：选择后验概率最大的类为分类标签" class="headerlink" title="（4）朴素贝叶斯：选择后验概率最大的类为分类标签"></a>（4）朴素贝叶斯：选择后验概率最大的类为分类标签</h3><h1 id="L1范数和L2范数的区别"><a href="#L1范数和L2范数的区别" class="headerlink" title="L1范数和L2范数的区别"></a><a href="https://blog.csdn.net/pan060757/article/details/73321681" target="_blank" rel="noopener">L1范数和L2范数的区别</a></h1><p>L1正则化和L2正则化，或者L1范数和L2范数。可以看做是损失函数的惩罚项。对于线性回归模型，使用L1正则化的模型建叫做Lasso回归，使用L2正则化的模型叫做Ridge回归（岭回归）。</p>
+<p>L1正则化可以产生稀疏权值矩阵，即产生一个稀疏模型，因此可以用于特征选择。<br>L2正则化可以防止模型过拟合（overfitting）；一定程度上，L1也可以防止过拟合。</p>
+<p>pd.set_option(‘display.max_columns’, None)    # 强制显示所有属性值<br>pd.to_datetime(data[‘FFP_DATE’])<br>d_ffp = pd.to_datetime(data[‘FFP_DATE’])<br>d_load = pd.to_datetime(data[‘LOAD_TIME’])<br>res = d_load - d_ffp  # 相减得天数<br>res.head()</p>
+<p>np.map<br>np.filter</p>
+<p>离散系数<br>离散系数又称变异系数，是统计学当中的常用统计指标。离散系数是测度数据离散程度的相对统计 量，主要是用于比较不同样本数据的离散程度。离散系数大，说明数据的离散程度也大；离散系数小，说明数据的离散程度也小。</p>
+<p>离散系数是衡量资料中各观测值离散程度的一个统计量。当进行两个或多个资料离散程度的比较时，如果度量单位与平均数相同，可以直接利用标准差来比较。如果单位和（或）平均数不同时，比较其离散程度就不能采用标准差，而需采用标准差与平均数的比值（相对值）来比较。</p>
+<p>标准分数<br>也叫z分数，是一种具有相等单位的量数。它是将原始分数与团体的平均数之差除以标准差所得的商数，是以标准差为单位度量原始分数离开其平均数的分数之上多少个标准差，或是在平均数之下多少个标准差。它是一个抽象值，不受原始测量单位的影响，并可接受进一步的统计处理。</p>
+<p>标准分数是一种不受原始测量单位影响的数值。其作用除了能够表明原数据在其分布中的位置外，还能对未来不能直接比较的各种不同单位的数据进行比较。如比较各个学生的成绩在班级成绩中的位置或比较某个学生在两种或多种测验中所得分数的优劣。</p>
+<p>主办方将对B榜获奖团队进行代码审核，代码需具有通用性和普适性，一旦发现作弊行为，即刻取消参赛及获奖资格。</p>
+<p>a = [‘1’, ‘2’, ‘3’]<br>b = [‘4’, ‘5’]<br>c = a + b<br>c<br>列表相加是直接弄在一起</p>
+<p>还有这种删除<br>del data[‘click’]</p>
+<p>必须自己新建文件夹</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-24T03:26:16.904Z" itemprop="dateUpdated">2018-10-24 11:26:16</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/09/23/20180923/" target="_blank" rel="external">https://hankin2015.github.io/2018/09/23/20180923/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/09/23/20180923/&title=《学习python机器学习2018.9.23》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/09/23/20180923/&title=《学习python机器学习2018.9.23》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/09/23/20180923/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《学习python机器学习2018.9.23》 — HanKin的博客&url=https://hankin2015.github.io/2018/09/23/20180923/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/09/23/20180923/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/09/23/20180923DA/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">python数据分析【个人版】</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/22/20180922Weiszfeld/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Weiszfeld 算法求中位中心</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/09/23/20180923/&title=《学习python机器学习2018.9.23》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/09/23/20180923/&title=《学习python机器学习2018.9.23》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/09/23/20180923/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《学习python机器学习2018.9.23》 — HanKin的博客&url=https://hankin2015.github.io/2018/09/23/20180923/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/09/23/20180923/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/09/23/20180923/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

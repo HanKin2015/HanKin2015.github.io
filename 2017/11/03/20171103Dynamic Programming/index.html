@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>动态规划 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="DP">
+    <meta name="description" content="什么是动态规划，我们要如何描述它?动态规划算法通常基于一个递推公式及一个或多个初始状态。当前子问题的解将由上一次子问题的解推出。使用动态规划来解题只需要多项式时间复杂度，因此它比回溯法、暴力法等要快许多。">
+<meta name="keywords" content="DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划">
+<meta property="og:url" content="https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="什么是动态规划，我们要如何描述它?动态规划算法通常基于一个递推公式及一个或多个初始状态。当前子问题的解将由上一次子问题的解推出。使用动态规划来解题只需要多项式时间复杂度，因此它比回溯法、暴力法等要快许多。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_dp1.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_dp2.png">
+<meta property="og:updated_time" content="2018-02-04T04:51:53.326Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="动态规划">
+<meta name="twitter:description" content="什么是动态规划，我们要如何描述它?动态规划算法通常基于一个递推公式及一个或多个初始状态。当前子问题的解将由上一次子问题的解推出。使用动态规划来解题只需要多项式时间复杂度，因此它比回溯法、暴力法等要快许多。">
+<meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_dp1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">动态规划</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">动态规划</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-03T05:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-11-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是动态规划，我们要如何描述它"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是动态规划，我们要如何描述它?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#递推、递归和迭代"><span class="post-toc-number">2.</span> <span class="post-toc-text">递推、递归和迭代</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#动态规划和贪心算法的区别"><span class="post-toc-number">3.</span> <span class="post-toc-text">动态规划和贪心算法的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相同点"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">相同点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不同点"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">不同点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#贪心算法"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">贪心算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动态规划算法"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">动态规划算法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#边界条件-即最简单的，可以直接得出的局部最优解"><span class="post-toc-number">4.</span> <span class="post-toc-text">边界条件:即最简单的，可以直接得出的局部最优解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#动态规划：从新手到专家"><span class="post-toc-number">5.</span> <span class="post-toc-text">动态规划：从新手到专家</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题一"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">问题一</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题二"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">问题二</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题三"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">问题三</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题四"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">问题四</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题五-带有额外条件的DP问题"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">问题五(带有额外条件的DP问题)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题六-高级"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">问题六(高级)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题七"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">问题七</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171103Dynamic Programming"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">动态规划</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-03 13:47:41" datetime="2017-11-03T05:47:41.000Z"  itemprop="datePublished">2017-11-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="什么是动态规划，我们要如何描述它"><a href="#什么是动态规划，我们要如何描述它" class="headerlink" title="什么是动态规划，我们要如何描述它?"></a>什么是动态规划，我们要如何描述它?</h1><p>动态规划算法通常基于一个递推公式及一个或多个初始状态。当前子问题的解将由上一次子问题的解推出。使用动态规划来解题只需要多项式时间复杂度，因此它比回溯法、暴力法等要快许多。<br><a id="more"></a><br>首先，我们要找到某个状态的最优解，然后在它的帮助下，找到下一个状态的最优解。</p>
+<p>“状态”用来描述该问题的子问题的解。<br><!--more--></p>
+<h1 id="递推、递归和迭代"><a href="#递推、递归和迭代" class="headerlink" title="递推、递归和迭代"></a>递推、递归和迭代</h1><p>迭代算法是用计算机解决问题的一种基本方法。它利用计算机运算速度快、适合做重复性操作的特点，让计算机对一组指令（或一定步骤）进行重复执行，在每次执行这组指令（或这些步骤）时，都从变量的原值推出它的一个新值。</p>
+<p>通常情况下，迭代俗称“循环”。<br>编程语言中的for\foreach\while\loop\do while等都是循环</p>
+<p>递归与循环：<br>从理论上说，所有的递归函数都可以转换为迭代函数，反之亦然，然而代价通常都是比较高的。当递归次数较多时，内存占用也会随之增加。</p>
+<p>递推与递归：</p>
+<ol>
+<li>从程序上看，递归表现为自己调用自己，递推则没有这样的形式。</li>
+<li>递归是从问题的最终目标出发，逐渐将复杂问题化为简单问题，最终求得问题。<br>是逆向的。递推是从简单问题出发，一步步的向前发展，最终求得问题。是正向的。</li>
+<li>递归中，问题的n要求是计算之前就知道的，而递推可以在计算中确定，不要求计算前就知道n。</li>
+<li>一般来说，递推的效率高于递归（当然是递推可以计算的情况下）。</li>
+</ol>
+<h1 id="动态规划和贪心算法的区别"><a href="#动态规划和贪心算法的区别" class="headerlink" title="动态规划和贪心算法的区别"></a><a href="http://blog.csdn.net/jarvischu/article/details/6056387" target="_blank" rel="noopener">动态规划和贪心算法的区别</a></h1><h2 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h2><p>动态规划和贪心算法都是一种递推算法 。<br>均有局部最优解来推导全局最优解 。</p>
+<h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><h3 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h3><ol>
+<li>贪心算法中，作出的每步贪心决策都无法改变，因为贪心策略是由上一步的最优解推导下一步的最优解，而上一部之前的最优解则不作保留。 </li>
+<li>由（1）中的介绍，可以知道贪心法正确的条件是：每一步的最优解一定包含上一步的最优解。 </li>
+</ol>
+<h3 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a>动态规划算法</h3><ol>
+<li>全局最优解中一定包含某个局部最优解，但不一定包含前一个局部最优解，因此需要记录之前的所有最优解 </li>
+<li>动态规划的关键是状态转移方程，即如何由以求出的局部最优解来推导全局最优解 </li>
+<li><h1 id="边界条件-即最简单的，可以直接得出的局部最优解"><a href="#边界条件-即最简单的，可以直接得出的局部最优解" class="headerlink" title="边界条件:即最简单的，可以直接得出的局部最优解"></a>边界条件:即最简单的，可以直接得出的局部最优解</h1>贪心算法与动态规划<br>贪心法的基本思路：   </li>
+</ol>
+<p>从问题的某一个初始解出发逐步逼近给定的目标，以尽可能快的地求得更好的解。当达到某算法中的某一步不能再继续前进时，算法停止。<br>该算法存在问题：   </p>
+<ol>
+<li>不能保证求得的最后解是最佳的；   </li>
+<li>不能用来求最大或最小解问题；   </li>
+<li>只能求满足某些约束条件的可行解的范围。实现该算法的过程：<br>从问题的某一初始解出发；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while   能朝给定总目标前进一步   do   </span><br><span class="line">    求出可行解的一个解元素；   </span><br><span class="line">    由所有解元素组合成问题的一个可行解 。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>贪心算法最经典的例子，给钱问题。<br>比如中国的货币，只看元，有1元2元5元10元20、50、100   </p>
+<p>如果我要16元，可以拿16个1元，8个2元，但是怎么最少呢？<br>如果用贪心算，就是我每一次拿那张可能拿的最大的。<br>比如16，我第一次拿20拿不起，拿10元，OK，剩下6元，再拿个5元，剩下1元<br>也就是3张   10、5、1。   </p>
+<p>每次拿能拿的最大的，就是贪心。   </p>
+<p>但是一定注意，贪心得到的并不是最优解，也就是说用贪心不一定是拿的最少的张数<br>贪心只能得到一个比较好的解，而且贪心算法很好想得到。<br>&emsp;&emsp;再注意，为什么我们的钱可以用贪心呢？因为我们国家的钱的大小设计，正好可以使得贪心算法算出来的是最优解（一般是个国家的钱币都应该这么设计）。如果设计成别的样子情况就不同了 :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">比如某国的钱币分为   1元3元4元   </span><br><span class="line">如果要拿6元钱   怎么拿？贪心的话   先拿4   再拿两个1     一共3张钱   </span><br><span class="line">实际最优呢？   两张3元就够了。</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;求最优解的问题，从根本上说是一种对解空间的遍历。最直接的暴力分析容易得到，最优解的解空间通常都是以指数阶增长，因此暴力穷举都是不可行的。<br>&emsp;&emsp;最优解问题大部分都可以拆分成一个个的子问题，把解空间的遍历视作对子问题树的遍历，则以某种形式对树整个的遍历一遍就可以求出最优解，如上面的分析，这是不可行的。<br>&emsp;&emsp;贪心和动态规划本质上是对子问题树的一种修剪。两种算法要求问题都具有的一个性质就是“子问题最优性”。即，组成最优解的每一个子问题的解，对于这个子问题本身肯定也是最优的。如果以自顶向下的方向看问题树（原问题作根），则，我们每次只需要向下遍历代表最优解的子树就可以保证会得到整体的最优解。形象一点说，可以简单的用一个值（最优值）代表整个子树，而不用去求出这个子树所可能代表的所有值。<br>&emsp;&emsp;动态规划方法代表了这一类问题的一般解法。我们自底向上（从叶子向根）构造子问题的解，对每一个子树的根，求出下面每一个叶子的值，并且以其中的最优值作为自身的值，其它的值舍弃。动态规划的代价就取决于可选择的数目（树的叉数）和子问题的的数目（树的节点数，或者是树的高度？）。<br>&emsp;&emsp;贪心算法是动态规划方法的一个特例。贪心特在，可以证明，每一个子树的根的值不取决于下面叶子的值，而只取决于当前问题的状况。换句话说，不需要知道一个节点所有子树的情况，就可以求出这个节点的值。通常这个值都是对于当前的问题情况下，显而易见的“最优”情况。因此用“贪心”来描述这个算法的本质。由于贪心算法的这个特性，它对解空间树的遍历不需要自底向上，而只需要自根开始，选择最优的路，一直走到底就可以了。这样，与动态规划相比，它的代价只取决于子问题的数目，而选择数目总为1。</p>
+<h1 id="动态规划：从新手到专家"><a href="#动态规划：从新手到专家" class="headerlink" title="动态规划：从新手到专家"></a><a href="http://www.360doc.com/content/13/0601/00/8076359_289597587.shtml#" target="_blank" rel="noopener">动态规划：从新手到专家</a></h1><p>意识到，DP是由上一个状态解找到下个状态解，所以一般要去找上一个状态，如-1，j等等。</p>
+<h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><p>一个序列有N个数：A[1],A[2],…,A[N]，求出最长非降子序列的长度。 (讲DP基本都会讲到的一个问题LIS：longest increasing subsequence)</p>
+<p>状态：d[i]表示i长度的序列最长非降子序列的长度。<br>状态转移方程：d[i]  =  max{1,  d[j] + 1},其中j &lt; i, A[j] &lt;= A[i]。</p>
+<h2 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h2><p>如果我们有面值为1元、3元和5元的硬币若干枚，如何用最少的硬币凑够11元？ (表面上这道题可以用贪心算法，但贪心算法无法保证可以求出解，比如1元换成2元的时候)</p>
+<p>状态：d[i]表示凑够i元的最少硬币个数<br>状态转移方程：d[i] = min{d[i - vj] + 1 }，其中i - vj  &gt;= 0，vj表示第j个硬币的面值;</p>
+<h2 id="问题三"><a href="#问题三" class="headerlink" title="问题三"></a>问题三</h2><p>无向图G有N个结点(1&lt;N&lt;=1000)及一些边，每一条边上带有正的权重值。找到结点1到结点N的最短路径，或者输出不存在这样的路径。</p>
+<p>提示：在每一步中，对于那些没有计算过的结点，及那些已经计算出从结点1到它的最短路径的结点，如果它们间有边，则计算从结点1到未计算结点的最短路径。</p>
+<p>状态：d[i]表示结点1到达结点i的最短路径长度。<br>状态转移方程：d[i] = min{d[i], d[j] + dis[i][j]}。2-N的结点初始长度为无穷，每次判断一个结点的邻居。</p>
+<h2 id="问题四"><a href="#问题四" class="headerlink" title="问题四"></a>问题四</h2><p>平面上有N＊M个格子，每个格子中放着一定数量的苹果。你从左上角的格子开始，每一步只能向下走或是向右走，每次走到一个格子上就把格子里的苹果收集起来，这样下去，你最多能收集到多少个苹果。</p>
+<p>状态：d[i][j]表示在格子(i, j)最多能收集到的苹果数量。<br>状态转移方程：d[i][j] = max{d[i-1][j]  (if i &gt; 0), d[i][j - 1] (if j &gt; 0)} + A[i][j]。</p>
+<h2 id="问题五-带有额外条件的DP问题"><a href="#问题五-带有额外条件的DP问题" class="headerlink" title="问题五(带有额外条件的DP问题)"></a>问题五(带有额外条件的DP问题)</h2><p>无向图G有N个结点，它的边上带有正的权重值。你从结点1开始走，并且一开始的时候你身上带有M元钱。如果你经过结点i，那么你就要花掉S[i]元(可以把这想象为收过路费)。如果你没有足够的钱，就不能从那个结点经过。在这样的限制条件下，找到从结点1到结点N的最短路径。或者输出该路径不存在。如果存在多条最短路径，那么输出花钱数量最少的那条。限制：1&lt;N&lt;=100 ; 0&lt;=M&lt;=100 ; 对于每个i，0&lt;=S[i]&lt;=100；正如我们所看到的，如果没有额外的限制条件(在结点处要收费，费用不足还不给过)</p>
+<p>状态：d[i][j]表示从开始结点到结点i的最短路径长度，且剩余j元。<br>For All Neighbors p of Vertex k:<br>状态转移方程(参考问题三)：d[p][j - s[p]] = min{d[i][j] + dis[i][p], d[p][j - s[p]]} (if j - s[p] &gt;= 0能够支付费用)</p>
+<h2 id="问题六-高级"><a href="#问题六-高级" class="headerlink" title="问题六(高级)"></a>问题六(高级)</h2><p>给定一个M行N列的矩阵(M*N个格子)，每个格子中放着一定数量的苹果。你从左上角的格子开始，只能向下或向右走，目的地是右下角的格子。你每走过一个格子，就把格子上的苹果都收集起来。然后你从右下角走回左上角的格子，每次只能向左或是向上走，同样的，走过一个格子就把里面的苹果都收集起来。最后，你再一次从左上角走到右下角，每过一个格子同样要收集起里面的苹果 (如果格子里的苹果数为0，就不用收集)。求你最多能收集到多少苹果。</p>
+<p>注意：当你经过一个格子时，你要一次性把格子里的苹果都拿走。</p>
+<p>限制条件：1 &lt; N, M &lt;= 50；每个格子里的苹果数量是0到1000(包含0和1000)。</p>
+<p>我们可以将这3条路径记为左，中，右路径。对于两条相交路径(如下图)：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_dp1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>在不影响结果的情况下，我们可以将它们视为两条不相交的路径：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_dp2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>这样一来，我们将得到左，中，右3条路径。此外，如果我们要得到最优解，路径之间不能相交(除了左上角和右下角必然会相交的格子)。因此对于每一行y( 除了第一行和最后一行)，三条路径对应的x坐标要满足：x1[y] &lt; x2[y] &lt; x3[y]。经过这一步的分析，问题的DP解法就进一步地清晰了。让我们考虑行y，对于每一个x1[y-1]，x2[y-1]和x3[y-1]，我们已经找到了能收集到最多苹果数量的路径。根据它们，我们能求出行y的最优解。现在我们要做的就是找到从一行移动到下一行的方式。令Max[i][j][k]表示到第y-1行为止收集到苹果的最大数量，其中3条路径分别止于第i,j,k列。对于下一行y，对每个Max[i][j][k] 都加上格子(y,i)，(y,j)和(y,k)内的苹果数量。因此，每一步我们都向下移动。我们做了这一步移动之后，还要考虑到，一条路径是有可能向右移动的。 (对于每一个格子，我们有可能是从它上面向下移动到它，也可能是从它左边向右移动到它)。为了保证3条路径互不相交，我们首先要考虑左边的路径向右移动的情况，然后是中间，最后是右边的路径。为了更好的理解，让我们来考虑左边的路径向右移动的情况，对于每一个可能的j,k对(j &lt; k)，对每个i(i &lt; j)，考虑从位置(i-1,j,k)移动到位置(i,j,k)。处理完左边的路径，再处理中间的路径，最后处理右边的路径。方法都差不多。</p>
+<h2 id="问题七"><a href="#问题七" class="headerlink" title="问题七"></a>问题七</h2><p>What is possibility of rolling N dice and the sum of the numbers equals to M?</p>
+<p>先想想仍N次骰子，所有的骰子和为M的组合方式数量。<br>状态：d[i][j]表示仍i次骰子的和为j的组合方式数量。<br>状态转移方程：d[i][j] = d[i - 1][j - v] + d[i][j]。v表示骰子的数1-6。</p>
+<p>根据上面的方式则求出：p = d[N][M] / 6^N。<br>N次幂数值太大，做题尽量避免指数。</p>
+<p>状态：d[i][j]表示仍i次骰子的和为j的概率。<br>状态转移方程：d[i][j] = d[i][j] + d[i - 1][j - v] * (1/6)。v表示骰子的数1-6，乘上最后一次扔v的概率1/6，注意要把最后的6种情况加起来，因为最后一步有6种可能都能加起来得到M，几种概率是并行的，所以求和。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-02-04T04:51:53.326Z" itemprop="dateUpdated">2018-02-04 12:51:53</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/11/03/20171103Dynamic Programming/" target="_blank" rel="external">https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/&title=《动态规划》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/&title=《动态规划》 — HanKin的博客&source=什么是动态规划，我们要如何描述它?动态规划算法通常基于一个递推公式及一个或多个初始状态。当前子问题的解将由上一次子问题的解推出。使用动态规划来解题只需要多..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《动态规划》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/03/20171103internet/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">笔记本无法连接到这个网络</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/01/20171101MathJax&Latex/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">MathJax使用Latex语法编写数学公式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/&title=《动态规划》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/&title=《动态规划》 — HanKin的博客&source=什么是动态规划，我们要如何描述它?动态规划算法通常基于一个递推公式及一个或多个初始状态。当前子问题的解将由上一次子问题的解推出。使用动态规划来解题只需要多..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《动态规划》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/11/03/20171103Dynamic Programming/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SNAP for C++ | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,SNAP,Network">
+    <meta name="description" content="1.Main pageSNAP SystemStanford Network Analysis Platform (SNAP) 是一种通用的，对于大的网络的分析和操作的高性能系统。图形由节点和图形节点之间的有向/无向/ 多边组成。网络是具有网络节点和/或边缘上的数据的图形。 核心SNAP库以C ++编写，并针对最大性能和紧凑图表示进行了优化。它容易扩展到具有数亿个节点和数十亿边缘的大规模网络。它有">
+<meta name="keywords" content="C++,SNAP,Network">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SNAP for C++">
+<meta property="og:url" content="https://hankin2015.github.io/2017/10/14/20171014SANP for c++/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1.Main pageSNAP SystemStanford Network Analysis Platform (SNAP) 是一种通用的，对于大的网络的分析和操作的高性能系统。图形由节点和图形节点之间的有向/无向/ 多边组成。网络是具有网络节点和/或边缘上的数据的图形。 核心SNAP库以C ++编写，并针对最大性能和紧凑图表示进行了优化。它容易扩展到具有数亿个节点和数十亿边缘的大规模网络。它有">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-21T07:46:58.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SNAP for C++">
+<meta name="twitter:description" content="1.Main pageSNAP SystemStanford Network Analysis Platform (SNAP) 是一种通用的，对于大的网络的分析和操作的高性能系统。图形由节点和图形节点之间的有向/无向/ 多边组成。网络是具有网络节点和/或边缘上的数据的图形。 核心SNAP库以C ++编写，并针对最大性能和紧凑图表示进行了优化。它容易扩展到具有数亿个节点和数十亿边缘的大规模网络。它有">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SNAP for C++</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SNAP for C++</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-14T01:36:41.000Z" itemprop="datePublished" class="page-time">
+  2017-10-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Social-Network/">Social Network</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Main-page"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.Main page</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SNAP-System"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">SNAP System</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Download-SNAP"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.Download SNAP</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-SNAP-User-Documentation"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.SNAP User Documentation</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Quick-Introduction"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">(1) Quick Introduction</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Graph-and-Network-Types"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">Graph and Network Types</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Graph-Creation"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">Graph Creation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Iterators-迭代器"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">Iterators(迭代器)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入-输出"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">输入/输出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#操纵图和网络"><span class="post-toc-number">3.1.5.</span> <span class="post-toc-text">操纵图和网络</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算结构属性"><span class="post-toc-number">3.1.6.</span> <span class="post-toc-text">计算结构属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Installation-and-Compilation"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">(2) Installation and Compilation</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Prerequisites先决条件"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">Prerequisites先决条件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SNAP-Components"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">SNAP Components</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Installation"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">Installation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Compilation-of-SNAP-Programs（SNAP程序的编译）"><span class="post-toc-number">3.2.4.</span> <span class="post-toc-text">Compilation of SNAP Programs（SNAP程序的编译）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SNAP在Mac-OS-X，Linux和Windows上使用Cygwin"><span class="post-toc-number">3.2.4.1.</span> <span class="post-toc-text">SNAP在Mac OS X，Linux和Windows上使用Cygwin</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SNAP在Windows与Visual-Studio"><span class="post-toc-number">3.2.4.2.</span> <span class="post-toc-text">SNAP在Windows与Visual Studio</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Execution-of-SNAP-Programs-SNAP程序的执行"><span class="post-toc-number">3.2.5.</span> <span class="post-toc-text">Execution of SNAP Programs(SNAP程序的执行)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SNAP目录结构"><span class="post-toc-number">3.2.6.</span> <span class="post-toc-text">SNAP目录结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#示例应用程序"><span class="post-toc-number">3.2.7.</span> <span class="post-toc-text">示例应用程序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#核心SNAP库的功能"><span class="post-toc-number">3.2.8.</span> <span class="post-toc-text">核心SNAP库的功能</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Tutorial"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">(4)Tutorial</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-User-Reference-Manual"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">(5)User Reference Manual</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SNAP库4-0，用户参考文档"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">SNAP库4.0，用户参考文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于Snap"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">关于Snap</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Support"><span class="post-toc-number">4.</span> <span class="post-toc-text">Support</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Developer-Resources"><span class="post-toc-number">5.</span> <span class="post-toc-text">Developer Resources</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GitHub-SNAP存储库"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">GitHub SNAP存储库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开发人员参考手册"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">开发人员参考手册</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SNAP-C-编程指南"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">SNAP C ++编程指南</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171014SANP for c++"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SNAP for C++</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-14 09:36:41" datetime="2017-10-14T01:36:41.000Z"  itemprop="datePublished">2017-10-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Social-Network/">Social Network</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1-Main-page"><a href="#1-Main-page" class="headerlink" title="1.Main page"></a>1.Main page</h1><h2 id="SNAP-System"><a href="#SNAP-System" class="headerlink" title="SNAP System"></a>SNAP System</h2><p>Stanford Network Analysis Platform (SNAP) 是一种通用的，对于大的网络的分析和操作的高性能系统。图形由节点和图形节点之间的有向/无向/ 多边组成。网络是具有网络节点和/或边缘上的数据的图形。</p>
+<p>核心SNAP库以C ++编写，并针对最大性能和紧凑图表示进行了优化。它容易扩展到具有数亿个节点和数十亿边缘的大规模网络。它有效地操纵大图，计算结构属性，生成规则和随机图，并支持节点和边缘上的属性。除了对大型图形的可扩展性外，SNAP的另外一个优点是图形或网络中的节点，边缘和属性可以在计算过程中动态更改。</p>
+<p>SNAP最初由Jure Leskovec在博士研究生课程中开发。第一个版本于2009年11月提供.SNAP使用在Jozef Stefan研究所开发的通用STL（标准模板库）类库GLib。SNAP和GLib正在积极开发并用于许多学术和工业项目。<br><a id="more"></a></p>
+<h1 id="2-Download-SNAP"><a href="#2-Download-SNAP" class="headerlink" title="2.Download SNAP"></a>2.Download SNAP</h1><p>Current SNAP Release: <a href="http://snap.stanford.edu/releases/Snap-4.0.zip" target="_blank" rel="noopener">SNAP 4.0</a> (2017年7月27日)</p>
+<p>A public development SNAP repository is available at GitHub:<a href="https://github.com/snap-stanford/snap" target="_blank" rel="noopener">snap-stanford/snap</a></p>
+<p>其他有用的第三方包：</p>
+<ul>
+<li><a href="http://www.gnuplot.info/" target="_blank" rel="noopener">Gnuplot</a>，绘图和绘图包，用于绘制网络的结构属性（如度数分布）;</li>
+<li><a href="http://www.graphviz.org/" target="_blank" rel="noopener">Graphviz</a>是绘图和可视化小图所需的绘图包;</li>
+<li><a href="http://nodexl.codeplex.com/" target="_blank" rel="noopener">NodeXL</a>，一个将网络分析和SNAP集成到Microsoft Office和Excel中的图形前端。它允许没有编程技能的用户使用SNAP。</li>
+</ul>
+<h1 id="3-SNAP-User-Documentation"><a href="#3-SNAP-User-Documentation" class="headerlink" title="3.SNAP User Documentation"></a>3.SNAP User Documentation</h1><h2 id="1-Quick-Introduction"><a href="#1-Quick-Introduction" class="headerlink" title="(1) Quick Introduction"></a>(1) Quick Introduction</h2><h3 id="Graph-and-Network-Types"><a href="#Graph-and-Network-Types" class="headerlink" title="Graph and Network Types"></a>Graph and Network Types</h3><p>Graph types in SNAP:</p>
+<ul>
+<li>TUNGraph: 无向图（无序对节点之间的单边）</li>
+<li>TNGraph: 有向图（有序节点对之间的单向边）</li>
+<li>TNEGraph: 有向多图（一对节点之间的多个有向边）</li>
+</ul>
+<p>Network types in SNAP:</p>
+<ul>
+<li>TNodeNet<tnodedata>: 像<code>TNGraph</code>，但是对于每个节点都有TNodeData对象</tnodedata></li>
+<li>TNodeEDatNet<tnodedata, tedgedata="">: 像<code>TNGraph</code>，但是每个节点上都有TNodeData，每个边上<br> 都有TEdgeData</tnodedata,></li>
+<li>TNodeEdgeNet<tnodedata, tedgedata="">: 像<code>TNEGraph</code>，但是使用TNodeData每个节点和每个边上的</tnodedata,></li>
+<li>TNEANet: 像<code>TNEGraph</code>，但节点和边上具有属性。这些属性是动态的，因为它们可以在运行时定义</li>
+<li>TBigNet<tnodedata>: TNodeNet的内存高效实现，可以避免内存碎片，并处理数十亿个边，并提供足够的RAM</tnodedata></li>
+</ul>
+<h3 id="Graph-Creation"><a href="#Graph-Creation" class="headerlink" title="Graph Creation"></a>Graph Creation</h3><p>创建一个有向图：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create a graph</span></span><br><span class="line">PNGraph Graph = TNGraph::New();</span><br><span class="line">Graph-&gt;AddNode(<span class="number">1</span>);</span><br><span class="line">Graph-&gt;AddNode(<span class="number">5</span>);</span><br><span class="line">Graph-&gt;AddNode(<span class="number">32</span>);</span><br><span class="line">Graph-&gt;AddEdge(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line">Graph-&gt;AddEdge(<span class="number">5</span>, <span class="number">1</span>);</span><br><span class="line">Graph-&gt;AddEdge(<span class="number">5</span>, <span class="number">32</span>);</span><br></pre></td></tr></table></figure></p>
+<p>节点ID没有限制为从0开始的连续整数。<br>SNAP使用智能指针（TPt），因此不需要显式释放（删除）图形对象。当他们不再需要时，他们会自我毁灭。类名中的前缀P表示指针，而T表示类型。</p>
+<p>网络的创建方式与图形相同。</p>
+<h3 id="Iterators-迭代器"><a href="#Iterators-迭代器" class="headerlink" title="Iterators(迭代器)"></a>Iterators(迭代器)</h3><ul>
+<li><p>iterator usage of directed/undirected data types</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create a directed random graph on 100 nodes and 1k edges</span></span><br><span class="line">PNGraph Graph = TSnap::GenRndGnm&lt;PNGraph&gt;(<span class="number">100</span>, <span class="number">1000</span>);</span><br><span class="line"><span class="comment">// traverse the nodes</span></span><br><span class="line"><span class="keyword">for</span> (TNGraph::TNodeI NI = Graph-&gt;BegNI(); NI &lt; Graph-&gt;EndNI(); NI++) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"node id %d with out-degree %d and in-degree %d\n"</span>,</span><br><span class="line">        NI.GetId(), NI.GetOutDeg(), NI.GetInDeg());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// traverse the edges</span></span><br><span class="line"><span class="keyword">for</span> (TNGraph::TEdgeI EI = Graph-&gt;BegEI(); EI &lt; Graph-&gt;EndEI(); EI++) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"edge (%d, %d)\n"</span>, EI.GetSrcNId(), EI.GetDstNId());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// we can traverse the edges also like this</span></span><br><span class="line"><span class="keyword">for</span> (TNGraph::TNodeI NI = Graph-&gt;BegNI(); NI &lt; Graph-&gt;EndNI(); NI++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> e = <span class="number">0</span>; e &lt; NI.GetOutDeg(); e++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"edge (%d %d)\n"</span>, NI.GetId(), NI.GetOutNId(e));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>In general graph/network data types use the following functions to return various iterators.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BegNI(): iterator to first node</span><br><span class="line">EndNI(): iterator to one past last node</span><br><span class="line">GetNI(u): iterator to node with id u</span><br><span class="line">BegEI(): iterator to first edge</span><br><span class="line">EndEI(): iterator to one past last edge</span><br><span class="line">GetEI(u,v): <span class="function">iterator to <span class="title">edge</span> <span class="params">(u,v)</span></span></span><br><span class="line">GetEI(e): iterator to edge with id e (only for multigraphs)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一般来说，节点迭代器提供以下功能：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GetId() : <span class="keyword">return</span> node id</span><br><span class="line">GetOutDeg() : <span class="keyword">return</span> out - degree of a node</span><br><span class="line">GetInDeg() : <span class="keyword">return</span> in - degree of a node</span><br><span class="line">GetOutNId(e) : <span class="keyword">return</span> node id of the endpoint of e - th out - edge</span><br><span class="line">GetInNId(e) : <span class="keyword">return</span> node id of the endpoint of e - th in - edge</span><br><span class="line">IsOutNId(<span class="keyword">int</span> NId) : <span class="keyword">do</span> we point to node id n</span><br><span class="line">IsInNId(n) : does node id n point to us</span><br><span class="line">IsNbhNId(n) : is node n our neighbor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>此外，网络上的迭代器还可以轻松访问数据：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GetDat(): <span class="keyword">return</span> data type TNodeData associated with the node</span><br><span class="line">GetOutNDat(e): <span class="keyword">return</span> data associated with node at endpoint of e-th out-edge</span><br><span class="line">GetInNDat(e): <span class="keyword">return</span> data associated with node at endpoint of e-th in-edge</span><br><span class="line">GetOutEDat(e): <span class="keyword">return</span> data associated with e-th out-edge</span><br><span class="line">GetInEDat(e): <span class="keyword">return</span> data associated with e-th in-edge</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="输入-输出"><a href="#输入-输出" class="headerlink" title="输入/输出"></a>输入/输出</h3><p>使用SNAP可以轻松地以各种格式保存和加载网络。内部SNAP以紧凑的二进制格式保存网络，但也可以使用各种其他文本和XML格式加载和保存网络的功能（参见gio.h）。<br>    // generate a network using Forest Fire model<br>    PNGraph G = TSnap::GenForestFire(1000, 0.35, 0.35);<br>    // save and load binary<br>    { TFOut FOut(“test.graph”); G-&gt;Save(FOut); }<br>    { TFIn FIn(“test.graph”); PNGraph G2 = TNGraph::Load(FIn); }<br>    // save and load from a text file<br>    TSnap::SaveEdgeList(G2, “test.txt”, “Save as tab-separated list of edges”);<br>    PNGraph G3 = TSnap::LoadEdgeList(“test.txt”, 0, 1);</p>
+<h3 id="操纵图和网络"><a href="#操纵图和网络" class="headerlink" title="操纵图和网络"></a>操纵图和网络</h3><p>SNAP提供丰富的功能来有效地操纵图形和网络。函数实现为命名空间TSnap的一部分。所有功能都支持任何图形/网络类型。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// generate a network using Forest Fire model</span></span><br><span class="line">PNGraph G = TSnap::GenForestFire(<span class="number">1000</span>, <span class="number">0.35</span>, <span class="number">0.35</span>);</span><br><span class="line"><span class="comment">// convert to undirected graph TUNGraph</span></span><br><span class="line">PUNGraph UG = TSnap::ConvertGraph&lt;PUNGraph&gt;(G);</span><br><span class="line"><span class="comment">// get largest weakly connected component of G</span></span><br><span class="line">PNGraph WccG = TSnap::GetMxWcc(G);</span><br><span class="line"><span class="comment">// get a subgraph induced on nodes &#123;0,1,2,3,4,5&#125;</span></span><br><span class="line">PNGraph SubG = TSnap::GetSubGraph(G, TIntV::GetV(<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>));</span><br><span class="line"><span class="comment">// get 3-core of G</span></span><br><span class="line">PNGraph Core3 = TSnap::GetKCore(G, <span class="number">3</span>);</span><br><span class="line"><span class="comment">// delete nodes of degree 10</span></span><br><span class="line">TSnap::DelDegKNodes(G, <span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="计算结构属性"><a href="#计算结构属性" class="headerlink" title="计算结构属性"></a>计算结构属性</h3><p>SNAP提供丰富的功能来有效地计算网络的结构属性。函数实现为命名空间TSnap的一部分。所有功能都支持任何图形/网络类型。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// generate a Preferential Attachment graph on 1000 nodes and node out degree of 3</span></span><br><span class="line">PUNGraph G = TSnap::GenPrefAttach(<span class="number">1000</span>, <span class="number">3</span>);</span><br><span class="line"><span class="comment">// get distribution of connected components (component size, count)</span></span><br><span class="line">TVec&lt;TPair&lt;TInt, TInt&gt; &gt; CntV; <span class="comment">// vector of pairs of integers (size, count)</span></span><br><span class="line">TSnap::GetWccSzCnt(G, CntV);</span><br><span class="line"><span class="comment">// get degree distribution pairs (degree, count)</span></span><br><span class="line">TSnap::GetOutDegCnt(G, CntV);</span><br><span class="line"><span class="comment">// get first eigenvector of graph adjacency matrix</span></span><br><span class="line">TFltV EigV; <span class="comment">// vector of floats</span></span><br><span class="line">TSnap::GetEigVec(G, EigV);</span><br><span class="line"><span class="comment">// get diameter of G</span></span><br><span class="line">TSnap::GetBfsFullDiam(G);</span><br><span class="line"><span class="comment">// count the number of triads in G, get the clustering coefficient of G</span></span><br><span class="line">TSnap::GetTriads(G);</span><br><span class="line">TSnap::GetClustCf(G);</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-Installation-and-Compilation"><a href="#2-Installation-and-Compilation" class="headerlink" title="(2) Installation and Compilation"></a>(2) Installation and Compilation</h2><h3 id="Prerequisites先决条件"><a href="#Prerequisites先决条件" class="headerlink" title="Prerequisites先决条件"></a>Prerequisites先决条件</h3><p>SNAP在Windows下使用Visual Studio或Cygwin与GCC，Mac OS X，Linux和其他具有GCC的Unix变体一起工作。确保系统上安装了C ++编译器。</p>
+<p>SNAP主要是独立的，只需要外部包装才能绘制和可视化。需要在系统上安装以下软件包以支持SNAP中的绘图和可视化：</p>
+<ul>
+<li>Gnuplot用于绘制网络结构性质（例如度数分布）;</li>
+<li>Graphviz用于绘制和可视化小图。</li>
+</ul>
+<p>设置系统PATH变量，以便Gnuplot和Graphviz可用，或将可执行文件放在工作目录中。</p>
+<h3 id="SNAP-Components"><a href="#SNAP-Components" class="headerlink" title="SNAP Components"></a>SNAP Components</h3><p>SNAP分发包包含以下组件：</p>
+<ul>
+<li>snap-core：核心SNAP图库;</li>
+<li>snap-adv：高级SNAP组件，不在核心，而是由示例使用;</li>
+<li>snap-exp：实验SNAP组件，仍在开发中;</li>
+<li>示例：演示SNAP功能的小型示例应用程序;</li>
+<li>教程：简单的程序，演示使用各种类;</li>
+<li>glib-core：实现基本数据结构的STL类库，如向量（TVec），散列表（THash）和字符串（TStr），提供序列化等;</li>
+<li>测试：各类单元测试;</li>
+<li>doxygen： SNAP参考手册。</li>
+</ul>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>要安装SNAP，下载最新的SNAP发行安装包，并解压缩。</p>
+<p>为了绘制网络的结构属性（例如，度分布），SNAP期望在系统路径中找到Gnuplot。类似于绘图和可视化小图SNAP使用Graphviz。如果需要，请安装这些软件包，并确保系统PATH变量指向其可执行文件或将可执行文件放在工作目录中。</p>
+<h3 id="Compilation-of-SNAP-Programs（SNAP程序的编译）"><a href="#Compilation-of-SNAP-Programs（SNAP程序的编译）" class="headerlink" title="Compilation of SNAP Programs（SNAP程序的编译）"></a>Compilation of SNAP Programs（SNAP程序的编译）</h3><h4 id="SNAP在Mac-OS-X，Linux和Windows上使用Cygwin"><a href="#SNAP在Mac-OS-X，Linux和Windows上使用Cygwin" class="headerlink" title="SNAP在Mac OS X，Linux和Windows上使用Cygwin"></a>SNAP在Mac OS X，Linux和Windows上使用Cygwin</h4><p>确保在系统上安装了带有C++编译器的GCC包。</p>
+<p>在主SNAP目录中运行“make all”。这将编译核心SNAP库和所有应用示例。</p>
+<p>对于其他平台，请修改主SNAP目录中的Makefile.config。</p>
+<h4 id="SNAP在Windows与Visual-Studio"><a href="#SNAP在Windows与Visual-Studio" class="headerlink" title="SNAP在Windows与Visual Studio"></a>SNAP在Windows与Visual Studio</h4><p>确保您的系统上安装了Visual Studio。启动Visual Studio并在examples目录中打开解决方案文件SnapExamples 。</p>
+<p>配置Visual Studio与SNAP一起使用，需要将字符集设置为多字节，并指定SNAP包含目录的位置。</p>
+<p>要将字符集设置为多字节，请右键单击项目，转到属性 - &gt; 配置属性 - &gt; 常规 - &gt; 项目默认值 - &gt; 字符集 - &gt; 选择“使用多字节字符集“。</p>
+<p>要指定SNAP包含目录的位置，请转到选项 - &gt; 首选项 - &gt; C ++目录 - &gt; 包含目录，并将系统上的路径添加到SNAP文件夹glib-core，snap-core和snap-adv。</p>
+<p>请注意，您的Visual Studio版本的设置可能与上面使用的位置略有不同，因此要找到它们的导航步骤需要适当调整。</p>
+<p>一旦配置Visual Studio，构建您的解决方案，编译核心SNAP库的所有示例。</p>
+<h3 id="Execution-of-SNAP-Programs-SNAP程序的执行"><a href="#Execution-of-SNAP-Programs-SNAP程序的执行" class="headerlink" title="Execution of SNAP Programs(SNAP程序的执行)"></a>Execution of SNAP Programs(SNAP程序的执行)</h3><p>代码如上所示编译后，就可以执行。所述graphgen申请在此用作一个例子。</p>
+<p>要运行graphgen示例，请打开命令行应用程序并执行以下命令：</p>
+<pre><code>cd examples/graphgen
+./graphgen -g:w -n:1000 -k:4 -p:0.1 -o:smallworld.txt
+</code></pre><p>该命令生成Watts-Strogatz小世界图，其中每个节点连接到k = 4个最接近的节点，并且重新布线概率为p = 0.1。</p>
+<p>##(3) Package Description</p>
+<h3 id="SNAP目录结构"><a href="#SNAP目录结构" class="headerlink" title="SNAP目录结构"></a>SNAP目录结构</h3><p>SNAP包包含以下目录：</p>
+<ul>
+<li>snap-core：核心SNAP图库;</li>
+<li>snap-adv：高级SNAP组件，不在核心，而是由示例使用;</li>
+<li>snap-exp：实验SNAP组件，仍在开发中;</li>
+<li>examples：演示SNAP功能的小型示例应用程序;</li>
+<li>tutorials：简单的程序，演示使用各种类;</li>
+<li>glib-core：实现基本数据结构的STL类库，如向量（TVec），散列表（THash）和字符串（TStr），提供序列化等;</li>
+<li>test：各类单元测试;</li>
+<li>doxygen： SNAP参考手册。</li>
+</ul>
+<h3 id="示例应用程序"><a href="#示例应用程序" class="headerlink" title="示例应用程序"></a>示例应用程序</h3><p>agmfit：通过将关联图模型（AGM）通过最大似然估计拟合到给定网络来检测来自给定网络的网络社区。<br>agmgen：实现关联图模型（AGM）。AGM从节点的社区归属生成一个逼真的图。<br>bigclam：将社区检测问题制定为非负矩阵分解，并发现节点的社区隶属因子。<br>cascadegen：标识事件列表中的级联。<br>cascades: 模拟网络上的SI（敏感感染）模型，并计算级联的结构属性。<br>centrality: 计算图形的节点中心性度量：亲密度，特征，度数，中间性，页面级别，中心和权限。<br>cesna：实现基于边缘结构和节点属性（CESNA）的社区的具有节点属性的网络的大规模重叠社区检测方法。<br>circles：实现识别用户社交圈的方法。<br>cliques: 基于Clique Percolation方法，找出网络中重叠密集的节点组。<br>coda：通过定向关联（CoDA）实现基于社区的大规模重叠社区检测方法，该方法处理有向和无向网络。该方法能够找到成员节点形成二维连通性结构的2模式社区。<br>community: 实施网络社区检测算法：Girvan-Newman，Clauset-Newman-Moore和Infomap。<br>concomp：计算弱，强和双连接的组件，关节点和图形的桥边。<br>flows：计算网络中的最大网络流量。<br>forestfire: 使用森林火灾模型生成图。<br>graphgen：使用许多SNAP图生成器之一生成无向图。<br>graphhash：演示使用TGHash图表哈希表，用于计算小子图或信息级联的频率。<br>infopath：实现级联数据动态网络推理的随机算法，参见在线媒体信息通路的结构与动力学<br>kcores：计算网络的k-核心分解，并绘制图形k核心中的节点数作为k的函数。<br>knnjaccardsim：基于Jaccard相似性构建K最近邻的图。<br>kronem：使用EM算法估计Kronecker图参数矩阵。<br>kronfit：估计Kronecker图参数矩阵。<br>krongen: 生成克罗内克图。<br>localmotifcluster：在目标种子节点周围找到具有低基序电导的节点集合。<br>lshtest：实现局部敏感散列。<br>magfit：估计乘数属性图（MAG）模型参数。<br>maggen：生成乘法属性图（MAG）。<br>mkdatasets：演示如何以各种网络格式加载不同类型的网络，以及如何计算网络的各种统计信息。<br>motifcluster: 实现基于图案的聚类的光谱方法。<br>motifs: 计算网络中K个节点上每个可能的子图的发生次数。<br>ncpplot：绘制网络社区配置文件（NCP）。<br>netevol：计算不断发展的网络的属性，如直径演化，密度函数法，度数分布等。<br>netinf：从级联数据实现网络推理的netinf算法，请参阅推理扩散和影响网络<br>netstat：计算静态网络的结构属性，如度分布，跳线图，聚类系数，连通分量大小分布，图形邻接矩阵的谱特性等。<br>node2vec：计算节点在d维空间中的嵌入。<br>randwalk：计算节点对之间的个性化PageRank。<br>rolx：实现用于分析图中结构角色的rolx算法。<br>temporalmotifs: 计算时间网络中的所有三节点，三边缘时间图案。<br>testgraph: 演示一些基本的SNAP功能。<br>zygote: 演示如何使用SNAP与Zygote库，这显着加快了需要多次处理相同大图的计算。</p>
+<h3 id="核心SNAP库的功能"><a href="#核心SNAP库的功能" class="headerlink" title="核心SNAP库的功能"></a>核心SNAP库的功能</h3><p>在发行包中的各种文件中实现的SNAP功能的简要说明：</p>
+<ul>
+<li>snap-core</li>
+<li>snap-adv</li>
+<li>snap-exp</li>
+</ul>
+<h2 id="4-Tutorial"><a href="#4-Tutorial" class="headerlink" title="(4)Tutorial"></a>(4)<a href="http://snap.stanford.edu/proj/snap-www/" target="_blank" rel="noopener">Tutorial</a></h2><p>用于社交媒体建模，分析和优化的技术基于对大规模网络的研究，其中网络可以包含数亿个节点和数十亿个边缘。网络分析工具不仅要提供广泛的功能，还要提供处理这些大型网络的高性能。</p>
+<p>本教程将介绍斯坦福网络分析平台（SNAP），这是一个通用的高性能系统，用于分析和操纵大型网络。SNAP被广泛用于网络和社交媒体的研究。它由开放源代码软件组成，它提供了丰富的功能来执行网络分析，以及一个受欢迎的公开的现实世界网络数据集库。SNAP软件API可用于Python和C ++。</p>
+<p>本教程将涵盖SNAP的所有方面，包括SNAP API和SNAP数据集。本教程针对具有一些编程背景的入门级受众，因此Python API将比C ++ API更详细地讨论。本教程将包括一个动手组件，参与者将有机会在其计算机上使用SNAP。</p>
+<h2 id="5-User-Reference-Manual"><a href="#5-User-Reference-Manual" class="headerlink" title="(5)User Reference Manual"></a>(5)<a href="http://snap.stanford.edu/snap/doc/snapuser-ref/" target="_blank" rel="noopener">User Reference Manual</a></h2><h3 id="SNAP库4-0，用户参考文档"><a href="#SNAP库4-0，用户参考文档" class="headerlink" title="SNAP库4.0，用户参考文档"></a>SNAP库4.0，用户参考文档</h3><p>本文档提供SNAP API的参考文档。该文档还包括对源代码的完整参考。要开始，请浏览左列中的类或文件部分，或在右上方的搜索框中搜索特定项目。</p>
+<p>本文档有两个版本，用户参考和开发人员参考。开发人员参考文献更广泛。它包括类的继承和协作图，函数的调用和调用图。这些图和图表不包括在用户参考文档中。</p>
+<h3 id="关于Snap"><a href="#关于Snap" class="headerlink" title="关于Snap"></a>关于Snap</h3><p>斯坦福网络分析平台（SNAP）是一种用于分析和操纵大型网络的通用高性能系统。图形由节点和图形节点之间的有向/无向/多边组成。网络是具有网络节点和/或边缘上的数据的图形。</p>
+<p>核心SNAP库以C ++编写，并针对最大性能和紧凑图表示进行了优化。它容易扩展到具有数亿个节点和数十亿边缘的大规模网络。它有效地操纵大图，计算结构属性，生成规则和随机图，并支持节点和边缘上的属性。除了对大型图形的可扩展性外，SNAP的另外一个优点是图形或网络中的节点，边缘和属性可以在计算过程中动态更改。</p>
+<p>SNAP在Windows上使用Visual Studio或Cygwin与GCC，Mac OS X，Linux和其他具有GCC安装的Unix版本。SNAP在很大程度上是独立的，对其他软件包的依赖性要求最低。</p>
+<p>SNAP使用在Jozef Stefan研究所开发的通用STL（标准模板库）类库。SNAP和GLib正在积极开发并用于许多学术和工业项目。</p>
+<p>核心SNAP和GLib库的完整源代码可在BSD许可证下获得。在<a href="http://snap.stanford.edu下载软件包。" target="_blank" rel="noopener">http://snap.stanford.edu下载软件包。</a></p>
+<h1 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h1><p>对于常见问题未涵盖的问题或有关SNAP安装，使用和开发的讨论，请使用SNAP用户邮件列表。要发布到组，请发送您的消息，以在googlegroups dot com上进行讨论。</p>
+<h1 id="Developer-Resources"><a href="#Developer-Resources" class="headerlink" title="Developer Resources"></a>Developer Resources</h1><h2 id="GitHub-SNAP存储库"><a href="#GitHub-SNAP存储库" class="headerlink" title="GitHub SNAP存储库"></a>GitHub SNAP存储库</h2><p><a href="https://github.com/snap-stanford/snap" target="_blank" rel="noopener">GitHub snap-stanford/snap</a>可以使用公共开发库。</p>
+<h2 id="开发人员参考手册"><a href="#开发人员参考手册" class="headerlink" title="开发人员参考手册"></a>开发人员参考手册</h2><p>对SNAP中所有类和方法的广泛<a href="http://snap.stanford.edu/snap/doc/snapdev-ref" target="_blank" rel="noopener">交叉引用</a>。</p>
+<h2 id="SNAP-C-编程指南"><a href="#SNAP-C-编程指南" class="headerlink" title="SNAP C ++编程指南"></a>SNAP C ++编程指南</h2><p>核心SNAP库的贡献者的<a href="http://snap.stanford.edu/snap/doc/snapdev-guide" target="_blank" rel="noopener">编程指南</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-21T07:46:58.785Z" itemprop="dateUpdated">2017-10-21 15:46:58</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/10/14/20171014SANP for c++/" target="_blank" rel="external">https://hankin2015.github.io/2017/10/14/20171014SANP for c++/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SNAP/">SNAP</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/&title=《SNAP for C++》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/&title=《SNAP for C++》 — HanKin的博客&source=1.Main pageSNAP SystemStanford Network Analysis Platform (SNAP) 是一种通用的，对于大的网络..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SNAP for C++》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/14/20171014SNAP/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SNAP</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/13/20171013hiho-170/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">STL之hash_map</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/&title=《SNAP for C++》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/&title=《SNAP for C++》 — HanKin的博客&source=1.Main pageSNAP SystemStanford Network Analysis Platform (SNAP) 是一种通用的，对于大的网络..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SNAP for C++》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/10/14/20171014SANP for c++/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>C++远征之多态篇 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C/C++">
+    <meta name="description" content="简介本课程将带领大家体会面向对象三大特性中的多态特性，讲述了虚函数、抽象类和接口类等概念，以及多态的实现原理，课程的最后引入RTTI及异常处理，使整个多态篇更加完整，更具实战指导性，本门课程是C++远征课程的高潮和经典，对于面向对象的语言的学习将大有裨益。">
+<meta name="keywords" content="C&#x2F;C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++远征之多态篇">
+<meta property="og:url" content="https://hankin2015.github.io/2018/03/30/20180330mooc++6/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="简介本课程将带领大家体会面向对象三大特性中的多态特性，讲述了虚函数、抽象类和接口类等概念，以及多态的实现原理，课程的最后引入RTTI及异常处理，使整个多态篇更加完整，更具实战指导性，本门课程是C++远征课程的高潮和经典，对于面向对象的语言的学习将大有裨益。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-20T05:45:06.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++远征之多态篇">
+<meta name="twitter:description" content="简介本课程将带领大家体会面向对象三大特性中的多态特性，讲述了虚函数、抽象类和接口类等概念，以及多态的实现原理，课程的最后引入RTTI及异常处理，使整个多态篇更加完整，更具实战指导性，本门课程是C++远征课程的高潮和经典，对于面向对象的语言的学习将大有裨益。">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C++远征之多态篇</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">C++远征之多态篇</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-30T05:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-03-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-C/">C/C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第1章-课程介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">第1章 课程介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-C-多态概述-03-48"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1-1 C++多态概述(03:48)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第2章-虚函数及实现原理"><span class="post-toc-number">3.</span> <span class="post-toc-text">第2章 虚函数及实现原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-C-虚析构函数-06-54"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2-4 [C++]虚析构函数(06:54)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-练习题"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2-6 练习题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-7-C-虚函数与虚析构函数…-12-17"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">2-7 [C++]虚函数与虚析构函数…(12:17)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-8-C-虚函数表示例一…-10-13"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">2-8 [C++]虚函数表示例一…(10:13)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-10-练习题"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">2-10 练习题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第3章-纯虚函数和抽象类"><span class="post-toc-number">4.</span> <span class="post-toc-text">第3章 纯虚函数和抽象类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-C-纯虚函数抽象类…-06-12"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">3-1 [C++]纯虚函数抽象类…(06:12)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-单元练习"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">3-4 单元练习</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-5-C-接口类-08-17"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">3-5 [C++]接口类(08:17)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第4章-运行时类型识别"><span class="post-toc-number">5.</span> <span class="post-toc-text">第4章 运行时类型识别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-C-RTTI-07-54"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">4-1 [C++]RTTI(07:54)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-C-RTTI代码示例-11-33"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">4-2 [C++]RTTI代码示例(11:33)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第5章-异常处理"><span class="post-toc-number">6.</span> <span class="post-toc-text">第5章 异常处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-1-C-异常处理-13-54"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">5-1 [C++]异常处理(13:54)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-2-C-异常处理代码示例…-09-33"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">5-2 [C++]异常处理代码示例…(09:33)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-4-巩固练习"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">5-4 巩固练习</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180330mooc++6"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C++远征之多态篇</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-30 13:47:41" datetime="2018-03-30T05:47:41.000Z"  itemprop="datePublished">2018-03-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-C/">C/C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本课程将带领大家体会面向对象三大特性中的多态特性，讲述了虚函数、抽象类和接口类等概念，以及多态的实现原理，课程的最后引入RTTI及异常处理，使整个多态篇更加完整，更具实战指导性，本门课程是C++远征课程的高潮和经典，对于面向对象的语言的学习将大有裨益。<br><a id="more"></a></p>
+<h1 id="第1章-课程介绍"><a href="#第1章-课程介绍" class="headerlink" title="第1章 课程介绍"></a>第1章 课程介绍</h1><h2 id="1-1-C-多态概述-03-48"><a href="#1-1-C-多态概述-03-48" class="headerlink" title="1-1 C++多态概述(03:48)"></a>1-1 C++多态概述(03:48)</h2><p>隐藏与覆盖的区别<br>早绑定与晚绑定</p>
+<h1 id="第2章-虚函数及实现原理"><a href="#第2章-虚函数及实现原理" class="headerlink" title="第2章 虚函数及实现原理"></a>第2章 虚函数及实现原理</h1><p>##2-1 [C++]虚函数(08:32)<br>多态：相同对象收到不同的命令或者不同对象收到相同的命令做出不同的动作。</p>
+<p>动态多态和静态多态的区别（注意这些多态都出现在类里面，因为没有了继承就没有多态）：<br>静态多态(早绑定)：静态多态主要通过函数和运算符重载来实现，例如函数void go（int a）{}和void go（）{}这两个函数的名字一样，但是在编译的时候就可以根据go（）里面有无输入参数区分出到底执行哪个方法</p>
+<p>动态多态(晚绑定)：例如父类father有个方法名字叫go（）{“父类的go”}；<br>子类son有个方法也叫go（）{“son的go”}；<br>子类daughter有个方法也叫go（）{“daughter的go”}；<br>father <em>p1=new son；<br>father </em>p2=new daughter；<br>然后当我们执行<br>p1-&gt;go（）；<br>p2-&gt;go（）;<br>输出的结果都只是父类的go；如果想实现输出”son的go”和”daughter的go”，就需要在父类的go（）方法得前面加上关键字virtual变成。这样再输入p1-&gt;go（）；p2-&gt;go（）;就可以输出”son的go”和”daughter的go”</p>
+<p>多态：指相同对象受到不同消息或不同对象收到相同消息时产生不同的动作。<br>静态多态（早绑定）：在运行前，编译阶段就已确定要调用哪个函数，很早就把函数编译进去。<br>动态多态（晚绑定）：不同对象，下达相同指令，产生不同动作。前提：以封装与继承为基础。至少要两个类，父类与子类，用三个类时，动态多态表现地会更明显。<br>实现多态的成员函数：用virtual修饰函数，使之成为虚函数。</p>
+<h2 id="2-4-C-虚析构函数-06-54"><a href="#2-4-C-虚析构函数-06-54" class="headerlink" title="2-4 [C++]虚析构函数(06:54)"></a>2-4 [C++]虚析构函数(06:54)</h2><p>虚析构函数：virtual-&gt;析构函数</p>
+<p>virtual在修饰函数时的限制：<br>1.普通函数不能是虚函数。<br>2.静态成员函数(static)不能是虚函数。<br>3.内联函数(inline)不能是虚函数<br>4.构造函数不能是虚函数。</p>
+<p>多态–&gt;用父类指针指向子类对象–&gt;delete 时只调用父类析构函数，需要用虚析构。</p>
+<p>虚函数实现动态多态（晚绑定）；<br>虚析构函数使得释放父类对象时，同时释放子类对象；<br>虚继承使得多重继承和多继承只继承一份父类的数据，不会产生冗余。</p>
+<h2 id="2-6-练习题"><a href="#2-6-练习题" class="headerlink" title="2-6 练习题"></a>2-6 练习题</h2><p>虚函数特性可以被继承，当子类中定义的函数与父类中虚函数的声明相同时，该函数也是虚函数。<br>虚函数使用virtual关键字定义，但使用virtual关键字时，并非全部是虚函数<br>虚析构函数是为了避免使用父类指针释放子类对象时造成内存泄露。</p>
+<h2 id="2-7-C-虚函数与虚析构函数…-12-17"><a href="#2-7-C-虚函数与虚析构函数…-12-17" class="headerlink" title="2-7 [C++]虚函数与虚析构函数…(12:17)"></a>2-7 [C++]虚函数与虚析构函数…(12:17)</h2><p>重载是指两个同名函数，但是参数的类型和数量不同<br>隐藏是指父类和子类中，具有同名函数。<br>覆盖是指父类和子类中，具有同名的虚函数。</p>
+<p>（1）虚函数表指针（指向了虚函数表的首地址）-&gt;虚函数表（地址的偏移找到对应的虚函数的地址）-&gt;虚函数。<br>（2）虚函数表指针、虚函数表、虚函数都是占用内存空间的。</p>
+<p>多态的原理<br><br>在子类中访问父类的计算面积的函数，也能通过虚函数表指针找到子类自己的虚函数，也是指向父类的计算面积的函数的入口的。<br><br>若子类定义了自己的计算面积的函数，通过相同的偏移量找到的是子类的计算面积的虚函数。</p>
+<p>在子类中定义了同名的虚函数，就会在子类的虚函数列表中将父类中定义的虚函数的函数地址覆盖掉。<br><br>虚析构函数的原理<br><br>通过子类的虚函数指针找到虚函数表列表，然后找到虚析构函数，执行子类的虚析构函数，再自动执行父类的虚析构函数。</p>
+<h2 id="2-8-C-虚函数表示例一…-10-13"><a href="#2-8-C-虚函数表示例一…-10-13" class="headerlink" title="2-8 [C++]虚函数表示例一…(10:13)"></a>2-8 [C++]虚函数表示例一…(10:13)</h2><p>1.对象大小：指类实例化对象时，数据成员占有内存空间的大小，不包括成员函数。没有任何数据成员的类理论上讲不占任何内存。<br><br>2.对象地址：指通过一个类实例化一个对象时，对象占有一定的内存单元，这个对象占据的第一个单元的地址即是对象的地址<br><br>3.对象成员地址：指当用一个类实例化一个对象时，这个对象可能有多个数据成员，由于数据成员的数据类型不同，那么占据的空间大小也就不同，这个类的每个成员都会占一定的空间，每个数据成员的地址也就是对象成员的地址不同<br><br>4.虚函数表指针：指在有虚函数时，实例化一个对象时，这个对象的第一块内存中存放的是一个指针，是虚函数表的地址，大小为4。<br><br>5.如果实例化对象没有数据成员，就会有一个内存单元来标记这个对象的存在，如果对象中有数据成员，就不用内存单元来标记这个对象的存在，这个对象的大小就是数据成员所占内存的大小。</p>
+<h2 id="2-10-练习题"><a href="#2-10-练习题" class="headerlink" title="2-10 练习题"></a>2-10 练习题</h2><p>虚函数表：<br>1、C++中的多态是通过虚函数表实现的。<br>2、每个类只有一份虚函数表，该类的对象共用一张虚函数表。<br>3、两张虚函数表中的函数指针可能指向同一个函数。</p>
+<h1 id="第3章-纯虚函数和抽象类"><a href="#第3章-纯虚函数和抽象类" class="headerlink" title="第3章 纯虚函数和抽象类"></a>第3章 纯虚函数和抽象类</h1><h2 id="3-1-C-纯虚函数抽象类…-06-12"><a href="#3-1-C-纯虚函数抽象类…-06-12" class="headerlink" title="3-1 [C++]纯虚函数抽象类…(06:12)"></a>3-1 [C++]纯虚函数抽象类…(06:12)</h2><p>虚函数：virtual double calcArea(){———;}<br>纯虚函数：virtual double calcPerimeter() = 0;<br>包含纯虚函数的类，就是抽象类,抽象类无法实例化对象<br>抽象类子类只有把抽象类当中的所有纯虚函数都做实现，才可以实例化</p>
+<p>纯虚函数,通过它可以指明一个虚拟函数只是提供了一个可被子类型改写的接口。</p>
+<h2 id="3-4-单元练习"><a href="#3-4-单元练习" class="headerlink" title="3-4 单元练习"></a>3-4 单元练习</h2><p>virtual eat(){}; 这样是给函数一个空定义，而不是定义为虚函数。</p>
+<p>A 只有函数声明没有函数定义的虚函数是纯虚函数。<br>B 含有纯虚函数的类叫做抽象类。所以就必须含有=0标志了。<br>C 不可以使用含有纯虚函数的类实例化对象。<br>D 抽象类的子类也可以是抽象类。</p>
+<h2 id="3-5-C-接口类-08-17"><a href="#3-5-C-接口类-08-17" class="headerlink" title="3-5 [C++]接口类(08:17)"></a>3-5 [C++]接口类(08:17)</h2><p>在类当中，无数据成员，仅含有的成员函数又都是纯虚函数的类叫做接口类。<br>没有构造函数，没有析构函数。</p>
+<p>接口类更多的时候表达的是具有某种能力或是功能，比如说。。某种类型的光谱仪（A、B、C、D）都具扫描光谱的功能，但是他们所具有的扫描光谱的功能又有差别（例如：有的精度高，有的速度快。。。），这四种光谱仪都可以继承该接口类，然后再各自实现自己扫描光谱的功能。</p>
+<h1 id="第4章-运行时类型识别"><a href="#第4章-运行时类型识别" class="headerlink" title="第4章 运行时类型识别"></a>第4章 运行时类型识别</h1><h2 id="4-1-C-RTTI-07-54"><a href="#4-1-C-RTTI-07-54" class="headerlink" title="4-1 [C++]RTTI(07:54)"></a>4-1 [C++]RTTI(07:54)</h2><p>RTTI：运行时类型识别<br>typeid(<em>obj).name()打印出obj这个指针指向的实际的对象类型<br>对类型进行比对：if{typeid(</em>obj)==typeid(Bird)}<br>dynamic_cast&lt;  &gt;转换类型，&lt; &gt;中是要转化成为的类型，例如：Bird <em>bird = dynamic_cast&lt;Bird </em>&gt;(obj);(obj)转化为Bird * 类型</p>
+<ul>
+<li>dynamic_cast用法的注意事项：只能应用于指针和引用之间的转换，即&lt; &gt;中只能是某一类型的指针或者是某一类型的引用；要转换的类型中，必须包含虚函数；转换成功返回子类的地址，失败返回NULL</li>
+<li>typied的注意事项：type_id 返回一个type_info对象的引用；如果想通过基类的指针获得派生类的数据类型，基类必须带有虚函数；只能获取对象的实际类型</li>
+</ul>
+<h2 id="4-2-C-RTTI代码示例-11-33"><a href="#4-2-C-RTTI代码示例-11-33" class="headerlink" title="4-2 [C++]RTTI代码示例(11:33)"></a>4-2 [C++]RTTI代码示例(11:33)</h2><p>使用RTTI技术时，需要导入<typeinfo>这个头文件</typeinfo></p>
+<h1 id="第5章-异常处理"><a href="#第5章-异常处理" class="headerlink" title="第5章 异常处理"></a>第5章 异常处理</h1><h2 id="5-1-C-异常处理-13-54"><a href="#5-1-C-异常处理-13-54" class="headerlink" title="5-1 [C++]异常处理(13:54)"></a>5-1 [C++]异常处理(13:54)</h2><p>异常：程序运行期出现的错误。<br>异常处理：对有可能发生异常的地方做出预见性的安排。<br>异常处理关键字try…catch…和throw就是将主逻辑放在try块里，异常处理逻辑放在catch里面。<br>基本思想：主逻辑与异常处理分离。好处看上去整齐，非常容易理解。<br>异常传播方向和调用关系相反。<br>try 和catch可以是一对一也可以是一对多。catch(…)里面可以加…，捕获值需要引用。<br>常见的异常：数组下标越界，除数为0，内存不足。<br>多态和异常处理的联系：我们可以通过定义一个异常类，把异常类定义为一个接口类其中定义一些打印的方法，或者异常处理的方法，然后我们通过细分的子类来继承接口类当我们抛出这些子类的对象时都可以用父类来捕获。throw new加子类名捕获时用catch（父类名+&amp;e）我们也可以通过子类对象去调用子类相应的虚函数。</p>
+<p>C++中常见的异常，数组越界：提示用户就好了。除数为零，也比较常见。系统处理就会有错误的结果。内存不足：已经少见了。（循环。吃掉内存）</p>
+<h2 id="5-2-C-异常处理代码示例…-09-33"><a href="#5-2-C-异常处理代码示例…-09-33" class="headerlink" title="5-2 [C++]异常处理代码示例…(09:33)"></a>5-2 [C++]异常处理代码示例…(09:33)</h2><p>catch(…)是最后的处理<br><br><br> catch(err 父类)比较常用<br><br>throw 时可以定义。throw string(“blablabla”);<br>throw 时可以动态申请内存。throw new IndexException</p>
+<h2 id="5-4-巩固练习"><a href="#5-4-巩固练习" class="headerlink" title="5-4 巩固练习"></a>5-4 巩固练习</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 定义函数division</span><br><span class="line"> * 参数整型dividend、整型divisor</span><br><span class="line"> */</span><br><span class="line">int division(int dividend, int divisor)</span><br><span class="line">&#123;</span><br><span class="line">    if(0 == divisor)</span><br><span class="line">    &#123;</span><br><span class="line">        // 抛出异常，字符串“除数不能为0”</span><br><span class="line">        throw string(&quot;除数不能为0&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        return dividend / divisor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int d1 = 0;</span><br><span class="line">    int d2 = 0;</span><br><span class="line">    int r = 0;</span><br><span class="line">    cin &gt;&gt; d1;</span><br><span class="line">    cin &gt;&gt; d2;</span><br><span class="line">    // 使用try...catch...捕获异常</span><br><span class="line">    try &#123;</span><br><span class="line">        division(d1, d2);</span><br><span class="line">    &#125;</span><br><span class="line">    catch (string &amp;e) &#123;</span><br><span class="line">        cout &lt;&lt; e &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-20T05:45:06.466Z" itemprop="dateUpdated">2018-04-20 13:45:06</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/03/30/20180330mooc++6/" target="_blank" rel="external">https://hankin2015.github.io/2018/03/30/20180330mooc++6/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/03/30/20180330mooc++6/&title=《C++远征之多态篇》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/03/30/20180330mooc++6/&title=《C++远征之多态篇》 — HanKin的博客&source=简介本课程将带领大家体会面向对象三大特性中的多态特性，讲述了虚函数、抽象类和接口类等概念，以及多态的实现原理，课程的最后引入RTTI及异常处理，使整个多态..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/03/30/20180330mooc++6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++远征之多态篇》 — HanKin的博客&url=https://hankin2015.github.io/2018/03/30/20180330mooc++6/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/03/30/20180330mooc++6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/01/20180401mooc++7/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">C++远征之模板篇</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/03/24/20180324VirtualFunction/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">类中的虚函数、纯虚函数和普通函数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/03/30/20180330mooc++6/&title=《C++远征之多态篇》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/03/30/20180330mooc++6/&title=《C++远征之多态篇》 — HanKin的博客&source=简介本课程将带领大家体会面向对象三大特性中的多态特性，讲述了虚函数、抽象类和接口类等概念，以及多态的实现原理，课程的最后引入RTTI及异常处理，使整个多态..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/03/30/20180330mooc++6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++远征之多态篇》 — HanKin的博客&url=https://hankin2015.github.io/2018/03/30/20180330mooc++6/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/03/30/20180330mooc++6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/03/30/20180330mooc++6/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SNAP | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="SNAP,Stanford,Network">
+    <meta name="description" content="SNAP              SNAP Introduction&amp;emsp;&amp;emsp;SNAP(Stanford Network Analysis Platform)是一个通用的、能高效的分析和处理大型网络">
+<meta name="keywords" content="SNAP,Stanford,Network">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SNAP">
+<meta property="og:url" content="https://hankin2015.github.io/2017/10/14/20171014SNAP/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="SNAP              SNAP Introduction&amp;emsp;&amp;emsp;SNAP(Stanford Network Analysis Platform)是一个通用的、能高效的分析和处理大型网络">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://snap.stanford.edu/images/snap_logo.png">
+<meta property="og:updated_time" content="2017-10-21T03:23:32.410Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SNAP">
+<meta name="twitter:description" content="SNAP              SNAP Introduction&amp;emsp;&amp;emsp;SNAP(Stanford Network Analysis Platform)是一个通用的、能高效的分析和处理大型网络">
+<meta name="twitter:image" content="http://snap.stanford.edu/images/snap_logo.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SNAP</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SNAP</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-14T01:36:41.000Z" itemprop="datePublished" class="page-time">
+  2017-10-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Social-Network/">Social Network</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Introduction"><span class="post-toc-number">1.</span> <span class="post-toc-text">Introduction</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#About-SNAP"><span class="post-toc-number">2.</span> <span class="post-toc-text">About SNAP</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SNAP-Datasets"><span class="post-toc-number">3.</span> <span class="post-toc-text">SNAP Datasets</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Network-types"><span class="post-toc-number">4.</span> <span class="post-toc-text">Network types</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Network-statistics"><span class="post-toc-number">5.</span> <span class="post-toc-text">Network statistics</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Citing-SNAP-引用SNAP"><span class="post-toc-number">6.</span> <span class="post-toc-text">Citing SNAP(引用SNAP)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Project-the-SNAP-Group-Fall-Quarter-2017-18"><span class="post-toc-number">7.</span> <span class="post-toc-text">Project(the SNAP Group Fall Quarter 2017-18)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#传感器数据的机器学习"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">传感器数据的机器学习</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过银行交易数据建模国家经济"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">通过银行交易数据建模国家经济</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开放域社交媒体分析"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">开放域社交媒体分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#社区互动和社会网络冲突"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">社区互动和社会网络冲突</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#采矿数据科学模式"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">采矿数据科学模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#复杂网络中的表示学习：超越节点嵌入"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">复杂网络中的表示学习：超越节点嵌入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从字节到细胞：通过大型生物医学数据了解基因型表型关系"><span class="post-toc-number">7.7.</span> <span class="post-toc-text">从字节到细胞：通过大型生物医学数据了解基因型表型关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用智能手表干预打击久坐行为"><span class="post-toc-number">7.8.</span> <span class="post-toc-text">使用智能手表干预打击久坐行为</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SNAP：斯坦福网络分析平台"><span class="post-toc-number">7.9.</span> <span class="post-toc-text">SNAP：斯坦福网络分析平台</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Links-and-resources"><span class="post-toc-number">8.</span> <span class="post-toc-text">Links and resources</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Courses-on-Networks"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">Courses on Networks</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Software-Tools"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">Software Tools</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171014SNAP"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SNAP</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-14 09:36:41" datetime="2017-10-14T01:36:41.000Z"  itemprop="datePublished">2017-10-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Social-Network/">Social Network</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://snap.stanford.edu/images/snap_logo.png" alt="SNAP" title="">
+                </div>
+                <div class="image-caption">SNAP</div>
+            </figure>
+<p><a href="http://snap.stanford.edu/data/index.html#communities" target="_blank" rel="noopener">SNAP</a></p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><a href="https://coding.net/s/b499273b-4e47-48b4-b6d6-cbcd9a009f52" target="_blank" rel="noopener">Introduction</a></h1><p>&emsp;&emsp;SNAP(Stanford Network Analysis Platform)是一个通用的、能高效的分析和处理大型网络的系统。它支持图和网两种数据结构。其中，图描述的是拓扑结构，即每个结点都有一个唯一的整数id，结点之间的边可以是有向的，也可以是无向的，并且两个结点之间可以有多条边；网可以看成是一种结点和（或者）边上赋有数据的图。这些数据的数据类型可以很容易的作为模板参数传递，这就为实现那些在其结点和边上有着丰富数据的各种各样的网络提供了一种快速便捷的方法。</p>
+<p>&emsp;&emsp;SNAP库的核心是用C++语言编写的，并且进行了优化以实现最优性能和最紧凑的图表示。它可以很容易的对一个有着数以亿计的结点和边的大型网络进行缩放(scales to)，可以高效的处理大图，可以计算结构属性，还可以生成正则图和随机图，而且它还支持结点和边上的一些属性。另外，大图的可伸缩性是SNAP的另一个优点，即在计算的时候可以动态的改变图或表的结点、边和属性。 </p>
+<p>&emsp;&emsp;SNAP最初是由Jure Leskovec在他的博士研究过程中开发的，它的第一版在2009年12月发布。SNAP运用了一个像在Jozef Stefan Institute开发的GLib通用的标准模板库。SNAP和Glib都在积极开发中并且应用到了大量的学术研究项目和工程项目中。</p>
+<a id="more"></a>
+<h1 id="About-SNAP"><a href="#About-SNAP" class="headerlink" title="About SNAP"></a>About SNAP</h1><p>The SNAP library is being actively developed since 2004 and is organically growing as a result of our research pursuits in analysis of large social and information networks. Largest network we analyzed so far using the library was the Microsoft Instant Messenger network from 2006 with 240 million nodes and 1.3 billion edges.</p>
+<p>The datasets available on the website were mostly collected (scraped) for the purposes of our research.</p>
+<p>The website was launched in July 2009.</p>
+<h1 id="SNAP-Datasets"><a href="#SNAP-Datasets" class="headerlink" title="SNAP Datasets"></a>SNAP Datasets</h1><p>这里提供了大量的斯坦福大学收集的大型网络的数据集。</p>
+<ul>
+<li>社交网络：在线社交网络，边缘代表人与人之间的交互</li>
+<li>具有实地社区的网络：社会和信息网络中的地面实况网络社区</li>
+<li>通信网络：具有代表通信边缘的电子邮件通信网络</li>
+<li>引文网络：节点表示论文，边缘表示引文</li>
+<li>协作网络：节点代表科学家，边缘代表合作（共同创作论文）</li>
+<li>网络图：节点表示网页，边缘是超链接</li>
+<li>亚马逊网络：节点表示产品和边缘通常共同购买的产品</li>
+<li>互联网：节点代表计算机和边缘通信</li>
+<li>道路网络：节点表示交叉路口和连接交叉点的边缘路口</li>
+<li>自治系统：互联网图</li>
+<li>签署网络：正面和负面边缘的网络（朋友/敌人，信任/不信任）</li>
+<li>基于位置的在线社交网络：具有地理签入的社交网络</li>
+<li>维基百科网络，文章和元数据：来自维基百科的谈话，编辑，投票和文章数据</li>
+<li>时间网络：边缘具有时间戳的网络</li>
+<li>Twitter和Memetracker：Memetracker短语，链接和4.67亿推文</li>
+<li>在线社区：来自Reddit和Flickr等在线社区的数据</li>
+<li>在线评论：来自在线评论系统的数据，如BeerAdvocate和Amazon</li>
+</ul>
+<p>SNAP网络也可以从UF稀疏矩阵收集。Tim Davis 的SNAP网络的可视化。 </p>
+<h1 id="Network-types"><a href="#Network-types" class="headerlink" title="Network types"></a>Network types</h1><ul>
+<li>导向：定向网络</li>
+<li>未定向：无向网络</li>
+<li>二部：二部网络</li>
+<li>Multigraph：网络在一对节点之间有多个边</li>
+<li>时间：对于每个节点/边缘，我们知道网络中出现的时间</li>
+<li>标签：网络在节点和/或边缘上包含标签（权重，属性）</li>
+</ul>
+<h1 id="Network-statistics"><a href="#Network-statistics" class="headerlink" title="Network statistics"></a>Network statistics</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">数据集统计</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Nodes</td>
+<td style="text-align:left">网络中的节点数</td>
+</tr>
+<tr>
+<td style="text-align:left">Edges</td>
+<td style="text-align:left">网络边缘数</td>
+</tr>
+<tr>
+<td style="text-align:left">Nodes in largest WCC</td>
+<td style="text-align:left">最大弱连接组件中的节点数weakly connected component</td>
+</tr>
+<tr>
+<td style="text-align:left">Edges in largest WCC</td>
+<td style="text-align:left">最大弱连接组件中的边数</td>
+</tr>
+<tr>
+<td style="text-align:left">Nodes in largest SCC</td>
+<td style="text-align:left">最大强连接组件中的节点数</td>
+</tr>
+<tr>
+<td style="text-align:left">Edges in largest SCC</td>
+<td style="text-align:left">最大强连接组件中的边数</td>
+</tr>
+<tr>
+<td style="text-align:left">Average clustering coefficient</td>
+<td style="text-align:left">平均聚类系数</td>
+</tr>
+<tr>
+<td style="text-align:left">Number of triangles</td>
+<td style="text-align:left">连接节点的三角形的数量（考虑网络为无向）</td>
+</tr>
+<tr>
+<td style="text-align:left">Fraction of closed triangles</td>
+<td style="text-align:left">节点的连接三角形的数量/（无向）长度2路径的数量</td>
+</tr>
+<tr>
+<td style="text-align:left">Diameter (longest shortest path)</td>
+<td style="text-align:left">最大无向最短路径长度（1000个随机节点采样）</td>
+</tr>
+<tr>
+<td style="text-align:left">90-percentile effective diameter</td>
+<td style="text-align:left">无方向最短路径长度分布的第90个百分点（在1,000个随机节点上进行采样）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="Citing-SNAP-引用SNAP"><a href="#Citing-SNAP-引用SNAP" class="headerlink" title="Citing SNAP(引用SNAP)"></a>Citing SNAP(引用SNAP)</h1><p>如果您使用我们的包文件，工具或数据集，我们鼓励您引用我们的工作。</p>
+<p>使用以下BibTeX引用SNAP库和工具：</p>
+<pre><code>@article{leskovec2016snap,
+  title={SNAP: A General-Purpose Network Analysis and Graph-Mining Library},
+  author={Leskovec, Jure and Sosi{\v{c}}, Rok},
+  journal={ACM Transactions on Intelligent Systems and Technology (TIST)},
+  volume={8},
+  number={1},
+  pages={1},
+  year={2016},
+  publisher={ACM}
+}
+</code></pre><p>如果您在工作中使用它们，我们鼓励您引用我们的数据集。您可以使用以下BibTeX引文：</p>
+<pre><code>@misc {snapnets，
+  author = {Jure Leskovec and Andrej Krevl}，
+  title = {{SNAP Datasets}：{Stanford} Large Network Dataset Collection}，
+  howpublished = {\ url {http://snap.stanford.edu/data} }，
+  month = jun，
+  year = 2014 
+}
+</code></pre><h1 id="Project-the-SNAP-Group-Fall-Quarter-2017-18"><a href="#Project-the-SNAP-Group-Fall-Quarter-2017-18" class="headerlink" title="Project(the SNAP Group Fall Quarter 2017-18)"></a>Project(the SNAP Group Fall Quarter 2017-18)</h1><h2 id="传感器数据的机器学习"><a href="#传感器数据的机器学习" class="headerlink" title="传感器数据的机器学习"></a>传感器数据的机器学习</h2><p>关键词：数据分析，凸优化，深度学习，计算机系统</p>
+<p>许多应用程序包含多维时间戳观察的大量序列。这些观察通常来自“传感器”，这可以是从基因表达读数到天气测量，股票价格，神经功能磁共振成像扫描等的任何事情。对于这些应用，需要一个可以执行状态的单个平台最先进的优化/机器学习算法是稳健的（在许多不同的设置中实用/有用）和可扩展（因为这些数据集可以变得非常大）。这些算法使我们能够检测异常，现场趋势，分类事件，识别群集，预测未来行为等。对于这个项目，我们计划开发分析平台，实施最先进的优化算法，</p>
+<p>我们正在寻找具有强大机器学习和编程技能的学生，对建立大型系统的兴趣，以及渴望处理现实世界的应用程序。处理非常大的数据集的知识是一个加分。</p>
+<h2 id="通过银行交易数据建模国家经济"><a href="#通过银行交易数据建模国家经济" class="headerlink" title="通过银行交易数据建模国家经济"></a>通过银行交易数据建模国家经济</h2><p>关键词：图形挖掘，大数据分析，经济学</p>
+<p>银行交易是我们在经济中可以观察到的最主要的信号之一。它们可以反映经济动态，指出公司之间的供应和价值链，并指出公司或行业的繁荣或烦恼。该项目的目标是分析一个包含整个国家的国内和国际交易的独特数据集十多年。我们的目标是使用网络分析和图形挖掘方法，从交易数据的角度来理解国家经济结构，模拟货币流经经济，识别和量化价值链，了解什么因素有助于成功和失败的公司。</p>
+<p>我们正在寻找有兴趣使用独特的银行交易数据来探索这些问题的学生，包括数据挖掘，数据清理，数据可视化和机器学习。C ++或Python的经验和处理网络数据是一个加分。</p>
+<h2 id="开放域社交媒体分析"><a href="#开放域社交媒体分析" class="headerlink" title="开放域社交媒体分析"></a>开放域社交媒体分析</h2><p>关键词：文本挖掘，自然语言处理，社会媒体分析</p>
+<p>传统上，意见分析是通过汇款和问卷调查完成的，这使得代价昂贵，覆盖了一小部分人群，无法提供实时更新。社交媒体的普及使得自动化方法被用于以更具成本效益的方式处理在线讨论，覆盖更多的人口并在新的讨论被发布时提供实时更新。该项目的目标是开发一个意见分析系统，通过将其提及与同行提及（例如类似的产品，书籍，电影）进行比较，可以对特定目标（例如产品，书籍和电影）进行即席查询以确定相关方面和目标在这些方面的立场。我们将开发深入学习的方法来提取和建模方面和意见。</p>
+<p>我们正在寻找有兴趣使用文本数据和开发算法的学生。自然语言处理，文本挖掘和深度学习框架的经验是一个加分。</p>
+<h2 id="社区互动和社会网络冲突"><a href="#社区互动和社会网络冲突" class="headerlink" title="社区互动和社会网络冲突"></a>社区互动和社会网络冲突</h2><p>关键词：社会网络分析，计算社会科学</p>
+<p>社交网络和在线讨论平台使用户能够形成以兴趣为基础的社区，表达意见，并与他人互动。不同社区之间的相互作用是复杂的。一些互动是积极的，导致用户参与度和忠诚度增加，而另一些则是消极的，例如冲突和突袭。该项目的目标是研究社区间互动的各个方面，并开发计算模型和算法来对其进行建模。我们将使用几个大型数据集，包括来自Reddit，Disqus和Wikipedia的评论和帖子，我们将研究跨社区动员，冲突，社区成长和衰落。用户级和社区级别的用户与内容之间的交互是本项目的一个组成部分。</p>
+<p>我们正在寻找有兴趣使用社交网络分析和自然语言处理的组合来探索这些问题的学生。需要Python和Hadoop的工作知识。处理大数据集，数据挖掘，社交网络分析和自然语言处理的先前经验是一个加分。</p>
+<h2 id="采矿数据科学模式"><a href="#采矿数据科学模式" class="headerlink" title="采矿数据科学模式"></a>采矿数据科学模式</h2><p>关键词：大数据分析，数据科学，推荐系统</p>
+<p>数据科学家通常开发一套标准的软件模式来分析数据并从中收集见解。然而，这些模式通常是重复的，最佳实践分散在StackOverflow，GitHub和iPython笔记本中。该项目的目标是识别频繁的数据科学模式，并构建一个推荐引擎，帮助数据科学家自动分析给定的数据集。挑战将在于识别和提取常见模式，然后开发可以匹配它们的推荐引擎。</p>
+<p>我们正在寻找具有强大编程背景（尤其是Python）的学生，并且对数据科学感兴趣。熟悉代码解析，解释器和编译器将是一个很好的加分。</p>
+<h2 id="复杂网络中的表示学习：超越节点嵌入"><a href="#复杂网络中的表示学习：超越节点嵌入" class="headerlink" title="复杂网络中的表示学习：超越节点嵌入"></a>复杂网络中的表示学习：超越节点嵌入</h2><p>关键词：深度学习，表征学习</p>
+<p>复杂网络上的代表性学习是促进我们对社会和生物动力学理解的重要途径。使用表示学习，我们可以生成将高维网络信息压缩成低维特征向量的嵌入。这些嵌入将网络结构（例如节点之间的边缘）编码为几何关系，并且对许多任务至关重要。例如，在生物相互作用网络中产生蛋白质，基因和化学物质的嵌入之后，我们可以利用所学习的嵌入空间中的距离来预测新的相互作用并协助药物设计。在这个项目中，我们将通过最近在深度学习方面取得的进展，力求将复杂网络的代表性学习推向最先进的阶段。</p>
+<p>我们正在寻找具有网络分析，机器学习和深度学习经验的高素质学生（如CS224W，CS229，CS224N，CS231N）。需要Python的工作知识，申请人应该有一些深入学习框架的经验（例如，TensorFlow，Torch或Theano）。</p>
+<h2 id="从字节到细胞：通过大型生物医学数据了解基因型表型关系"><a href="#从字节到细胞：通过大型生物医学数据了解基因型表型关系" class="headerlink" title="从字节到细胞：通过大型生物医学数据了解基因型表型关系"></a>从字节到细胞：通过大型生物医学数据了解基因型表型关系</h2><p>关键词：计算生物学，网络分析，机器学习</p>
+<p>您将开发哪些分析方法来利用所有尺度的数据进行生物医学进步？分子数据已经显示出其价值。基因突变的存在可以将高危人群或低危组患者纳入各种疾病。如果一个人的分子数据被放置在他的健康和行为的背景下，更有可能。疾病登记，健康保险和医院记录以及研究出版物在这里可能是有用的。最大的问题是如何采取下一步将这些潜力转化为可行的知识。来自健康记录的数据集（其数量正在上升）将是凌乱的，但对医学进展至关重要。大量的数据集，系统的或不系统的，不可避免地会引起虚假的相关性，因此认识到有意义的模式仍然具有挑战性。该项目位于机器学习，网络科学与计算生物学之间。其重点将是为数据密集型挑战开发新的分析方法，从而将生物医学科学引向下一个前沿。</p>
+<p>我们正在寻找有网络，机器学习和统计经验的学生（例如CS224W，CS246，STATS200等），并且有兴趣使用大型生物和临床数据集。Python的工作知识是必需的，C ++的经验是一个加分。</p>
+<h2 id="使用智能手表干预打击久坐行为"><a href="#使用智能手表干预打击久坐行为" class="headerlink" title="使用智能手表干预打击久坐行为"></a>使用智能手表干预打击久坐行为</h2><p>关键词：移动和Web应用，数据科学为社会效益</p>
+<p>持久的行为，包括坐着和说谎，对健康有害。它与肥胖，糖尿病，心脏代谢综合征和发病相关，与身体活动水平无关。穿戴式设备，包括智慧型手表，从根本上改变了如何衡量和管理活动和健康，为打击久坐行为提供了新的机会。许多商业可穿戴应用程序目前正在跟踪久坐不定的发作，并使用警报来激励用户起床和移动。然而，这些应用的功效，或如何最佳地设计它们，在很大程度上是未知的。这项研究的目的是三重的。首先，测试来自智能手表干预的实时（即即时）消息是否更有效地减少久坐行为。第二，确定消息内容如何影响个人的久坐行为和激励疲劳率。而且，第三，要测试一种自适应干预措施，可以调整消息内容以解决个人偏好和激励疲劳，从而可以产生越来越多的持久性减少久坐行为。</p>
+<p>我们正在寻找有兴趣继续开发智能手机/智能手机移动应用平台的学生，该平台目前由Pebble手表应用和Heroku后端组成。需要C和Javascript的经验，并且MongoDB，Heroku和Python的经验是一个加分。</p>
+<h2 id="SNAP：斯坦福网络分析平台"><a href="#SNAP：斯坦福网络分析平台" class="headerlink" title="SNAP：斯坦福网络分析平台"></a>SNAP：斯坦福网络分析平台</h2><p>关键词：网络分析，开源软件，图形算法，并行算法</p>
+<p>斯坦福网络分析平台（SNAP）是一种通用的高性能网络分析和图形挖掘库，可轻松扩展到数十亿个节点和边缘的大规模网络。它有效地操纵大图，计算结构属性，生成规则和随机图，并支持节点和边缘上的属性。SNAP正在不断扩展，具有用于具有12TB RAM和288个CPU内核的大内存多核机器的新图形和网络算法。</p>
+<p>我们正在寻找有兴趣参与SNAP代码库或开发顺序或并行图形算法的学生。SNAP主要是用C ++编写的，所以这种语言的经验是一个加分。这个项目没有RA职位，只有对自主学习感兴趣的学生（CS191，CS199，CS399）才会被考虑。</p>
+<h1 id="Links-and-resources"><a href="#Links-and-resources" class="headerlink" title="Links and resources"></a><a href="http://snap.stanford.edu/links.html" target="_blank" rel="noopener">Links and resources</a></h1><h2 id="Courses-on-Networks"><a href="#Courses-on-Networks" class="headerlink" title="Courses on Networks"></a>Courses on Networks</h2><ul>
+<li>(Social and Information) Network Anaysis by Jure Leskovec</li>
+<li>The Structure of Information Networks by Jon Kleinberg</li>
+<li>Networks: Theory and Application by Lada Adamic</li>
+<li>Structure and Dynamics of Networked Information by David Kempe</li>
+<li>Information Networks by Amin Saberi</li>
+</ul>
+<h2 id="Software-Tools"><a href="#Software-Tools" class="headerlink" title="Software Tools"></a>Software Tools</h2><ul>
+<li><p>NodeXL<br>NodeXL is a graphical front-end that integrates network analysis and SNAP into Microsoft Office and Excel. Using NodeXL, users without programming skills can make use of key elements of the SNAP library.</p>
+</li>
+<li><p>Pajek<br>A program for network analysis (Windows or Linux via Wine).</p>
+</li>
+<li><p>GUESS<br>InfoVis Cyberinfrastructure<br>Software framework for information visualization (Linux, MacOSX, Windows).</p>
+</li>
+<li><p>Analytic Technologies<br>Software for social network analysis (Windows).</p>
+</li>
+<li><p>Graphviz<br>Graph visualization software</p>
+</li>
+<li><p>NetworkX<br>Python package for the study of the structure of complex networks.</p>
+</li>
+<li><p>Network Workbench<br>Network analysis, modeling and visualization toolkit</p>
+</li>
+<li><p>Power-law Distributions in Empirical Data<br>Tools for fitting heavy-tailed distributions to data</p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-21T03:23:32.410Z" itemprop="dateUpdated">2017-10-21 11:23:32</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/10/14/20171014SNAP/" target="_blank" rel="external">https://hankin2015.github.io/2017/10/14/20171014SNAP/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SNAP/">SNAP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stanford/">Stanford</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/14/20171014SNAP/&title=《SNAP》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/14/20171014SNAP/&title=《SNAP》 — HanKin的博客&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/14/20171014SNAP/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SNAP》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/14/20171014SNAP/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/14/20171014SNAP/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/14/20171015WuLinWaiZhuan/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">武林外传</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/14/20171014SANP for c++/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SNAP for C++</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/14/20171014SNAP/&title=《SNAP》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/14/20171014SNAP/&title=《SNAP》 — HanKin的博客&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/14/20171014SNAP/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SNAP》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/14/20171014SNAP/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/14/20171014SNAP/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/10/14/20171014SNAP/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

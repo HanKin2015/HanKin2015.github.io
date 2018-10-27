@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python文件处理 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python">
+    <meta name="description" content="第1章 文件简介1-1 课程简介和基本概念…(05:47)linux文件：一切设备都可以看成文件。P文件属性：用户、读、写、执行权限。文件：python中文件是对象。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python文件处理">
+<meta property="og:url" content="https://hankin2015.github.io/2018/01/19/20180119PythonFile/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="第1章 文件简介1-1 课程简介和基本概念…(05:47)linux文件：一切设备都可以看成文件。P文件属性：用户、读、写、执行权限。文件：python中文件是对象。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-04T11:08:22.540Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python文件处理">
+<meta name="twitter:description" content="第1章 文件简介1-1 课程简介和基本概念…(05:47)linux文件：一切设备都可以看成文件。P文件属性：用户、读、写、执行权限。文件：python中文件是对象。">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python文件处理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python文件处理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-19T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-01-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第1章-文件简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">第1章 文件简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-课程简介和基本概念…-05-47"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1-1 课程简介和基本概念…(05:47)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-python文件操作之文件打开…-13-00"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2-1 python文件操作之文件打开…(13:00)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-python文件操作之文件读取…-11-35"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">2-2 python文件操作之文件读取…(11:35)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-python文件操作之文件写入…-08-56"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">2-3 python文件操作之文件写入…(08:56)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-python文件操作之文件关闭…-06-07"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">2-4 python文件操作之文件关闭…(06:07)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-python文件操作之文件指针…-08-52"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">2-5 python文件操作之文件指针…(08:52)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第3章-文件属性及OS模块使用"><span class="post-toc-number">2.</span> <span class="post-toc-text">第3章 文件属性及OS模块使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-python文件属性编码格式…-15-24"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">3-1 python文件属性编码格式…(15:24)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-OS模块对文件和目录操作…-12-12"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">3-3 OS模块对文件和目录操作…(12:12)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第五章：练习"><span class="post-toc-number">3.</span> <span class="post-toc-text">第五章：练习</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180119PythonFile"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python文件处理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-19 10:47:41" datetime="2018-01-19T02:47:41.000Z"  itemprop="datePublished">2018-01-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="第1章-文件简介"><a href="#第1章-文件简介" class="headerlink" title="第1章 文件简介"></a>第1章 文件简介</h1><h2 id="1-1-课程简介和基本概念…-05-47"><a href="#1-1-课程简介和基本概念…-05-47" class="headerlink" title="1-1 课程简介和基本概念…(05:47)"></a>1-1 课程简介和基本概念…(05:47)</h2><p>linux文件：一切设备都可以看成文件。P<br>文件属性：用户、读、写、执行权限。<br>文件：python中文件是对象。<br><a id="more"></a></p>
+<p>#第2章 Python文件基础操作</p>
+<h2 id="2-1-python文件操作之文件打开…-13-00"><a href="#2-1-python文件操作之文件打开…-13-00" class="headerlink" title="2-1 python文件操作之文件打开…(13:00)"></a>2-1 python文件操作之文件打开…(13:00)</h2><p>ls -l:<br>-rw-rw-r–:第一个‘-’是文件，如果是目录应该是‘d’；第一组‘rw-’:表示当前用户有读写没有执行；第二组‘rw-’:表示当前用户组有读写没有执行；第三组‘r–’表示其他用户只有读权限<br>chmod +x hello.py：添加执行权限</p>
+<p>chmod增加权限说明<br>如果给所有人添加可执行权限：chmod a+x 文件名；<br>如果给文件所有者添加可执行权限：chmod u+x 文件名；<br>如果给所在组添加可执行权限：chmod g+x 文件名；<br>如果给所在组以外的人添加可执行权限：chmod o+x 文件名；</p>
+<p>Python 文件打开方式</p>
+<p>name: 文件路径<br>mode: 打开方式<br>buf:  缓冲buffering大小</p>
+<p>Python 读取方式</p>
+<p>文件读取方式<br>read([size]): 读取文件，默认读取全部<br>readline([size]): 读取一行<br>readlines([size]): 读取完文件，返回每一行所组成的列表</p>
+<p>文件写入方式<br>write(str): 将字符串写入文件<br>writelines(sequence): 写多行到文件</p>
+<p>文件打开方式<br>r:  只读方式打开[文件必须存在]<br>w:  只写方式打开[文件不存在则创建文件 文件存在则清空文件内容]<br>a:  追加方式打开[文件不存在则创建文件]<br>r+: 读写方式打开<br>a+: 追加读写方式打开<br>rb: 二进制方式打开</p>
+<h2 id="2-2-python文件操作之文件读取…-11-35"><a href="#2-2-python文件操作之文件读取…-11-35" class="headerlink" title="2-2 python文件操作之文件读取…(11:35)"></a>2-2 python文件操作之文件读取…(11:35)</h2><p>iter_f = iter(f)   使用iter（）方法，将文件转换成迭代器iter_f      不消耗内存<br>用来读取字节大小和缓冲大小接近的内容的行（内容大小不一定恰好是那么多），那个参数size的作用，是用来指定缓冲buff大小的，不设置的话默认是8192。</p>
+<p>参数在1~DEFAULT_BUFFER_SIZE（2^13=8192）返回的结果是一样的，都是返回一个DEFAULT_BUFFER_SIZE左右大小；</p>
+<p>但是8193就不一样了，他在DEFAULT_BUFFER_SIZE~2*DEFAULT_BUFFER_SIZE之间，返回2个DEFAULT_BUFFER_SIZE左右大小；<br>结论，size只有在设置成DEFAULT_BUFFER_SIZE的整数倍的时候，返回结果才会不一样！！</p>
+<h2 id="2-3-python文件操作之文件写入…-08-56"><a href="#2-3-python文件操作之文件写入…-08-56" class="headerlink" title="2-3 python文件操作之文件写入…(08:56)"></a>2-3 python文件操作之文件写入…(08:56)</h2><p>主动调用close（）或flush方法，写缓存同步到磁盘；<br>写入数据量大于或等于写缓存，写缓存同步到磁盘</p>
+<h2 id="2-4-python文件操作之文件关闭…-06-07"><a href="#2-4-python文件操作之文件关闭…-06-07" class="headerlink" title="2-4 python文件操作之文件关闭…(06:07)"></a>2-4 python文件操作之文件关闭…(06:07)</h2><p>file.fileno() ：已打开文件个数，每打开一个文件，fileno数字累加，直到1024，就打不开了<br>因此良好的习惯：<br>打开一个文件，后面就要跟着close（）<br>更好的方法是用with closing（）函数，这样就不用担心打开文件后忘记关闭文件了<br>妙极妙极！</p>
+<p>ps  查看进程<br>cat /proc/20384/limits<br>    进程/进程ID<br>查看打开文件的最大限制</p>
+<h2 id="2-5-python文件操作之文件指针…-08-52"><a href="#2-5-python文件操作之文件指针…-08-52" class="headerlink" title="2-5 python文件操作之文件指针…(08:52)"></a>2-5 python文件操作之文件指针…(08:52)</h2><p>Python文件指针定位方式：<br>os.SEEK_SET ： 相对文件起始位置 = 0<br>os.SEEK_CUR ： 相对文件当前位置 = 1<br>os_SEEK_END ：相对文件结尾位置 = 2<br>seek(offset[, whence]) : 移动文件指针；<br>                      offset : 偏移量，可以为负数<br>                      whence ： 偏移相对位置</p>
+<p>f.tell()  查指针<br>f.seek(5,os.SEEK.SEEK_CUR)</p>
+<h1 id="第3章-文件属性及OS模块使用"><a href="#第3章-文件属性及OS模块使用" class="headerlink" title="第3章 文件属性及OS模块使用"></a>第3章 文件属性及OS模块使用</h1><h2 id="3-1-python文件属性编码格式…-15-24"><a href="#3-1-python文件属性编码格式…-15-24" class="headerlink" title="3-1 python文件属性编码格式…(15:24)"></a>3-1 python文件属性编码格式…(15:24)</h2><p>python2中<br>1 unicode转换utf-8：a = unicode.encode(u’慕课’,’utf-8’)<br>2 创建utf-8编码文件：import codecs<br>   f = codecs.open(‘test.txt’,’w’,’utf-8’)<br>特别注意：python3默认是unicode编码，不需要转码到utf-8，‘慕课‘前面也不用加u</p>
+<p>file.flieno()文件描述符<br>file.mode 文件打开权限<br>file.encoding 文件编码格式(如果没有返回值，就表示是一个ANSI码的文件)<br>file.closed 文件是否关闭<br>文件标准输入 sys.stdin<br>文件标准输出 sys.stdout<br>文件标准错误 sys.stderr</p>
+<p>sys.argv</p>
+<h2 id="3-3-OS模块对文件和目录操作…-12-12"><a href="#3-3-OS模块对文件和目录操作…-12-12" class="headerlink" title="3-3 OS模块对文件和目录操作…(12:12)"></a>3-3 OS模块对文件和目录操作…(12:12)</h2><p>os.open(filename, flag [,mode]):打开文件<br>os.O_CREAT:创建文件<br>os.O_RDONLY:只读方式打开<br>os.O_WRONLY:只写方式打开<br>os.O_RDWR:读写方式打开</p>
+<p>os.read(fd, buffersize):读取文件<br>os.write(fd, string):写入文件<br>os.lseek(fd, pos, how): 文件指针操作<br>os.close(fd):关闭文件</p>
+<p>os.access(path, mode)： F_OK, R_OK ,W_OK, X_OK<br>os.listdir(path)： 返回当path路径下所有文件名组成的列表<br>os.remove(path)：删除文件<br>os.rename(old, new)：修改文件或者目录名<br>os.mkdir(path[, mode])：创建目录<br>os.makedirs(path[, mode])：创建多级目录<br>os.removedirs(path)：删除多级目录<br>os.rmdir(path)：删除目录(目录必须空目录)</p>
+<p>os.path方法<br>os.path.exists(path)：当前路径是否存在   |  也可以判断是否有该文件<br>os.path.isdir(s)：是否是一个目录<br>os.path.isfile(path)：是否是一个文件<br>os.path.getsize(filename)：返回文件大小  | 返回目录文件大小<br>os.path.dirname(p)：返回路径的目录<br>os.path.basename(p)：返回路径的文件名</p>
+<h1 id="第五章：练习"><a href="#第五章：练习" class="headerlink" title="第五章：练习"></a>第五章：练习</h1><p>使用Python管理init文件：实现查询、添加、删除和保存。<br>import ConfigParser导入模块</p>
+<p>cfg.set(‘section’,’name’,’value’) 可以插入，修改section下的条目(‘name’,’value’)<br>cfg.remove_option(‘section’,’name’)删除section下的条目(‘name’,’value’)，返回TRUE（删除成功）或FALSE</p>
+<p>cfg.items(seif,section,raw=False,var=None)返回（name，value）元组tuple组成的列表,<br>利用for循环可以返回section下的所有值</p>
+<p>cfg.read(self,filename) 读入一个文件  返回文件名列表<br>cfg.sections(self) 返回所有的section name 组成的一个列表</p>
+<p>ConfigParser模块<br>利用ConfigParser模块的ConfigParser类来创建ConfigParser模块的对象cfg</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-02-04T11:08:22.540Z" itemprop="dateUpdated">2018-02-04 19:08:22</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/01/19/20180119PythonFile/" target="_blank" rel="external">https://hankin2015.github.io/2018/01/19/20180119PythonFile/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/01/19/20180119PythonFile/&title=《Python文件处理》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/01/19/20180119PythonFile/&title=《Python文件处理》 — HanKin的博客&source=第1章 文件简介1-1 课程简介和基本概念…(05:47)linux文件：一切设备都可以看成文件。P文件属性：用户、读、写、执行权限。文件：python中..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/01/19/20180119PythonFile/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python文件处理》 — HanKin的博客&url=https://hankin2015.github.io/2018/01/19/20180119PythonFile/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/01/19/20180119PythonFile/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/26/20180126malloc&new/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">malloc 和 new分配空间</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/18/20180118ShenGao/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">审稿意见模板</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/01/19/20180119PythonFile/&title=《Python文件处理》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/01/19/20180119PythonFile/&title=《Python文件处理》 — HanKin的博客&source=第1章 文件简介1-1 课程简介和基本概念…(05:47)linux文件：一切设备都可以看成文件。P文件属性：用户、读、写、执行权限。文件：python中..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/01/19/20180119PythonFile/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python文件处理》 — HanKin的博客&url=https://hankin2015.github.io/2018/01/19/20180119PythonFile/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/01/19/20180119PythonFile/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/01/19/20180119PythonFile/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

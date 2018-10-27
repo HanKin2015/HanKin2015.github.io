@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>makefile | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C,C++,Makefile,Linux">
+    <meta name="description" content="linux下c++编程环境搭建，运行过程以及调试,内含C++头文件源文件编译过程链接 同一段c语言代码，windows下运行要4分30多秒，ubuntu下只要35秒，为什么会这样？ubuntu还是在虚拟机里运行的，在windows下怎样让电脑运行指定程序拉高cpu。解答1这有关操作系统中的进程管理.拉高CPU运行,所指的其实就是提高优先级,平常使用的都是相同优先级进程,你提高优先级后,CPU就多">
+<meta name="keywords" content="C,C++,Makefile,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="makefile">
+<meta property="og:url" content="https://hankin2015.github.io/2017/10/14/20171015makefile/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="linux下c++编程环境搭建，运行过程以及调试,内含C++头文件源文件编译过程链接 同一段c语言代码，windows下运行要4分30多秒，ubuntu下只要35秒，为什么会这样？ubuntu还是在虚拟机里运行的，在windows下怎样让电脑运行指定程序拉高cpu。解答1这有关操作系统中的进程管理.拉高CPU运行,所指的其实就是提高优先级,平常使用的都是相同优先级进程,你提高优先级后,CPU就多">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-19T08:27:43.431Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="makefile">
+<meta name="twitter:description" content="linux下c++编程环境搭建，运行过程以及调试,内含C++头文件源文件编译过程链接 同一段c语言代码，windows下运行要4分30多秒，ubuntu下只要35秒，为什么会这样？ubuntu还是在虚拟机里运行的，在windows下怎样让电脑运行指定程序拉高cpu。解答1这有关操作系统中的进程管理.拉高CPU运行,所指的其实就是提高优先级,平常使用的都是相同优先级进程,你提高优先级后,CPU就多">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">makefile</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">makefile</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-14T13:36:41.000Z" itemprop="datePublished" class="page-time">
+  2017-10-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Others/">Others</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#同一段c语言代码，windows下运行要4分30多秒，ubuntu下只要35秒，为什么会这样？ubuntu还是在虚拟机里运行的，在windows下怎样让电脑运行指定程序拉高cpu。"><span class="post-toc-number">1.</span> <span class="post-toc-text">同一段c语言代码，windows下运行要4分30多秒，ubuntu下只要35秒，为什么会这样？ubuntu还是在虚拟机里运行的，在windows下怎样让电脑运行指定程序拉高cpu。</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#解答1"><span class="post-toc-number"></span> <span class="post-toc-text">解答1</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#解答2"><span class="post-toc-number"></span> <span class="post-toc-text">解答2</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#解答3"><span class="post-toc-number"></span> <span class="post-toc-text">解答3</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实战总结"><span class="post-toc-number"></span> <span class="post-toc-text">实战总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#探索makefile文件执行顺序（前一个是makefile文件内容，后面是运行结果）"><span class="post-toc-number"></span> <span class="post-toc-text">探索makefile文件执行顺序（前一个是makefile文件内容，后面是运行结果）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#尝试一"><span class="post-toc-number"></span> <span class="post-toc-text">尝试一</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#尝试二"><span class="post-toc-number"></span> <span class="post-toc-text">尝试二</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#尝试三"><span class="post-toc-number"></span> <span class="post-toc-text">尝试三</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#尝试四"><span class="post-toc-number"></span> <span class="post-toc-text">尝试四</span></a>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171015makefile"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">makefile</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-14 21:36:41" datetime="2017-10-14T13:36:41.000Z"  itemprop="datePublished">2017-10-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Others/">Others</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p> <a href="http://blog.csdn.net/yimingsilence/article/details/51337583" target="_blank" rel="noopener">linux下c++编程环境搭建，运行过程以及调试,内含C++头文件源文件编译过程链接</a></p>
+<h6 id="同一段c语言代码，windows下运行要4分30多秒，ubuntu下只要35秒，为什么会这样？ubuntu还是在虚拟机里运行的，在windows下怎样让电脑运行指定程序拉高cpu。"><a href="#同一段c语言代码，windows下运行要4分30多秒，ubuntu下只要35秒，为什么会这样？ubuntu还是在虚拟机里运行的，在windows下怎样让电脑运行指定程序拉高cpu。" class="headerlink" title="同一段c语言代码，windows下运行要4分30多秒，ubuntu下只要35秒，为什么会这样？ubuntu还是在虚拟机里运行的，在windows下怎样让电脑运行指定程序拉高cpu。"></a>同一段c语言代码，windows下运行要4分30多秒，ubuntu下只要35秒，为什么会这样？ubuntu还是在虚拟机里运行的，在windows下怎样让电脑运行指定程序拉高cpu。</h6><h5 id="解答1"><a href="#解答1" class="headerlink" title="解答1"></a>解答1</h5><p>这有关操作系统中的进程管理.<br>拉高CPU运行,所指的其实就是提高优先级,平常使用的都是相同优先级进程,<br>你提高优先级后,CPU就多跑你的进程,<br>而windows提高优先级的函数请参考windows下相关API<br>两个系统为什么不同,要看到底有多少相同或更高级别任务运行,windows任务较多,所以跑到你的进程就比较少.这个你最好看看任务数量.</p>
+<a id="more"></a>
+<p>liunx系统内核和硬盘格式与windows都不同，但这不是主要原因。主要是windows的时间主要花在了输出上。建议windows用文件输出。</p>
+<p>实际上这个主要时间消耗到显示上面了，只输出最后的i的话，也就几个毫秒的事</p>
+<p>因为linux很轻，而且开源，有很多支持者。它没有图形用户界面，一切都是代码操作，注重效率，一般是给计算机行业的人用的，特别是当做服务器！<br>而windows是给大众用的，所以关注的地方比较多，特别是他的图形用户界面。所以程序运行效率比不上linux。</p>
+<p>作者：辉常哥<br>链接：<a href="https://www.zhihu.com/question/36609459/answer/89743845" target="_blank" rel="noopener">https://www.zhihu.com/question/36609459/answer/89743845</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h5 id="解答2"><a href="#解答2" class="headerlink" title="解答2"></a>解答2</h5><p>1.gcc是GNU Compiler Collection（就是GNU编译器套件），也可以简单认为是编译器，它可以编译很多种编程语言（括C、C++、Objective-C、Fortran、Java等等）。2.当你的程序只有一个源文件时，直接就可以用gcc命令编译它。3.但是当你的程序包含很多个源文件时，用gcc命令逐个去编译时，你就很容易混乱而且工作量大4.所以出现了make工具make工具可以看成是一个智能的批处理工具，它本身并没有编译和链接的功能，而是用类似于批处理的方式—通过调用makefile文件中用户指定的命令来进行编译和链接的。5.makefile是什么？简单的说就像一首歌的乐谱，make工具就像指挥家，指挥家根据乐谱指挥整个乐团怎么样演奏，make工具就根据makefile中的命令进行编译和链接的。6.makefile命令中就包含了调用gcc（也可以是别的编译器）去编译某个源文件的命令。7.makefile在一些简单的工程完全可以人工手下，但是当工程非常大的时候，手写makefile也是非常麻烦的，如果换了个平台makefile又要重新修改。8.这时候就出现了Cmake这个工具，cmake就可以更加简单的生成makefile文件给上面那个make用。当然cmake还有其他功能，就是可以跨平台生成对应平台能用的makefile，你不用再自己去修改了。9.可是cmake根据什么生成makefile呢？它又要根据一个叫CMakeLists.txt文件（学名：组态档）去生成makefile。10.到最后CMakeLists.txt文件谁写啊？亲，是你自己手写的。11.当然如果你用IDE，类似VS这些一般它都能帮你弄好了，你只需要按一下那个三角形</p>
+<p>作者：任卫<br>链接：<a href="https://www.zhihu.com/question/36609459/answer/68231785" target="_blank" rel="noopener">https://www.zhihu.com/question/36609459/answer/68231785</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h5 id="解答3"><a href="#解答3" class="headerlink" title="解答3"></a>解答3</h5><p>gcc是编译器，其实后还有连接器等make是另外一个程序，根据makefile的指示，尽可能协调编一个程序套件的编译全过程，一个程序套件可能包好多多源代码，也可能生成若干二进制文件，还可能指示程序套件的安装程序制作和/或安装过程，那make就通过调用编译器连接器还有其他外部工具达成这一系列工作。make不光可以调用gcc编译器，也可以调用javac啊。makefile精力集中于定义工作流水线。CMake 是另外一个更高层一点的工具，它的输出是makefile等。支持使用更简单的语言描述编译安装过程。支持多个makefile系列、VisualStudio等下午补充下推荐使用场景：1 gcc编译器套件：最简单啦，单文件工程比如helloworld直接使用就行了2 make&amp;makefile ： 小中大型工程肯定要用的啦，大型工程的makefile系统不少也都是噩梦般的存在。适用于工具链【较为统一】的工程中，有一定跨平台能力。3 CMake：若需要更为广泛的支持多编译工具链更广地跨平台且还不想构建复杂的跨平台makefile系统，那CMake确实是个很好的选择，由CMake来先编译出不同平台的makefile工程，而CMakeLists.txt集中声明描述下工程组件的关系即可。</p>
+<h2 id="实战总结"><a href="#实战总结" class="headerlink" title="实战总结"></a>实战总结</h2><p>cmake是用来生成Makefile文件的工具，生成Makefile文件的工具不止有cmake，还有autotools。Qt环境下还有qmake</p>
+<p><a href="http://blog.csdn.net/pdcxs007/article/details/8582559" target="_blank" rel="noopener">Windows安装GNU编译器使用makefile</a><br>我在电脑下D:\Program Files\TDM-GCC\bin修改mingw32-make.exe为make.exe。</p>
+<h3 id="探索makefile文件执行顺序（前一个是makefile文件内容，后面是运行结果）"><a href="#探索makefile文件执行顺序（前一个是makefile文件内容，后面是运行结果）" class="headerlink" title="探索makefile文件执行顺序（前一个是makefile文件内容，后面是运行结果）"></a>探索makefile文件执行顺序（前一个是makefile文件内容，后面是运行结果）</h3><p>注意头文件.h不需要编译。</p>
+<h4 id="尝试一"><a href="#尝试一" class="headerlink" title="尝试一"></a>尝试一</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Main: Boy.o Main.o</span><br><span class="line">    g++ Boy.o Main.o -o Main</span><br><span class="line"></span><br><span class="line">Main.o: Main.cpp</span><br><span class="line">    g++ -c Main.cpp -o Main.o</span><br><span class="line"></span><br><span class="line">Boy.o: Boy.cpp</span><br><span class="line">    g++ -c Boy.cpp -o Boy.o</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\Desktop\Boy&gt;make</span><br><span class="line">g++ -c Boy.cpp -o Boy.o</span><br><span class="line">g++ -c Main.cpp -o Main.o</span><br><span class="line">g++ Boy.o Main.o -o Main</span><br></pre></td></tr></table></figure>
+<p>猜测：从上往下执行，首先Boy.o就去找第三步得到结果Boy.o，然后Main.o就去第二步得到结果Main.o，最好第一步准备工作完成，运行第一步。</p>
+<h4 id="尝试二"><a href="#尝试二" class="headerlink" title="尝试二"></a>尝试二</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Main: Boy.o Main.o</span><br><span class="line">    g++ Boy.o Main.o -o Main</span><br><span class="line"></span><br><span class="line">Boy.o: Boy.cpp</span><br><span class="line">    g++ -c Boy.cpp -o Boy.o</span><br><span class="line"></span><br><span class="line">Main.o: Main.cpp</span><br><span class="line">    g++ -c Main.cpp -o Main.o</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\Desktop\Boy&gt;make</span><br><span class="line">g++ -c Boy.cpp -o Boy.o</span><br><span class="line">g++ -c Main.cpp -o Main.o</span><br><span class="line">g++ Boy.o Main.o -o Main</span><br></pre></td></tr></table></figure>
+<p>猜想印证，结果一样。</p>
+<h4 id="尝试三"><a href="#尝试三" class="headerlink" title="尝试三"></a>尝试三</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Main.o: Main.cpp</span><br><span class="line">    g++ -c Main.cpp -o Main.o</span><br><span class="line"></span><br><span class="line">Main: Boy.o Main.o</span><br><span class="line">    g++ Boy.o Main.o -o Main</span><br><span class="line"></span><br><span class="line">Boy.o: Boy.cpp</span><br><span class="line">    g++ -c Boy.cpp -o Boy.o</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\Desktop\Boy&gt;make</span><br><span class="line">Makefile:2: *** missing separator.  Stop.   //这里是分隔符错误</span><br><span class="line">//正确的结果是只会得到第一个结果main.o，原因就是Main.cpp编译的时候应该会出现编译错误，然而却得到编译结果，答案在尝试四给出。</span><br><span class="line">g++ -c main.cpp -o main.o</span><br></pre></td></tr></table></figure>
+<h4 id="尝试四"><a href="#尝试四" class="headerlink" title="尝试四"></a>尝试四</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Boy.o: Boy.cpp</span><br><span class="line">    g++ -c Boy.cpp -o Boy.o</span><br><span class="line"></span><br><span class="line">Main.o: Main.cpp</span><br><span class="line">    g++ -c Main.cpp -o Main.o</span><br><span class="line"></span><br><span class="line">Main: Boy.o Main.o</span><br><span class="line">    g++ Boy.o Main.o -o Main</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -c Boy.cpp -o Boy.o</span><br></pre></td></tr></table></figure>
+<p>从结果中可以看出，在Makefile文件这样写也会只运行第一步就结束了。可以总结：makefile文件只会执行到第一步，如果第一步有准备文件，就去寻找，直到第一步完成，前面的几次尝试只是刚好把最终的执行文件main放在了第一步。如果要解决这个问题，所以常常在makefile执行的时候使用命令：make all。这个all又怎么操作昵？只需要在Makefile文件这样写：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#在all后面写最后得到的执行结果文件即可</span><br><span class="line">all: Main</span><br><span class="line"></span><br><span class="line">Boy.o: Boy.cpp</span><br><span class="line">    g++ -c Boy.cpp -o Boy.o</span><br><span class="line">    </span><br><span class="line">Main: Boy.o Main.o</span><br><span class="line">    g++ Boy.o Main.o -o Main</span><br><span class="line"></span><br><span class="line">Main.o: Main.cpp</span><br><span class="line">    g++ -c Main.cpp -o Main.o</span><br></pre></td></tr></table></figure>
+<p>g++-c 参数表示将源文件编译成object(目标文件)。 即 g++ -c <em>.cpp 会编译成 </em>.cpp</p>
+<p>g++ 不加参数时会编译且尝试链接成可执行文件，然而 class_name.cpp(就是类的实现) 的代码中没有main函数的定义，所以最终无法成功链接，故报错。</p>
+<p>比如在写好类的实现时，编译这个.cpp文件，就会报错，我还以为是出什么问题了，检查了好久。。。。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-19T08:27:43.431Z" itemprop="dateUpdated">2018-03-19 16:27:43</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/10/14/20171015makefile/" target="_blank" rel="external">https://hankin2015.github.io/2017/10/14/20171015makefile/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Makefile/">Makefile</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/14/20171015makefile/&title=《makefile》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/14/20171015makefile/&title=《makefile》 — HanKin的博客&source= linux下c++编程环境搭建，运行过程以及调试,内含C++头文件源文件编译过程链接
+同一段c语言代码，windows下运行要4分30多秒，ubuntu..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/14/20171015makefile/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《makefile》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/14/20171015makefile/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/14/20171015makefile/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/14/20171020VS2015/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">了解VS</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/14/20171014SANP  Tutorial for c++/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SNAP Practice</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/14/20171015makefile/&title=《makefile》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/14/20171015makefile/&title=《makefile》 — HanKin的博客&source= linux下c++编程环境搭建，运行过程以及调试,内含C++头文件源文件编译过程链接
+同一段c语言代码，windows下运行要4分30多秒，ubuntu..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/14/20171015makefile/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《makefile》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/14/20171015makefile/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/14/20171015makefile/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/10/14/20171015makefile/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>C++远征之封装篇(上) | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++">
+    <meta name="description" content="简介本课程将代领小伙伴们真正迈入C++语言的面向对象大门，在课程中，将会深入讲解类的定义方法，属性的封装方法，构造函数和析构函数等内容，并且所有知识均会通过编码实践的方式讲解到操作层面，力求帮助小伙伴们即学即会！">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++远征之封装篇(上)">
+<meta property="og:url" content="https://hankin2015.github.io/2017/11/30/20171130moocC++3/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="简介本课程将代领小伙伴们真正迈入C++语言的面向对象大门，在课程中，将会深入讲解类的定义方法，属性的封装方法，构造函数和析构函数等内容，并且所有知识均会通过编码实践的方式讲解到操作层面，力求帮助小伙伴们即学即会！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img3.mukewang.com/5a1fb3860001f26912800720.jpg">
+<meta property="og:image" content="https://img1.mukewang.com/59f53ed60001dd0712800720.jpg">
+<meta property="og:image" content="https://img3.mukewang.com/59f2e8aa00015ca112800720.jpg">
+<meta property="og:image" content="https://img1.mukewang.com/59f2e8da00015a7512800720.jpg">
+<meta property="og:image" content="https://img4.mukewang.com/59f5446a0001b2b212800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/5a24b54f0001861012800720.jpg">
+<meta property="og:image" content="https://img2.mukewang.com/5a2263aa0001c1c512800720.jpg">
+<meta property="og:image" content="https://img2.mukewang.com/5a20e20400017f6712800720.jpg">
+<meta property="og:image" content="https://img3.mukewang.com/5a20fa2200013c6112800720.jpg">
+<meta property="og:image" content="https://img2.mukewang.com/5a20fbd00001d05412800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/5a2650b90001c06f12800720.jpg">
+<meta property="og:image" content="https://img4.mukewang.com/5a21034f0001720912800720.jpg">
+<meta property="og:image" content="https://img2.mukewang.com/59d2f8bc00013f8812800720.jpg">
+<meta property="og:image" content="https://img2.mukewang.com/5a0d7905000105c612800720.jpg">
+<meta property="og:updated_time" content="2018-08-14T16:31:18.552Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++远征之封装篇(上)">
+<meta name="twitter:description" content="简介本课程将代领小伙伴们真正迈入C++语言的面向对象大门，在课程中，将会深入讲解类的定义方法，属性的封装方法，构造函数和析构函数等内容，并且所有知识均会通过编码实践的方式讲解到操作层面，力求帮助小伙伴们即学即会！">
+<meta name="twitter:image" content="https://img3.mukewang.com/5a1fb3860001f26912800720.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C++远征之封装篇(上)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">C++远征之封装篇(上)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-30T08:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-11-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-C/">C/C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第1章-课程介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">第1章 课程介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第2章-类与对象初体验"><span class="post-toc-number">3.</span> <span class="post-toc-text">第2章 类与对象初体验</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-C-类和对象-04-27"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2-1 C++类和对象(04:27)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#堆和栈的区别"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">堆和栈的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-C-类对象的定义-11-56"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2-2 C++类对象的定义(11:56)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实例化对象"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">实例化对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#从栈实例化对象"><span class="post-toc-number">3.2.1.1.</span> <span class="post-toc-text">从栈实例化对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#从堆实例化对象"><span class="post-toc-number">3.2.1.2.</span> <span class="post-toc-text">从堆实例化对象</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第3章-初始字符串类型"><span class="post-toc-number">4.</span> <span class="post-toc-text">第3章 初始字符串类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-C-初始String-13-51"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">3-1 C++ 初始String(13:51)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常见的字符串数组操作函数"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">常见的字符串数组操作函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#string类型"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">string类型</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第4章-属性封装的艺术"><span class="post-toc-number">5.</span> <span class="post-toc-text">第4章 属性封装的艺术</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-C-属性封装之初始封装…-05-30"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">4-1 C++属性封装之初始封装…(05:30)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第5章-精彩的类外定义"><span class="post-toc-number">6.</span> <span class="post-toc-text">第5章 精彩的类外定义</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-1-类外定义-05-56"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">5-1 类外定义(05:56)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第6章-对象的生离死别"><span class="post-toc-number">7.</span> <span class="post-toc-text">第6章 对象的生离死别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-1-C-构造函数讲解-08-26"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">6-1 C++ 构造函数讲解(08:26)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-4-C-构造函数初始化列表…-05-28"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">6-4 C++ 构造函数初始化列表…(05:28)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化列表"><span class="post-toc-number">7.2.1.</span> <span class="post-toc-text">初始化列表</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-7-C-拷贝构造函数-05-04"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">6-7 C++ 拷贝构造函数(05:04)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-10-C-析构函数-05-08"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">6-10 C++ 析构函数(05:08)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第7章-课程总结"><span class="post-toc-number">8.</span> <span class="post-toc-text">第7章 课程总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-2-综合练习"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">7-2 综合练习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注意"><span class="post-toc-number">8.1.1.</span> <span class="post-toc-text">注意</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171130moocC++3"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C++远征之封装篇(上)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-30 16:47:41" datetime="2017-11-30T08:47:41.000Z"  itemprop="datePublished">2017-11-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-C/">C/C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本课程将代领小伙伴们真正迈入C++语言的面向对象大门，在课程中，将会深入讲解类的定义方法，属性的封装方法，构造函数和析构函数等内容，并且所有知识均会通过编码实践的方式讲解到操作层面，力求帮助小伙伴们即学即会！<br><a id="more"></a></p>
+<h1 id="第1章-课程介绍"><a href="#第1章-课程介绍" class="headerlink" title="第1章 课程介绍"></a>第1章 课程介绍</h1><h1 id="第2章-类与对象初体验"><a href="#第2章-类与对象初体验" class="headerlink" title="第2章 类与对象初体验"></a>第2章 类与对象初体验</h1><h2 id="2-1-C-类和对象-04-27"><a href="#2-1-C-类和对象-04-27" class="headerlink" title="2-1 C++类和对象(04:27)"></a>2-1 C++类和对象(04:27)</h2><p>“类”和“对象”，它们呢是我们封装篇大戏中的领衔主演，不过咱们的“类”呢是抽象派，玩的呢就是概念，“对象”呢则真实而具体。那么有了主角之后呢，我们还是需要一些配角帮衬着剧情才够热闹，所以呢我们下面隆重为大家介绍各位配角。<br>配角：  </p>
+<ol>
+<li>“数据成员和成员函数”:它们构成了精彩而完整的“类”。</li>
+<li>“构造函数和析构函数”:它们呢描述了“对象”的生生死死。</li>
+<li>“对象的复制与赋值”:使“类”的定义充满艺术。</li>
+<li>“对象的数组与对象指针”:将应用形态发挥得淋漓尽致。</li>
+<li>“this指针”:它贯穿于我们这部大戏的始终却很少崭露头角，它的加入使“类”与“对象”得以有机结合，更是为封装篇画龙点睛。<br>大家学完了这些之后相信大家的思维模式呢就逐步地从面向过程转向面向对象。</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img3.mukewang.com/5a1fb3860001f26912800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img1.mukewang.com/59f53ed60001dd0712800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="堆和栈的区别"><a href="#堆和栈的区别" class="headerlink" title="堆和栈的区别"></a>堆和栈的区别</h3><ul>
+<li><p>栈：程序每调用一个函数后，建立一个新的栈帧空间保存当前调用函数中的所有局部变量，也就是说每个函数里面的变量都是在这个函数的栈帧内，</p>
+</li>
+<li><p>堆：程序运行过程中，向操作系统(OS)申请的系统内存(Mem)，系统返回堆空间的地址。</p>
+</li>
+<li><p>栈帧：变量的所在地 ，变量可直接存取数值。</p>
+</li>
+<li>堆：  向系统申请的内存空间，通过函数内的指针变量，赋值指针申请内存返回的地址，用于存取堆空间里的数据。</li>
+</ul>
+<p>不同之处：<br>栈帧：在函数结束时会自动释放，<br>堆：  需要主动申请释放，或者等程序运行结束后。<br>操作系统会自动释放程序运行期间申请的内存空间。</p>
+<p>所谓变量，在经过编译器，编译、链接之后，是直接的内存地址。计算机直接对内存地址存取数据。</p>
+<h2 id="2-2-C-类对象的定义-11-56"><a href="#2-2-C-类对象的定义-11-56" class="headerlink" title="2-2 C++类对象的定义(11:56)"></a>2-2 C++类对象的定义(11:56)</h2><h3 id="实例化对象"><a href="#实例化对象" class="headerlink" title="实例化对象"></a>实例化对象</h3><h4 id="从栈实例化对象"><a href="#从栈实例化对象" class="headerlink" title="从栈实例化对象"></a>从栈实例化对象</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img3.mukewang.com/59f2e8aa00015ca112800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="从堆实例化对象"><a href="#从堆实例化对象" class="headerlink" title="从堆实例化对象"></a>从堆实例化对象</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img1.mukewang.com/59f2e8da00015a7512800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>栈用<code>.</code>去访问对象成员，而堆则是用<code>-&gt;</code>来访问对象成员。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img4.mukewang.com/59f5446a0001b2b212800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="第3章-初始字符串类型"><a href="#第3章-初始字符串类型" class="headerlink" title="第3章 初始字符串类型"></a>第3章 初始字符串类型</h1><h2 id="3-1-C-初始String-13-51"><a href="#3-1-C-初始String-13-51" class="headerlink" title="3-1 C++ 初始String(13:51)"></a>3-1 C++ 初始String(13:51)</h2><p>getline(cin,name);//获取字符串，可以是空格，换行符，cin获取时不能为换行符。</p>
+<h3 id="常见的字符串数组操作函数"><a href="#常见的字符串数组操作函数" class="headerlink" title="常见的字符串数组操作函数"></a>常见的字符串数组操作函数</h3><ul>
+<li>strlen：</li>
+<li>strstr：</li>
+<li>strcat：</li>
+<li>strcpy：</li>
+<li>strcmp：</li>
+<li>strncpy：</li>
+<li>strncmp：</li>
+</ul>
+<h3 id="string类型"><a href="#string类型" class="headerlink" title="string类型"></a>string类型</h3><pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main()
+{
+    string name = &quot;hejian&quot;; //赋值1
+    string hobby(&quot;basketball&quot;); //赋值2
+    string s1(name);    //复制1
+    string s2 = name;   //复制2
+    int n = 3;
+    char ch = &apos;d&apos;;
+    string s3(n, ch);   //ch只能是char型，不能是string型
+
+    string s4 = &quot;hello&quot; + name;
+    string s5 = &quot;hello&quot; + name + &quot;master&quot;;
+    //string s6 = &quot;hello&quot; + &quot;master&quot;; //错误
+
+    cout &lt;&lt; name &lt;&lt; endl;
+    cout &lt;&lt; hobby &lt;&lt; endl;
+    cout &lt;&lt; s1 &lt;&lt; endl;
+    cout &lt;&lt; s2 &lt;&lt; endl;
+    cout &lt;&lt; s3 &lt;&lt; endl;
+    cout &lt;&lt; s4 &lt;&lt; endl;
+    cout &lt;&lt; s5 &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p><img src="https://img.mukewang.com/5a24b54f0001861012800720.jpg" alt=""><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img2.mukewang.com/5a2263aa0001c1c512800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="第4章-属性封装的艺术"><a href="#第4章-属性封装的艺术" class="headerlink" title="第4章 属性封装的艺术"></a>第4章 属性封装的艺术</h1><h2 id="4-1-C-属性封装之初始封装…-05-30"><a href="#4-1-C-属性封装之初始封装…-05-30" class="headerlink" title="4-1 C++属性封装之初始封装…(05:30)"></a>4-1 C++属性封装之初始封装…(05:30)</h2><p>封装的好处，能对传入的参数做到条件限制的作用.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img2.mukewang.com/5a20e20400017f6712800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>面向对象的指导思想就是以对象为中心，就是要以谁做什么来表达代码的逻辑。从代码来看就是要将所有的数据操作转化为成员函数（方法）的调用，换句话说，对象在程序中所有行为都通过调用自己的函数来完成。</p>
+<p>private为私有成员，只读属性，无法被外界所修改</p>
+<h1 id="第5章-精彩的类外定义"><a href="#第5章-精彩的类外定义" class="headerlink" title="第5章 精彩的类外定义"></a>第5章 精彩的类外定义</h1><h2 id="5-1-类外定义-05-56"><a href="#5-1-类外定义-05-56" class="headerlink" title="5-1 类外定义(05:56)"></a>5-1 类外定义(05:56)</h2><p>类内定义：在定义一个类的时候将成员函数的函数体写在类的内部<br>类内定义的成员函数，编译器会将其优先编译为内联函数（不会以inline的形式写出来，但会以inline的方式优先编译）<br>内联函数：inline编译时，代码替换。</p>
+<p>类外定义：<br>1.同文件类外定义（成员函数定义在类的外部，但其定义与类的定义在同一个文件当中）<br>2.分文件类外定义</p>
+<p>.h和.cpp类外定义<br>在头文件中声明所有的数据成员和成员函数，.cpp中对成员函数进行定义。</p>
+<h1 id="第6章-对象的生离死别"><a href="#第6章-对象的生离死别" class="headerlink" title="第6章 对象的生离死别"></a>第6章 对象的生离死别</h1><h2 id="6-1-C-构造函数讲解-08-26"><a href="#6-1-C-构造函数讲解-08-26" class="headerlink" title="6-1 C++ 构造函数讲解(08:26)"></a>6-1 C++ 构造函数讲解(08:26)</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img3.mukewang.com/5a20fa2200013c6112800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>构造函数是为了避免多次初始化或者忘记初始化的情况，它仅被调用一次。<br>与类名同名，没有返回值，名称与类名相同。可以重载<br>当用户没有定义构造函数时，编译器自动生成一个构造函数</p>
+<p>其实就是在类定义的时候，在类中建立一个和类名相同的函数，附一些初值，这样在实例化类的时候，就会默认的给实例化的对象给这些初值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img2.mukewang.com/5a20fbd00001d05412800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>实例化之后才会占用内存空间，代码是存储在代码区公用的。</p>
+<p>构造函数的规则和特点<br>1.与类同名<br>2.没有返回值,void也不用写<br>3.可以有多个重载形式,要遵循重载函数的规则<br>4.即使有多个构造函数也仅用到一个构造函数<br>5.当用户没有定义构造函数时,编译器自动生成一个构造函数</p>
+<p>内存分区<br>栈区:int x=0;int <em>p=NULL;<br>堆区:int </em>p=new int[20];<br>全局区:存储全局变量及静态变量<br>常量区:string str =”hello”;<br>代码区:存储逻辑代码的二进制</p>
+<h2 id="6-4-C-构造函数初始化列表…-05-28"><a href="#6-4-C-构造函数初始化列表…-05-28" class="headerlink" title="6-4 C++ 构造函数初始化列表…(05:28)"></a>6-4 C++ 构造函数初始化列表…(05:28)</h2><p>从栈中和堆中实例化的对象共同的特点，调用的构造函数都不用传递参数<br>在实例化对象时不需要传递参数的构造函数称为默认构造函数</p>
+<h3 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.mukewang.com/5a2650b90001c06f12800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>初始化列表优先于构造函数执行.</li>
+<li>初始化列表只能用于构造函数</li>
+<li><p>初始化列表可以同时初始化多个数据成员<br>优点:给const常量赋值</p>
+<p>因此用初始化列表初始化比构造函数更好.<br>初始化列表先于构造函数执行，格式是在构造函数后面加：：加数据成员名字（赋值）注赋值只能用（），不能用等号。</p>
+<p><img src="https://img4.mukewang.com/5a21034f0001720912800720.jpg" alt=""></p>
+<p>默认构造函数(实例化时不需要传递参数)<br>1.Student(){};<br>2.Student(String name=”Jim”){}</p>
+</li>
+</ul>
+<p>初始化列表<br>Student():m_strName(“Jim”),m_iAge(10){}//多个以“，”隔开，用括号赋值<br>【特点】（效率高速度快，推荐使用）<br>1.初始化列表先于构造函数执行<br>2.初始化列表只能用于构造函数<br>3.初始化列表可以同时初始化多个数据成员</p>
+<p>【如图中示例，若使用构造函数，在{}内对const进行赋值，系统会认为是对常量的二次赋值，将无法通过编译，因此此处只能使用初始化列表的方式（此处可以体现出代码的执行顺序！）】</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img2.mukewang.com/59d2f8bc00013f8812800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img2.mukewang.com/5a0d7905000105c612800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>因为构造函数在声明的时候加了默认值，所以在定义的时候就不用再加默认值了。<br>eg：<br>声明：Teacher(string name=”james”,int age=1);<br>定义: Teacher(string name,int age)<br>{<br>    m_strName=name;<br>    m_iAge=age;<br>}</p>
+<h2 id="6-7-C-拷贝构造函数-05-04"><a href="#6-7-C-拷贝构造函数-05-04" class="headerlink" title="6-7 C++ 拷贝构造函数(05:04)"></a>6-7 C++ 拷贝构造函数(05:04)</h2><p>如果没有自定义的拷贝构造函数则系统自动生成一个默认的拷贝构造函数，当采用直接初始化或者复制初始化实例对象时系统自动调用拷贝构造函数.</p>
+<p>拷贝构造函数被调用的情形：<br>参数传递时、 复制赋值时、 直接初始化时<br>拷贝构造函数定义：<br>构造函数名（const 类名 &amp;变量名）<br>（&amp;是引用符号，&amp;变量名可以不写。）</p>
+<p>test(t1)是函数调用，调用test函数，传入实参t1，t1是类teacher的一个对象；<br>test函数参数不是引用或者指针类型，所以传参的时候是会拷贝t1，传入test函数的</p>
+<p>使用条件：<br>通过同类型的对象实例化另外的对象时，自动调用拷贝构造函数。</p>
+<p>注意：<br>拷贝构造函数的参数是确定的，不能重载。</p>
+<p>例如：<br>Teacher(const Teacher &amp;tea){}</p>
+<p>拷贝构造函数一个作用是，内部成员如果是指针，指针指向一个缓冲区，那么当你拷贝时，只是拷贝了缓冲区指针，那么两个对象的内部成员指向的是同一个缓冲区，这个可能不是你想要的，所以自己编写拷贝构造函数可以重新申请一个缓冲区，并更新指针，这样两个对象就可以完全独立使用了</p>
+<h2 id="6-10-C-析构函数-05-08"><a href="#6-10-C-析构函数-05-08" class="headerlink" title="6-10 C++ 析构函数(05:08)"></a>6-10 C++ 析构函数(05:08)</h2><p>对象的生命历程<br>申请内存–初始化列表–构造函数==参与运算–析构函数–释放内存</p>
+<p>析构函数–收拾残局，归还系统资源</p>
+<p>析构函数： 就是为了返还资源的<br>~类名();<br>析构函数不能有参数，因此不能重载，没有回传值<br>在栈中实例化时在程序main函数执行完之后才会调用析构函数<br>在堆中实例化时只有在delete时才会调用析构函数<br>调用拷贝构造函数的对象也是同堆实例化的对象一样在窗口关闭之时自动调用析构函数</p>
+<h1 id="第7章-课程总结"><a href="#第7章-课程总结" class="headerlink" title="第7章 课程总结"></a>第7章 课程总结</h1><h2 id="7-2-综合练习"><a href="#7-2-综合练习" class="headerlink" title="7-2 综合练习"></a>7-2 综合练习</h2><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>class后需要用分号;结束</li>
+<li>class默认是private成员</li>
+<li>默认构造函数必须public，否则无法初始化<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定义类：Student</span></span><br><span class="line"><span class="comment"> * 数据成员：m_strName</span></span><br><span class="line"><span class="comment"> * 无参构造函数：Student()</span></span><br><span class="line"><span class="comment"> * 有参构造函数：Student(string _name)</span></span><br><span class="line"><span class="comment"> * 拷贝构造函数：Student(const Student&amp; stu)</span></span><br><span class="line"><span class="comment"> * 析构函数：~Student()</span></span><br><span class="line"><span class="comment"> * 数据成员函数：setName(string _name)、getName()</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">string</span> m_strName;</span><br><span class="line">    Student()&#123;&#125;;</span><br><span class="line">    Student(<span class="built_in">string</span> _name)&#123;&#125;;</span><br><span class="line">    Student(<span class="keyword">const</span> Student&amp; stu)&#123;&#125;;</span><br><span class="line">    ~Student()&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(<span class="built_in">string</span> _name)</span></span>&#123;</span><br><span class="line">        m_strName = _name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> m_strName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 通过new方式实例化对象*stu</span></span><br><span class="line">    Student *stu = <span class="keyword">new</span> Student();</span><br><span class="line">    <span class="comment">// 更改对象的数据成员为“慕课网”</span></span><br><span class="line">    stu-&gt;setName(<span class="string">"慕课网"</span>);</span><br><span class="line">    <span class="comment">// 打印对象的数据成员</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; stu-&gt;m_strName &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-14T16:31:18.552Z" itemprop="dateUpdated">2018-08-15 00:31:18</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/11/30/20171130moocC++3/" target="_blank" rel="external">https://hankin2015.github.io/2017/11/30/20171130moocC++3/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/30/20171130moocC++3/&title=《C++远征之封装篇(上)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/30/20171130moocC++3/&title=《C++远征之封装篇(上)》 — HanKin的博客&source=简介本课程将代领小伙伴们真正迈入C++语言的面向对象大门，在课程中，将会深入讲解类的定义方法，属性的封装方法，构造函数和析构函数等内容，并且所有知识均会通..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/30/20171130moocC++3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++远征之封装篇(上)》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/30/20171130moocC++3/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/30/20171130moocC++3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/05/20171205json/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JSON学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/30/20171130stack&heap/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">堆存储和栈存储的区别</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/30/20171130moocC++3/&title=《C++远征之封装篇(上)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/30/20171130moocC++3/&title=《C++远征之封装篇(上)》 — HanKin的博客&source=简介本课程将代领小伙伴们真正迈入C++语言的面向对象大门，在课程中，将会深入讲解类的定义方法，属性的封装方法，构造函数和析构函数等内容，并且所有知识均会通..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/30/20171130moocC++3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++远征之封装篇(上)》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/30/20171130moocC++3/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/30/20171130moocC++3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/11/30/20171130moocC++3/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

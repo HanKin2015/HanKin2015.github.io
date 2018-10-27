@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>图的高效存储 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Graph,unordered_map,pair">
+    <meta name="description" content="修正一辈子这么长，我不会就喜欢你一个人的。关于map和unordered_map还需要知道的map 与unordered_map的效率问题 unordered_map的初始化比较耗时，我们都知道map是红黑树，unordered_map是哈希表，造成性能差异的原因在于，红黑树初始化时，节点只需要一个，后续的插入只是插入新的节点，但是哈希表初始化时就不是那么简单了，哈希表初始化时需要申请一个数组，数">
+<meta name="keywords" content="Graph,unordered_map,pair">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图的高效存储">
+<meta property="og:url" content="https://hankin2015.github.io/2017/11/19/20171119map&pair/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="修正一辈子这么长，我不会就喜欢你一个人的。关于map和unordered_map还需要知道的map 与unordered_map的效率问题 unordered_map的初始化比较耗时，我们都知道map是红黑树，unordered_map是哈希表，造成性能差异的原因在于，红黑树初始化时，节点只需要一个，后续的插入只是插入新的节点，但是哈希表初始化时就不是那么简单了，哈希表初始化时需要申请一个数组，数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-21T12:54:38.946Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图的高效存储">
+<meta name="twitter:description" content="修正一辈子这么长，我不会就喜欢你一个人的。关于map和unordered_map还需要知道的map 与unordered_map的效率问题 unordered_map的初始化比较耗时，我们都知道map是红黑树，unordered_map是哈希表，造成性能差异的原因在于，红黑树初始化时，节点只需要一个，后续的插入只是插入新的节点，但是哈希表初始化时就不是那么简单了，哈希表初始化时需要申请一个数组，数">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">图的高效存储</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">图的高效存储</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-19T13:25:41.000Z" itemprop="datePublished" class="page-time">
+  2017-11-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Networks/">Networks</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#修正"><span class="post-toc-number">1.</span> <span class="post-toc-text">修正</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、-map和hash-map"><span class="post-toc-number">2.</span> <span class="post-toc-text">1、 map和hash_map</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#map的使用"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">map的使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、hash-map的使用"><span class="post-toc-number">3.</span> <span class="post-toc-text">2、hash_map的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hash函数"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">hash函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#比较函数"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">比较函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hash-map中几个常用函数"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">hash_map中几个常用函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、示例"><span class="post-toc-number">4.</span> <span class="post-toc-text">3、示例</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、pair"><span class="post-toc-number">5.</span> <span class="post-toc-text">4、pair</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、举栗子"><span class="post-toc-number">6.</span> <span class="post-toc-text">5、举栗子</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171119map&amp;pair"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">图的高效存储</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-19 21:25:41" datetime="2017-11-19T13:25:41.000Z"  itemprop="datePublished">2017-11-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Networks/">Networks</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="修正"><a href="#修正" class="headerlink" title="修正"></a>修正</h1><p>一辈子这么长，我不会就喜欢你一个人的。<br><a href="http://www.jianshu.com/p/db04bc14987d" target="_blank" rel="noopener">关于map和unordered_map还需要知道的</a><br><a href="http://blog.csdn.net/zhoujianhua0591/article/details/49280681" target="_blank" rel="noopener">map 与unordered_map的效率问题</a></p>
+<p>unordered_map的初始化比较耗时，我们都知道map是红黑树，unordered_map是哈希表，造成性能差异的原因在于，红黑树初始化时，节点只需要一个，后续的插入只是插入新的节点，但是哈希表初始化时就不是那么简单了，哈希表初始化时需要申请一个数组，数组的每个元素都指向一条链表，所以初始化时需要申请很多内存，相比于map，的确更耗时。<br>unorder_map的插入效率随着数量的增加，基本是map的一点多倍以上,查找方面来说，跟map基本可以说差不多，而如果map中如果放string的话,查找效率明显比存int类型这种类型的消耗很多。因此，如果对排序没有什么要求的话，又要求key为string类型的，强烈要求使用unorder_map。<br><a id="more"></a></p>
+<pre><code>typedef pair&lt;int, int&gt; edgePair;
+typedef unordered_map&lt;edgePair, int, pairHash&gt; edgeMap;//这个在频繁查找中有优势
+typedef map&lt;edgePair, int&gt; edgeMap;     //这个比较省时
+</code></pre><p>使用空间换取时间。<br><a href="http://blog.csdn.net/blues1021/article/details/45054159" target="_blank" rel="noopener">map/unordered_map原理和使用整理</a><br>map的内部实现是二叉平衡树(红黑树)；hash_map内部是一个hash_table一般是由一个大vector，vector元素节点可挂接链表来解决冲突，来实现，新版的hash_map都是unordered_map了。</p>
+<h1 id="1、-map和hash-map"><a href="#1、-map和hash-map" class="headerlink" title="1、 map和hash_map"></a>1、 map和hash_map</h1><p><a href="https://www.cnblogs.com/leijiangtao/p/5197566.html" target="_blank" rel="noopener">关于STL中的map和hash_map</a></p>
+<ol>
+<li>STL的map底层是用红黑树实现的，查找时间复杂度是log(n)；</li>
+<li>STL的hash_map底层是用hash表存储的，查询时间复杂度是O(1)；</li>
+<li>什么时候用map，什么时候用hash_map？<br>这个要看具体的应用，不一定常数级别的hash_map一定比log(n)级别的map要好，hash_map的hash函数以及解决地址冲突等都要耗时间，而且众所周知hash表是以空间换时间的，因而hash_map的内存消耗肯定要大，一般情况下，如果记录非常大，考虑hash_map，查找效率会高很多，如果要考虑内存消耗，则要谨慎使用hash_map。</li>
+</ol>
+<h2 id="map的使用"><a href="#map的使用" class="headerlink" title="map的使用"></a>map的使用</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; namemap;</span><br><span class="line"></span><br><span class="line"><span class="comment">//增加。。。</span></span><br><span class="line">namemap[<span class="string">"岳不群"</span>]=<span class="string">"华山派掌门人，人称君子剑"</span>;</span><br><span class="line">namemap[<span class="string">"张三丰"</span>]=<span class="string">"武当掌门人，太极拳创始人"</span>;</span><br><span class="line">namemap[<span class="string">"东方不败"</span>]=<span class="string">"第一高手，葵花宝典"</span>;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment">//查找。。</span></span><br><span class="line"><span class="keyword">if</span>(namemap.find(<span class="string">"岳不群"</span>) != namemap.end())</span><br><span class="line">&#123;</span><br><span class="line">        ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2、hash-map的使用"><a href="#2、hash-map的使用" class="headerlink" title="2、hash_map的使用"></a>2、hash_map的使用</h1><p>下面是SGI STL的hash_map声明。</p>
+<pre><code>template &lt;class _Key, class _Tp, class _HashFcn = hash&lt;_Key&gt;,
+class _EqualKey = equal_to&lt;_Key&gt;,
+class _Alloc = __STL_DEFAULT_ALLOCATOR(_Tp) &gt;
+class hash_map
+{
+        ...
+}
+</code></pre><p>键，值，hash函数，比较函数，alloc(忽略)</p>
+<h2 id="hash函数"><a href="#hash函数" class="headerlink" title="hash函数"></a>hash函数</h2><p>在SGI STL中，提供了以下hash函数：<br>struct hash<char*><br>struct hash<const char*=""><br>struct hash<char><br>struct hash<unsigned char=""><br>struct hash<signed char=""><br>struct hash<short><br>struct hash<unsigned short=""><br>struct hash<int><br>struct hash<unsigned int=""><br>struct hash<long><br>struct hash<unsigned long=""></unsigned></long></unsigned></int></unsigned></short></signed></unsigned></char></const></char*></p>
+<p>也就是说，如果你的可以key是以上类型中的一种，你都可以使用缺省的hash函数。当然你自己也可以定义自己的hash函数。对于自定义变量，例如对于string，就必须自定义hash函数，可以用char<em>代替。例如：<br>struct str_hash{<br>        size_t operator()(const string&amp; str) const<br>        {<br>                unsigned long <strong>h = 0;<br>                for (size_t i = 0 ; i &lt; str.size() ; i ++)
+                </strong>h = 5</em><strong>h + str[i];<br>                return size_t(</strong>h);<br>        }<br>};<br>//如果你希望利用系统定义的字符串hash函数，你可以这样写：<br>struct str_hash{<br>        size_t operator()(const string&amp; str) const<br>        {<br>                return return __stl_hash_string(str.c_str());<br>        }<br>};</p>
+<pre><code>hash_map&lt;int, string&gt; mymap;
+//等同于:
+hash_map&lt;int, string, hash&lt;int&gt;, equal_to&lt;int&gt; &gt; mymap;
+</code></pre><h2 id="比较函数"><a href="#比较函数" class="headerlink" title="比较函数"></a>比较函数</h2><p>在map中的比较函数，需要提供less函数。如果没有提供，缺省的也是less<key>。在hash_map中，要比较桶内的数据和key是否相等，因此需要的是是否等于的函数equal_to<key>。    先看看equal_to的源码：</key></key></p>
+<pre><code>//本代码可以从SGI STL
+//先看看binary_function 函数声明，其实只是定义一些类型而已。
+template &lt;class _Arg1, class _Arg2, class _Result&gt;
+struct binary_function {
+        typedef _Arg1 first_argument_type;
+        typedef _Arg2 second_argument_type;
+        typedef _Result result_type;
+};
+//看看equal_to的定义：
+template &lt;class _Tp&gt;
+struct equal_to : public binary_function&lt;_Tp,_Tp,bool&gt;
+{
+        bool operator()(const _Tp&amp; __x, const _Tp&amp; __y) const { return __x == __y; }
+};
+</code></pre><p>如果你使用一个自定义的数据类型，如struct mystruct或者const char*的字符串，如何使用比较函数？使用比较函数，有两种方法。第一种是：重载==操作符，利用equal_to；看看下面的例子：</p>
+<pre><code>struct mystruct{
+        int iID;
+        int len;
+        bool operator==(const mystruct &amp; my) const{
+                return (iID==my.iID) &amp;&amp; (len==my.len) ;
+        }
+};
+</code></pre><p> 这样，就可以使用equal_to<mystruct>作为比较函数了。另一种方法就是使用函数对象。自定义一个比较函数体：</mystruct></p>
+<pre><code>struct compare_str{
+        bool operator()(const char* p1, const char*p2) const{
+                return strcmp(p1,p2)==0;
+        }
+};
+</code></pre><h2 id="hash-map中几个常用函数"><a href="#hash-map中几个常用函数" class="headerlink" title="hash_map中几个常用函数"></a>hash_map中几个常用函数</h2><p>1、hash_map(size_type n) 如果讲究效率，这个参数是必须要设置的。n 主要用来设置hash_map 容器中hash桶的个数。桶个数越多，hash函数发生冲突的概率就越小，重新申请内存的概率就越小。n越大，效率越高，但是内存消耗也越大。<br>2、const_iterator find(const key_type&amp; k) const. 用查找，输入为键值，返回为迭代器。<br>3、data_type&amp; operator<a href="const key_type&amp; k"></a> . 这是我最常用的一个函数。因为其特别方便，可像使用数组一样使用。不过需要注意的是，当你使用[key ]操作符时，如果容器中没有key元素，这就相当于自动增加了一个key元素。因此当你只是想知道容器中是否有key元素时，你可以使用find。如果你 希望插入该元素时，你可以直接使用[]操作符。<br>4、insert 函数。在容器中不包含key值时，insert函数和[]操作符的功能差不多。但是当容器中元素越来越多，每个桶中的元素会增加，为了保证效率， hash_map会自动申请更大的内存，以生成更多的桶。因此在insert以后，以前的iterator有可能是不可用的。<br>5、erase 函数。在insert的过程中，当每个桶的元素太多时，hash_map可能会自动扩充容器的内存。但在sgi stl中是erase并不自动回收内存。因此你调用erase后，其他元素的iterator还是可用的。</p>
+<h1 id="3、示例"><a href="#3、示例" class="headerlink" title="3、示例"></a>3、示例</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">-bash<span class="number">-2.05b</span>$ cat my.cpp  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;hash_map&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"><span class="comment">//define the class  </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassA</span>&#123;</span>  </span><br><span class="line">    <span class="keyword">public</span>:  </span><br><span class="line">        ClassA(<span class="keyword">int</span> a):c_a(a)&#123;&#125;  </span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">getvalue</span><span class="params">()</span><span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> c_a;&#125;  </span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">setvalue</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;c_a=a;&#125;  </span><br><span class="line">    <span class="keyword">private</span>:  </span><br><span class="line">        <span class="keyword">int</span> c_a;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">//1 define the hash function  </span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">hash_A</span>&#123;</span>  </span><br><span class="line">        <span class="keyword">size_t</span> <span class="keyword">operator</span>()(<span class="keyword">const</span> class ClassA &amp; A)<span class="keyword">const</span>&#123;  </span><br><span class="line">                <span class="comment">// return hash&lt;int&gt;(classA.getvalue());  </span></span><br><span class="line">                <span class="keyword">return</span> A.getvalue();  </span><br><span class="line">        &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">//2 define the equal function  </span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">equal_A</span>&#123;</span>  </span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> class ClassA &amp; a1, <span class="keyword">const</span> class ClassA &amp; a2)</span><span class="keyword">const</span></span>&#123;  </span><br><span class="line">                <span class="keyword">return</span> a1.getvalue() == a2.getvalue();  </span><br><span class="line">        &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">        hash_map&lt;ClassA, <span class="built_in">string</span>, hash_A, equal_A&gt; hmap;  </span><br><span class="line">        <span class="function">ClassA <span class="title">a1</span><span class="params">(<span class="number">12</span>)</span></span>;  </span><br><span class="line">        hmap[a1]=<span class="string">"I am 12"</span>;  </span><br><span class="line">        <span class="function">ClassA <span class="title">a2</span><span class="params">(<span class="number">198877</span>)</span></span>;  </span><br><span class="line">        hmap[a2]=<span class="string">"I am 198877"</span>;  </span><br><span class="line">         </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;hmap[a1]&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;hmap[a2]&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">-bash<span class="number">-2.05b</span>$ make my  </span><br><span class="line">c++ -O -pipe -march=pentiumpro my.cpp -o my  </span><br><span class="line">-bash<span class="number">-2.05b</span>$ ./my  </span><br><span class="line">I am <span class="number">12</span>  </span><br><span class="line">I am <span class="number">198877</span>&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="4、pair"><a href="#4、pair" class="headerlink" title="4、pair"></a>4、pair</h1><p>pair是一种模板类型，其中包含两个数据值，两个数据的类型可以不同，基本的定义如下：</p>
+<blockquote>
+<blockquote>
+<p>pair<int, string=""> a;</int,></p>
+</blockquote>
+</blockquote>
+<p>表示a中有两个类型，第一个元素是int型的，第二个元素是string类型的，如果创建pair的时候没有对其进行初始化，则调用默认构造函数对其初始化。</p>
+<blockquote>
+<blockquote>
+<p>pair<string, string=""> a(“James”, “Joy”);</string,></p>
+</blockquote>
+</blockquote>
+<p>对于pair类，由于它只有两个元素，分别名为first和second，因此直接使用普通的点操作符即可访问其成员。</p>
+<pre><code>pair&lt;string, string&gt; a(&quot;Lily&quot;, &quot;Poly&quot;); 
+string name;
+name = pair.second;
+</code></pre><p>生成新的pair对象，可以使用make_pair对已存在的两个数据构造一个新的pair类型：</p>
+<pre><code>int a = 8;
+string m = &quot;James&quot;;
+pair&lt;int, string&gt; newone;
+newone = make_pair(a, m);
+</code></pre><h1 id="5、举栗子"><a href="#5、举栗子" class="headerlink" title="5、举栗子"></a>5、举栗子</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pairHash</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span><br><span class="line">    <span class="built_in">std</span>::<span class="keyword">size_t</span> <span class="keyword">operator</span>()(<span class="keyword">const</span> <span class="built_in">std</span>::pair&lt;T, U&gt; &amp;x) <span class="keyword">const</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">std</span>::hash&lt;T&gt;()(x.first) ^ <span class="built_in">std</span>::hash&lt;U&gt;()(x.second);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; edgePair;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">unordered_map</span>&lt;edgePair, <span class="keyword">int</span>, pairHash&gt; edgeMap;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Truss</span> &#123;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    edgeMap sup; <span class="comment">//边的支持度</span></span><br><span class="line">    edgeMap edgeTrussness; <span class="comment">//边的trussness</span></span><br><span class="line">    <span class="built_in">set</span>&lt;pair&lt;<span class="keyword">int</span>, edgePair&gt;&gt; nonDecSup;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-21T12:54:38.946Z" itemprop="dateUpdated">2017-11-21 20:54:38</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/11/19/20171119map&amp;pair/" target="_blank" rel="external">https://hankin2015.github.io/2017/11/19/20171119map&amp;pair/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">Graph</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pair/">pair</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unordered-map/">unordered_map</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/19/20171119map&pair/&title=《图的高效存储》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/19/20171119map&pair/&title=《图的高效存储》 — HanKin的博客&source=修正一辈子这么长，我不会就喜欢你一个人的。关于map和unordered_map还需要知道的map 与unordered_map的效率问题
+unorder..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/19/20171119map&pair/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《图的高效存储》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/19/20171119map&pair/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/19/20171119map&pair/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/20/20171120typedf&define/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">typedef和define、强类型和弱类型的区别</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/19/20171119inline/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">inline</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/19/20171119map&pair/&title=《图的高效存储》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/19/20171119map&pair/&title=《图的高效存储》 — HanKin的博客&source=修正一辈子这么长，我不会就喜欢你一个人的。关于map和unordered_map还需要知道的map 与unordered_map的效率问题
+unorder..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/19/20171119map&pair/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《图的高效存储》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/19/20171119map&pair/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/19/20171119map&pair/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/11/19/20171119map&pair/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

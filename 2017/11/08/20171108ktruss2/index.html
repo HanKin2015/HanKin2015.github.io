@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Truss-based Community Search:a Truss-equivalence Based Indexing Approach | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Truss,Community,Search">
+    <meta name="description" content="ABSTRACT given a query vertex q in G, to find as outputall the densely connected subgraphs of G, each of whichcontains the query v.   community detection problem, community search.  In this paper, we">
+<meta name="keywords" content="Truss,Community,Search">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Truss-based Community Search:a Truss-equivalence Based Indexing Approach">
+<meta property="og:url" content="https://hankin2015.github.io/2017/11/08/20171108ktruss2/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="ABSTRACT given a query vertex q in G, to find as outputall the densely connected subgraphs of G, each of whichcontains the query v.   community detection problem, community search.  In this paper, we">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_TCP-Index-1.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_TCP-Index-2.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_Truss%20Decomposition.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_EquiTruss.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_CommunitySearchOnQEquiTruss.png">
+<meta property="og:updated_time" content="2018-02-25T07:34:08.191Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Truss-based Community Search:a Truss-equivalence Based Indexing Approach">
+<meta name="twitter:description" content="ABSTRACT given a query vertex q in G, to find as outputall the densely connected subgraphs of G, each of whichcontains the query v.   community detection problem, community search.  In this paper, we">
+<meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_TCP-Index-1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Truss-based Community Search:a Truss-equivalence Based Indexing Approach</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Truss-based Community Search:a Truss-equivalence Based Indexing Approach</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-08T09:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-11-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ABSTRACT"><span class="post-toc-number">1.</span> <span class="post-toc-text">ABSTRACT</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-INTRODUCTION"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. INTRODUCTION</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-choice-of-k-truss-by-the-following-important-facts"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.1 choice of k-truss by the following important facts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-the-concept-of-k-truss-equivalence"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">1.2 the concept of k-truss equivalence</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-BACKGROUND"><span class="post-toc-number">3.</span> <span class="post-toc-text">2. BACKGROUND</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-Preliminaries"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2.1 Preliminaries</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Definition-1-Edge-Support-支持度"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">Definition 1 - Edge Support(支持度)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Definition-2-Subgraph-Trussness"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">Definition 2 - Subgraph Trussness</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Definition-3-Triangle-Adjacency"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">Definition 3 - Triangle Adjacency</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Definition-4-Triangle-Connectivity"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">Definition 4 - Triangle Connectivity</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Definition-5-k-truss-Community"><span class="post-toc-number">3.1.5.</span> <span class="post-toc-text">Definition 5 - k-truss Community</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Definition-6-k-truss-community-search"><span class="post-toc-number">3.1.6.</span> <span class="post-toc-text">Definition 6 - k-truss community search</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-Related-Work"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.2 Related Work</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Community-search"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">Community search</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Truss"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">Truss</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Graph-Summarization"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">Graph Summarization</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP-Index"><span class="post-toc-number">3.2.4.</span> <span class="post-toc-text">TCP-Index</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-TRUSS-EQUIVALENCE"><span class="post-toc-number">4.</span> <span class="post-toc-text">3. TRUSS EQUIVALENCE</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Definition-7-Edge-Trussness"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">Definition 7 - Edge Trussness</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Definition-8-k-triangle"><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">Definition 8 - k-triangle</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Definition-9-k-triangle-connectivity"><span class="post-toc-number">4.0.3.</span> <span class="post-toc-text">Definition 9 - k-triangle connectivity</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Definition-10-k-truss-equivalence"><span class="post-toc-number">4.0.4.</span> <span class="post-toc-text">Definition 10 - k-truss equivalence</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-TRUSS-EQUIVALENCE-BASED-INDEX"><span class="post-toc-number">5.</span> <span class="post-toc-text">4. TRUSS-EQUIVALENCE BASED INDEX</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-Index-Design-and-Construction"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">4.1 Index Design and Construction</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-Community-Search-on-EquiTruss"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">4.2 Community Search on EquiTruss</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-Dynamic-Maintenance-of-EquiTruss"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">4.3 Dynamic Maintenance of EquiTruss</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171108ktruss2"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Truss-based Community Search:a Truss-equivalence Based Indexing Approach</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-08 17:47:41" datetime="2017-11-08T09:47:41.000Z"  itemprop="datePublished">2017-11-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h1><ul>
+<li><p>given a query vertex q in G, to find as outputall the densely connected subgraphs of G, each of whichcontains the query v. </p>
+</li>
+<li><p>community detection problem, community search.</p>
+</li>
+<li><p>In this paper, we study the community searchproblem in the truss-based model aimed at discovering alldense and cohesive k-truss communities to which the query vertex q belongs. </p>
+<a id="more"></a>
+</li>
+<li><p>Consequently,all the edges of G can be partitioned to a series of k-truss equivalence classes that constitute a space-ecient, trusspreserving index structure, EquiTruss. </p>
+</li>
+<li><p>TCP-Index.</p>
+</li>
+</ul>
+<h1 id="1-INTRODUCTION"><a href="#1-INTRODUCTION" class="headerlink" title="1. INTRODUCTION"></a>1. INTRODUCTION</h1><ul>
+<li><p>Given a graph G, a k-truss (k &gt;= 2) is the largest subgraph of G with each constituent edge contained in at least (k - 2) triangles.</p>
+</li>
+<li><p>modelling real-world community structures, including clique or quasiclique, k-core , k-truss , and nucleus , to name a few.</p>
+</li>
+</ul>
+<h2 id="1-1-choice-of-k-truss-by-the-following-important-facts"><a href="#1-1-choice-of-k-truss-by-the-following-important-facts" class="headerlink" title="1.1 choice of k-truss by the following important facts"></a>1.1 choice of k-truss by the following important facts</h2><ul>
+<li>(1) as opposed to primitive vertices/edges, the higher-order graph motif, triangle, is exploited as building blocks to quantify the strong and stable relationships in communities .<br>As a result, the high-density and cohesiveness of real-world<br>communities can be encoded in k-truss with strong theoretical<br>guarantees (more details will be elaborated in Section<br>2.2); </li>
+<li>(2) k-truss enables a comprehensive modelling of<br>multiple, overlapping communities in G. By tuning the parameter<br>k, we can derive a collection of k-truss communities<br>that form an inclusive, dense-graph hierarchy representing<br>the cores of G at varied levels of granularity [26];</li>
+<li>(3) discovering<br>all k-trusses from G is polynomially tractable [33],<br>while most existing dense-graph models render the community<br>search problem NP-hard [13, 6]. As a consequence, ktruss<br>has been extensively employed for community search in real-world networked applications [12, 14, 13, 11, 33].</li>
+</ul>
+<p>a toy graph G</p>
+<h2 id="1-2-the-concept-of-k-truss-equivalence"><a href="#1-2-the-concept-of-k-truss-equivalence" class="headerlink" title="1.2 the concept of k-truss equivalence"></a>1.2 the concept of k-truss equivalence</h2><p> given two edges e and e0 of G, they are k-truss equivalent if and only if they belong to the same k-truss, and are further connected by a series of triangles in a strong sense (modeled by the notion of k-triangle connectivity in Definition 9).</p>
+<h1 id="2-BACKGROUND"><a href="#2-BACKGROUND" class="headerlink" title="2. BACKGROUND"></a>2. BACKGROUND</h1><h2 id="2-1-Preliminaries"><a href="#2-1-Preliminaries" class="headerlink" title="2.1 Preliminaries"></a>2.1 Preliminaries</h2><h3 id="Definition-1-Edge-Support-支持度"><a href="#Definition-1-Edge-Support-支持度" class="headerlink" title="Definition 1 - Edge Support(支持度)"></a>Definition 1 - Edge Support(支持度)</h3><p>denote:sup(e) = k<br>支持度等于以这条边组成的三角形个数，边中间没有节点。</p>
+<h3 id="Definition-2-Subgraph-Trussness"><a href="#Definition-2-Subgraph-Trussness" class="headerlink" title="Definition 2 - Subgraph Trussness"></a>Definition 2 - Subgraph Trussness</h3><p>denote:$\tau(G’) = k$<br>在一个k-子图中每条边的支持度大于等于k-2.</p>
+<h3 id="Definition-3-Triangle-Adjacency"><a href="#Definition-3-Triangle-Adjacency" class="headerlink" title="Definition 3 - Triangle Adjacency"></a>Definition 3 - Triangle Adjacency</h3><p>denote:${\Delta_1 \bigcap  \Delta_2} \neq {\phi} $<br>两个三角形有公共边,针对于两个三角形。</p>
+<h3 id="Definition-4-Triangle-Connectivity"><a href="#Definition-4-Triangle-Connectivity" class="headerlink" title="Definition 4 - Triangle Connectivity"></a>Definition 4 - Triangle Connectivity</h3><p>denote:$\Delta_s \leftrightarrow \Delta_t$</p>
+<p>这个概念相对于定义3差不多，只是补充说明了如果两个三角形是连接的，但不一定是邻接的，只要中间存在一系列的三角形进行传递，则两个三角形中的任意边可表示为$e \leftrightarrow e’$.<br>Consider two triangles s and t in G. They are connected, denoted as $e \leftrightarrow e’$.</p>
+<ol>
+<li>这两条边在同一个三角形里面</li>
+<li>两个三角形是连接的，则这任意两条边是连接的。$e \leftrightarrow e’$.</li>
+</ol>
+<p>They are connected, denoted as $\Delta_s \leftrightarrow \Delta_t$, if there exist a sequence of n triangles $\Delta_1, …, \Delta_n$ in G (n &gt;= 2), such that $\Delta_1 = \Delta_s, \Delta_n = \Delta_t,$ and for 1 &lt;=  i &lt; n, $\Delta<em>i \bigcap  \Delta</em>{i + 1} \neq \phi $.</p>
+<p>翻译过来，这里存在一系列的n个三角形，相邻的两个三角形拥有共享边。</p>
+<h3 id="Definition-5-k-truss-Community"><a href="#Definition-5-k-truss-Community" class="headerlink" title="Definition 5 - k-truss Community"></a>Definition 5 - k-truss Community</h3><ol>
+<li>G’ is a k-truss</li>
+<li>$\forall e,e’ \in E_{G’}, e \leftrightarrow e’$</li>
+</ol>
+<h3 id="Definition-6-k-truss-community-search"><a href="#Definition-6-k-truss-community-search" class="headerlink" title="Definition 6 - k-truss community search"></a>Definition 6 - k-truss community search</h3><p>find all k-truss communities containing query vertex q.</p>
+<h2 id="2-2-Related-Work"><a href="#2-2-Related-Work" class="headerlink" title="2.2 Related Work"></a>2.2 Related Work</h2><h3 id="Community-search"><a href="#Community-search" class="headerlink" title="Community search"></a>Community search</h3><h3 id="Truss"><a href="#Truss" class="headerlink" title="Truss"></a>Truss</h3><p>k-core (each vertex in a k-core has its degree no less than k)</p>
+<p>Truss is defined on the higher-order graph motif, triangle, and enjoys numerous advantages in community modelling and computation : a k-truss is a (k - 1)-core but not vice versa; a k-truss is (k - 1)-edge-connected: any deletion of fewer than (k - 1) edges will not disconnect a k-truss; a ktruss with n vertices has its diameter no more than $\left \lfloor {\frac{2n - 2}{k}} \right \rfloor$; that is, a k-truss is diameter-bounded.</p>
+<p> An improved algorithm was further proposed based on triangle enumeration in O(|EG|^{3/2}) time . A similar I/O-ecient algorithm for k-truss computation was designed and facilitated by graph database technologies . A parallel method, PETA, can detect local k-trusses within a few iterations, and it has the same complexity as corresponding serial algorithms .</p>
+<h3 id="Graph-Summarization"><a href="#Graph-Summarization" class="headerlink" title="Graph Summarization"></a>Graph Summarization</h3><h3 id="TCP-Index"><a href="#TCP-Index" class="headerlink" title="TCP-Index"></a>TCP-Index</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_TCP-Index-1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_TCP-Index-2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="3-TRUSS-EQUIVALENCE"><a href="#3-TRUSS-EQUIVALENCE" class="headerlink" title="3. TRUSS EQUIVALENCE"></a>3. TRUSS EQUIVALENCE</h1><h3 id="Definition-7-Edge-Trussness"><a href="#Definition-7-Edge-Trussness" class="headerlink" title="Definition 7 - Edge Trussness"></a>Definition 7 - Edge Trussness</h3><p>denote:$\tau(e) = k$</p>
+<p>truss = 支持度 + 2</p>
+<p>其实这个我一直认为就是边的支持度。但不能这样认为，这条边的truss值等于边在最大子图中的k-truss中的k值。也就是说<br>is the maximum subgraph trussness of a subgraph $G<em> \in G$ that involves e as a constituent edge, i.e., $\tau (e) = maxG \subseteq  G{\tau (G</em>) : e \in E_{G *}}.$</p>
+<p>compute edge supports in O(|E|^1.5)</p>
+<p>The time complexity of Algorithm 1 is O(|EG| ^1.5) and its space complexity is O(|VG| + |EG|) .</p>
+<h3 id="Definition-8-k-triangle"><a href="#Definition-8-k-triangle" class="headerlink" title="Definition 8 - k-triangle"></a>Definition 8 - k-triangle</h3><p>三角形中最小的边的truss大于等于k。</p>
+<h3 id="Definition-9-k-triangle-connectivity"><a href="#Definition-9-k-triangle-connectivity" class="headerlink" title="Definition 9 - k-triangle connectivity"></a>Definition 9 - k-triangle connectivity</h3><p>跟定义8相近。no, no, no。连接是中间可以有一系列的三角形。相邻的三角形的有公共边，并且公共边的truss值为k。强调公共边不能超过k，否则也不算k-triangle connectivity。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_Truss%20Decomposition.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Definition-10-k-truss-equivalence"><a href="#Definition-10-k-truss-equivalence" class="headerlink" title="Definition 10 - k-truss equivalence"></a>Definition 10 - k-truss equivalence</h3><p>所有边的truss等于k。</p>
+<p>Theorem 1. k-truss equivalence is an equivalence relation upon EG.</p>
+<h1 id="4-TRUSS-EQUIVALENCE-BASED-INDEX"><a href="#4-TRUSS-EQUIVALENCE-BASED-INDEX" class="headerlink" title="4. TRUSS-EQUIVALENCE BASED INDEX"></a>4. TRUSS-EQUIVALENCE BASED INDEX</h1><h2 id="4-1-Index-Design-and-Construction"><a href="#4-1-Index-Design-and-Construction" class="headerlink" title="4.1 Index Design and Construction"></a>4.1 Index Design and Construction</h2><p>a graph-structured index, EquiTruss. EquiTruss allows incremental update when G changes dynamically.</p>
+<ul>
+<li>super-node</li>
+<li>super-edge</li>
+</ul>
+<p>processed is a Boolean variable indicating whether e has been examined in index construction, and is initialized to FALSE (Line 3); list is a set of super-node identifies, each of which represents a previously explored super-node, µ, where ⌧ (µ) &lt; k, and µ is triangle-connected to the current super-node, ⌫ (⌧ (⌫) = k), via the edge e. The e.list is initialized as an empty set (Line 4).</p>
+<p>Theorem 2. EquiTruss can be constructed in O(|EG|^1.5) time and O(|EG|) space by Algorithm 2.</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_EquiTruss.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="4-2-Community-Search-on-EquiTruss"><a href="#4-2-Community-Search-on-EquiTruss" class="headerlink" title="4.2 Community Search on EquiTruss"></a>4.2 Community Search on EquiTruss</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_CommunitySearchOnQEquiTruss.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Theorem 3. Given a query vertex q 2 VG and the truss value k, Algorithm 3 correctly computes all k-truss communities containing v.</p>
+<h2 id="4-3-Dynamic-Maintenance-of-EquiTruss"><a href="#4-3-Dynamic-Maintenance-of-EquiTruss" class="headerlink" title="4.3 Dynamic Maintenance of EquiTruss"></a>4.3 Dynamic Maintenance of EquiTruss</h2><p>未完不待续。。。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-02-25T07:34:08.191Z" itemprop="dateUpdated">2018-02-25 15:34:08</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/11/08/20171108ktruss2/" target="_blank" rel="external">https://hankin2015.github.io/2017/11/08/20171108ktruss2/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Community/">Community</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Search/">Search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Truss/">Truss</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/08/20171108ktruss2/&title=《Truss-based Community Search:a Truss-equivalence Based Indexing Approach》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/08/20171108ktruss2/&title=《Truss-based Community Search:a Truss-equivalence Based Indexing Approach》 — HanKin的博客&source=ABSTRACT
+given a query vertex q in G, to find as outputall the densely connec..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/08/20171108ktruss2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Truss-based Community Search:a Truss-equivalence Based Indexing Approach》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/08/20171108ktruss2/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/08/20171108ktruss2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/10/20171110Attribute-Driven/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Attribute-Driven Community Search</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/08/20171108Network-flows/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">网络流</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/08/20171108ktruss2/&title=《Truss-based Community Search:a Truss-equivalence Based Indexing Approach》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/08/20171108ktruss2/&title=《Truss-based Community Search:a Truss-equivalence Based Indexing Approach》 — HanKin的博客&source=ABSTRACT
+given a query vertex q in G, to find as outputall the densely connec..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/08/20171108ktruss2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Truss-based Community Search:a Truss-equivalence Based Indexing Approach》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/08/20171108ktruss2/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/08/20171108ktruss2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/11/08/20171108ktruss2/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>hiho一下 第188周 小Ho的防护盾 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="二分">
+    <meta name="description" content="描述小Ho的虚拟城市正在遭受小Hi的攻击，小Hi用来攻击小Ho城市的武器是一艘歼星舰，这艘歼星舰会以T(T为大于0的整数)个单位时间的间隔向小Ho的城市轰击。歼星舰总共有N枚炮弹，其中第i枚会造成Ai点伤害值。 幸好小Ho的城市有K层护盾，每层护盾可以抵挡M点伤害。当某次轰击使得伤害值达或超过M时，该层护盾就会被击碎；该次轰击溢出的伤害不会作用于下一层护盾；下一次轰击将由下一层护盾承受。 同时，受">
+<meta name="keywords" content="二分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hiho一下 第188周 小Ho的防护盾">
+<meta property="og:url" content="https://hankin2015.github.io/2018/02/04/20180204hiho188/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="描述小Ho的虚拟城市正在遭受小Hi的攻击，小Hi用来攻击小Ho城市的武器是一艘歼星舰，这艘歼星舰会以T(T为大于0的整数)个单位时间的间隔向小Ho的城市轰击。歼星舰总共有N枚炮弹，其中第i枚会造成Ai点伤害值。 幸好小Ho的城市有K层护盾，每层护盾可以抵挡M点伤害。当某次轰击使得伤害值达或超过M时，该层护盾就会被击碎；该次轰击溢出的伤害不会作用于下一层护盾；下一次轰击将由下一层护盾承受。 同时，受">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-15T16:49:51.016Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hiho一下 第188周 小Ho的防护盾">
+<meta name="twitter:description" content="描述小Ho的虚拟城市正在遭受小Hi的攻击，小Hi用来攻击小Ho城市的武器是一艘歼星舰，这艘歼星舰会以T(T为大于0的整数)个单位时间的间隔向小Ho的城市轰击。歼星舰总共有N枚炮弹，其中第i枚会造成Ai点伤害值。 幸好小Ho的城市有K层护盾，每层护盾可以抵挡M点伤害。当某次轰击使得伤害值达或超过M时，该层护盾就会被击碎；该次轰击溢出的伤害不会作用于下一层护盾；下一次轰击将由下一层护盾承受。 同时，受">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">hiho一下 第188周 小Ho的防护盾</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">hiho一下 第188周 小Ho的防护盾</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-02-04T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-02-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hihoCoder/">hihoCoder</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#输入"><span class="post-toc-number">2.</span> <span class="post-toc-text">输入</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#输出"><span class="post-toc-number">3.</span> <span class="post-toc-text">输出</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#样例输入"><span class="post-toc-number">4.</span> <span class="post-toc-text">样例输入</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#样例输出"><span class="post-toc-number">5.</span> <span class="post-toc-text">样例输出</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#思路"><span class="post-toc-number">6.</span> <span class="post-toc-text">思路</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180204hiho188"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">hiho一下 第188周 小Ho的防护盾</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-02-04 10:47:41" datetime="2018-02-04T02:47:41.000Z"  itemprop="datePublished">2018-02-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hihoCoder/">hihoCoder</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>小Ho的虚拟城市正在遭受小Hi的攻击，小Hi用来攻击小Ho城市的武器是一艘歼星舰，这艘歼星舰会以T(T为大于0的整数)个单位时间的间隔向小Ho的城市轰击。歼星舰总共有N枚炮弹，其中第i枚会造成Ai点伤害值。</p>
+<p>幸好小Ho的城市有K层护盾，每层护盾可以抵挡M点伤害。当某次轰击使得伤害值达或超过M时，该层护盾就会被击碎；该次轰击溢出的伤害不会作用于下一层护盾；下一次轰击将由下一层护盾承受。</p>
+<p>同时，受损但尚未被击碎护盾会以每单位时间减少1点伤害值的速度修复自己，直到伤害值降为0。这就意味着小Hi的攻击间隔T越大，小Ho撑过这N枚炮弹的可能性就越大。<br><a id="more"></a><br>那么问题来了，小Hi的攻击间隔T至少需要是多少，小Ho城市的防护护盾才能不被全部击破？</p>
+<p>为了使题目不存在歧义，规定：</p>
+<p>小Hi的第i次攻击发生在时刻(i-1)*T</p>
+<p>小Ho的第i次修复发生在时刻i-0.5 </p>
+<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>第一行包含3个整数N、M和K，意义如前文所述。</p>
+<p>第二行包含N个整数A1 - AN，表示小Hi第i枚炮弹的伤害值。</p>
+<p>对于30%的数据，满足N&lt;=100</p>
+<p>对于100%的数据，满足1&lt;=N&lt;=100000</p>
+<p>对于100%的数据，满足1&lt;=K&lt;=10, 1&lt;=Ai, M&lt;=100000</p>
+<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>输出使得小Ho城市的防护护盾不被全部击破的小Hi攻击间隔的最小值。如果不存在这样的T，则输出-1。</p>
+<h1 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h1><blockquote>
+<p>3 5 1<br>3 3 3</p>
+</blockquote>
+<h1 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h1><blockquote>
+<p>3</p>
+</blockquote>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这道题的关键条件是护盾可以回血(参考一下星际争霸中的神族单位)。</p>
+<p>所以攻击间隔越大，护盾可能的回血就越多。如果小Hi的攻击中伤害值大于等于M的炮弹少于K发，那么如果攻击间隔过大，即便N发总伤害超过KM，也可能最终不能击破全部护盾。</p>
+<p>题目要求出可以使护盾不被全部击破的攻击间隔最小值。这个值显然是可以二分的。从[0, M]之中二分，判断当前的间隔T会不会导致护盾全破可以通过O(N)的模拟计算得到。</p>
+<p>所以总复杂度是O(NlogM)</p>
+<p>提交了很多次，没有注意到T是大于0的整数，攻击需要间隔。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N, M, K, A[<span class="number">100005</span>];</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M &gt;&gt; K;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; A[i];</span><br><span class="line">    <span class="keyword">int</span> L = <span class="number">0</span>, R = M, ans = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= R) &#123; <span class="comment">//二分这里老是搞不懂要不要等号，现在明白了，举例子一直往一边取值，必须等号才能取到边缘值</span></span><br><span class="line">        <span class="keyword">int</span> mid = (L + R) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = K, value = M;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(A[i] &gt;= value) &#123; <span class="comment">//如果当前的炮弹的伤害大于等于护盾，护盾破坏</span></span><br><span class="line">                cnt--;</span><br><span class="line">                value = M;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;   <span class="comment">//否则护盾受到伤害并回血</span></span><br><span class="line">                value = value - A[i] + mid;</span><br><span class="line">                <span class="keyword">if</span>(value &gt; M) value = M;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(cnt == <span class="number">0</span>) &#123;  <span class="comment">//没有护盾了</span></span><br><span class="line">                flag = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag) &#123;  <span class="comment">//护盾还存在，间隔值过大</span></span><br><span class="line">            R = mid - <span class="number">1</span>;</span><br><span class="line">            ans = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> L = mid + <span class="number">1</span>;   <span class="comment">//一定要记得加减1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ans == <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(ans != <span class="number">-1</span>) <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-15T16:49:51.016Z" itemprop="dateUpdated">2018-08-16 00:49:51</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/02/04/20180204hiho188/" target="_blank" rel="external">https://hankin2015.github.io/2018/02/04/20180204hiho188/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/02/04/20180204hiho188/&title=《hiho一下 第188周 小Ho的防护盾》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/02/04/20180204hiho188/&title=《hiho一下 第188周 小Ho的防护盾》 — HanKin的博客&source=描述小Ho的虚拟城市正在遭受小Hi的攻击，小Hi用来攻击小Ho城市的武器是一艘歼星舰，这艘歼星舰会以T(T为大于0的整数)个单位时间的间隔向小Ho的城市轰..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/02/04/20180204hiho188/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hiho一下 第188周 小Ho的防护盾》 — HanKin的博客&url=https://hankin2015.github.io/2018/02/04/20180204hiho188/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/02/04/20180204hiho188/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/02/25/20171108XChang/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">互联网上比较流行的「X厂」指代及简单来由</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/02/03/20180203hiho-187/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hiho一下 第187周 分隔相同整数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/02/04/20180204hiho188/&title=《hiho一下 第188周 小Ho的防护盾》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/02/04/20180204hiho188/&title=《hiho一下 第188周 小Ho的防护盾》 — HanKin的博客&source=描述小Ho的虚拟城市正在遭受小Hi的攻击，小Hi用来攻击小Ho城市的武器是一艘歼星舰，这艘歼星舰会以T(T为大于0的整数)个单位时间的间隔向小Ho的城市轰..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/02/04/20180204hiho188/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hiho一下 第188周 小Ho的防护盾》 — HanKin的博客&url=https://hankin2015.github.io/2018/02/04/20180204hiho188/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/02/04/20180204hiho188/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/02/04/20180204hiho188/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

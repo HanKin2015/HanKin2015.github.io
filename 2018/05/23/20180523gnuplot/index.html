@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>gnuplot笔记 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Gnuplot">
+    <meta name="description" content="sin函数图像，x取值范围-3.14~3.14，默认有图例gnuplot&amp;gt; plot [-3.14:3.14] sin(x)  如果你不需要上面的图例，你可以在运行gnuplot&amp;gt; unset key  如果要还原gnuplot&amp;gt; set key default">
+<meta name="keywords" content="Gnuplot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gnuplot笔记">
+<meta property="og:url" content="https://hankin2015.github.io/2018/05/23/20180523gnuplot/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="sin函数图像，x取值范围-3.14~3.14，默认有图例gnuplot&amp;gt; plot [-3.14:3.14] sin(x)  如果你不需要上面的图例，你可以在运行gnuplot&amp;gt; unset key  如果要还原gnuplot&amp;gt; set key default">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-22T15:29:34.648Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gnuplot笔记">
+<meta name="twitter:description" content="sin函数图像，x取值范围-3.14~3.14，默认有图例gnuplot&amp;gt; plot [-3.14:3.14] sin(x)  如果你不需要上面的图例，你可以在运行gnuplot&amp;gt; unset key  如果要还原gnuplot&amp;gt; set key default">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">gnuplot笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">gnuplot笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-23T02:27:41.000Z" itemprop="datePublished" class="page-time">
+  2018-05-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/TOOL/">TOOL</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sin函数图像，x取值范围-3-14-3-14，默认有图例"><span class="post-toc-number">1.</span> <span class="post-toc-text">sin函数图像，x取值范围-3.14~3.14，默认有图例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180523gnuplot"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">gnuplot笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-23 10:27:41" datetime="2018-05-23T02:27:41.000Z"  itemprop="datePublished">2018-05-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/TOOL/">TOOL</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="sin函数图像，x取值范围-3-14-3-14，默认有图例"><a href="#sin函数图像，x取值范围-3-14-3-14，默认有图例" class="headerlink" title="sin函数图像，x取值范围-3.14~3.14，默认有图例"></a>sin函数图像，x取值范围-3.14~3.14，默认有图例</h2><p>gnuplot&gt; plot [-3.14:3.14] sin(x)</p>
+<ul>
+<li><p>如果你不需要上面的图例，你可以在运行<br>gnuplot&gt; unset key</p>
+</li>
+<li><p>如果要还原<br>gnuplot&gt; set key default</p>
+<a id="more"></a>
+</li>
+</ul>
+<p>一般情况下使用gnuplot都是科学绘图，因此很多都是放在文章里面。一般优秀的科技文献都是用latex来编写的，所以gnuplot提供了直接输出 tex文件的功能，只需要把output设置为latex就可以了。</p>
+<blockquote>
+<p>gnuplot&gt; set terminal latex<br>set output “sin.tex”<br>plot [-3.14:3.14] sin(x)</p>
+</blockquote>
+<p>你可以把这个文件直接插入你的文章中，例如<br>\begin{figure}<br>\begin{center}<br>\input{sin.tex}<br>\end{center}<br>\end{figure}<br>以后凡是要生成插入latex的图片，就可以用上面的办法实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gnuplot&gt; set terminal latex</span><br><span class="line">set output &quot;sinagain.tex&quot;</span><br><span class="line">set size 5/5.,4/3.</span><br><span class="line">set format xy &quot;$%g$&quot;</span><br><span class="line">set title &quot;This is a plot of $y=\\sin(x)$&quot;</span><br><span class="line">set xlabel &quot;This is the $x$ axis&quot;</span><br><span class="line">set ylabel &quot;This is\\the\\$y$ axis&quot;</span><br><span class="line">plot [0:6.28] [0:1] sin(x)</span><br></pre></td></tr></table></figure>
+<p>set size 设置图片的大小<br>set format xy 设置x、y轴文字的格式<br>set title 设置图片标题<br>set xlabel 设置x轴的文字<br>一般情况下，科技论文的图片很多都含有好几个图线，那么这里就介绍下如何在一张图里显示多张图片。<br>先看代码：<br>gnuplot&gt; set terminal latex<br>set output “combine.tex”<br>set format xy “$%g$”<br>set title “Combination”<br>set xlabel “$x$ axis”<br>set ylabel “$y$ axis”<br>plot [-3.14:3.14] 0.2*x with points, sin(x) with lines<br>这里没有很特别的地方，只是plot多了一个项目，当要绘制多个图线的时候需要用逗号来分隔，注意这里不是中文的逗号，而是西文的逗号。另外with后面的参数是说用什么线性来绘制。出来的效果看下面的图：<br>接下来再对图片进行加工。一般图片x轴每个计数单位都是希望能够控制的，而不是系统自己来决定的，那么可以通过以下的代码来实现。<br>看代码：<br>gnuplot&gt; set terminal latex<br>set output “tic.tex”<br>set format y “$%g$”<br>set format x “$%.2f$”<br>set title “This is $\sin(x)$”<br>set xlabel “This is the $x$ axis”<br>set ylabel “$\sin(x)$”<br>set xtics -pi, pi/4<br>plot [-pi:pi] sin(x)</p>
+<p>加了一个set xtics这个是设置x的间距，也就是从-pi开始、每隔pi/4出现一次，pi是gnuplot内建的一个变量，所以只要输入pi，系统知道其含义。</p>
+<p><a href="https://www.ibm.com/developerworks/cn/aix/library/au-gnuplot/?ca=drs-tp4608#fig2" target="_blank" rel="noopener">使用 gnuplot 在网页中显示数据</a><br>set terminal png truecolor  #为了能够生成图像，必须告诉 gnuplot 图形文件应该采用什么格式以及应该如何显示。</p>
+<p>set output “sarimage.png”<br>set autoscale</p>
+<p>在生成图形时，需要指定数据的 x 和 y 轴范围。这个示例让 gnuplot 自己计算范围值。</p>
+<p>set xdata time<br>set timefmt “%H:%M:%S”</p>
+<p>因为这个示例使用日期值作为数据的参照点，需要告诉 gnuplot 日期数据的格式。<br>%d  - day of month 1 -31<br>%m - month of year 1 -12<br>%y  - year 0-99<br>%b  - three character of month name , ie: jan ,feb<br>%B  - name of month</p>
+<p>set style data lines</p>
+<p>在显示这个图形时，绘制出的数据应该是一条平滑的数据线。常用的其他绘制格式包括：dots、boxes、errorbars、 candlesticks。</p>
+<p>plot “sarx1.txt” using 1:2 title “%user”, ‘’ using 1:3 title “%sys”</p>
+<p>接下来，使用 plot 命令实际绘制或生成图形。首先，指定数据输入文件名，然后告诉 gnuplot 要绘制哪些列。在这个示例中，使用第 1 列作为 x 轴，绘制第 2 列数据，标题为 “%user”；然后绘制第 3 列，标题为 “%sys”。标题（即标签）显示在图形的右上角。在绘制时，第 2 列和第 3 列使用第 1 列作为 x 值。plot 命令中的每个 ‘using’ 语句由逗号分隔。</p>
+<p>.plt  .gnu   .conf</p>
+<p>在 plot 命令中可以使用缩写。例如，在最初的 plot 命令后面，其他 plot 命令选项都可以缩写，用选项的第一个字母表示。但是，对于本文，我只用缩写表示输入文件，即使用两个单引号表示输入文件 (sarx1.txt)。下面详细解释一下。第一个示例是本文中使用的表示法，第二个示例是缩写表示法，第三个示例是不使用任何缩写的完整命令语句。这三 个示例产生相同的输出。</p>
+<p>plot “sarx1.txt” using 1:2 title “%user”, ‘’ using 1:3 title “%sys”</p>
+<p>plot “sarx1.txt” using 1:2 title “%user”, ‘’ u 1:3 t “%sys”</p>
+<p>plot “sarx1.txt” using 1:2 title “%user”,\<br>″sarx1.txt’’ using 1:3 title “%sys”</p>
+<p>在向其他用户显示图形时，有时候应该包含明确的标签和标题，以便用户了解数据的意义。为了包含 x 和 y 标签，应该使用 xlabel 和 ylabel 命令并把标签文本放在引号中：</p>
+<p>set ylabel “ y line info here”<br>set xlabel “ x line info here”</p>
+<p>使用 title 命令添加图形的标题：</p>
+<p>set title “main title info here”</p>
+<p>在生成图形时，gnuplot 使用自己的默认颜色。在默认情况下，在白色背景上生成图形；这对于可能要打印的图形是有意义的。但是，可以使用颜色编码指定任何颜色，颜色编码以字母 x 开头，用十六进制表示。十六进制编码的格式为：</p>
+<p>xrrggbb</p>
+<p>在 Google 上搜索 ‘hex color codes’ 可以找到十六进制的颜色编码表。</p>
+<p>覆盖 gnuplot 默认颜色的次序为：</p>
+<p>background<br>border<br>X<br>Y<br>plotting lines</p>
+<p>浅灰色的十六进制表示为：C9C9C9。</p>
+<p>可以使用以下命令生成浅灰色背景的图形：</p>
+<p>set terminal png  xC9C9C9</p>
+<p>在查看图形时，使用网格作为参照点也非常有用。下面的命令使用 grid 选项让 gnuplot 在图形上加上网格：</p>
+<p>set grid</p>
+<p>可以根据这些信息指定自己的范围。下面的示例使用的 x 范围从 14:00 到 18:15，y 范围从 10 到 50。</p>
+<p>set xrange [“14:00:00” : “18:15:00”]<br>set yrange [“10:00” : “50:00” ]</p>
+<p>set terminal png truecolor<br>set output “sarimage.png”<br>set autoscale<br>set style data lines<br>set xrange [0: 10]<br>set yrange [0.0:2000]<br>plot “dblp_all_6k_514.txt” using 1:6 title “%user”, ‘’ using 1:3 title “%sys”</p>
+<p>常用的其他绘制格式包括：dots、boxes、errorbars、candlesticks、lines、histograms。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-22T15:29:34.648Z" itemprop="dateUpdated">2018-08-22 23:29:34</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/05/23/20180523gnuplot/" target="_blank" rel="external">https://hankin2015.github.io/2018/05/23/20180523gnuplot/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnuplot/">Gnuplot</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/05/23/20180523gnuplot/&title=《gnuplot笔记》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/05/23/20180523gnuplot/&title=《gnuplot笔记》 — HanKin的博客&source=sin函数图像，x取值范围-3.14~3.14，默认有图例gnuplot&gt; plot [-3.14:3.14] sin(x)
+
+如果你不需要上面的图..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/05/23/20180523gnuplot/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《gnuplot笔记》 — HanKin的博客&url=https://hankin2015.github.io/2018/05/23/20180523gnuplot/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/05/23/20180523gnuplot/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/06/06/20180606python_image_to_char/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">抖音上很火的用数字或者字符画偶像画</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/09/20180509hiho201/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hiho一下第201周Composition</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/05/23/20180523gnuplot/&title=《gnuplot笔记》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/05/23/20180523gnuplot/&title=《gnuplot笔记》 — HanKin的博客&source=sin函数图像，x取值范围-3.14~3.14，默认有图例gnuplot&gt; plot [-3.14:3.14] sin(x)
+
+如果你不需要上面的图..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/05/23/20180523gnuplot/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《gnuplot笔记》 — HanKin的博客&url=https://hankin2015.github.io/2018/05/23/20180523gnuplot/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/05/23/20180523gnuplot/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/05/23/20180523gnuplot/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

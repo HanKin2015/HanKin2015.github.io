@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>国庆七天乐 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ML,Python">
+    <meta name="description" content="0、英语单词Scaler定标器ensemble（合奏）集成perturb-and-combine干扰interval间隔tuning调参estimate估计bagcross交叉">
+<meta name="keywords" content="ML,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="国庆七天乐">
+<meta property="og:url" content="https://hankin2015.github.io/2018/10/03/20181003GuoQin/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="0、英语单词Scaler定标器ensemble（合奏）集成perturb-and-combine干扰interval间隔tuning调参estimate估计bagcross交叉">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T07:24:43.458Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="国庆七天乐">
+<meta name="twitter:description" content="0、英语单词Scaler定标器ensemble（合奏）集成perturb-and-combine干扰interval间隔tuning调参estimate估计bagcross交叉">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">国庆七天乐</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">国庆七天乐</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-03T02:48:41.000Z" itemprop="datePublished" class="page-time">
+  2018-10-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ML/">ML</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#0、英语单词"><span class="post-toc-number">1.</span> <span class="post-toc-text">0、英语单词</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、学习计划"><span class="post-toc-number">2.</span> <span class="post-toc-text">1、学习计划</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、ipnb展示"><span class="post-toc-number">3.</span> <span class="post-toc-text">2、ipnb展示</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、文章"><span class="post-toc-number">4.</span> <span class="post-toc-text">3、文章</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、西瓜书"><span class="post-toc-number">5.</span> <span class="post-toc-text">4、西瓜书</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#神经网络"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">神经网络</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#感知器"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">感知器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#机器学习名字的由来"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">机器学习名字的由来</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20181003GuoQin"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">国庆七天乐</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-03 10:48:41" datetime="2018-10-03T02:48:41.000Z"  itemprop="datePublished">2018-10-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ML/">ML</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="0、英语单词"><a href="#0、英语单词" class="headerlink" title="0、英语单词"></a>0、英语单词</h1><p>Scaler定标器<br>ensemble（合奏）集成<br>perturb-and-combine干扰<br>interval间隔<br>tuning调参<br>estimate估计<br>bag<br>cross交叉</p>
+<a id="more"></a>
+<h1 id="1、学习计划"><a href="#1、学习计划" class="headerlink" title="1、学习计划"></a>1、学习计划</h1><ul>
+<li>制作简历</li>
+<li>数据分析</li>
+<li>特征选择</li>
+<li>归一化</li>
+<li>泰坦尼克号、鸢尾花数据集、</li>
+<li>python爬虫</li>
+<li>GitHub提交</li>
+<li>研究生项目管理和总结</li>
+<li>深度学习</li>
+<li>python刷题</li>
+<li>隐马尔可夫模型（HMM）</li>
+</ul>
+<h1 id="2、ipnb展示"><a href="#2、ipnb展示" class="headerlink" title="2、ipnb展示"></a>2、ipnb展示</h1><p>先cmd到指定文件夹，然后输入jupyter notebook。或者到指定文件夹下，shift+右键打开powershell，输入jupyter notebook。</p>
+<ul>
+<li><a href="http://nbviewer.jupyter.org/github/HanKin2015/Machine_to_DeepingLearning/blob/master/Ipynb/模板/数据分析模板%5B泰坦尼克号%5D.ipynb" target="_blank" rel="noopener">数据分析模板</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/HanKin2015/Machine_to_DeepingLearning/blob/master/Competition/LintCode/泰坦尼克号/泰坦尼克号.ipynb" target="_blank" rel="noopener">泰坦尼克号</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/HanKin2015/Machine_to_DeepingLearning/blob/master/Ipynb/iris%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90.ipynb" target="_blank" rel="noopener">鸢尾花数据集</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/HanKin2015/Machine_to_DeepingLearning/blob/master/Competition/Santander%20Customer%20Satisfaction/桑坦德客户满意度.ipynb" target="_blank" rel="noopener">桑坦德客户满意度</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/HanKin2015/Machine_to_DeepingLearning/blob/master/Competition/Santander%20Customer%20Satisfaction/SantanderCustomerSatisfaction数据诊断.ipynb" target="_blank" rel="noopener">慕课网的Santander Customer Satisfaction数据诊断</a></li>
+<li><a href="">IJCAI-18 阿里妈妈搜索广告转化预测</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/HanKin2015/Machine_to_DeepingLearning/blob/master/Ipynb/航空公司用户价值分析/航空公司客户价值分析.ipynb" target="_blank" rel="noopener">航空公司客户价值分析</a></li>
+<li><a href="">印象盐城·数创未来大数据竞赛 - 乘用车零售量预测</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/HanKin2015/Machine_to_DeepingLearning/blob/master/Ipynb/简单的文本特征分类/简单的文本特征分类.ipynb" target="_blank" rel="noopener">简单的文本分类（字符串的拆分）</a></li>
+</ul>
+<h1 id="3、文章"><a href="#3、文章" class="headerlink" title="3、文章"></a>3、文章</h1><ul>
+<li><a href="https://hankin2015.github.io/2018/09/29/20180821MyPython/">python使用中解决技巧</a></li>
+<li><a href="https://hankin2015.github.io/2018/09/29/20180929DA-template/">数据分析之模板</a></li>
+<li><a href="https://hankin2015.github.io/2018/09/25/20180925MXNet/">动手学深度学习【个人版】</a></li>
+<li><a href="https://hankin2015.github.io/2018/09/29/20180929DA-Vasulize/">数据分析之数据可视化</a></li>
+<li><a href="https://hankin2015.github.io/2018/09/23/20180923/">学习python机器学习2018.9.23</a></li>
+<li><a href="https://hankin2015.github.io/2018/09/23/20180923DA/">python数据分析【个人版】</a></li>
+<li><a href="https://hankin2015.github.io/2013/01/04/20130104ILoveML/">转岗算法工程师日程</a></li>
+<li><a href="https://www.cnblogs.com/tornadomeet/p/3395593.html" target="_blank" rel="noopener">机器学习&amp;数据挖掘笔记_16（常见面试之机器学习算法思想简单梳理）</a></li>
+<li><a href="http://lib.csdn.net/article/python/62942" target="_blank" rel="noopener">Python装饰器的通俗理解</a></li>
+<li><a href="">python中format函数</a></li>
+</ul>
+<p>装饰器就是闭包。</p>
+<h1 id="4、西瓜书"><a href="#4、西瓜书" class="headerlink" title="4、西瓜书"></a>4、西瓜书</h1><h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>神经元、输入层、隐藏层、输出层<br>隐藏层比较多（大于2）的神经网络叫做深度神经网络。而深度学习，就是使用深层架构（比如，深度神经网络）的机器学习方法。<br>为了拟合一个函数，要么使用一个浅而宽的网络，要么使用一个深而窄的网络。而后者往往更节约资源。</p>
+<p>深层网络也有劣势，就是它不太容易训练。简单的说，你需要大量的数据，很多的技巧才能训练好一个深层网络。这是个手艺活。</p>
+<h2 id="感知器"><a href="#感知器" class="headerlink" title="感知器"></a>感知器</h2><p>神经元也叫做感知器。</p>
+<h2 id="机器学习名字的由来"><a href="#机器学习名字的由来" class="headerlink" title="机器学习名字的由来"></a>机器学习名字的由来</h2><p>阿瑟·萨缪尔研制西洋跳棋程序。</p>
+<p>错误率error rate<br>精度accuracy = 1-错误率<br>误差error<br>训练误差或者经验误差<br>泛化误差：新样本上的误差<br>过拟合overfitting：泛化性能下降<br>欠拟合underfitting<br>分层采样：保留类别比例的而采样方式</p>
+<p>##<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">同学您好！非常感谢您参加了华为公司2019届应届生招聘。经过我们慎重的考虑和认真的评估，非常抱歉地通知您未能通过本次面试。我们对您在面试过程中所表现出来的积极努力和认真参与，致以由衷的敬意和真诚的感谢！勇敢新世界，再次感谢您的参与！</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>hr您好！非常感谢您邀请我参加贵公司2019届应届生招聘。经过我慎重的考虑和认真的评估，非常抱歉地通知您未能通过我的筛选。我对您在面试过程中对我的认可，致以由衷的敬意和真诚的感谢！2018，再次感谢认识您！</p>
+<p>Jaccard系数<br>Jaccard index , 又称为Jaccard相似系数（Jaccard similarity coefficient）用于比较有限样本集之间的相似性与差异性。Jaccard系数值越大，样本相似度越高。</p>
+<p>作者：望其向北<br>链接：<a href="https://www.nowcoder.com/discuss/125413?type=0&amp;order=0&amp;pos=21&amp;page=1" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/125413?type=0&amp;order=0&amp;pos=21&amp;page=1</a><br>来源：牛客网</p>
+<p>二叉查找树，查找公共父节点<br>TCP，UDP<br>http报文格式，手写<br>bigdecimal大数实现加减运算<br>大学最自豪最印象深刻的事<br>向我提问，意向地(面试官介绍了武汉，南京部门)<br>还有几个问题记不清了，二面加油！😃</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T07:24:43.458Z" itemprop="dateUpdated">2018-10-23 15:24:43</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/10/03/20181003GuoQin/" target="_blank" rel="external">https://hankin2015.github.io/2018/10/03/20181003GuoQin/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/">ML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/10/03/20181003GuoQin/&title=《国庆七天乐》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/10/03/20181003GuoQin/&title=《国庆七天乐》 — HanKin的博客&source=0、英语单词Scaler定标器ensemble（合奏）集成perturb-and-combine干扰interval间隔tuning调参estimate估..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/10/03/20181003GuoQin/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《国庆七天乐》 — HanKin的博客&url=https://hankin2015.github.io/2018/10/03/20181003GuoQin/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/10/03/20181003GuoQin/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/05/20181005Scrapy/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">精通Python爬虫框架Scrapy</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/29/20180821MyPython/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">python使用中解决技巧</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/10/03/20181003GuoQin/&title=《国庆七天乐》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/10/03/20181003GuoQin/&title=《国庆七天乐》 — HanKin的博客&source=0、英语单词Scaler定标器ensemble（合奏）集成perturb-and-combine干扰interval间隔tuning调参estimate估..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/10/03/20181003GuoQin/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《国庆七天乐》 — HanKin的博客&url=https://hankin2015.github.io/2018/10/03/20181003GuoQin/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/10/03/20181003GuoQin/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/10/03/20181003GuoQin/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>电脑处理器核数和逻辑处理器 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="CPU,处理器">
+    <meta name="description" content="德国宝马汽车公司主要生产三种汽车，一是轿车，分3、5、7系；二是越野车，为X5系；三是敞篷跑车，分Z3、Z8系；四是硬顶跑车，有M系等。    宝马轿车的命名方法一般是将“系名”放在最前面，随后为代表发动机排量的数字，最后的英文字母“i”表示发动机是电子喷射，“A”表示自动档，“C”表示为双座跑车(Coupe)，“L”表示为长轴距。如318iA——3系、发动机排量1．8升、电子喷射、自动档。">
+<meta name="keywords" content="CPU,处理器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电脑处理器核数和逻辑处理器">
+<meta property="og:url" content="https://hankin2015.github.io/2018/01/15/20180115CPU/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="德国宝马汽车公司主要生产三种汽车，一是轿车，分3、5、7系；二是越野车，为X5系；三是敞篷跑车，分Z3、Z8系；四是硬顶跑车，有M系等。    宝马轿车的命名方法一般是将“系名”放在最前面，随后为代表发动机排量的数字，最后的英文字母“i”表示发动机是电子喷射，“A”表示自动档，“C”表示为双座跑车(Coupe)，“L”表示为长轴距。如318iA——3系、发动机排量1．8升、电子喷射、自动档。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=d8df6285283fb80e0c8469d106e10316/21a4462309f790524114298a05f3d7ca7bcbd57f.jpg">
+<meta property="og:updated_time" content="2018-07-25T12:48:51.745Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="电脑处理器核数和逻辑处理器">
+<meta name="twitter:description" content="德国宝马汽车公司主要生产三种汽车，一是轿车，分3、5、7系；二是越野车，为X5系；三是敞篷跑车，分Z3、Z8系；四是硬顶跑车，有M系等。    宝马轿车的命名方法一般是将“系名”放在最前面，随后为代表发动机排量的数字，最后的英文字母“i”表示发动机是电子喷射，“A”表示自动档，“C”表示为双座跑车(Coupe)，“L”表示为长轴距。如318iA——3系、发动机排量1．8升、电子喷射、自动档。">
+<meta name="twitter:image" content="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=d8df6285283fb80e0c8469d106e10316/21a4462309f790524114298a05f3d7ca7bcbd57f.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">电脑处理器核数和逻辑处理器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">电脑处理器核数和逻辑处理器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-15T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-01-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为何英特尔酷睿处理器的编号都是奇数"><span class="post-toc-number">1.</span> <span class="post-toc-text">为何英特尔酷睿处理器的编号都是奇数?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python"><span class="post-toc-number">2.</span> <span class="post-toc-text">Python</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#机器学习"><span class="post-toc-number">3.</span> <span class="post-toc-text">机器学习</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lunix"><span class="post-toc-number">4.</span> <span class="post-toc-text">Lunix</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据挖掘"><span class="post-toc-number">5.</span> <span class="post-toc-text">数据挖掘</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图数据挖掘"><span class="post-toc-number">6.</span> <span class="post-toc-text">图数据挖掘</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据分析师"><span class="post-toc-number">7.</span> <span class="post-toc-text">数据分析师</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查漏补缺"><span class="post-toc-number">8.</span> <span class="post-toc-text">查漏补缺</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#k-近邻算法（kNN）"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">k-近邻算法（kNN）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#算法步骤"><span class="post-toc-number">8.1.1.</span> <span class="post-toc-text">算法步骤</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#作者：Luau-Lawrence"><span class="post-toc-number">8.1.2.</span> <span class="post-toc-text">作者：Luau Lawrence</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#20170823"><span class="post-toc-number">9.</span> <span class="post-toc-text">20170823</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#问题"><span class="post-toc-number">10.</span> <span class="post-toc-text">问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#导入文件数据-np-loadtxt"><span class="post-toc-number">11.</span> <span class="post-toc-text">导入文件数据  np.loadtxt</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180115CPU"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">电脑处理器核数和逻辑处理器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-15 10:47:41" datetime="2018-01-15T02:47:41.000Z"  itemprop="datePublished">2018-01-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>德国宝马汽车公司主要生产三种汽车，一是轿车，分3、5、7系；二是越野车，为X5系；三是敞篷跑车，分Z3、Z8系；四是硬顶跑车，有M系等。<br>    宝马轿车的命名方法一般是将“系名”放在最前面，随后为代表发动机排量的数字，最后的英文字母“i”表示发动机是电子喷射，“A”表示自动档，“C”表示为双座跑车(Coupe)，“L”表示为长轴距。如318iA——3系、发动机排量1．8升、电子喷射、自动档。<br>    原来代表发动机排量的数字与排量极为近似，但随着车型的不断更新，有时为了市场需要，后来个别车型又将发动机的排量增大一些，但仍采用老型号，如750i，它的发动机排量为5．4升；540i的发动机排量为4．4升。但是，宝马车型号中的排量代表数字，大部分与发动机排量近似。<br><a id="more"></a></p>
+<h1 id="为何英特尔酷睿处理器的编号都是奇数"><a href="#为何英特尔酷睿处理器的编号都是奇数" class="headerlink" title="为何英特尔酷睿处理器的编号都是奇数?"></a>为何英特尔酷睿处理器的编号都是奇数?</h1><p>为何英特尔酷睿处理器的编号都是奇数?例如i（m）3,i（m）5,i（m）7之类的。</p>
+<p>老问题了，之所以是用奇数来命名型号，纯粹是市场营销的手段。</p>
+<p>实际上每种CPU都有内部识别的型号，只是给研发技术部门自己看得明白的一串型号名称。</p>
+<p>而产品生产出来后就交给营销部门去做了，又给每一种CPU设计了一个型号名称。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=d8df6285283fb80e0c8469d106e10316/21a4462309f790524114298a05f3d7ca7bcbd57f.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>[TOC]<br>2017.8.3</p>
+<center><strong>学习笔记</strong></center>
+
+<ul>
+<li>世界上最遥远的距离不是生与死，而是学霸和学渣之间的数学题！</li>
+</ul>
+<ul>
+<li>大数据是什么？bigger than bigger，比逼格更逼格</li>
+</ul>
+<ul>
+<li>stack-overflow</li>
+</ul>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p><a href="https://www.zhihu.com/question/20751219" target="_blank" rel="noopener">https://www.zhihu.com/question/20751219</a></p>
+<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><p>1 Data Science Weekly 这是一个免费周刊，主要提供与数据科学有关的新闻策划、文章和工作。2 Data Tau一个简单实用的刊物，提供了一些外部资源的链接。3 The Yha有关机器学习、数据科学和工程的博客。4 The Data Science Handbook手册提供了25名经验丰富的数据科学家的建议与见解。分享来源：Udacity 官方 Career Resource Center</p>
+<p>作者：优达学城（Udacity）<br>链接：<a href="https://www.zhihu.com/question/34444491/answer/146523789" target="_blank" rel="noopener">https://www.zhihu.com/question/34444491/answer/146523789</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h1 id="Lunix"><a href="#Lunix" class="headerlink" title="Lunix"></a>Lunix</h1><h1 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a>数据挖掘</h1><ul>
+<li>获取数据：网络爬虫 —–Python</li>
+<li>处理数据：思维导图 —–Xmind</li>
+</ul>
+<p>作者：王其平<br>链接：<a href="https://www.zhihu.com/question/20751219/answer/70633058" target="_blank" rel="noopener">https://www.zhihu.com/question/20751219/answer/70633058</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>推荐下面“清华大数据(微信号：Tsinghua_Big_Data)”的一篇文章“如何通过自学，成为数据挖掘“高手”。另外也可以参考知乎上的如何成为一名数据科学家？ - 王其平的回答。标题：如何通过自学，成为数据挖掘“高手”基础篇：1. 读书《Introduction to Data Mining》，这本书很浅显易懂，没有复杂高深的公式，很合适入门的人。另外可以用这本书做参考《Data Mining : Concepts and Techniques》。第二本比较厚，也多了一些数据仓库方面的知识。如果对算法比较喜欢，可以再阅读《Introduction to Machine Learning》。2. 实现经典算法。有几个部分：a. 关联规则挖掘 (Apriori, FPTree, etc.)b. 分类 (C4.5, KNN, Logistic Regression, SVM, etc.)c. 聚类 (Kmeans, DBScan, Spectral Clustering, etc.)d. 降维 (PCA, LDA, etc.)e. 推荐系统 (基于内容的推荐，协同过滤，如矩阵分解等)然后在公开数据集上测试，看实现的效果。可以在下面的网站找到大量的公开数据集：UCI Machine Learning Repository3. 熟悉几个开源的工具: Weka (用于上手); LibSVM, scikit-learn, Shogun4. 到 Kaggle: The Home of Data Science 上参加几个101的比赛，学会如何将一个问题抽象成模型，并从原始数据中构建有效的特征 (Feature Engineering). 到这一步的话基本几个国内的大公司都会给你面试的机会。进阶篇：1. 读书，下面几部都是大部头，但学完进步非常大。a.《Pattern Recognition and Machine Learning》b.《The Elements of Statistical Learning》c.《Machine Learning: A Probabilistic Perspective》第一本比较偏Bayesian；第二本比较偏Frequentist；第三本在两者之间，但我觉得跟第一本差不多，不过加了不少新内容。当然除了这几本大而全的，还有很多介绍不同领域的书，例如《Boosting Foundations and Algorithms》，《Probabilistic Graphical Models Principles and Techniques》；以及理论一些的《Foundations of Machine Learning》，《Optimization for Machine Learning》等等。这些书的课后习题也非常有用，做了才会在自己写Paper的时候推公式。2. 读论文。包括几个相关会议：KDD，ICML，NIPS，IJCAI，AAAI，WWW，SIGIR，ICDM；以及几个相关的期刊：TKDD，TKDE，JMLR，PAMI等。跟踪新技术跟新的热点问题。当然，如果做相关research，这一步是必须的。例如我们组的风格就是上半年读Paper，暑假找问题，秋天做实验，春节左右写/投论文。3. 跟踪热点问题。例如最近几年的Recommendation System，Social Network，Behavior Targeting等等，很多公司的业务都会涉及这些方面。以及一些热点技术，例如现在很火的Deep Learning。4. 学习大规模并行计算的技术，例如MapReduce、MPI，GPU Computing。基本每个大公司都会用到这些技术，因为现实的数据量非常大，基本都是在计算集群上实现的。5. 参加实际的数据挖掘的竞赛，例如KDDCUP，或 Kaggle: The Home of Data Science 上面的竞赛。这个过程会训练你如何在一个短的时间内解决一个实际的问题，并熟悉整个数据挖掘项目的全过程。6. 参与一个开源项目，如上面提到的Shogun或scikit-learn还有Apache的Mahout，或为一些流行算法提供更加有效快速的实现，例如实现一个Map/Reduce平台下的SVM。这也是锻炼Coding的能力。到这一步国内的大公司基本是想哪去哪，而且待遇也不差；如果英语好，去US那边的公司难度也不大了。</p>
+<h1 id="图数据挖掘"><a href="#图数据挖掘" class="headerlink" title="图数据挖掘"></a>图数据挖掘</h1><p>作者：Eric Ye<br>链接：<a href="https://www.zhihu.com/question/63147698/answer/207851568" target="_blank" rel="noopener">https://www.zhihu.com/question/63147698/answer/207851568</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>图数据可以挖掘的点有很多，从宏观层面来讲，主要包括网络的特征统计分析(比如，小世界，无标度，幂律分布)；从中观层面来讲，主要包括社区发现以及最近比较新的motif的分析；从微观层面来讲，主要包括链路预测，结点排序，影响力最大化等。由于生活中很多东西都可以通过图结构来描述，对图的研究很多领域都有涉及，比如复杂网络领域、数据库领域、数据挖掘领域、IR领域、数学领域等。因为很多领域的人都研究图数据，所以关于图的很多问题确实被研究的比较透彻了。但是图数据挖掘仍然还有很多值得深入研究的问题，具体来讲:1.大规模网络社区发现算法    社区发现主要用于社交网络分析，微信、脸谱等用户规模都已经破亿，如何设计高效的算法来处理如此大规模的网络还有很大的研究空间。2.Network embedding    网络映射是最近比较热门的研究点。之前的谱聚类是先由数据特征构造图，然后基于构造的图来进行聚类分析。网络映射则恰恰相反，它是基于图结构为图中每个节点学习一个低维的表征向量。3.Multi-network    单一图的研究大家做得差不多了，就提出了多图的概念，目前这个点也有很大的发文章的空间。4.异构网络的分析处理    异构网络能够更真实的刻画实际情况，也能够保留更多的实际信息。对异构网络的研究目前主要是基于meta path，但我个人认为meta path应用场景限制比较大，所以这个点适合挖坑搞个大动作，如果能提出一种比meta path更好的更具通用性的方法，文章引用次数肯定会很高。5.网络中异常节点检测    社交网络中异常用户检测，比如营销账号，僵尸粉等。现在能够收集到更多的数据，所以可以结合收集的数据和用户的社交网络关系来做异常点检测。6.时态图分析    图是在不断变化的，如社交网络中新的好友关系的建立，如何从动态的角度来分析网络，如何修改已有算法使其适用于时态图等都值得深入研究。KDD SIGMOD VLDB WWW AAAI IJCAI ICDE这些顶会上每年都有很多关于图或者网络的文章。国内推荐关注清华唐杰，电子科大周涛，国外推荐关注斯坦福的Jure Leskovec。</p>
+<hr>
+<p>2、关注名人、名博、网站，多渠道学习。<br>1) 关注专业的数据分析、咨询公司网站和论坛，特别强调，统计软件公司的网站如SPSS的官网有很多案例库，值得关注。<br>数据分析网：<a href="http://www.afenxi.com/中国统计网：http://www.itongji.cn/爱数据网：http://www.lovedata.cn/" target="_blank" rel="noopener">http://www.afenxi.com/中国统计网：http://www.itongji.cn/爱数据网：http://www.lovedata.cn/</a><br>SPSS的案例库，可在官网上搜索各类案例：<a href="http://www.ibm.com/developerworks/cn/data/library/techarticle/dm-1108zhangzy/index.html" target="_blank" rel="noopener">http://www.ibm.com/developerworks/cn/data/library/techarticle/dm-1108zhangzy/index.html</a><br>另外，你最好建一个自己的网址导航目录，提升你的学习效率<br>2) 关注名人名博，最好能加他们的微博、微信和微信公众号，看牛人的博客和微信等内容，还是能得到很多引导，这个你懂的。<br>如沈浩老师的博客：<a href="http://shenhaolaoshi.blog.sohu.com/数据分析网公众号：afenxi_com数据海洋公众号：dataplayer“数聚”公众号：shuju_vip" target="_blank" rel="noopener">http://shenhaolaoshi.blog.sohu.com/数据分析网公众号：afenxi_com数据海洋公众号：dataplayer“数聚”公众号：shuju_vip</a><br>3) 加入一些有共同爱好的QQ群，互相学习交流。通常群里有人会提出一些真实的运营问题，然后大家用不同的方法去解决，对思路很有启发。<br>4) 碎片化学习，最大化你的时间价值。为了把零散的时间利用起来，通常我会把一些资料上载到网盘，在零碎的时间里通过手机进行视频、文档学习等。目前使用百度云盘和360网盘。百度云盘应用比较广，通常在网络上搜索“关键词 百度云”后，搜到结果可以直接保存在云盘上，搜索保存速度极大提升。360网盘则空间比较大，可以到达40T，同时有保险箱加密功能，安全性高一些。<br>手机上安装一些APP，随时随地学习。</p>
+<h1 id="数据分析师"><a href="#数据分析师" class="headerlink" title="数据分析师"></a>数据分析师</h1><p>分析数据，需要用到各类的模型，包括关联规则、聚类、分类、预测模型等，其中一个最重要的思想是对比，任何的数据需要在参照系下进行对比，结论才有意义。<br>推荐的书籍：<br>1、《数据挖掘与数据化运营实战，思路、方法、技巧与应用》，卢辉著，机械出版社。这本书是近年国内写得最好的，务必把它当作圣经一样来读。<br>2、《谁说菜鸟不会数据分析(入门篇)》和《谁说菜鸟不会数据分析(工具篇)》，张文霖等编著。属于入门级的书，适合初学者。<br>3、《统计学》第五版，贾俊平等编著，中国人民大学出版社。比较好的一本统计学的书。<br>4、《数据挖掘导论》完整版，[美]Pang-Ning Tan等著，范明等翻译，人民邮电出版社。<br>5、《数据挖掘概念与技术》,Jiawei Han等著，范明等翻译，机械工业出版社。这本书相对难一些。<br>6、《市场研究定量分析方法与应用》，简明等编著，中国人民大学出版社。<br>7、《问卷统计分析实务—SPSS操作与应用》，吴明隆著，重庆大学出版社。在市场调查领域比较出名的一本书，对问卷调查数据分析讲解比较详细。</p>
+<h1 id="查漏补缺"><a href="#查漏补缺" class="headerlink" title="查漏补缺"></a>查漏补缺</h1><p>点数据组其实可以看出n*2矩阵，即[[2,3],[3,2]] == [2,3;3,2]python中没有用分号分隔。<br>Python3.5中：iteritems变为items<br>axis=0表述列<br>axis=1表述行</p>
+<h2 id="k-近邻算法（kNN）"><a href="#k-近邻算法（kNN）" class="headerlink" title="k-近邻算法（kNN）"></a>k-近邻算法（kNN）</h2><h3 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h3><p>1）为了判断未知实例的类别，以所有已知类别的实例作为参照<br>2）选择参数K<br>3）计算未知实例与所有已知实例的距离<br>4）排序后选择最近K个已知实例<br>5）根据少数服从多数的投票法则(majority-voting)，让未知实例归类为K个最邻近样本中最多数的类别</p>
+<h3 id="作者：Luau-Lawrence"><a href="#作者：Luau-Lawrence" class="headerlink" title="作者：Luau Lawrence"></a>作者：Luau Lawrence</h3><p>链接：<a href="https://www.zhihu.com/question/35992297/answer/67009652" target="_blank" rel="noopener">https://www.zhihu.com/question/35992297/answer/67009652</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>PRML究竟有何过人之处，不能光看它本身的内容，最重要的是看其在Machine Learning, Data Mining这一类书籍中的地位。通常从一个CS小白开始学Machine Learning或者Data Mining，到成长为一个独当一面的大牛，都会看几种类型的书：以《数学之美》为代表的科普类读物。通常作用为开发兴趣的。《机器学习实战》、《推荐系统实践》、《海量数据挖掘》等实践类书籍。在学中用，在用中学，实践中摸清套路。顺便了解一些基本模型。《统计学习方法》、《数据挖掘导论》、《数据挖掘（韩家炜）》等介绍类书籍。会对ML方面涉及到的技术做一个浅层次的介绍和全方位的了解，有少量数学内容和推导。《PRML》、《ESL》、《MLAPP》这类进阶类书籍。包涵大量理论知识和数学推导（尤其是习题），有助于了解Machine Learning方法背后的本质和思想。Machine Learning学习的过程，就是一个 what -&gt; how -&gt; why 的过程。而PRML，或者说同类的ESL等书籍，最大的作用就是让你知道为什么会有这样的方法，为什么会有这样的模型，它背后的intuition和motivation是什么。而这恰恰是一个Machine Learning Researcher想要进一步使用模型、看懂别人paper中的模型、甚至自己提出新模型的基础。看PRML会带给你在Machine Learning上的理解和使用能力一个质的飞跃。而在同一层次上，比如PRML和ESL相比，我个人认为，PRML涵盖面更广，语言更通俗，例子和习题更加详细，附带更多基础性的讲解和指引（比如第二章整章都在介绍概率分布），难度梯度设置更为合理，是其深受广大中老年PHD朋友喜爱的原因。可以说，PRML是一本兼顾广度、深度、可读性、可用性（做习题）的好书。</p>
+<h1 id="20170823"><a href="#20170823" class="headerlink" title="20170823"></a>20170823</h1><p>C:\Users\某某某.keras  tensorflow改为theano<br>Tensorflow、theano官网都明确说明暂不支持python3.6，建议使用Anaconda创建python3.5环境来测试。<br>老老实实pip　install　keke<br>在python3.6 下用pip3 install keras也没有问题呀，挺好装的。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul>
+<li>坐标轴显示中文</li>
+<li>图例显示</li>
+<li>tile函数：倒着看，tile(a,[2,3])  #第一维重复3遍，然后重复两遍</li>
+<li><h1 id="导入文件数据-np-loadtxt"><a href="#导入文件数据-np-loadtxt" class="headerlink" title="导入文件数据  np.loadtxt"></a>导入文件数据  np.loadtxt</h1></li>
+<li>注意K-means和kNN算法的区别</li>
+<li><a href="http://tools.antlm.com/" target="_blank" rel="noopener">http://tools.antlm.com/</a></li>
+<li><a href="http://blog.csdn.net/linzch3/article/details/76038172?locationNum=9&amp;fps=1" target="_blank" rel="noopener">http://blog.csdn.net/linzch3/article/details/76038172?locationNum=9&amp;fps=1</a><br>数据处理时常用函数：strip、split、append、len、range、open、readlines、read、readline、<br>encoding、type、shape、reshape</li>
+<li>f和lf的区别</li>
+<li>plt.rcParams[‘font.sans-serif’]=[‘SimHei’] #用来正常显示中文标签</li>
+<li>plt.rcParams[‘axes.unicode_minus’]=False #用来正常显示负号</li>
+</ul>
+<p>kernel核心<br>Titanic泰坦尼克号<br>get start入门<br>overview概述<br>leaderboard排行榜<br>tutorial教程<br>Frequently Asked Questions常见问题<br>maiden voyage首航期间<br>infamous shipwreck臭名昭着<br>ship船舶<br>sensational tragedy耸人听闻的悲剧<br>iceberg冰山<br>sink沉没<br>collid相撞<br>shipwreck<br>lifeboat救生艇<br>crew船员<br>gender性别<br>Variable    Definition<br>cabin<br>Embarkation</p>
+<p>.ix is deprecated. Please use.loc for label based indexing or.iloc for positional indexing</p>
+<p>Braund, Mr. Owen Harris这是什么名字？？</p>
+<p>今年上半年，爱奇艺在头部版权内容布局上秉承开放创新的生态理念，并以差异化的题材、高品质的剧集作品始终领跑全网。此前，《人民的名义》《楚乔传》《欢乐颂》等大剧在爱奇艺平台播出，在强平台运营力全面加持下从流量到口碑受到了行业人与用户的高度肯定，其中爱奇艺《楚乔传》以破百亿的成绩成为今年炙手可热的顶级头部剧集。而在自制内容方面《河神》《盲侠大律师》《鬼吹灯之牧野诡事》等一系列精品自制剧，更是比肩“美剧”品质，广受权威媒体力赞，成为行业品质剧集的“范本”。此番，爱奇艺全网独播《轩辕剑之汉之云》取得的优秀口碑成绩，再次证明的爱奇艺强大的平台运营力与推动力。进入今年下半场，无论是头部版权剧集还是精品自制内容，爱奇艺将继续发挥强平台的运营力，通过差异化排播模式、多元化题材优势不断生产并吸收创新型头部内容，助推影视市场持续优化发展。</p>
+<p>轩辕剑十八集完</p>
+<p>看课程:<a href="https://www.coursera.org/" target="_blank" rel="noopener">https://www.coursera.org/</a><br>在线Code:<a href="http://www.codecademy.com/zh/" target="_blank" rel="noopener">http://www.codecademy.com/zh/</a><br>通过游戏code:<a href="http://codecombat.com/" target="_blank" rel="noopener">http://codecombat.com/</a></p>
+<p>LeetCode Online Judge，支持 Python，我也是以前看到的：Leetcode 编程训练 | 酷 壳 - CoolShell.cn</p>
+<p>还有在 Github 上看到的一个，不过作者好像没有更新下去，现在有 24 个小题目：Show-Me-the-Code/show-me-the-code</p>
+<p>用什么语言昵？？？<br>java、python、c++、c、c#、PHP、JS、VB.NET<br>还记得曾经在codeforces上的特别比赛吗？一场比赛中的题目解决语言不能重复。<br>leetcode<br>PythonTip<br>计蒜客<br>山东理工ACM主页<br>hdoj<br>neuqoj</p>
+<p><a href="http://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html</a><br>函数式编程<br>腾讯课堂<br>C:\Users\Administrator\AppData\Roaming\npm\node_modules\hexo-cli\node_modules\hexo-util<br><a href="https://coding.net/help/doc/pages/getting-started.html" target="_blank" rel="noopener">https://coding.net/help/doc/pages/getting-started.html</a><br><a href="https://pages.coding.net/" target="_blank" rel="noopener">https://pages.coding.net/</a><br><a href="http://www.cnblogs.com/kidsitcn/p/4557548.html" target="_blank" rel="noopener">http://www.cnblogs.com/kidsitcn/p/4557548.html</a><br><a href="http://blog.csdn.net/tonydandelion2014/article/details/61615898" target="_blank" rel="noopener">http://blog.csdn.net/tonydandelion2014/article/details/61615898</a></p>
+<p><a href="http://blog.csdn.net/w0612w/article/details/50879922" target="_blank" rel="noopener">http://blog.csdn.net/w0612w/article/details/50879922</a><br><a href="http://blog.csdn.net/weixin_36401046/article/details/52940313" target="_blank" rel="noopener">http://blog.csdn.net/weixin_36401046/article/details/52940313</a><br><a href="http://blog.csdn.net/wx_962464/article/details/44786929" target="_blank" rel="noopener">http://blog.csdn.net/wx_962464/article/details/44786929</a><br><a href="http://blog.csdn.net/seven_2016/article/details/53587769" target="_blank" rel="noopener">http://blog.csdn.net/seven_2016/article/details/53587769</a></p>
+<p><a href="https://www.baidu.com/home/news/data/newspage?nid=21128381400542231&amp;n_type=0&amp;p_from=1&amp;dtype=-1" target="_blank" rel="noopener">https://www.baidu.com/home/news/data/newspage?nid=21128381400542231&amp;n_type=0&amp;p_from=1&amp;dtype=-1</a></p>
+<p>缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br>npm i hexo-generator-json-content –save</p>
+<p>3、在根目录_config.yml里添加配置：<br>  jsonContent:<br>    meta: false<br>    pages: false<br>    posts:<br>      title: true<br>      date: true<br>      path: true<br>      text: false<br>      raw: false<br>      content: false<br>      slug: false<br>      updated: false<br>      comments: false<br>      link: false<br>      permalink: false<br>      excerpt: false<br>      categories: false<br>      tags: true</p>
+<p><a href="http://blog.csdn.net/melordljm/article/details/51985129" target="_blank" rel="noopener">http://blog.csdn.net/melordljm/article/details/51985129</a><br><a href="http://blog.csdn.net/xuezhisdc/article/details/53130383" target="_blank" rel="noopener">http://blog.csdn.net/xuezhisdc/article/details/53130383</a><br><a href="https://cczeng.github.io/" target="_blank" rel="noopener">https://cczeng.github.io/</a><br>CountDownLatch<br>markdown中加入#！可以显示行号</p>
+<blockquote>
+<p>可以高亮显示</p>
+</blockquote>
+<p>import sys<br>reload(sys)<br>sys.setdefaultencoding(‘gbk’)<br>解决中文问题<br>python定义的函数不调用不会执行<br>html5实现上传和下载功能失败！！！<br>河神全集完<br>轩辕剑22集完</p>
+<p>天天美剧<br>美剧天堂<br><a href="http://www.jianshu.com/p/f42fabdf9e8b" target="_blank" rel="noopener">http://www.jianshu.com/p/f42fabdf9e8b</a><br>hexo的rss<br><a href="http://blog.csdn.net/u011303443/article/details/52333695" target="_blank" rel="noopener">http://blog.csdn.net/u011303443/article/details/52333695</a><br><a href="http://blog.csdn.net/czfbxcg/article/details/50939999" target="_blank" rel="noopener">http://blog.csdn.net/czfbxcg/article/details/50939999</a><br><a href="http://jingyan.baidu.com/article/e52e3615aac99740c60c5129.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/e52e3615aac99740c60c5129.html</a><br><a href="http://www.cnblogs.com/moondark/p/3607825.html" target="_blank" rel="noopener">http://www.cnblogs.com/moondark/p/3607825.html</a></p>
+<p>走投无路，自杀。对面得不到钱，而且复活时间减半<br>自杀，周围队友加血，牺牲小我，完成大我的一种无私奉献的精神！</p>
+<p>大学室友玩虐杀原形，对面寝室那个觉得有趣就一直看着。我室友问了他一句，画质还行吧？他呵呵一笑，我这游戏虐的你渣都不省。然后打开了dnf </p>
+<p>在浏览器地址栏中输入网关地址回车之后即可打开连接到路由器的登录界面</p>
+<p>配合一下Google BBR效果更佳：<a href="https://www.vultr.com/docs/how-to-deploy-google-bbr-on-centos-7" target="_blank" rel="noopener">https://www.vultr.com/docs/how-to-deploy-google-bbr-on-centos-7</a></p>
+<p>照片我没删，我只是加密了；东西我没丢，我把它们装进了那个大箱子里；而你，我也没忘，我把你整理好，放进了那些情歌里。</p>
+<p>我爱你，就算你满嘴谎言，仍有我痴心不变。 我爱你，在我死了以后把我的骨灰带在身上，遇到坏人就扬出去，让我再保护你最后一次。 我爱你，为了寻找你，我搬进鸟的眼睛，经常盯着路过的风，也忘了听猎人的枪声。 我爱你，就算你一身污秽如刺猬，也有我双手拥抱不忌讳。 我爱你。好想学一种可以伴你一生的咒语，哪怕是做你的宠物狗也可以。 我爱你，如果我此生只能给你拥抱，和不放开你的手，你愿不愿意跟我走。 我爱你，如果有一天你觉得越相爱越是场意外那就请你悄悄在月光下找个男孩把我取代。 我爱你，你用半生温柔，相濡以沫陪我赌，我又怎么舍得让你输。 我爱你，找个机会把这三个字还给我吧。 我爱你，别为了不属于你的观众，演绎你不擅长的人生，反正谢幕后的每次相逢，都有我捧着鲜花，把你拥入怀中。 我爱你，又很遗憾没人证明。可这份爱已如鲸投海，如鸟投林。可这份爱已经无可避免，退无可退了。</p>
+<p>大话西游之爱你一万年27集完<br>轩辕剑56集完<br>母亲曾患肺结核导致左肺坏死，至今左肺部分是用肺支架撑起，不宜劳动，常年吃药养病。家庭的唯一经济来源于父亲。</p>
+<p><a href="http://derekwangyue.blog.sohu.com/246727527.html" target="_blank" rel="noopener">chrome打不开https</a><br><a href="http://blog.csdn.net/mengke1124/article/details/52766270" target="_blank" rel="noopener">chrome打不开https</a><br>当亲密度满600时才会在loading时显示标志。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-25T12:48:51.745Z" itemprop="dateUpdated">2018-07-25 20:48:51</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/01/15/20180115CPU/" target="_blank" rel="external">https://hankin2015.github.io/2018/01/15/20180115CPU/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CPU/">CPU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/处理器/">处理器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/01/15/20180115CPU/&title=《电脑处理器核数和逻辑处理器》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/01/15/20180115CPU/&title=《电脑处理器核数和逻辑处理器》 — HanKin的博客&source=德国宝马汽车公司主要生产三种汽车，一是轿车，分3、5、7系；二是越野车，为X5系；三是敞篷跑车，分Z3、Z8系；四是硬顶跑车，有M系等。    宝马轿车的..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/01/15/20180115CPU/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《电脑处理器核数和逻辑处理器》 — HanKin的博客&url=https://hankin2015.github.io/2018/01/15/20180115CPU/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/01/15/20180115CPU/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/15/20180106Spark/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Spark从零开始</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/15/20180320regex/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">C++使用正则表达式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/01/15/20180115CPU/&title=《电脑处理器核数和逻辑处理器》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/01/15/20180115CPU/&title=《电脑处理器核数和逻辑处理器》 — HanKin的博客&source=德国宝马汽车公司主要生产三种汽车，一是轿车，分3、5、7系；二是越野车，为X5系；三是敞篷跑车，分Z3、Z8系；四是硬顶跑车，有M系等。    宝马轿车的..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/01/15/20180115CPU/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《电脑处理器核数和逻辑处理器》 — HanKin的博客&url=https://hankin2015.github.io/2018/01/15/20180115CPU/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/01/15/20180115CPU/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/01/15/20180115CPU/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

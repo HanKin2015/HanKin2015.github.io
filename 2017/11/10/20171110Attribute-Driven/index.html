@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Attribute-Driven Community Search | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Search,Social Network">
+    <meta name="description" content="十九大心得体会：“雄关漫道真如铁，而今漫步从头越”。不忘初心，牢记使命。新的时代、新的思想、新的征程，更需要新的作为。不忘初心，方得始终。“空谈误国、实干兴邦”，比实绩不比态度。敢于担当、勇于担当、善于担当，在工作学习当中做出实绩，成为一名老师放心、同学信任、组织满意的中国共产党人。">
+<meta name="keywords" content="Search,Social Network">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Attribute-Driven Community Search">
+<meta property="og:url" content="https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="十九大心得体会：“雄关漫道真如铁，而今漫步从头越”。不忘初心，牢记使命。新的时代、新的思想、新的征程，更需要新的作为。不忘初心，方得始终。“空谈误国、实干兴邦”，比实绩不比态度。敢于担当、勇于担当、善于担当，在工作学习当中做出实绩，成为一名老师放心、同学信任、组织满意的中国共产党人。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-25T07:35:27.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Attribute-Driven Community Search">
+<meta name="twitter:description" content="十九大心得体会：“雄关漫道真如铁，而今漫步从头越”。不忘初心，牢记使命。新的时代、新的思想、新的征程，更需要新的作为。不忘初心，方得始终。“空谈误国、实干兴邦”，比实绩不比态度。敢于担当、勇于担当、善于担当，在工作学习当中做出实绩，成为一名老师放心、同学信任、组织满意的中国共产党人。">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Attribute-Driven Community Search</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Attribute-Driven Community Search</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-10T06:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-11-10
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Social-Network/">Social Network</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ABSTRACT"><span class="post-toc-number">1.</span> <span class="post-toc-text">ABSTRACT</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-INTRODUCTION"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. INTRODUCTION</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-PRELIMINARIES-AND-DESIDERATA"><span class="post-toc-number">3.</span> <span class="post-toc-text">2. PRELIMINARIES AND DESIDERATA</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-Preliminaries"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2.1 Preliminaries</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-Desiderata-of-a-good-community"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.2 Desiderata of a good community</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-RELATED-WORK"><span class="post-toc-number">4.</span> <span class="post-toc-text">3. RELATED WORK</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171110Attribute-Driven"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Attribute-Driven Community Search</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-10 14:47:41" datetime="2017-11-10T06:47:41.000Z"  itemprop="datePublished">2017-11-10</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Social-Network/">Social Network</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>十九大心得体会：“雄关漫道真如铁，而今漫步从头越”。不忘初心，牢记使命。新的时代、新的思想、新的征程，更需要新的作为。不忘初心，方得始终。“空谈误国、实干兴邦”，比实绩不比态度。敢于担当、勇于担当、善于担当，在工作学习当中做出实绩，成为一名老师放心、同学信任、组织满意的中国共产党人。<br><a id="more"></a></p>
+<h1 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h1><ul>
+<li>analysis of protein-protein interaction (PPI) networks,</li>
+<li>citation graphs</li>
+<li><p>collaboration networks</p>
+<p>finding attributed truss communities (ATC), i.e., finding connected and close k-truss subgraphs containing Vq, with the largest attribute relevance score. </p>
+</li>
+</ul>
+<p>we develop an efficient greedy algorithmic framework to iteratively remove nodes with the least popular attributes, and shrink the graph into an ATC. In addition, we also build an elegant index to maintain k-truss structure and attribute information, and propose effi-cient query processing algorithms. </p>
+<h1 id="1-INTRODUCTION"><a href="#1-INTRODUCTION" class="headerlink" title="1. INTRODUCTION"></a>1. INTRODUCTION</h1><p>a collaboration network. The nodes qi, vj , … represent authors. Node attributes (e.g., DB, ML) represent authors’topics of expertise. </p>
+<p>Previous community search methods include those based on k-core [32, 26, 10], k-truss [19], and 1.0-quasi-k-clique-l-adjacent community [9]. A k-core [26] is a subgraph in which each vertex has at least k neighbors within the subgraph. A k-truss [19] is a subgraph in which each edge is contained in at least (k−2) triangles within the subgraph. The 1.0-quasi-k-clique- l-adjacent community model [9] allows two k-cliques overlapping in ` vertices to be merged into one community. </p>
+<p>an attributed truss community (ATC) model. Given a query Q = (Vq, Wq) consisting of a set of query nodes Vq and a set of query attributes Wq, a good community H must be a dense subgraph which contains all query nodes and attributes Wq must be contained in numerous nodes of the community. </p>
+<p>This algorithm first generates a Steiner tree connecting all query nodes.</p>
+<h1 id="2-PRELIMINARIES-AND-DESIDERATA"><a href="#2-PRELIMINARIES-AND-DESIDERATA" class="headerlink" title="2. PRELIMINARIES AND DESIDERATA"></a>2. PRELIMINARIES AND DESIDERATA</h1><h2 id="2-1-Preliminaries"><a href="#2-1-Preliminaries" class="headerlink" title="2.1 Preliminaries"></a>2.1 Preliminaries</h2><ul>
+<li>an undirected, unweighted simple graph G = (V, E) with n = |V (G)| vertices and m = |E(G)| edges. </li>
+<li>the set of neighbors of a vertex v by N(v).</li>
+<li>the degree of v by d(v) = |N(v)|. </li>
+<li>d<em>{max} = max</em>{v∈V} d(v) denote the maximum vertex degree in G.</li>
+<li>the set of all attributes in a graph by A.</li>
+<li>Each node v ∈ V contains a set of zero or more attributes, denoted by attr(v) ⊆ A.</li>
+<li>We use V_w ⊆ V to denote the set of nodes having attribute w, i.e., Vw = {v ∈ V | w ∈ attr(v)}.</li>
+</ul>
+<h2 id="2-2-Desiderata-of-a-good-community"><a href="#2-2-Desiderata-of-a-good-community" class="headerlink" title="2.2 Desiderata of a good community"></a>2.2 Desiderata of a good community</h2><p>the attributed community search (ACS) problem is to find a subgraph H ⊆ G containing all query nodes Vq, where the vertices are densely inter-connected, cover as many query attributes Wq as possible and share numerous attributes.</p>
+<p>the commonly accepted desiderata of a good attributed community.<br>an attributed community is a connected subgraph H = (V (H), E(H)) ⊆ G</p>
+<ol>
+<li>(Participation) H contains all query nodes as Vq ⊆ V (H);</li>
+<li>(Cohesiveness) A cohesiveness function coh(H) that measures the cohesive structure of H is high.</li>
+<li>(Attribute Coverage and Correlation) An attribute score function f(H, Wq) that measures the coverage and correlation of query attributes in vertices of H is high.</li>
+<li>(Communication Cost) A communication cost function com(H) that measures the distance of vertices in H is low.</li>
+</ol>
+<h1 id="3-RELATED-WORK"><a href="#3-RELATED-WORK" class="headerlink" title="3. RELATED WORK"></a>3. RELATED WORK</h1><ul>
+<li>Community Search</li>
+<li>Keyword Search</li>
+<li>Team Formation</li>
+<li>Community Detection in Attributed Graphs.</li>
+</ul>
+<p>未完不待续。。。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-02-25T07:35:27.192Z" itemprop="dateUpdated">2018-02-25 15:35:27</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/11/10/20171110Attribute-Driven/" target="_blank" rel="external">https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Search/">Search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Social-Network/">Social Network</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/&title=《Attribute-Driven Community Search》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/&title=《Attribute-Driven Community Search》 — HanKin的博客&source=十九大心得体会：“雄关漫道真如铁，而今漫步从头越”。不忘初心，牢记使命。新的时代、新的思想、新的征程，更需要新的作为。不忘初心，方得始终。“空谈误国、实干..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Attribute-Driven Community Search》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/15/20171201hiho-2/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Sublime Text3</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/08/20171108ktruss2/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Truss-based Community Search:a Truss-equivalence Based Indexing Approach</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/&title=《Attribute-Driven Community Search》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/&title=《Attribute-Driven Community Search》 — HanKin的博客&source=十九大心得体会：“雄关漫道真如铁，而今漫步从头越”。不忘初心，牢记使命。新的时代、新的思想、新的征程，更需要新的作为。不忘初心，方得始终。“空谈误国、实干..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Attribute-Driven Community Search》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/11/10/20171110Attribute-Driven/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

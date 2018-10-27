@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>分布并行计算机技术作业 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Sublime">
+    <meta name="description" content="超级详细的Hadoop和Spark 开发环境搭建马士兵的hadoop环境搭建视频也不错 测试是否可以上网wget http://www.scala-lang.org/download/或者ping www.baidu.com 哈希吧，一开始master和slave123之间互相ping不通，但是slave123之间互相能ping通，而且主机和所有虚拟机之间都能互相ping通。但是，启动集群后或者是">
+<meta name="keywords" content="Sublime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布并行计算机技术作业">
+<meta property="og:url" content="https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="超级详细的Hadoop和Spark 开发环境搭建马士兵的hadoop环境搭建视频也不错 测试是否可以上网wget http://www.scala-lang.org/download/或者ping www.baidu.com 哈希吧，一开始master和slave123之间互相ping不通，但是slave123之间互相能ping通，而且主机和所有虚拟机之间都能互相ping通。但是，启动集群后或者是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-20T12:47:03.740Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分布并行计算机技术作业">
+<meta name="twitter:description" content="超级详细的Hadoop和Spark 开发环境搭建马士兵的hadoop环境搭建视频也不错 测试是否可以上网wget http://www.scala-lang.org/download/或者ping www.baidu.com 哈希吧，一开始master和slave123之间互相ping不通，但是slave123之间互相能ping通，而且主机和所有虚拟机之间都能互相ping通。但是，启动集群后或者是">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">分布并行计算机技术作业</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">分布并行计算机技术作业</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-06T13:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-01-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#测试是否可以上网"><span class="post-toc-number">1.</span> <span class="post-toc-text">测试是否可以上网</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一步：搭建虚拟机Hadoop环境不少于5台计算机，一台master，其余分别叫slave1、slave2、slave3、slave4、slave5。"><span class="post-toc-number">2.</span> <span class="post-toc-text">第一步：搭建虚拟机Hadoop环境不少于5台计算机，一台master，其余分别叫slave1、slave2、slave3、slave4、slave5。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第二步：搭建Spark环境"><span class="post-toc-number">3.</span> <span class="post-toc-text">第二步：搭建Spark环境</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解压-tar-gz出错gzip-stdin-not-in-gzip-format-tar"><span class="post-toc-number">4.</span> <span class="post-toc-text">解压.tar.gz出错gzip: stdin: not in gzip format tar</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据集详细说明"><span class="post-toc-number">5.</span> <span class="post-toc-text">数据集详细说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#交替最小二乘推荐算法"><span class="post-toc-number">6.</span> <span class="post-toc-text">交替最小二乘推荐算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备数据"><span class="post-toc-number">7.</span> <span class="post-toc-text">准备数据</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180106ParallelComputeHomework"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">分布并行计算机技术作业</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-06 21:47:41" datetime="2018-01-06T13:47:41.000Z"  itemprop="datePublished">2018-01-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><a href="https://www.jianshu.com/p/e84d0973099f" target="_blank" rel="noopener">超级详细的Hadoop和Spark 开发环境搭建</a><br><a href="http://www.mashibing.com/hadoop_install.html" target="_blank" rel="noopener">马士兵的hadoop环境搭建视频也不错</a></p>
+<h1 id="测试是否可以上网"><a href="#测试是否可以上网" class="headerlink" title="测试是否可以上网"></a>测试是否可以上网</h1><p>wget <a href="http://www.scala-lang.org/download/" target="_blank" rel="noopener">http://www.scala-lang.org/download/</a><br>或者ping www.baidu.com</p>
+<p>哈希吧，一开始master和slave123之间互相ping不通，但是slave123之间互相能ping通，而且主机和所有虚拟机之间都能互相ping通。但是，启动集群后或者是其他操作后，一脸懵逼的发现能ping通了。不知道什么原因，可能是mac地址冲突吧。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  好久没写博客了，这两天做实验：</span><br><span class="line">1、起初一台电脑上装了win7系统，里面装了vmware虚拟机，并在虚拟机中虚拟了一台linux系统；</span><br><span class="line">2、由于实验需要，遂在另一台win7系统上也装了个vmware；</span><br><span class="line">3、将第一台电脑里面linux虚拟机目录直接拷贝到了第二台电脑里，并在第二台电脑中打开了vmware，用其打开拷贝过来的虚拟机时，选择了&quot;I move it“。</span><br><span class="line">4、之后两台电脑直连，并配置两个虚拟机中的地址在同一网段，结果无法ping通；</span><br><span class="line">5、各种原因排查无果之后，发现可能是复制过程中，两个虚拟机的网卡mac地址一样了，导致无法ping通，因此，修改第二台虚拟机的网卡mac地址，问题解决！</span><br><span class="line"></span><br><span class="line">    vmware虚拟机mac地址修改方法：</span><br><span class="line">  找到虚拟机目录下的.vmx文件，打开，然后修改以下两行：</span><br><span class="line"> ethernet0.generatedAddress = &quot;00:0c:29:1c:35:cc&quot;</span><br><span class="line">   uuid.bios = &quot;56 4d e0 c4 a2 41 24 1b-5b 6e 4b a0 0b 1c:35:cc&quot;</span><br><span class="line">    注释：</span><br><span class="line">     其中 00:0c:29: 不能够修改</span><br><span class="line">          1c:35:cc可以修改</span><br><span class="line"></span><br><span class="line">PS:下次注意，在复制了虚拟机目录之后，并采用vmware打开时，如果复制前的虚拟机也打算使用，那么此处一定要选择&quot;I copy it”，如果是因为换电脑等原因，原来的虚拟机不再使用了，那么才选择&quot;I move it“。</span><br></pre></td></tr></table></figure>
+<p>#<br><!--more--><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">2017级“分布并行计算机技术”试卷</span><br><span class="line">学号：                姓名：                  专业：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">利用不少于5台计算机组成集群系统，在同一硬件环境下，分别利用不同的软件平台进行大数据并行处理。</span><br><span class="line">设计与实现内容：</span><br><span class="line">1.自己下载或利用各自实验室已有的数据集（不小于100MB），编程实现大数据并行处理功能，撰写完整的设计、实验文档。编程语言自定。</span><br><span class="line">2. 对数据集进行详细说明，具体定义并行处理需求。</span><br><span class="line">3. 撰写Hadoop环境安装及在该平台下的程序设计文档。</span><br><span class="line">4. 撰写Spark环境安装及该平台下的程序设计文档。</span><br><span class="line">5. 实验结果对比分析与优化建议。</span><br><span class="line"></span><br><span class="line">要求：</span><br><span class="line">1．不需要单独的封面（本页为第1页及封面）</span><br><span class="line">2．A4纸张纵向打印（最好双面打印）</span><br><span class="line">3．左侧装订</span><br><span class="line">4．正文小四号宋体，1.25倍行距</span><br><span class="line">5．提交截止日期：2018年1月31日（过期无效）</span><br><span class="line">6．提交方式：纸质版+电子版</span><br><span class="line">7．提交地址：B603，希望班长收齐后统一提交</span><br><span class="line">8．电子版提交内容：文档及源程序、执行程序和数据集</span><br><span class="line">9．文件名：</span><br><span class="line">文档名：学号-姓名-分布并行计算机技术.docx</span><br><span class="line">数据集：学号-姓名-数据集及源程序名称（可为文件夹名）</span><br><span class="line">   上述红色斜体部分用具体内容代替，-为半角符号。</span><br><span class="line">不符合上述要求者将以0分计</span><br></pre></td></tr></table></figure></p>
+<h1 id="第一步：搭建虚拟机Hadoop环境不少于5台计算机，一台master，其余分别叫slave1、slave2、slave3、slave4、slave5。"><a href="#第一步：搭建虚拟机Hadoop环境不少于5台计算机，一台master，其余分别叫slave1、slave2、slave3、slave4、slave5。" class="headerlink" title="第一步：搭建虚拟机Hadoop环境不少于5台计算机，一台master，其余分别叫slave1、slave2、slave3、slave4、slave5。"></a>第一步：搭建虚拟机Hadoop环境不少于5台计算机，一台master，其余分别叫slave1、slave2、slave3、slave4、slave5。</h1><p>以前跟着马士兵的视频已经搭建好hadoop集群，现在需要的是增加两台salve计算机。<br>1、在虚拟机VertuBOX中右键完全复制slave，分别取名slave4、slave5.<br>2、查看网关地址，改成虚拟机ip地址。vim /etc/sysconfig/network<br>3、设置本机的ip地址。vim /etc/sysconfig/network-sripts/ifcfg-enp0s3<br>4、修改主机名hostnamectl set-hostname master (主机名千万不能有下划线！)，重启生效。<br>5、修改机器的/etc/hosts,让他们通过名字认识对方，测试一下互相用名字可以ping通。<br>6、修改master下的vim /usr/local/hadoop/etc/hadoop/slaves<br>7、格式化配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(1)启动namenode和datanode</span><br><span class="line">master上需要格式化namenode，执行指令：</span><br><span class="line">hadoop namenode -format</span><br><span class="line">(2)启动master上的namenode，在master上执行：</span><br><span class="line">hadoop-daemon.sh start namonode</span><br><span class="line">(3)启动slave上的datanode，在每个slave上执行：</span><br><span class="line">hadoop-daemon.sh start datanode</span><br><span class="line">使用jps查看namenode和datanode的启动情况。</span><br></pre></td></tr></table></figure></p>
+<p>8、<a href="https://www.cnblogs.com/sasan/p/5740367.html" target="_blank" rel="noopener">出现hadoop datanode启动后自动关闭问题</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">方案一：直接格式化hdfs：</span><br><span class="line">关闭hadoop：stop-all.sh</span><br><span class="line">删除tmp:rm -rf hadoop/tmp</span><br><span class="line">从日志中可以看出，原因是因为datanode的clusterID 和 namenode的clusterID 不匹配。</span><br><span class="line">打开hdfs-site.xml里配置的datanode和namenode对应的目录，分别打开current文件夹里的VERSION，可以看到clusterID项正如日志里记录的一样，确实不一致，修改datanode里VERSION文件的clusterID 与namenode里的一致，再重新启动dfs（执行start-dfs.sh）再执行jps命令可以看到datanode已正常启动。</span><br><span class="line">出现该问题的原因：在第一次格式化dfs后，启动并使用了hadoop，后来又重新执行了格式化命令（hdfs namenode -format)，这时namenode的clusterID会重新生成，而datanode的clusterID 保持不变。</span><br><span class="line">解决主机节点 txid不一致问题</span><br><span class="line">把主机下namenode（name文件夹）下的current文件删除或者移走，重新格式化</span><br><span class="line"></span><br><span class="line">很容易出现这个问题，我的解决方法删除tmp：</span><br><span class="line">cat /usr/local/hadoop/etc/hadoop/core-site.xml里面写了hadoop的垃圾文件夹地址</span><br><span class="line">cd /</span><br><span class="line">rm -rf tmp</span><br><span class="line">格式化:hadoop namenode -format</span><br><span class="line">启动:start-all.sh</span><br><span class="line"></span><br><span class="line">存在问题：会删除hdfs的数据；</span><br></pre></td></tr></table></figure></p>
+<p>9、浏览器地址栏输入：<a href="http://192.168.56.100:50070" target="_blank" rel="noopener">http://192.168.56.100:50070</a>    hadoop集群环境完成。</p>
+<h1 id="第二步：搭建Spark环境"><a href="#第二步：搭建Spark环境" class="headerlink" title="第二步：搭建Spark环境"></a>第二步：搭建Spark环境</h1><p>在使用shell连接虚拟机时连接等待时长太长，ssh的服务端在连接时会自动检测dns环境是否一致导致的，修改为不检测即可。<br>1、打开sshd服务的配置文件/etc/ssh/sshd_config，把UseDNS yes,改为UseDNS no<br>2、重启sshd服务 /etc/init.d/sshd restart </p>
+<h1 id="解压-tar-gz出错gzip-stdin-not-in-gzip-format-tar"><a href="#解压-tar-gz出错gzip-stdin-not-in-gzip-format-tar" class="headerlink" title="解压.tar.gz出错gzip: stdin: not in gzip format tar"></a>解压.tar.gz出错gzip: stdin: not in gzip format tar</h1><p><a href="https://www.cnblogs.com/yajing-zh/p/4952940.html" target="_blank" rel="noopener">https://www.cnblogs.com/yajing-zh/p/4952940.html</a><br>阳痿和太监还是不一样的，虽然都是不能<br>String s1=””,s2=null; </p>
+<p>s1.toString();//这个不报错<br>s2.toString();//这个报错</p>
+<h1 id="数据集详细说明"><a href="#数据集详细说明" class="headerlink" title="数据集详细说明"></a>数据集详细说明</h1><p>使 用 Audioscrobbler 公 开 发 布 的 一 个 数 据 集。Audioscrobbler 是 last.fm 的 第一个音乐推荐系统。last.fm 创建于 2002 年，是最早的互联网流媒体广播站点之一。Audioscrobbler 提供了开放的“scrobbling”API，“scrobbling”可以记录听众播放过哪些艺术家的歌曲。last.fm 使用这些音乐播放记录构建了一个强大的音乐推荐引擎。由于第三方应用和网站可以把音乐播放数据反馈给这个推荐引擎，这个推荐引擎系统覆盖了数百万的用户。2005 年 last.fm 发布了该数据集的一个版本，读者可以在网上下载到压缩的归档文件（<a href="http://www-etud.iro.umontreal.ca/~bergstrj/audioscrobbler_data.html" target="_blank" rel="noopener">http://www-etud.iro.umontreal.ca/~bergstrj/audioscrobbler_data.html</a> ）。下载归档文件后，你会发现里面有几个文件。主要的数据集在文件 user_artist_data.txt 中，它包含 141 000 个用户和 160 万个艺术家，记录了约 2420 万条用户播放艺术家歌曲的信息，其中包括播放次数信息。<br>数据集在 artist_data.txt 文件中给出了每个艺术家的 ID 和对应的名字。请注意，记录播放信息时，客户端应用提交的是艺术家的名字。名字如果有拼写错误，或使用了非标准的名称，事后才能被发现。比如，“The Smiths”“Smiths, The”和“the smiths”看似代表不同艺术家的 ID，但它们其实明显是指同一个艺术家。因此，为了将拼写错误的艺术家 ID 或ID 变体对应到该艺术家的规范 ID，数据集提供了 artist_alias.txt 文件。</p>
+<h1 id="交替最小二乘推荐算法"><a href="#交替最小二乘推荐算法" class="headerlink" title="交替最小二乘推荐算法"></a>交替最小二乘推荐算法</h1><p>现在我们要给这个隐式反馈数据选择一个合适的推荐算法。这个数据集只记录了用户和歌曲之间的交互情况。除了艺术家名字外，数据集没有包含用户的信息，也没有提供歌手的其他任何信息。我们要找的学习算法不需要用户和艺术家的属性信息。这类算法通常称为协同过滤算法（<a href="http://en.wikipedia.org/wiki/Collaborative_filtering" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Collaborative_filtering</a> ）。举个例子，根据两个用户的年龄相同来判断他们可能有相似的偏好，这不叫协同过滤。相反，根据两个用户播放过许多相同歌曲来判断他们可能都喜欢某首歌，这才叫协同过滤。<br>Audioscrobbler 数据集包含了数千万条某个用户播放了某个艺术家歌曲次数的信息，看起来是很大。但从另一方面来看数据集又很小而且不充足，因为数据集是稀疏的。虽然数据集覆盖 160 万个艺术家，但平均来算，每个用户只播放了大约 171 个艺术家的歌曲。有的用户只播放过一个艺术家的歌曲。对这类用户，我们也希望算法能给出像样的推荐。毕竟每个用户在某个时刻只能播放一首歌曲。<br>最后，我希望算法的扩展性好，不但能用于构建大型模型，而且推荐速度快。我们通常都要求推荐是接近实时的，也就是在一秒内给出推荐，而不是要等一天。<br>我将用到潜在因素（<a href="http://en.wikipedia.org/wiki/Factor_analysis" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Factor_analysis</a> ）模型中的一种模型，这类模型涉及的范围很广泛。潜在因素模型试图通过数量相对少的未被观察到的底层原因，来解释大量用户和产品之间可观察到的交互。打个比方：有几千个专辑可选，为什么数百万人偏偏只买其中某些专辑？可以用对类别（可能只有数十种）的偏好来解释用户和专辑的关系，其中偏好信息并不能直接观察到，而数据也没有给出这些信息。<br>说得更明确一些，我用的是一种矩阵分解模型（<a href="http://en.wikipedia.org/wiki/Nonnegative_matrix_factorization" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Nonnegative_matrix_factorization</a> ）。数学上，这些算法把用户和产品数据当成一个大矩阵A，矩阵第 i 行和第 j 列上的元素有值，代表用户 i 播放过艺术家 j 的音乐。矩阵 A 是稀疏的：A中大多数元素都是 0，因为相对于所有可能的用户 - 艺术家组合，只有很少一部分组合会出现在数据中。算法将 A 分解为两个小矩阵 X 和 Y 的乘积。矩阵 X 和矩阵 Y 非常“瘦”，因为 A 有很多行和列，但 X 和 Y 的行很多而列很少（列数用 k 表示）。这 k 个列就是潜在因素，用于解释数据中的交互关系。由于 k 的值小，矩阵分解算法只能是某种近似，如图 3-1 所示：</p>
+<p>矩阵分解算法有时称为矩阵补全（matrix completion）算法，因为原始矩阵 A 可能非常稀疏，但乘积 XYT 是稠密的，即使该矩阵存在非零元素，非零元素的数量也非常少。因此模型只是对 A 的一种近似。原始 A 中大量元素是缺失的（元素值为 0），算法为这些缺失元素生成（补全）了一个值，从这个角度讲，我们可以把算法称为模型。</p>
+<h1 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h1><p>1、将三个数据文件全部复制到 HDFS。我的文件放在 /user/ds/ 目录下，启动 sparkshell。<br>构建模型的第一步是了解数据，对数据进行解析或转换，以便在 Spark 中做分析。<br>Spark MLlib 的 ALS 算法实现有一个小缺点：它要求用户和产品的 ID 必须是数值型，并且是 32 位非负整数。这意味着大于 Integer.MAX_VALUE（即 2147483647）的 ID 都是非法的。我们的数据集是否已经满足了这个要求？利用 SparkContext 的 textFile 方法，将数据文件转换成 String 类型的 RDD：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val rawUserArtistData = sc.textFile(&quot;/home/hejian/parallelcompute/user_artist_data.txt&quot;, 3)</span><br></pre></td></tr></table></figure>
+<p>默认情况下，RDD 为每个 HDFS 块生成一个分区，将 HDFS 块大小设为典型的 128 MB 或64 MB。由于 HDFS 文件大小为 400 MB，所以文件被拆为 3 个或 6 个分区。这通常没什么问题，但由于相比简单文本处理，ALS 这类机器学习算法要消耗更多的计算资源，因此减小数据块大小以增加分区个数会更好。减小数据块大小能使 Spark 处理任务时同时使用的处理器核数更多。可以为 textFile 方法设置第二个参数，用这个参数指定一个不同于默认值的分区数，这样就可以将分区数设得大一些。比如，可以考虑将这个参数设为集群处理器总核数。</p>
+<p>文件的每行包含一个用户 ID、一个艺术家 ID 和播放次数，用空格分隔。要计算用户 ID 的统计信息，可以用空格拆分每行，并将第一个值（下标为 0）解析为一个数。方法 stats()返回统计信息对象，包括最大值和最小值。同样我们可以处理艺术家 ID：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rawUserArtistData.map(_.split(&apos; &apos;)(0).toDouble).stats()</span><br><span class="line">rawUserArtistData.map(_.split(&apos; &apos;)(1).toDouble).stats()</span><br></pre></td></tr></table></figure></p>
+<p>打印出的结果统计信息显示，最大的用户 ID 和艺术家 ID 分别为 2443548 和 10794401，都远小于 2147483647，因此没必要对这些 ID 做进一步处理。<br>我们知道，在本章示例中的艺术家名字对应模糊的数值 ID。这些信息包含在 artist_data.txt中。现在 artist_data.txt 包含艺术家 ID 和名字，它们用制表符分隔。但是简单地把文件解析成二元组 (Int,String) 会出错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">val rawArtistData = sc.textFile(&quot;hdfs:///user/ds/artist_data.txt&quot;)</span><br><span class="line">val artistByID = rawArtistData.map &#123; line =&gt;</span><br><span class="line"> val (id, name) = line.span(_ != &apos;\t&apos;)</span><br><span class="line"> (id.toInt, name.trim)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里 span() 用第一个制表符将一行拆分成两部分，接着将第一部分解析为艺术家 ID，剩余部分作为艺术家的名字（去掉了空白的制表符）。文件里有少量行看起来是非法的：有些行没有制表符，有些行不小心加入了换行符。这些行会导致 NumberFormatException，它们不应该有输出结果。<br>然而，map() 函数要求对每个输入必须严格返回一个值，因此这里不能用这个函数。另一种可行的方法是用 filter() 方法删除那些无法解析的行，但这会重复解析逻辑。当需要将每个元素映射为零个、一个或更多结果时，我们应该使用 flatMap() 函数，因为它将每个输入对应的零个或多个结果组成的集合简单展开，然后放入到一个更大的 RDD 中。它可以和 Scala 集合一起使用，也可以和 Scala 的 Option 类一起使用。Option 代表一个值可以不存在，有点儿像只有 1 或 0 的一个简单集合，1 对应子类 Some，0 对应子类 None。因此在以下代码中，虽然 flatMap 中的函数本可以简单返回一个空 List，或一个只有一个元素的 List，但使用 Some 和 None 更合理，这种方法简单明了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">val artistByID = rawArtistData.flatMap &#123; line =&gt;</span><br><span class="line"> val (id, name) = line.span(_ != &apos;\t&apos;)</span><br><span class="line"> if (name.isEmpty) &#123;</span><br><span class="line"> None</span><br><span class="line"> &#125; else &#123;</span><br><span class="line"> try &#123;</span><br><span class="line"> Some((id.toInt, name.trim))</span><br><span class="line"> &#125; catch &#123;</span><br><span class="line"> case e: NumberFormatException =&gt; None</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>artist_alias.txt 将拼写错误的艺术家 ID 或非标准的艺术家 ID 映射为艺术家的正规名字。其<br>中每行有两个 ID，用制表符分隔。这个文件相对较小，有 200 000 个记录。有必要把它转<br>成 Map 集合的形式，将“不良的”艺术家 ID 映射到“良好的”ID，而不是简单地把它作<br>为包含艺术家 ID 二元组的 RDD。这里又有一点小问题：由于某种原因有些行没有艺术家<br>的第一个 ID。这些行将被过滤掉：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">val rawArtistAlias = sc.textFile(&quot;/home/hejian/parallelcompute/artist_alias.txt&quot;) </span><br><span class="line">val artistAlias = rawArtistAlias.flatMap &#123; line =&gt;</span><br><span class="line"> val tokens = line.split(&apos;\t&apos;)</span><br><span class="line"> if (tokens(0).isEmpty) &#123;</span><br><span class="line"> None</span><br><span class="line"> &#125; else &#123;</span><br><span class="line"> Some((tokens(0).toInt, tokens(1).toInt))</span><br><span class="line"> &#125;</span><br><span class="line">&#125;.collectAsMap()</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.spark.mllib.recommendation._</span><br><span class="line">val bArtistAlias = sc.broadcast(artistAlias)</span><br><span class="line">val trainData = rawUserArtistData.map &#123; line =&gt;</span><br><span class="line"> val Array(userID, artistID, count) = line.split(&apos; &apos;).map(_.toInt)</span><br><span class="line"> val finalArtistID =</span><br><span class="line"> bArtistAlias.value.getOrElse(artistID, artistID) </span><br><span class="line"> Rating(userID, finalArtistID, count)</span><br><span class="line">&#125;.cache()</span><br><span class="line"></span><br><span class="line">val model = ALS.trainImplicit(trainData, 10, 5, 0.01, 1.0)</span><br><span class="line">model.userFeatures.mapValues(_.mkString(&quot;, &quot;)).first()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">name := &quot;scala&quot;</span><br><span class="line"></span><br><span class="line">version := &quot;0.1&quot;</span><br><span class="line">//2.12.4</span><br><span class="line">scalaVersion := &quot;2.11.8&quot;</span><br><span class="line"></span><br><span class="line">//注意这里不要在第一个地方写两个%，否则会出现地址spark-core_2.11_2.12,反正会默认在末尾添加_2.12</span><br><span class="line">libraryDependencies ++= Seq(&quot;org.apache.spark&quot; % &quot;spark-core_2.11&quot; % &quot;2.2.1&quot;)</span><br><span class="line"></span><br><span class="line">import org.apache.spark.&#123;SparkConf, SparkContext&#125;</span><br><span class="line"></span><br><span class="line">object WordCount &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val conf = new SparkConf().setAppName(&quot;wordcount&quot;)</span><br><span class="line">    val sc = new SparkContext(conf)</span><br><span class="line"></span><br><span class="line">    val input = sc.textFile(&quot;/home/hejian/spark/testfile/helloSpark&quot;)</span><br><span class="line"></span><br><span class="line">    val lines = input.flatMap(line =&gt; line.split(&quot; &quot;))</span><br><span class="line">    //val count = lines.map(word =&gt; (word, 1)).reduceByKey(_+_)</span><br><span class="line">    val count = lines.map(word =&gt; (word, 1)).reduceByKey&#123;case (x, y) =&gt; x + y&#125;</span><br><span class="line"></span><br><span class="line">    val output = count.saveAsTextFile(&quot;/home/hejian/spark/testfile/helloSparkRes&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启动master<br>./sbin/start-master.sh<br>启动worker<br>./bin/spark-class org.apache.spark.deploy.worker.Worker spark://sklse:7077<br>提交作业<br>./bin/spark-submit  –master spark://sklse:7077 –class WordCount /home/hejian/spark/scala.jar<br>./bin/spark-submit  –master spark://master:7077 –class LogCountBySpark /root/LogCountBySpark.jar</p>
+<p>./bin/spark-submit  –master spark://master:7077 –class LogCountBySpark /home/hejian/parallelcompute/ComputeMusicArtistBySpark/computemusicartistbyspark.jar</p>
+<p>地址相关路径<br><a href="http://192.168.201.17:8080/" target="_blank" rel="noopener">http://192.168.201.17:8080/</a><br><a href="http://192.168.201.171:8081/" target="_blank" rel="noopener">http://192.168.201.171:8081/</a></p>
+<p><a href="https://repo1.maven.org/maven2/org/apache/spark/spark-mllib_2.11/" target="_blank" rel="noopener">https://repo1.maven.org/maven2/org/apache/spark/spark-mllib_2.11/</a></p>
+<p><a href="http://192.168.56.100:8088/cluster" target="_blank" rel="noopener">http://192.168.56.100:8088/cluster</a></p>
+<p><a href="http://itfish.net/article/60727.html" target="_blank" rel="noopener">http://itfish.net/article/60727.html</a></p>
+<p>具体见下面说明：</p>
+<p>管理界面：<a href="http://localhost:8088" target="_blank" rel="noopener">http://localhost:8088</a></p>
+<p>NameNode界面：<a href="http://localhost:50070" target="_blank" rel="noopener">http://localhost:50070</a></p>
+<p>HDFS NameNode界面：<a href="http://localhost:8042" target="_blank" rel="noopener">http://localhost:8042</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-20T12:47:03.740Z" itemprop="dateUpdated">2018-03-20 20:47:03</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/01/06/20180106ParallelComputeHomework/" target="_blank" rel="external">https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/&title=《分布并行计算机技术作业》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/&title=《分布并行计算机技术作业》 — HanKin的博客&source=超级详细的Hadoop和Spark 开发环境搭建马士兵的hadoop环境搭建视频也不错
+测试是否可以上网wget http://www.scala-lan..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《分布并行计算机技术作业》 — HanKin的博客&url=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/15/20180320regex/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">C++使用正则表达式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/06/20180106Hadoop/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hadoop大数据平台架构与实践--基础篇</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/&title=《分布并行计算机技术作业》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/&title=《分布并行计算机技术作业》 — HanKin的博客&source=超级详细的Hadoop和Spark 开发环境搭建马士兵的hadoop环境搭建视频也不错
+测试是否可以上网wget http://www.scala-lan..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《分布并行计算机技术作业》 — HanKin的博客&url=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/01/06/20180106ParallelComputeHomework/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

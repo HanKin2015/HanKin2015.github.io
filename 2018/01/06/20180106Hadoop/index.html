@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Hadoop大数据平台架构与实践--基础篇 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Hadoop">
+    <meta name="description" content="简介大数据时代已经到来，越来越多的行业面临着大量数据需要存储以及分析的挑战。Hadoop，作为一个开源的分布式并行处理平台，以其高扩展、高效率、高可靠等优点，得到越来越广泛的应用。本课旨在培养学员理解Hadoop的架构设计以及掌握Hadoop的运用能力。">
+<meta name="keywords" content="Hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop大数据平台架构与实践--基础篇">
+<meta property="og:url" content="https://hankin2015.github.io/2018/01/06/20180106Hadoop/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="简介大数据时代已经到来，越来越多的行业面临着大量数据需要存储以及分析的挑战。Hadoop，作为一个开源的分布式并行处理平台，以其高扩展、高效率、高可靠等优点，得到越来越广泛的应用。本课旨在培养学员理解Hadoop的架构设计以及掌握Hadoop的运用能力。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img.mukewang.com/5a3b288900016b4b12800720.jpg">
+<meta property="og:updated_time" content="2018-08-14T16:34:19.247Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hadoop大数据平台架构与实践--基础篇">
+<meta name="twitter:description" content="简介大数据时代已经到来，越来越多的行业面临着大量数据需要存储以及分析的挑战。Hadoop，作为一个开源的分布式并行处理平台，以其高扩展、高效率、高可靠等优点，得到越来越广泛的应用。本课旨在培养学员理解Hadoop的架构设计以及掌握Hadoop的运用能力。">
+<meta name="twitter:image" content="https://img.mukewang.com/5a3b288900016b4b12800720.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Hadoop大数据平台架构与实践--基础篇</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Hadoop大数据平台架构与实践--基础篇</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-06T08:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-01-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/大数据分布式/">大数据分布式</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第1章-初识Hadoop"><span class="post-toc-number">2.</span> <span class="post-toc-text">第1章 初识Hadoop</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-Hadoop大数据平台架构与实践-04-06"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1-1 Hadoop大数据平台架构与实践(04:06)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-Hadoop的前世今生-04-44"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">1-2 Hadoop的前世今生(04:44)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-Hadoop的功能与优势-03-30"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">1-3 Hadoop的功能与优势(03:30)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-Hadoop生态系统及版本…-02-39"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">1-4 Hadoop生态系统及版本…(02:39)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第2章-Hadoop安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">第2章 Hadoop安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-安装小结-03-19"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2-4 安装小结(03:19)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第3章-Hadoop的核心-HDFS简介"><span class="post-toc-number">4.</span> <span class="post-toc-text">第3章 Hadoop的核心-HDFS简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-HDFS基本概念-02-23"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">3-1 HDFS基本概念(02:23)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-数据管理策略-02-50"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">3-2 数据管理策略(02:50)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-HDFS中文件的读写操作…-02-46"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">3-3 HDFS中文件的读写操作…(02:46)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-HDFS特点-01-44"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">3-4 HDFS特点(01:44)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-5-HDFS使用-04-22"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">3-5 HDFS使用(04:22)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第4章-Hadoop的核心-MapReduce原理与实…"><span class="post-toc-number">5.</span> <span class="post-toc-text">第4章 Hadoop的核心-MapReduce原理与实…</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第5章-开发Hadoop应用程序"><span class="post-toc-number">6.</span> <span class="post-toc-text">第5章 开发Hadoop应用程序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-1-WordCount单词计数（上）…-02-18"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">5-1 WordCount单词计数（上）…(02:18)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-2-WordCount单词计数（中）-02-26"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">5-2 WordCount单词计数（中）(02:26)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-3-WordCount单词计数（下）-08-16"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">5-3 WordCount单词计数（下）(08:16)</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180106Hadoop"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Hadoop大数据平台架构与实践--基础篇</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-06 16:47:41" datetime="2018-01-06T08:47:41.000Z"  itemprop="datePublished">2018-01-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/大数据分布式/">大数据分布式</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>大数据时代已经到来，越来越多的行业面临着大量数据需要存储以及分析的挑战。Hadoop，作为一个开源的分布式并行处理平台，以其高扩展、高效率、高可靠等优点，得到越来越广泛的应用。本课旨在培养学员理解Hadoop的架构设计以及掌握Hadoop的运用能力。<br><a id="more"></a></p>
+<h1 id="第1章-初识Hadoop"><a href="#第1章-初识Hadoop" class="headerlink" title="第1章 初识Hadoop"></a>第1章 初识Hadoop</h1><h2 id="1-1-Hadoop大数据平台架构与实践-04-06"><a href="#1-1-Hadoop大数据平台架构与实践-04-06" class="headerlink" title="1-1 Hadoop大数据平台架构与实践(04:06)"></a>1-1 Hadoop大数据平台架构与实践(04:06)</h2><p>学习目标：<br>掌握大数据存储与处理技术的原理（理论）<br>掌握Hadoop的使用和开发能力<br>学习建议：<br>《Hadoop技术详解》《Hadoop权威指南》<br>Linux命令、Java编程基础</p>
+<p>1.大数据的相关概念<br>2.Hadoop的架构和运行机制<br>3.实战：Hadoop的安装和配置<br>4.实战：Hadoop开发</p>
+<h2 id="1-2-Hadoop的前世今生-04-44"><a href="#1-2-Hadoop的前世今生-04-44" class="headerlink" title="1-2 Hadoop的前世今生(04:44)"></a>1-2 Hadoop的前世今生(04:44)</h2><p>系统瓶颈：存储容量 读写速率 运行效率<br>google 提出三大关键技术mapreduce Bigtable GFS<br>革命性变化：<br>1、降低成本，普通PC集群；<br>2、硬件故障是常态，利用软件保证高可靠性；<br>3、简化并行计算，无须同步和数据交换</p>
+<p>hadoop:是模拟谷歌的分布式的开源实现，其作用是降低成本，可容错，高效计算<br>容错性：硬件故障是常态，通过软件来保证可靠性</p>
+<h2 id="1-3-Hadoop的功能与优势-03-30"><a href="#1-3-Hadoop的功能与优势-03-30" class="headerlink" title="1-3 Hadoop的功能与优势(03:30)"></a>1-3 Hadoop的功能与优势(03:30)</h2><p>Hadoop=分布式存储+分布式计算<br>包括两个核心组成：<br>HDFS：分布式文件系统，存储海量的数据<br>MapReduce：并行处理框架，实现任务分解和调度。</p>
+<p>优势：高扩展、低成本<br>Hadoop可以用来搭建大型数据仓库，PB级数据的存储、处理、分析、统计等业务</p>
+<h2 id="1-4-Hadoop生态系统及版本…-02-39"><a href="#1-4-Hadoop生态系统及版本…-02-39" class="headerlink" title="1-4 Hadoop生态系统及版本…(02:39)"></a>1-4 Hadoop生态系统及版本…(02:39)</h2><p>Hadoop不仅包括HDFS和MapReduce，还包括一次额开源工具。比如：<br>HIVE，本意是小蜜蜂，轻盈。<br>HBASE，存储结构化数据的分布式数据库。区别于HDFS的一点是，HABASE提供数据的随机读写和实时访问，实现对表数据的读写功能。<br>zookeeper，动物管理员。 监控Hadoop集群里面每个节点的状态，管理整个集群的配置，维护节点之家数据的（一次？依次）性</p>
+<p>hive使sql转成一个hadoop任务去执行，降低hadoop的门槛。<br>hive(sql语句转换工具)   habse(结构型数据，随机写入和实时读取)   zookeeper(监控个节点使用、配置)。<br>habase存储结构化数据的分布式数据库，放弃事务特性，追求更高的扩展。habase提供数据的随机读写和实时访问，实现对表数据的读写功能。<br>zookeeper监控hadoop每个节点的状态，管理集群配置，维护节点间数据的一致性。<br>zookeeper的作用:<br>   1）监控hadoop每个节点的状态<br>   2）管理整个集群的配置<br>   3）维护节点间数据的一致性</p>
+<p>hadoop生态系统：<br>1.hdfs<br>2.mapreduce<br>3.相关开源工具：<br>（1）hive：将简单的sql语句转化为hadoop任务，降低使用hadoop的门槛<br>（2）HBASE：区别于传统数据库：存储结构化数据的分布式数据库，放弃事务特性，追求更高的扩展，它提供数据的随机读写和实时访问，实现对表数据的读写功能<br>（3）zookeeper:监控Hadoop集群里的每个节点的状态，管理整个集群的配置，维护数据节点之间的一致性<br>Hadoop版本最高2.6，初学者建议1.2（ver1.2-稳定）</p>
+<h1 id="第2章-Hadoop安装"><a href="#第2章-Hadoop安装" class="headerlink" title="第2章 Hadoop安装"></a>第2章 Hadoop安装</h1><h2 id="2-4-安装小结-03-19"><a href="#2-4-安装小结-03-19" class="headerlink" title="2-4 安装小结(03:19)"></a>2-4 安装小结(03:19)</h2><p>修改4个配置文件<br>(a) 修改hadoop-env.sh,设置JAVA_HOME<br>(b) 修改core-site.xml,设置hadoop.tmp.dir, dfs.name.dir, fs.default.name<br>(c) 修改mapred-site.xml,设置mapred.job.tracker<br>(d) 修改hdfs-site.xml,设置dfs.data.dir</p>
+<p>hadoop安装步骤：<br>1、安装JDK:apt-get install openjdk-7-jdk；<br>2、设置环境变量：JAVA_HOME、JRE_HOME、CLASSPATH、PATH（在/etc/profile）<br>3、下载hadoop安装包并解压到指定目录下；<br>4、设置环境变量：HADOOP_HOME、PATH（在/etc/profile）<br>5、修改相关配置文件$HADOOP_HOME/conf：<br>1）修改hadoop-env.sh，设置JAVA_HOME；<br>2）修改core-site.xml，设置hadoop.tmp.dir、dfs.name.dir、fs.default.name；<br>3）修改mapred-site.xml，设置mapred.job.tracker；<br>4）修改hdfs-site.xml，设置dfs.data.dir；<br>6、格式化：hadoop namenode -format；<br>7、启动：start-all.sh<br>8、检查：jps</p>
+<h1 id="第3章-Hadoop的核心-HDFS简介"><a href="#第3章-Hadoop的核心-HDFS简介" class="headerlink" title="第3章 Hadoop的核心-HDFS简介"></a>第3章 Hadoop的核心-HDFS简介</h1><h2 id="3-1-HDFS基本概念-02-23"><a href="#3-1-HDFS基本概念-02-23" class="headerlink" title="3-1 HDFS基本概念(02:23)"></a>3-1 HDFS基本概念(02:23)</h2><p>HDFS的文件被分成快进行存储<br>HDFS块的默认大小64MB<br>块是文件村春处理的逻辑单元</p>
+<p>nameNode 是管理节点，用来读取元数据的<br>DataNode是数据节点，用来存储数据的</p>
+<p>HDFS——文件系统<br>MapReduce——并行计算框架</p>
+<p>namenode是管理节点，存放文件元数据，元数据包括两部分：<br>1.文件与数据块的映射表<br>2.数据块与数据节点的映射表<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.mukewang.com/5a3b288900016b4b12800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="3-2-数据管理策略-02-50"><a href="#3-2-数据管理策略-02-50" class="headerlink" title="3-2 数据管理策略(02:50)"></a>3-2 数据管理策略(02:50)</h2><p>hdf数据管理策略：<br>1.hdfs是采用master-slave的模式关管理文件，即一个master(namenade:保存datanode的一些基本信息和元数据)和多个slave(datanode:真正的存贮单元，里面存储了真实数据)<br>2.hdfs默认保存三份文件，有两份保存在同一台机器上，另外一份（备份文件）保存到另外一台机器上，确保当一台机器挂了时能保存数据的存在<br>3.namenade也有一个备用节点：Secondary NameNode,当namenode挂了时secondaryNameNode就变为nameNode的角色进行管理数据<br>4.datandoe会采用心跳的方式时不时的想namenode报告自己的基本信息，比如网络是否正常，运行是否正确常。</p>
+<h2 id="3-3-HDFS中文件的读写操作…-02-46"><a href="#3-3-HDFS中文件的读写操作…-02-46" class="headerlink" title="3-3 HDFS中文件的读写操作…(02:46)"></a>3-3 HDFS中文件的读写操作…(02:46)</h2><p>客户端发出读写请求，namenode根据元数据返回给客户端，下载需要的block并组装<br>HDFS写入文件的流程：<br>1.客户端将文件拆分成块<br>2.客户端通知NameNode,NameNode返回可用的DataNode节点地址<br>3.客户端根据返回的DataNode将数据块写入到可用的DataNode中<br>4.因为数据块要有三份，所以会通过一个复制管道将每个数据块复制出另外两份并保存<br>5.更新元数据NameNode</p>
+<p>HDFS写数据：首先将文件拆分为默认大小64M的块。通知NameNode，找到并返回可用的datanode信息，客户端写入一个后，其他的进行流水线复制。最后更新元数据。</p>
+<p>HDFS读取文件的流程：（1）客户端向namenode发起独立请求，把文件名，路径告诉namenode；（2）namenode查询元数据，并把数据库返回客户端；（3）此时客户端就明白文件包含哪些块，这些块在哪些datanode中可以找到；<br>HDFS写文件流程：（1）客户端把文件拆分成固定大小64M的块，并通知namenode；（2）namenode找到可用的datanode返回给客户端；（3）客户端根据返回的datanode，对块进行写入（4）通过流水线管道流水线复制（5）更新元数据。告诉namenode已经完成了创建心的数据块。保证了namenode中的元数据都是最新的状态。</p>
+<p>HDFS写入文件的流程：<br>1.客户端将文件拆分成块<br>2.客户端通知NameNode,NameNode返回可用的DataNode节点地址<br>3.客户端根据返回的DataNode将数据块写入到可用的DataNode中<br>4.因为数据块要有三份，所以会通过一个复制管道将每个数据块复制出另外两份并保存</p>
+<p>HDFS读取文件的流程：<br>1.客户端向NameNode发送文件读取请求<br>2.NameNode返回元数据给客户端<br>3.客户端读取数据块进行数据组装，得到想要的数据</p>
+<h2 id="3-4-HDFS特点-01-44"><a href="#3-4-HDFS特点-01-44" class="headerlink" title="3-4 HDFS特点(01:44)"></a>3-4 HDFS特点(01:44)</h2><h2 id="3-5-HDFS使用-04-22"><a href="#3-5-HDFS使用-04-22" class="headerlink" title="3-5 HDFS使用(04:22)"></a>3-5 HDFS使用(04:22)</h2><h1 id="第4章-Hadoop的核心-MapReduce原理与实…"><a href="#第4章-Hadoop的核心-MapReduce原理与实…" class="headerlink" title="第4章 Hadoop的核心-MapReduce原理与实…"></a>第4章 Hadoop的核心-MapReduce原理与实…</h1><p>4-1 MapReduce的原理(05:02)<br>4-2 MapReduce的运行流程(06:15)</p>
+<h1 id="第5章-开发Hadoop应用程序"><a href="#第5章-开发Hadoop应用程序" class="headerlink" title="第5章 开发Hadoop应用程序"></a>第5章 开发Hadoop应用程序</h1><h2 id="5-1-WordCount单词计数（上）…-02-18"><a href="#5-1-WordCount单词计数（上）…-02-18" class="headerlink" title="5-1 WordCount单词计数（上）…(02:18)"></a>5-1 WordCount单词计数（上）…(02:18)</h2><p>map:切分<br>   对每个词统计记1次<br>reduce:合并<br>   相同的key放在同一个节点</p>
+<h2 id="5-2-WordCount单词计数（中）-02-26"><a href="#5-2-WordCount单词计数（中）-02-26" class="headerlink" title="5-2 WordCount单词计数（中）(02:26)"></a>5-2 WordCount单词计数（中）(02:26)</h2><h2 id="5-3-WordCount单词计数（下）-08-16"><a href="#5-3-WordCount单词计数（下）-08-16" class="headerlink" title="5-3 WordCount单词计数（下）(08:16)"></a>5-3 WordCount单词计数（下）(08:16)</h2><p>5-4 利用MapReduce进行排序（…(01:22)<br>5-5 利用MapReduce进行排序（…(06:17)<br>5-6 课程总结(01:05)</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-14T16:34:19.247Z" itemprop="dateUpdated">2018-08-15 00:34:19</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/01/06/20180106Hadoop/" target="_blank" rel="external">https://hankin2015.github.io/2018/01/06/20180106Hadoop/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/01/06/20180106Hadoop/&title=《Hadoop大数据平台架构与实践--基础篇》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/01/06/20180106Hadoop/&title=《Hadoop大数据平台架构与实践--基础篇》 — HanKin的博客&source=简介大数据时代已经到来，越来越多的行业面临着大量数据需要存储以及分析的挑战。Hadoop，作为一个开源的分布式并行处理平台，以其高扩展、高效率、高可靠等优..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/01/06/20180106Hadoop/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hadoop大数据平台架构与实践--基础篇》 — HanKin的博客&url=https://hankin2015.github.io/2018/01/06/20180106Hadoop/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/01/06/20180106Hadoop/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/06/20180106ParallelComputeHomework/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">分布并行计算机技术作业</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/05/20180105vim/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vim命令的一些总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/01/06/20180106Hadoop/&title=《Hadoop大数据平台架构与实践--基础篇》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/01/06/20180106Hadoop/&title=《Hadoop大数据平台架构与实践--基础篇》 — HanKin的博客&source=简介大数据时代已经到来，越来越多的行业面临着大量数据需要存储以及分析的挑战。Hadoop，作为一个开源的分布式并行处理平台，以其高扩展、高效率、高可靠等优..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/01/06/20180106Hadoop/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hadoop大数据平台架构与实践--基础篇》 — HanKin的博客&url=https://hankin2015.github.io/2018/01/06/20180106Hadoop/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/01/06/20180106Hadoop/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/01/06/20180106Hadoop/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

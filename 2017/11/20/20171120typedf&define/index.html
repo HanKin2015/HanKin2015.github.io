@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>typedef和define、强类型和弱类型的区别 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C/C++,typedef,define">
+    <meta name="description" content="1、ios::sync_with_stdio(false);">
+<meta name="keywords" content="C&#x2F;C++,typedef,define">
+<meta property="og:type" content="article">
+<meta property="og:title" content="typedef和define、强类型和弱类型的区别">
+<meta property="og:url" content="https://hankin2015.github.io/2017/11/20/20171120typedf&define/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1、ios::sync_with_stdio(false);">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-21T13:04:47.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="typedef和define、强类型和弱类型的区别">
+<meta name="twitter:description" content="1、ios::sync_with_stdio(false);">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">typedef和define、强类型和弱类型的区别</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">typedef和define、强类型和弱类型的区别</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-20T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-11-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-C/">C/C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、ios-sync-with-stdio-false"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、ios::sync_with_stdio(false);</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、define-x-3宏定义，相当于是常数变量-const"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、define x 3宏定义，相当于是常数变量-const</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、强类型和弱类型"><span class="post-toc-number">4.</span> <span class="post-toc-text">5、强类型和弱类型</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6、宏定义-define-和常量-const-的区别"><span class="post-toc-number">5.</span> <span class="post-toc-text">6、宏定义 #define 和常量 const 的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类型和安全检查不同"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">类型和安全检查不同</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译器处理不同"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">编译器处理不同</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#存储方式不同"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">存储方式不同</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义域不同"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">定义域不同</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义后能否取消"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">定义后能否取消</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#是否可以做函数参数"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">是否可以做函数参数</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171120typedf&amp;define"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">typedef和define、强类型和弱类型的区别</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-20 10:47:41" datetime="2017-11-20T02:47:41.000Z"  itemprop="datePublished">2017-11-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-C/">C/C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1、ios-sync-with-stdio-false"><a href="#1、ios-sync-with-stdio-false" class="headerlink" title="1、ios::sync_with_stdio(false);"></a>1、ios::sync_with_stdio(false);</h1><a id="more"></a>
+<h1 id="2、define-x-3宏定义，相当于是常数变量-const"><a href="#2、define-x-3宏定义，相当于是常数变量-const" class="headerlink" title="2、define x 3宏定义，相当于是常数变量-const"></a>2、define x 3宏定义，相当于是常数变量-const</h1><p>1) #define是预处理指令，在编译预处理时进行简单的替换，不作正确性检查，不关含义是否正确照样带入，只有在编译已被展开的源程序时才会发现可能的错误并报错。例如： </p>
+<p>#define PI 3.1415926<br>程序中的：area=PI<em>r</em>r 会替换为3.1415926<em>r</em>r<br>如果你把#define语句中的数字9 写成字母g 预处理也照样带入。 </p>
+<p>2）typedef是在编译时处理的。它在自己的作用域内给一个已经存在的类型一个别名，但是You cannot use the typedef specifier inside a function definition。 </p>
+<p>3）typedef int * int_ptr;<br>与 </p>
+<p>#define int_ptr int <em><br>作用都是用int_ptr代表 int </em> ,但是二者不同，正如前面所说 ，#define在预处理 时进行简单的替换，而typedef不是简单替换 ，而是采用如同定义变量的方法那样来声明一种类型。也就是说; </p>
+<p>//refer to (xzgyb(老达摩)) </p>
+<p>#define int_ptr int <em><br>int_ptr a, b; //相当于int </em> a, b; 只是简单的宏替换 </p>
+<p>typedef int<em> int_ptr;<br>int_ptr a, b; //a, b 都为指向int的指针,typedef为int</em> 引入了一个新的助记符 </p>
+<p>这也说明了为什么下面观点成立<br>//QunKangLi(维护成本与程序员的创造力的平方成正比)<br>typedef int * pint ; </p>
+<p>#define PINT int * </p>
+<p>那么：<br>const pint p ;//p不可更改，但p指向的内容可更改<br>const PINT p ;//p可更改，但是p指向的内容不可更改。 </p>
+<p>pint是一种指针类型 const pint p 就是把指针给锁住了 p不可更改<br>而const PINT p 是const int * p 锁的是指针p所指的对象。 </p>
+<p>3）也许您已经注意到#define 不是语句 不要在行末加分号，否则 会连分号一块置换。</p>
+<h1 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h1><p>#define 没有参加编译，在预处理的时候就被替换掉了。<br>typedef参加编译和链接。<br>typedef是重命名，可以为枚举结构体等等重新命名，提高代码整洁。</p>
+<p>别用typedef了，c++11提供了新的关键字，using AAA = int  ，define也尽量少用</p>
+<h1 id="5、强类型和弱类型"><a href="#5、强类型和弱类型" class="headerlink" title="5、强类型和弱类型"></a>5、强类型和弱类型</h1><p>强类型指的是程序中表达的任何对象所从属的类型都必须能在编译时刻确定。常见的强类型语言有C++、Java、Apex和Python等。强类型语言在大规模信息系统开发中具有巨大优势。</p>
+<p>弱类型语言也称为弱类型定义语言。与强类型定义相反。像vb，php等就属于弱类型语言·</p>
+<h1 id="6、宏定义-define-和常量-const-的区别"><a href="#6、宏定义-define-和常量-const-的区别" class="headerlink" title="6、宏定义 #define 和常量 const 的区别"></a>6、宏定义 #define 和常量 const 的区别</h1><h2 id="类型和安全检查不同"><a href="#类型和安全检查不同" class="headerlink" title="类型和安全检查不同"></a>类型和安全检查不同</h2><p>宏定义是字符替换，没有数据类型的区别，同时这种替换没有类型安全检查，可能产生边际效应等错误；</p>
+<p>const常量是常量的声明，有类型区别，需要在编译阶段进行类型检查</p>
+<h2 id="编译器处理不同"><a href="#编译器处理不同" class="headerlink" title="编译器处理不同"></a>编译器处理不同</h2><p>宏定义是一个”编译时”概念，在预处理阶段展开，不能对宏定义进行调试，生命周期结束与编译时期；</p>
+<p>const常量是一个”运行时”概念，在程序运行使用，类似于一个只读行数据</p>
+<h2 id="存储方式不同"><a href="#存储方式不同" class="headerlink" title="存储方式不同"></a>存储方式不同</h2><p>宏定义是直接替换，不会分配内存，存储与程序的代码段中；</p>
+<p>const常量需要进行内存分配，存储与程序的数据段中</p>
+<h2 id="定义域不同"><a href="#定义域不同" class="headerlink" title="定义域不同"></a>定义域不同</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void f1 ()</span><br><span class="line">&#123;</span><br><span class="line">    #define N 12</span><br><span class="line">    const int n 12;</span><br><span class="line">&#125;</span><br><span class="line">void f2 ()</span><br><span class="line">&#123;</span><br><span class="line">    cout&lt;&lt;N &lt;&lt;endl; //正确，N已经定义过，不受定义域限制</span><br><span class="line">    cout&lt;&lt;n &lt;&lt;endl; //错误，n定义域只在f1函数中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="定义后能否取消"><a href="#定义后能否取消" class="headerlink" title="定义后能否取消"></a>定义后能否取消</h2><p>宏定义可以通过#undef来使之前的宏定义失效</p>
+<p>const常量定义后将在定义域内永久有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void f1()</span><br><span class="line">&#123;</span><br><span class="line">  #define N 12</span><br><span class="line">  const int n = 12;</span><br><span class="line"></span><br><span class="line">  #undef N //取消宏定义后，即使在f1函数中，N也无效了</span><br><span class="line">  #define N 21//取消后可以重新定义</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="是否可以做函数参数"><a href="#是否可以做函数参数" class="headerlink" title="是否可以做函数参数"></a>是否可以做函数参数</h2><p>宏定义不能作为参数传递给函数</p>
+<p>const常量可以在函数的参数列表中出现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.const 定义常量之后，是不能够改变的</span><br><span class="line"></span><br><span class="line">2.宏定义是可以取消的</span><br><span class="line"></span><br><span class="line">定义： #define    N    21</span><br><span class="line">取消： #undef    N    12</span><br><span class="line"></span><br><span class="line">const限定符定以后是不可以改变的，所以在定义时必须赋初始值，要不然是错误的，除非这个变量是用extern修饰的外部变量。 例如：</span><br><span class="line"></span><br><span class="line">const int A=10;       //正确。</span><br><span class="line">const int A;          //错误，没有赋初始值。</span><br><span class="line">extern const int A;   //正确，使用extern的外部变量。</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-21T13:04:47.515Z" itemprop="dateUpdated">2018-03-21 21:04:47</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/11/20/20171120typedf&amp;define/" target="_blank" rel="external">https://hankin2015.github.io/2017/11/20/20171120typedf&amp;define/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/define/">define</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typedef/">typedef</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/20/20171120typedf&define/&title=《typedef和define、强类型和弱类型的区别》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/20/20171120typedf&define/&title=《typedef和define、强类型和弱类型的区别》 — HanKin的博客&source=1、ios::sync_with_stdio(false);" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/20/20171120typedf&define/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《typedef和define、强类型和弱类型的区别》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/20/20171120typedf&define/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/20/20171120typedf&define/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/27/20171127C++Study/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">C++总结学习1</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/19/20171119map&pair/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">图的高效存储</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/11/20/20171120typedf&define/&title=《typedef和define、强类型和弱类型的区别》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/11/20/20171120typedf&define/&title=《typedef和define、强类型和弱类型的区别》 — HanKin的博客&source=1、ios::sync_with_stdio(false);" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/11/20/20171120typedf&define/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《typedef和define、强类型和弱类型的区别》 — HanKin的博客&url=https://hankin2015.github.io/2017/11/20/20171120typedf&define/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/11/20/20171120typedf&define/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/11/20/20171120typedf&define/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

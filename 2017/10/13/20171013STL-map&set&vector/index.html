@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>STL容器之list、vector、map、set、stack、queue、deque | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="map,set,vector">
+    <meta name="description" content="https://www.cnblogs.com/zhaodun/p/6510161.htmlc++中vector的用法详解 list和vector list封装了链表,vector封装了数组, list和vector得最主要的区别在于vector使用连续内存存储的，它支持[]运算符，而list是以链表形式实现的，不支持[]。  vector对于随机访问的速度很快，但是对于插入尤其是在头部插入元素速">
+<meta name="keywords" content="map,set,vector">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STL容器之list、vector、map、set、stack、queue、deque">
+<meta property="og:url" content="https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="https://www.cnblogs.com/zhaodun/p/6510161.htmlc++中vector的用法详解 list和vector list封装了链表,vector封装了数组, list和vector得最主要的区别在于vector使用连续内存存储的，它支持[]运算符，而list是以链表形式实现的，不支持[]。  vector对于随机访问的速度很快，但是对于插入尤其是在头部插入元素速">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-27T13:02:05.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="STL容器之list、vector、map、set、stack、queue、deque">
+<meta name="twitter:description" content="https://www.cnblogs.com/zhaodun/p/6510161.htmlc++中vector的用法详解 list和vector list封装了链表,vector封装了数组, list和vector得最主要的区别在于vector使用连续内存存储的，它支持[]运算符，而list是以链表形式实现的，不支持[]。  vector对于随机访问的速度很快，但是对于插入尤其是在头部插入元素速">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">STL容器之list、vector、map、set、stack、queue、deque</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">STL容器之list、vector、map、set、stack、queue、deque</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-13T08:58:41.000Z" itemprop="datePublished" class="page-time">
+  2017-10-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/STL/">STL</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#list和vector"><span class="post-toc-number">1.</span> <span class="post-toc-text">list和vector</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#map和set"><span class="post-toc-number">2.</span> <span class="post-toc-text">map和set</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#multiset和multimap"><span class="post-toc-number">3.</span> <span class="post-toc-text">multiset和multimap</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#vector用法"><span class="post-toc-number"></span> <span class="post-toc-text">vector用法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#deque-即双端队列。"><span class="post-toc-number"></span> <span class="post-toc-text">deque 即双端队列。</span></a>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171013STL-map&amp;set&amp;vector"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">STL容器之list、vector、map、set、stack、queue、deque</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-13 16:58:41" datetime="2017-10-13T08:58:41.000Z"  itemprop="datePublished">2017-10-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/STL/">STL</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><a href="https://www.cnblogs.com/zhaodun/p/6510161.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhaodun/p/6510161.html</a><br><a href="http://blog.csdn.net/hancunai0017/article/details/7032383" target="_blank" rel="noopener">c++中vector的用法详解</a></p>
+<h2 id="list和vector"><a href="#list和vector" class="headerlink" title="list和vector"></a>list和vector</h2><ul>
+<li><p>list封装了链表,vector封装了数组, list和vector得最主要的区别在于vector使用连续内存存储的，它支持[]运算符，而list是以链表形式实现的，不支持[]。</p>
+</li>
+<li><p>vector对于随机访问的速度很快，但是对于插入尤其是在头部插入元素速度很慢，在尾部插入速度很快。list对于随机访问速度慢得多，因为可能要遍历整个链表才能做到，但是对于插入就快的多了，不需要拷贝和移动数据，只需要改变指针的指向就可以了。另外对于新添加的元素，vector有一套算法，而list可以任意加入。</p>
+</li>
+</ul>
+<h2 id="map和set"><a href="#map和set" class="headerlink" title="map和set"></a>map和set</h2><ul>
+<li>map,set属于标准关联容器，使用了非常高效的平衡检索二叉树：红黑树，他的插入删除效率比其他序列容器高是因为不需要做内存拷贝和内存移动，而直接替换指向节点的指针即可。</li>
+<li>set和vector的区别在于set不包含重复的数据。set和map的区别在于Set只含有key，而map有一个key和key所对应的value两个元素。</li>
+<li>map和hash_map的区别是hash_map使用了hash算法来加快查找过程，但是需要更多的内存来存放这些hash桶元素，因此可以算得上是采用空间来换取时间策略。</li>
+</ul>
+<h2 id="multiset和multimap"><a href="#multiset和multimap" class="headerlink" title="multiset和multimap"></a>multiset和multimap</h2><p>multiset允许里面有重复元素。<br>multimap所不同的是它允许重复键。这个属性使得 multimap 比预想的要更有用：比如在电话簿中相同的人可以有两个以上电话号码，文件系统中可以将多个符号链接映射到相同的物理文件，或DNS服务器可以将几个URLs映射到相同的IP地址。在这些场合，你可以象下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 注:伪码</span><br><span class="line">multimap &lt;string, string&gt; phonebook;</span><br><span class="line">phonebook.insert(&quot;Harry&quot;,&quot;8225687&quot;); // 家里电话</span><br><span class="line">phonebook.insert(&quot;Harry&quot;,&quot;555123123&quot;); // 单位电话</span><br><span class="line">phonebook.insert(&quot;Harry&quot;,&quot; 2532532532&quot;); // 移动电话</span><br></pre></td></tr></table></figure></p>
+<h1 id="vector用法"><a href="#vector用法" class="headerlink" title="vector用法"></a>vector用法</h1><p>1.push_back   在数组的最后添加一个数据<br>2.pop_back    去掉数组的最后一个数据<br>3.at                得到编号位置的数据<br>4.begin           得到数组头的指针<br>5.end             得到数组的最后一个单元+1的指针<br>6．front        得到数组头的引用<br>7.back            得到数组的最后一个单元的引用<br>8.max_size     得到vector最大可以是多大<br>9.capacity       当前vector分配的大小<br>10.size           当前使用数据的大小<br>11.resize         改变当前使用数据的大小，如果它比当前使用的大，则填充默认值<br>12.reserve      改变当前vector所分配空间的大小<br>13.erase         删除指针指向的数据项<br>14.clear          清空当前的vector<br>15.rbegin        将vector反转后的开始指针返回(其实就是原来的end-1)<br>16.rend          将vector反转构的结束指针返回(其实就是原来的begin-1)<br>17.empty        判断vector是否为空<br>18.swap         与另一个vector交换数据</p>
+<pre><code>c.push_back(elem);   在容器最后位置添加一个元素elem
+c.pop_back();            删除容器最后位置处的元素
+c.erase(pos)        删除pos位置的数据
+c.at(index);                返回指定index位置处的元素
+c.begin();                   返回指向容器最开始位置数据的指针
+c.end();                      返回指向容器最后一个数据单元的指针+1
+c.front();                     返回容器最开始单元数据的引用
+c.back();                     返回容器最后一个数据的引用
+c.max_size();              返回容器的最大容量
+c.size();                      返回当前容器中实际存放元素的个数
+c.capacity();               同c.size()
+ c.resize();                   重新设置vector的容量
+c.reserve();                同c.resize()
+c.erase(p);               删除指针p指向位置的数据，返回下指向下一个数据位置的指针（迭代器）
+c.erase(begin,end)     删除begin,end区间的数据，返回指向下一个数据位置的指针（迭代器）
+c.clear();                    清除所有数据
+c.rbegin();                  将vector反转后的开始指针返回(其实就是原来的end-1)
+c.rend();                     将vector反转后的结束指针返回(其实就是原来的begin-1)
+c.empty();                   判断容器是否为空，若为空返回true，否则返回false
+c1.swap(c2);               交换两个容器中的数据
+c.insert(p,elem);          在指针p指向的位置插入数据elem,返回指向elem位置的指针       
+c.insert(p,n,elem);      在位置p插入n个elem数据，无返回值
+c.insert(p,begin,end) 在位置p插入在区间[begin,end)的数据，无返回值
+</code></pre><p><a href="https://blog.csdn.net/linhao19841211_2/article/details/8154805" target="_blank" rel="noopener">如何使用vector的reserve和resize方法</a><br>reserve用来（预留空间，）改变capacity，不改变size，会去分配内存，但不会构造出对象；如果改变后的capacity比当前capacity大，则capacity会变大；反之，capacity不变。</p>
+<p>esize用来改变vector的size，有可能也会改变capacity。如果改变后的size比当前capacity大，则capacity会变大，同时构造出多出来的对象；反之，capacity不变，同时析构一些不再需要的对象。</p>
+<p>reserve和resize都不会使capacity变小，但都有可能使capacity变大，具体怎么变大，reserve和resize是不一样的，reserve能准确控制capacity；而resize不能，vc里是每次增大一半的当前capacity。</p>
+<h1 id="deque-即双端队列。"><a href="#deque-即双端队列。" class="headerlink" title="deque 即双端队列。"></a>deque 即双端队列。</h1><p>（deque，全名double-ended queue）是一种具有队列和栈的性质的数据结构。双端队列中的元素可以从两端弹出，其限定插入和删除操作在表的两端进行。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-27T13:02:05.511Z" itemprop="dateUpdated">2018-04-27 21:02:05</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/10/13/20171013STL-map&amp;set&amp;vector/" target="_blank" rel="external">https://hankin2015.github.io/2017/10/13/20171013STL-map&amp;set&amp;vector/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/">map</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/set/">set</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vector/">vector</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/&title=《STL容器之list、vector、map、set、stack、queue、deque》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/&title=《STL容器之list、vector、map、set、stack、queue、deque》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《STL容器之list、vector、map、set、stack、queue、deque》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/13/20171013hiho-171/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">hiho一下 第171周 Email Merge</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/30/20170930git_study/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git学习</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/&title=《STL容器之list、vector、map、set、stack、queue、deque》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/&title=《STL容器之list、vector、map、set、stack、queue、deque》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《STL容器之list、vector、map、set、stack、queue、deque》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/10/13/20171013STL-map&set&vector/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

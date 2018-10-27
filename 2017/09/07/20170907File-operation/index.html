@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>python文件操作 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python">
+    <meta name="description" content="读写文件文件读写示例#!/usr/bin/python # -*- coding: UTF-8 -*-  try:     f = open(&amp;quot;testfile&amp;quot;, &amp;quot;w&amp;quot;)     f.write(&amp;quot;这是一个测试文件，用于测试异常!!&amp;quot;) except IOError:     print(&amp;quot;Error: 没有找到文件或读取文">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python文件操作">
+<meta property="og:url" content="https://hankin2015.github.io/2017/09/07/20170907File-operation/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="读写文件文件读写示例#!/usr/bin/python # -*- coding: UTF-8 -*-  try:     f = open(&amp;quot;testfile&amp;quot;, &amp;quot;w&amp;quot;)     f.write(&amp;quot;这是一个测试文件，用于测试异常!!&amp;quot;) except IOError:     print(&amp;quot;Error: 没有找到文件或读取文">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-07T11:14:09.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python文件操作">
+<meta name="twitter:description" content="读写文件文件读写示例#!/usr/bin/python # -*- coding: UTF-8 -*-  try:     f = open(&amp;quot;testfile&amp;quot;, &amp;quot;w&amp;quot;)     f.write(&amp;quot;这是一个测试文件，用于测试异常!!&amp;quot;) except IOError:     print(&amp;quot;Error: 没有找到文件或读取文">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">python文件操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">python文件操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-07T11:12:41.000Z" itemprop="datePublished" class="page-time">
+  2017-09-07
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#读写文件"><span class="post-toc-number">1.</span> <span class="post-toc-text">读写文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件读写示例"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">文件读写示例</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件的打开方式"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">文件的打开方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件的属性："><span class="post-toc-number">1.3.</span> <span class="post-toc-text">文件的属性：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件的读写方法"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">文件的读写方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#压缩和解压缩文件1-zip-unzip"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">压缩和解压缩文件1(zip/unzip)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Python-os-walk-方法"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">Python os.walk() 方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#markdown中的空格显示"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">markdown中的空格显示</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#压缩和解压缩文件2-rar-unrar"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">压缩和解压缩文件2(rar/unrar)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#其他压缩文件格式"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">其他压缩文件格式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#gz"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">gz</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#tar"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">tar</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件加密解密-base64-pycrypto"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">文件加密解密(base64/pycrypto)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#base64"><span class="post-toc-number">1.9.1.</span> <span class="post-toc-text">base64</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#pycrypto模块"><span class="post-toc-number">1.9.2.</span> <span class="post-toc-text">pycrypto模块</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#zip暴力破解"><span class="post-toc-number">1.9.3.</span> <span class="post-toc-text">zip暴力破解</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20170907File-operation"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">python文件操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-07 19:12:41" datetime="2017-09-07T11:12:41.000Z"  itemprop="datePublished">2017-09-07</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h3><h4 id="文件读写示例"><a href="#文件读写示例" class="headerlink" title="文件读写示例"></a>文件读写示例</h4><pre><code>#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+try:
+    f = open(&quot;testfile&quot;, &quot;w&quot;)
+    f.write(&quot;这是一个测试文件，用于测试异常!!&quot;)
+except IOError:
+    print(&quot;Error: 没有找到文件或读取文件失败&quot;)
+else:
+    print(&quot;内容写入文件成功&quot;)
+finally:
+    f.close()
+</code></pre><a id="more"></a>
+<h4 id="文件的打开方式"><a href="#文件的打开方式" class="headerlink" title="文件的打开方式"></a>文件的打开方式</h4><pre><code>f = open(‘文件&apos;,&apos;mode&apos;)
+‘r&apos;：只读（缺省。如果文件不存在，则抛出错误）
+‘w&apos;：只写（如果文件不存在，则自动创建文件），此时无法调用f.read()方法，且当调用f.write()时，将清空文件原有内容
+‘a&apos;：附加到文件末尾
+‘r+&apos;：读写
+如果需要以二进制方式打开文件，需要在mode后面加上字符”b”，比如”rb”，”wb”等
+</code></pre><h4 id="文件的属性："><a href="#文件的属性：" class="headerlink" title="文件的属性："></a>文件的属性：</h4><pre><code>f.closed #标记文件是否已经关闭，由close()改写
+f.encoding #文件编码
+f.mode #打开模式
+f.name #文件名
+f.newlines #文件中用到的换行模式，是一个tuple
+f.softspace #boolean型，一般为0，据说用于print
+</code></pre><h4 id="文件的读写方法"><a href="#文件的读写方法" class="headerlink" title="文件的读写方法"></a>文件的读写方法</h4><pre><code>f.read([size]) #size为读取的长度，以byte为单位
+f.readline([size]) #读一行，如果定义了size，有可能返回的只是一行的一部分
+f.readlines([size]) #把文件每一行作为一个list的一个成员，并返回这个list。其实它的内部是通过循环调用readline()来实现的。如果提供size参数，size是表示读取内容的总长，也就是说可能只读到文件的一部分
+f.write(str) #把str写到文件中，write()并不会在str后加上一个换行符
+f.writelines(seq) #把seq的内容全部写到文件中。这个函数也只是忠实地写入，不会在每行后面加上任何东西
+f.close() #关闭文件
+f.flush() #把缓冲区的内容写入硬盘
+f.fileno() #返回一个长整型的”文件标签“
+f.isatty() #文件是否是一个终端设备文件（unix系统中的）
+f.tell() #返回文件操作标记的当前位置，以文件的开头为原点
+f.next() #返回下一行，并将文件操作标记位移到下一行。把一个file用于for … in file这样的语句时，就是调用next()函数来实现遍历的
+f.seek(offset[,from]) #将文件打操作标记移到offset的位置。这个offset一般是相对于文件的开头来计算的，一般为正数。但如果提供了from参数就不一定了，from可以为0表示从头开始计算，1表示以当前位置为原点计算。2表示以文件末尾为原点进行计算。需要注意，如果文件以a或a+的模式打开，每次进行写操作时，文件操作标记会自动返回到文件末尾。
+f.truncate([size]) #把文件裁成规定的大小，默认的是裁到当前文件操作标记的位置。
+Python在读取一个文件时，会记住其在文件中的位置，如果第二次仍需要从头读取，则需要调用f.seek(0)重新从头开始读取。
+</code></pre><h4 id="压缩和解压缩文件1-zip-unzip"><a href="#压缩和解压缩文件1-zip-unzip" class="headerlink" title="压缩和解压缩文件1(zip/unzip)"></a>压缩和解压缩文件1(zip/unzip)</h4><ol>
+<li><p>单个文件压缩成zip文件<br> zFile = zipfile.ZipFile(“./dict.zip”, “w”, zipfile.ZIP_DEFLATED)<br> zFile.write(“dict.txt”)<br> zFile.close()<br> #ZIP_DEFLATED是压缩标志，如果使用它需要编译了zlib模块，如果仅仅是打包而不压缩的话，可以改为zipfile.ZIP_STORED</p>
+</li>
+<li><p>把zip文件解压缩<br> zFile = zipfile.ZipFile(“dict.zip”,”r”)<br> num = len(zFile.namelist())<br> print(num)</p>
+<p> for filename in zFile.namelist():</p>
+<pre><code>data = zFile.read(filename)
+file = open(filename, &quot;w+b&quot;)
+file.write(data)
+file.close()
+</code></pre></li>
+<li><p>压缩文件夹<br> import os<br> f = zipfile.ZipFile(‘dir.zip’,’w’,zipfile.ZIP_DEFLATED)<br> startdir = “./data”<br> for dirpath, dirnames, filenames in os.walk(startdir):<br>   for filename in filenames:</p>
+<pre><code>f.write(os.path.join(dirpath,filename))
+</code></pre><p> f.close()</p>
+</li>
+</ol>
+<h5 id="Python-os-walk-方法"><a href="#Python-os-walk-方法" class="headerlink" title="Python os.walk() 方法"></a>Python os.walk() 方法</h5><ol>
+<li><p>概述<br>os.walk() 方法用于通过在目录树种游走输出在目录中的文件名，向上或者向下。<br>在Unix，Windows中有效。</p>
+</li>
+<li><p>语法<br>walk()方法语法格式如下：<br> os.walk(top[, topdown=True[, onerror=None[, followlinks=False]]])</p>
+</li>
+<li><p>参数<br> top – 根目录下的每一个文件夹(包含它自己), 产生3-元组 (dirpath, dirnames, filenames)【文件夹路径, 文件夹名字, 文件名】。<br> topdown –可选，为True或者没有指定, 一个目录的的3-元组将比它的任何子文件夹的3-元组先产生 (目录自上而下)。如果topdown为 False, 一个目录的3-元组将比它的任何子文件夹的3-元组后产生 (目录自下而上)。<br> onerror – 可选，是一个函数; 它调用时有一个参数, 一个OSError实例。报告这错误后，继续walk,或者抛出exception终止walk。<br> followlinks – 设置为 true，则通过软链接访问目录。</p>
+</li>
+<li><p>返回值<br>该方法没有返回值。</p>
+</li>
+</ol>
+<h4 id="markdown中的空格显示"><a href="#markdown中的空格显示" class="headerlink" title="markdown中的空格显示"></a>markdown中的空格显示</h4><pre><code>半角空格&amp;ensp;或&amp;#8194;
+全角空格&amp;emsp;或&amp;#8195;
+不换行空格&amp;nbsp;或&amp;#160; 
+</code></pre><h4 id="压缩和解压缩文件2-rar-unrar"><a href="#压缩和解压缩文件2-rar-unrar" class="headerlink" title="压缩和解压缩文件2(rar/unrar)"></a>压缩和解压缩文件2(rar/unrar)</h4><p>&emsp;&emsp;rarfile是模仿zipfile模块写的，所以接口几乎一样，只有rar和zip的字符差别。但是zip功能是python内置模块，rar不是，不是亲妈生的有些问题，还存在严重的跨平台问题。<br>&emsp;&emsp;所以需要安装unrar包，我发现conda install unrar无法查询到包文件，改用了pip安装。</p>
+<p>&emsp;&emsp;Conda和pip服务于不同的目的，并且只在一小部分任务中直接竞争：即在孤立的环境中安装Python包。<br>Pip代表Pip Installs Packages，是Python的官方认可的包管理器，最常用于安装在Python包索引（PyPI）上发布的包。<br>&emsp;&emsp;pip和PyPI都由Python包装管理局（PyPA）管理和支持。<br>&emsp;&emsp;简而言之，pip是Python包的通用管理器; conda是一个与语言无关的跨平台环境管理器。对于用户，最显着的区别可能是这样的：pip在任何环境中安装python包; conda安装在conda环境中的任何包装。如果你正在做的是在孤立的环境中安装Python包，conda和pip + virtualenv大多是可互换的，模数依赖处理和包可用性的一些差异。通过隔离环境(conda-env或virtualenv)，您可以在其中安装软件包，而无需修改您的系统Python安装。<br>&emsp;&emsp;conda和pip服务不同的受众和不同的目的。 如果你想在现有的系统Python安装中管理Python包，conda不能帮助你：通过设计，它只能在conda环境中安装包。 如果你想说，使用依赖于外部依赖的许多Python包（NumPy，SciPy和Matplotlib是常见的例子），同时以一种有意义的方式跟踪这些依赖，pip不能帮助你：它 管理Python包和只有Python包。Conda和pip不是竞争对手，而是侧重于不同用户组和使用模式的工具。</p>
+<p>安装后运行程序报错：“Couldn’t find path to unrar library…”<br>参考：修改后始终报错，感觉Win10的环境变量生效有点慢，我在源文件中调试调试就自动能运行了。<br><a href="http://blog.csdn.net/ysy950803/article/details/52939708" target="_blank" rel="noopener">http://blog.csdn.net/ysy950803/article/details/52939708</a><br><a href="http://blog.csdn.net/big_talent/article/details/52367184" target="_blank" rel="noopener">http://blog.csdn.net/big_talent/article/details/52367184</a></p>
+<pre><code>#! rar文件的解压，和zip类似
+import os
+file_name = &quot;dict.rar&quot;
+if os.path.isfile(file_name):
+    pass
+else:
+    os.mkdir(file_name)
+    print(&apos;新建一个目录&apos;)
+rFile = rarfile.RarFile(file_name,mode=&apos;r&apos;,pwd=None)
+#os.chdir(&quot;dit.rar&quot;)
+print(type(rFile))
+print(rFile.filename)
+rFile.extractall()
+</code></pre><p>&emsp;&emsp;弄了一半天，rar文件很蛋疼，好像不能进行压缩，只有解压方法。</p>
+<h4 id="其他压缩文件格式"><a href="#其他压缩文件格式" class="headerlink" title="其他压缩文件格式"></a>其他压缩文件格式</h4><ul>
+<li>gz： 即gzip，通常只能压缩一个文件。与tar结合起来就可以实现先打包，再压缩。</li>
+<li>tar： linux系统下的打包工具，只打包，不压缩</li>
+<li>tgz：即tar.gz。先用tar打包，然后再用gz压缩得到的文件</li>
+<li>zip： 不同于gzip，虽然使用相似的算法，可以打包压缩多个文件，不过分别压缩文件，压缩率低于tar。</li>
+<li>rar：打包压缩文件，最初用于DOS，基于window操作系统。压缩率比zip高，但速度慢，随机访问的速度也慢。</li>
+</ul>
+<h5 id="gz"><a href="#gz" class="headerlink" title="gz"></a>gz</h5><pre><code>import gzip  
+import os  
+def un_gz(file_name):  
+    &quot;&quot;&quot;ungz zip file&quot;&quot;&quot;  
+    f_name = file_name.replace(&quot;.gz&quot;, &quot;&quot;)  
+    #获取文件的名称，去掉  
+    g_file = gzip.GzipFile(file_name)  
+    #创建gzip对象  
+    open(f_name, &quot;w+&quot;).write(g_file.read())  
+    #gzip对象用read()打开后，写入open()建立的文件中。  
+    g_file.close()  
+    #关闭gzip对象
+</code></pre><h5 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h5><pre><code>import tarfile  
+def un_tar(file_name):  
+       untar zip file&quot;&quot;&quot;  
+    tar = tarfile.open(file_name)  
+    names = tar.getnames()  
+    if os.path.isdir(file_name + &quot;_files&quot;):  
+        pass  
+    else:  
+        os.mkdir(file_name + &quot;_files&quot;)  
+    #由于解压后是许多文件，预先建立同名文件夹  
+    for name in names:  
+        tar.extract(name, file_name + &quot;_files/&quot;)  
+    tar.close()       
+</code></pre><h4 id="文件加密解密-base64-pycrypto"><a href="#文件加密解密-base64-pycrypto" class="headerlink" title="文件加密解密(base64/pycrypto)"></a>文件加密解密(base64/pycrypto)</h4><h5 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h5><p>DeprecationWarning: encodestring() is a deprecated alias since 3.1, use encodebytes()<br>Base64编码，64指A-Z、a-z、0-9、+和/这64个字符，还有“=”号不属于编码字符，而是填充字符。为什么发明这么个编码呢，这个编码的原理很简单，“破解”也很容易，原因是电子邮件刚出来的时候，只传递英文字符，这没有问题，但是后来，中国人，日本人都要发email，这样问题就来了，因为这些字符有可能会被邮件服务器或者网关当成命令处理，故必须得有一种编码来对邮件进行加密，但是加密的目的是为了能够使得一些原始的服务器不出问题（现在服务器早已经能处理这些乱七八糟得情况了，不过因为已经形成了一套规范，所以邮件还是得经过Base64编码才能传递）。</p>
+<p>优点：方法简单<br>缺点：不保险，别人拿到密文可以自己解密出明文</p>
+<p>编码原理：将3个字节转换成4个字节((3 X 8)=24=(4X6))，先读入3个字节，每读一个字节，左移8位，再右移四次，每次6位，这样就有4个字节了。<br>解码原理：将4个字节转换成3个字节，先读入4个6位(用或运算)，每次左移6位，再右移3次，每次8位，这样就还原了。</p>
+<pre><code>import base64
+str1 = base64.encodebytes(bytes(&quot;hello world&quot;,&quot;utf8&quot;))
+#str2 = base64.encodestring(bytes(&quot;hello world&quot;,&quot;utf8&quot;))
+str3 = base64.decodebytes(s1)
+print(str1)
+#print(str2)
+print(str3)
+</code></pre><h5 id="pycrypto模块"><a href="#pycrypto模块" class="headerlink" title="pycrypto模块"></a>pycrypto模块</h5><p>高级加密标准（Advanced Encryption Standard，AES），是美国联邦政府采用的一种区块加密标准。这个标准用来替代原先的DES，已经被多方分析且广为全世界所使用。经过五年的甄选流程，高级加密标准由美国国家标准与技术研究院（NIST）于2001年11月26日发布于FIPS PUB 197，并在2002年5月26日成为有效的标准。2006年，高级加密标准已然成为对称密钥加密中最流行的算法之一。</p>
+<p>AES只是个基本算法，实现AES有若干模式。其中的CBC模式因为其安全性而被TLS（就是https的加密标准）和IPSec（win采用的）作为技术标准。简单地说，CBC使用密码和salt（起扰乱作用）按固定算法（md5）产生key和iv。然后用key和iv（初始向量，加密第一块明文）加密（明文）和解密（密文）。</p>
+<pre><code>#ValueError: AES key must be either 16, 24, or 32 bytes long
+#ValueError: IV must be 16 bytes long
+from Crypto.Cipher import AES
+obj = AES.new(&apos;This is a key123&apos;, AES.MODE_CBC, &apos;This is an IV456&apos;)
+message = &quot;The answer is no&quot;
+ciphertext = obj.encrypt(message)
+print(ciphertext)
+obj2 = AES.new(&apos;This is a key123&apos;, AES.MODE_CBC, &apos;This is an IV456&apos;)
+data = obj2.decrypt(ciphertext)
+print(data)
+</code></pre><h5 id="zip暴力破解"><a href="#zip暴力破解" class="headerlink" title="zip暴力破解"></a>zip暴力破解</h5><p>说多了都是泪，python3默认使用bytes，python2默认使用string，导致以前的方法不能在python3中使用，花了我两天时间才明白这个道理，最后在linux中安装python2.7破解成功。</p>
+<ol>
+<li><p>进入虚拟机，下载并解压最新Python 2.7的源代码并解压安装<br> wget <a href="https://www.python.org/ftp/python/2.7.10/Python-2.7.10.tar.xz" target="_blank" rel="noopener">https://www.python.org/ftp/python/2.7.10/Python-2.7.10.tar.xz</a><br> tar xf Python-2.7.10.tar.xz</p>
+</li>
+<li><p>压缩文件：zip FileName.zip DirName<br>zip -re filename.zip filename 回车，输入2次密码<br>zip -rP password filename.zip filename  password是要输入的密码<br>unzip filename.zip 按提示输入密码<br>unzip -P password filename.zip password是要解压的密码，这个不会有提示输入密码的操作 </p>
+</li>
+<li><p>使用python命令直接编译python脚本文件</p>
+<p> import zipfile<br> try:</p>
+<pre><code>with zipfile.ZipFile(&apos;Spyder.zip&apos;) as zFile:     #创建ZipFile对象
+    #解压文件
+    zFile.extractall(path=&apos;./&apos;,pwd=&apos;123&apos;)
+    print(&apos;Extract the Zip file successfully!&apos;)
+</code></pre><p> except:</p>
+<pre><code>raise
+print(&apos;Extract the Zip file failed!&apos;)
+</code></pre></li>
+<li><p>python2.7版本密码字典破解zip<br> import zipfile</p>
+<p> def get_pwd():</p>
+<pre><code>#密码字典的路径
+pwdPath=&apos;pwd.txt&apos;
+pwdFile=open(pwdPath,&apos;r&apos;)
+for line in pwdFile.readlines():
+    password=line.strip(&apos;\n&apos;)
+    print &apos;Try the password %s&apos; % password
+    if pojie_zip(&apos;hejian.zip&apos;, password):
+        break
+pwdFile.close()
+</code></pre><p> def pojie_zip(path, password):</p>
+<pre><code>if path[-4:]==&apos;.zip&apos;:
+    #path = dir+ &apos;\\&apos; +file
+    #print path
+    zFile = zipfile.ZipFile(path, &quot;r&quot;,zipfile.zlib.DEFLATED)
+    #print zip.namelist()
+    try:
+        #若解压成功，则返回True,和密码
+        zFile.extractall(pwd=password)
+        print &apos; ----success!,The password is %s&apos; % password
+        zFile.close()
+        return True
+    except:
+        pass #如果发生异常，不报错
+print &apos;error&apos;
+</code></pre><p> if <strong>name</strong> == “<strong>main</strong>“:</p>
+<pre><code>get_pwd()
+</code></pre></li>
+</ol>
+<p><a href="http://www.jb51.net/article/86892.htm" target="_blank" rel="noopener">http://www.jb51.net/article/86892.htm</a></p>
+<p>参考：<br><a href="http://www.jb51.net/article/88218.htm" target="_blank" rel="noopener">http://www.jb51.net/article/88218.htm</a><br><a href="http://blog.csdn.net/luoshengkim/article/details/46647423" target="_blank" rel="noopener">http://blog.csdn.net/luoshengkim/article/details/46647423</a><br><a href="http://blog.csdn.net/ice110956/article/details/26597179" target="_blank" rel="noopener">http://blog.csdn.net/ice110956/article/details/26597179</a><br><a href="http://python.jobbole.com/81519/" target="_blank" rel="noopener">Python模块学习：zipfile zip文件操作</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-09-07T11:14:09.286Z" itemprop="dateUpdated">2017-09-07 19:14:09</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/09/07/20170907File-operation/" target="_blank" rel="external">https://hankin2015.github.io/2017/09/07/20170907File-operation/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/09/07/20170907File-operation/&title=《python文件操作》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/09/07/20170907File-operation/&title=《python文件操作》 — HanKin的博客&source=读写文件文件读写示例#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+try:
+    f = open(&quot;..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/09/07/20170907File-operation/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python文件操作》 — HanKin的博客&url=https://hankin2015.github.io/2017/09/07/20170907File-operation/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/09/07/20170907File-operation/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/07/20170907Linux-scp/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">两台服务器之间拷贝文件-scp方法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/02/20170902MaShiBing-Hadoop/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">马士兵大数据应用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/09/07/20170907File-operation/&title=《python文件操作》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/09/07/20170907File-operation/&title=《python文件操作》 — HanKin的博客&source=读写文件文件读写示例#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+try:
+    f = open(&quot;..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/09/07/20170907File-operation/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python文件操作》 — HanKin的博客&url=https://hankin2015.github.io/2017/09/07/20170907File-operation/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/09/07/20170907File-operation/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/09/07/20170907File-operation/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

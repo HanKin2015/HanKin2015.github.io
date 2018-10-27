@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux网络管理(网络编程) | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="网络编程">
+    <meta name="description" content="第1章 网络基础">
+<meta name="keywords" content="网络编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux网络管理(网络编程)">
+<meta property="og:url" content="https://hankin2015.github.io/2018/07/07/20180707InternetLinux/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="第1章 网络基础">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img.mukewang.com/5a113ccf0001875e12800720.jpg">
+<meta property="og:image" content="https://img3.mukewang.com/5ac34d8000016e2212800720.jpg">
+<meta property="og:image" content="https://img3.mukewang.com/5ac231460001af0212800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/5ac34ccf0001302812800720.jpg">
+<meta property="og:image" content="https://img3.mukewang.com/5ac34dba000125c712800720.jpg">
+<meta property="og:image" content="https://img1.mukewang.com/59f238690001a98912800720.jpg">
+<meta property="og:image" content="https://img4.mukewang.com/59f322de0001487712800720.jpg">
+<meta property="og:updated_time" content="2018-08-14T17:12:21.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux网络管理(网络编程)">
+<meta name="twitter:description" content="第1章 网络基础">
+<meta name="twitter:image" content="https://img.mukewang.com/5a113ccf0001875e12800720.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux网络管理(网络编程)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux网络管理(网络编程)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-07T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-07-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-研发工程师/">C++研发工程师</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第1章-网络基础"><span class="post-toc-number">1.</span> <span class="post-toc-text">第1章 网络基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-Linux网络基础之ISO-OSI七…-11-00"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1-2 Linux网络基础之ISO/OSI七…(11:00)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-Linux网络基础之ISO-OSI七…-16-33"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1-3 Linux网络基础之ISO/OSI七…(16:33)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-Linux网络基础之TCP-IP四…-22-00"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1-4 Linux网络基础之TCP/IP四…(22:00)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为用户提供所需的各种服务-例如-FTP、Telnet、DNS、SMTP等"><span class="post-toc-number">2.</span> <span class="post-toc-text">为用户提供所需的各种服务, 例如 FTP、Telnet、DNS、SMTP等</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#负责为应用层实体提供端到端的通信功能-保证了数据包的顺序传送及数据的完整性-该层定义了两个主要的协议-传输控制协议-TCP-可靠的面向连接-不会丢失-类似打电话-网页、邮件-和-用户数据报协议-UDP-不可靠的面向无连接-有可能丢失-类似发短信、QQ"><span class="post-toc-number">3.</span> <span class="post-toc-text">负责为应用层实体提供端到端的通信功能, 保证了数据包的顺序传送及数据的完整性, 该层定义了两个主要的协议 : 传输控制协议(TCP)可靠的面向连接,不会丢失,类似打电话,网页、邮件 和  用户数据报协议(UDP)不可靠的面向无连接,有可能丢失, 类似发短信、QQ</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TCP的三次握手来源于-两军问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">TCP的三次握手来源于 [两军问题]</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#主要解决主机到主机的通信问题-它所包含的协议涉及数据包在整个网络上的逻辑传输-该层有三个主要协议-网际协议-IP-互联网组管理协议-IGMP-互联网控制报文协议-ICMP"><span class="post-toc-number">5.</span> <span class="post-toc-text">主要解决主机到主机的通信问题, 它所包含的协议涉及数据包在整个网络上的逻辑传输, 该层有三个主要协议 : 网际协议(IP), 互联网组管理协议(IGMP), 互联网控制报文协议(ICMP)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#负责监视数据在主机和网络之间的交换-事实上-TCP-IP本身并未定义该层的协议-而由参与互连的各网络使用自己的物理层和数据链路层协议-然后与TCP-IP的网络接入层进行连接-地址解析协议-ARP-工作在此层-即OSI参考模型的数据链路层"><span class="post-toc-number">6.</span> <span class="post-toc-text">负责监视数据在主机和网络之间的交换, 事实上, TCP/IP本身并未定义该层的协议, 而由参与互连的各网络使用自己的物理层和数据链路层协议, 然后与TCP/IP的网络接入层进行连接. 地址解析协议(ARP) 工作在此层, 即OSI参考模型的数据链路层.</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#地址解析协议-ARP-将IP地址-翻译成物理地址"><span class="post-toc-number">7.</span> <span class="post-toc-text">地址解析协议(ARP) : 将IP地址 翻译成物理地址</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#发送是由上至下进行打包-接收是由下至上进行拆包"><span class="post-toc-number">8.</span> <span class="post-toc-text">发送是由上至下进行打包, 接收是由下至上进行拆包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-5-Linux网络基础之IP地址详…-10-16"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">1-5 Linux网络基础之IP地址详…(10:16)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-6-Linux网络基础之子网掩码…-09-42"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">1-6 Linux网络基础之子网掩码…(09:42)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-7-Linux网络基础之端口作用…-13-51"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">1-7 Linux网络基础之端口作用…(13:51)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常见端口号"><span class="post-toc-number">8.3.0.1.</span> <span class="post-toc-text">常见端口号</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-8-Linux网络基础之DNS作用…-28-43"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">1-8 Linux网络基础之DNS作用…(28:43)</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180707InternetLinux"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux网络管理(网络编程)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-07 10:47:41" datetime="2018-07-07T02:47:41.000Z"  itemprop="datePublished">2018-07-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-研发工程师/">C++研发工程师</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="第1章-网络基础"><a href="#第1章-网络基础" class="headerlink" title="第1章 网络基础"></a>第1章 网络基础</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.mukewang.com/5a113ccf0001875e12800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<a id="more"></a>
+<h2 id="1-2-Linux网络基础之ISO-OSI七…-11-00"><a href="#1-2-Linux网络基础之ISO-OSI七…-11-00" class="headerlink" title="1-2 Linux网络基础之ISO/OSI七…(11:00)"></a>1-2 Linux网络基础之ISO/OSI七…(11:00)</h2><p>ISO:国际标准化组织<br>OSI:开放系统互联模型<br>IOS:苹果操作系统;在计算机网络中，IOS是互联网操作系统，是思科公司为其网络设备开发的操作维护系统。</p>
+<p>OSI七层模型：物理层–》数据链路层–》网路层–》传输层–》会话层–》表示层–》应用层</p>
+<p>数据是从接口进行传递的(虚拟的)，接受数据从下向上，发送数据从上向下。分层目的是方便管理和检测错误。</p>
+<p>上3层是为用户提供服务的，下4层用来为实际数据传递提供服务。<br>那他们就用传输单位：<br>1：比特（物理层）010101<br>2：帧（数据链路层）里面保存最主要的信息–硬件地址<br>在cmd中输入 ipconfig /all 意思是所有。 物理地址；就是计算机MAAC地址，也就是计算机网卡硬件地址。每一台电脑都有一个网卡地址，MAC地址负责局域网通信，IP地址负责外网通信。<br>3：报文（网络层）：IP地址是在网络层也就是报文层，<br>4：TPDU（传输层）是传输协议数据单元，<br>5：SPDU（会话层）是会话协议数据单元，<br>6：PPDU（表示层）是表示层协议数据单元，<br>7：应用层（APDU）是应用协议数据单元。</p>
+<p>发送的时候是从上层往下层发送，接受的时候是从下层往上层接收。7—&gt;1:发送的时候流程，1-&gt;7：接收的时候流程。这就是七层模型的特点。</p>
+<p>OSI（开放系统互联模型）七层模型<br>1.应，表，会，传，网，数，物；上三层为用户提供服务，下四层为数据传输提供服务。<br>2.分层表示的好处：分层以后，每层的功能相对固定，方便管理（例子，学校的各级组织对整个学校的管理）<br>3.数据传输从上层传到下层，在物理层互传，接受端，从下层传到上层。“U型传输”<br>4.不联网，下四层就不会介入<br>5.帧（数据链路层的数据单位）写入最重要的信息计算机硬件（网卡的）地址，MAC地址（控制台，ipconfig/all可以查看）;报文（网络层的数据单位）写入的最重要的信息就是IP地址<br>6.MAC地址负责局域网（内网）通信，IP地址负责外网通信</p>
+<p>真正使用的是tcp/ip四层模型</p>
+<p>OSI的七层模型：开放系统互连参考模型 (Open System Interconnect 简称OSI）是国际标准化组织(ISO)和国际电报电话咨询委员会(CCITT)联合制定的开放系统互连参考模型，为开放式互连信息系统提供了一种功能结构的框架。它从低到高分别是：物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。</p>
+<h2 id="1-3-Linux网络基础之ISO-OSI七…-16-33"><a href="#1-3-Linux网络基础之ISO-OSI七…-16-33" class="headerlink" title="1-3 Linux网络基础之ISO/OSI七…(16:33)"></a>1-3 Linux网络基础之ISO/OSI七…(16:33)</h2><p>物理层：比特流的传输、物理接口（RJ45网线&amp;音频接口）、电气特性（1-3，2-6，八根线）。（比特流的传输）<br>数据链路层：成帧、用MAC地址访问媒介（源地址&amp;目的地址）、错误的检测与修正。（MAC地址）<br>网络层：提供IP地址（分组交换）、选路。 （确定IP地址）<br>传输层：确定可靠与不可靠的传输（TCP/UDP）、传输前的错误检测、流控。（确定服务-端口号80、25、21、110）。<br>会话层：对应用会话的管理、同步。<br>表示层：数据的表现形式（ASCII、GB2312、jpg）、加密和压缩。<br>应用层：用户接口。（打开浏览器1—&gt;打开邮箱，发送邮件2—&gt;把数据交给传输层3-&gt;确定协议，发送的源端口和目的端口4-&gt;确定目标IP5-&gt;确定MAC地址6-&gt;物理层传输）<br>假设我要发个邮件，在应用层写好，表示层翻译完，会话层鉴定需要发给传输层，传输层确认协议及端口，网络层加上双方ip，选路，数据链路加上双方MAC地址，物理层实际发送。</p>
+<p>TCP传送可靠不会丢，UDP传递快可能会丢。网络层确定逻辑地址IP地址，传输层确定端口号，一台电脑有多个服务，每个服务有个端口号。文件端口—21     邮件  —-发送25、接受110    网页 – 80</p>
+<p>7 应用层：老板<br>6 表示层：相当于公司中演示稿老板、替老板写信的助理<br>5 会话层：相当于公司中收寄信、写信封与拆信封的秘书<br>4 传输层：相当于公司中跑邮局的送信职员<br>3 网络层：相当于邮局中的排序工人<br>2 数据链路层：相当于邮局中的装拆箱工人<br>1 物理层：相当于邮局中的搬运工人</p>
+<h2 id="1-4-Linux网络基础之TCP-IP四…-22-00"><a href="#1-4-Linux网络基础之TCP-IP四…-22-00" class="headerlink" title="1-4 Linux网络基础之TCP/IP四…(22:00)"></a>1-4 Linux网络基础之TCP/IP四…(22:00)</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img3.mukewang.com/5ac34d8000016e2212800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>OSI模型是车的模型，TCP模型是原型车。 </p>
+<p>1、TCP/IP 四层模型与 OSI 七层模型对应关系<br>1-1) 应用层 : 应用层、表示层、会话层</p>
+<h1 id="为用户提供所需的各种服务-例如-FTP、Telnet、DNS、SMTP等"><a href="#为用户提供所需的各种服务-例如-FTP、Telnet、DNS、SMTP等" class="headerlink" title="为用户提供所需的各种服务, 例如 FTP、Telnet、DNS、SMTP等"></a>为用户提供所需的各种服务, 例如 FTP、Telnet、DNS、SMTP等</h1><p>1-2) 传输层 : 传输层</p>
+<h1 id="负责为应用层实体提供端到端的通信功能-保证了数据包的顺序传送及数据的完整性-该层定义了两个主要的协议-传输控制协议-TCP-可靠的面向连接-不会丢失-类似打电话-网页、邮件-和-用户数据报协议-UDP-不可靠的面向无连接-有可能丢失-类似发短信、QQ"><a href="#负责为应用层实体提供端到端的通信功能-保证了数据包的顺序传送及数据的完整性-该层定义了两个主要的协议-传输控制协议-TCP-可靠的面向连接-不会丢失-类似打电话-网页、邮件-和-用户数据报协议-UDP-不可靠的面向无连接-有可能丢失-类似发短信、QQ" class="headerlink" title="负责为应用层实体提供端到端的通信功能, 保证了数据包的顺序传送及数据的完整性, 该层定义了两个主要的协议 : 传输控制协议(TCP)可靠的面向连接,不会丢失,类似打电话,网页、邮件 和  用户数据报协议(UDP)不可靠的面向无连接,有可能丢失, 类似发短信、QQ"></a>负责为应用层实体提供端到端的通信功能, 保证了数据包的顺序传送及数据的完整性, 该层定义了两个主要的协议 : 传输控制协议(TCP)可靠的面向连接,不会丢失,类似打电话,网页、邮件 和  用户数据报协议(UDP)不可靠的面向无连接,有可能丢失, 类似发短信、QQ</h1><h1 id="TCP的三次握手来源于-两军问题"><a href="#TCP的三次握手来源于-两军问题" class="headerlink" title="TCP的三次握手来源于 [两军问题]"></a>TCP的三次握手来源于 [两军问题]</h1><p>1-3) 网际互联层 : 网络层</p>
+<h1 id="主要解决主机到主机的通信问题-它所包含的协议涉及数据包在整个网络上的逻辑传输-该层有三个主要协议-网际协议-IP-互联网组管理协议-IGMP-互联网控制报文协议-ICMP"><a href="#主要解决主机到主机的通信问题-它所包含的协议涉及数据包在整个网络上的逻辑传输-该层有三个主要协议-网际协议-IP-互联网组管理协议-IGMP-互联网控制报文协议-ICMP" class="headerlink" title="主要解决主机到主机的通信问题, 它所包含的协议涉及数据包在整个网络上的逻辑传输, 该层有三个主要协议 : 网际协议(IP), 互联网组管理协议(IGMP), 互联网控制报文协议(ICMP)"></a>主要解决主机到主机的通信问题, 它所包含的协议涉及数据包在整个网络上的逻辑传输, 该层有三个主要协议 : 网际协议(IP), 互联网组管理协议(IGMP), 互联网控制报文协议(ICMP)</h1><p>1-4) 网络接口层 : 数据链路层、物理层</p>
+<h1 id="负责监视数据在主机和网络之间的交换-事实上-TCP-IP本身并未定义该层的协议-而由参与互连的各网络使用自己的物理层和数据链路层协议-然后与TCP-IP的网络接入层进行连接-地址解析协议-ARP-工作在此层-即OSI参考模型的数据链路层"><a href="#负责监视数据在主机和网络之间的交换-事实上-TCP-IP本身并未定义该层的协议-而由参与互连的各网络使用自己的物理层和数据链路层协议-然后与TCP-IP的网络接入层进行连接-地址解析协议-ARP-工作在此层-即OSI参考模型的数据链路层" class="headerlink" title="负责监视数据在主机和网络之间的交换, 事实上, TCP/IP本身并未定义该层的协议, 而由参与互连的各网络使用自己的物理层和数据链路层协议, 然后与TCP/IP的网络接入层进行连接. 地址解析协议(ARP) 工作在此层, 即OSI参考模型的数据链路层."></a>负责监视数据在主机和网络之间的交换, 事实上, TCP/IP本身并未定义该层的协议, 而由参与互连的各网络使用自己的物理层和数据链路层协议, 然后与TCP/IP的网络接入层进行连接. 地址解析协议(ARP) 工作在此层, 即OSI参考模型的数据链路层.</h1><h1 id="地址解析协议-ARP-将IP地址-翻译成物理地址"><a href="#地址解析协议-ARP-将IP地址-翻译成物理地址" class="headerlink" title="地址解析协议(ARP) : 将IP地址 翻译成物理地址"></a>地址解析协议(ARP) : 将IP地址 翻译成物理地址</h1><p>在网络中传输的时候，通过ip确定地址。 在局域网中传输的时候，通过mac确定地址。局域网内的交换机通过mac地址来确定设备<br><br>arp协议使ip地址和mac地址形成对应关系。</p>
+<p>2、数据封装过程(如图)</p>
+<h1 id="发送是由上至下进行打包-接收是由下至上进行拆包"><a href="#发送是由上至下进行打包-接收是由下至上进行拆包" class="headerlink" title="发送是由上至下进行打包, 接收是由下至上进行拆包"></a>发送是由上至下进行打包, 接收是由下至上进行拆包</h1><p>3、TCP/IP  模型与OSI 模型的比较<br>3-1) 共同点<br>3-1-1) OSI 参考模型和 TCP/IP参考模型都采用了层次结构的概念<br>3-1-2) 都能够提供面向连接和无连接两种通信服务机制<br>3-2) 不同点<br>3-2-1) OSI 七层, TCP/IP 四层<br>3-2-2) 对可靠性要求不同(TCP/IP 更高)<br>3-2-3) OSI 模型是在协议开发前设计的, 具有通用性. TCP/IP 是先有协议集, 然后建立模型, 不适用与非TCP/IP网络<br>3-2-4) 实际市场应用不同( OSI 模型只是理论上的模型, 并没有成熟的产品, 而TCP/IP已经成为”实际上的国际标准”)</p>
+<p>地址解析协议(ARP) ：即OSI参考模型的数据链路层. DOS命令：arp -a<br>ICMP协议ping命令就是用了这个协议。<br>TCP/IP面向连接进行传输，两者之间传输的时候有交互，所以不会丢失，是可靠传输，有三次握手，像打电话。<br>UDP像发短信，速度快，不可靠。<br>TCP/IP三次握手为啥是三次：两军问题，<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img3.mukewang.com/5ac231460001af0212800720.jpg" alt="三次握手" title="">
+                </div>
+                <div class="image-caption">三次握手</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.mukewang.com/5ac34ccf0001302812800720.jpg" alt="数据封装过程" title="">
+                </div>
+                <div class="image-caption">数据封装过程</div>
+            </figure></p>
+<h2 id="1-5-Linux网络基础之IP地址详…-10-16"><a href="#1-5-Linux网络基础之IP地址详…-10-16" class="headerlink" title="1-5 Linux网络基础之IP地址详…(10:16)"></a>1-5 Linux网络基础之IP地址详…(10:16)</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img3.mukewang.com/5ac34dba000125c712800720.jpg" alt="IP包头" title="">
+                </div>
+                <div class="image-caption">IP包头</div>
+            </figure>
+<p>1.IPV4: IP包头：&gt;=20字节 IPV6:固定字节，故IPV6传输速度更快。</p>
+<p>2.IP分类：5类<br>ip地址范围（1-233）<br>私有ip可以节约公网ip，但是不可以直接访问公网。</p>
+<p>不是所有的IP都能用,分为A、B、C、D、E五类,D、E不对民用组织开放，我们不能使用<br>判断四组IP中第一个数 1、128、192来判断是ABC哪类IP<br>127这个网段，只有一个ip 127.0.0.1，代表当前计算机自己<br>A 1 ~ 126<br>A类用第一个数来代表不同的网段，不同的网段之间的通信，需要使用路由器(跨网络通信)，同一个网段中通信，只需要使用交换机就行，后3个数，代表同一个网段中的不同的主机<br>2的24次方-2      1.0.0.0代表网络本身，不能分配， 1.255.255.255代表当前网络的广播地址也不能分配</p>
+<p>B 128 ~ 191<br>前两个数代表同一个网段 128.0 ~ 191.255 191.224和191.254不是同一个网络<br>后两个数代表网段中的不同的主机<br>C 192 ~ 223 最大是到223<br>前三个数代表不同的网段</p>
+<p>每个网络有多少个主机，是用子网掩码来确定的，IP是不能确定的<br>每个IP都有一个标准的子网掩码<br>私有IP地址范围是不需要花钱的，用作内网IP，可以有效的节约公有IP，但是这些IP是不能直接访问公有IP的<br>需要和公网IP进行转换才能访问<br>公有IP需要花钱买</p>
+<p>IPV4: IP包头：&gt;=20字节 IPV6:固定字节<br>源IP地址：32位 目的IP地址：32位<br>A类(1位)：1.0.0.0—126 127.0.0.0（指向自身） B类（2位）：128.0——191 C类（3位）：192——223<br>私有IP:10.0.0.0—10.255.255.255      172.16.0.0—172.31.255.255       192.168.0.0—192.168.255.255</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img1.mukewang.com/59f238690001a98912800720.jpg" alt="IP地址分类" title="">
+                </div>
+                <div class="image-caption">IP地址分类</div>
+            </figure>
+<h2 id="1-6-Linux网络基础之子网掩码…-09-42"><a href="#1-6-Linux网络基础之子网掩码…-09-42" class="headerlink" title="1-6 Linux网络基础之子网掩码…(09:42)"></a>1-6 Linux网络基础之子网掩码…(09:42)</h2><p>子网掩码：用连续1的表示，例如255.0.0.0，255.255.0.0<br>子网掩码的作用：用来区分不同网段的IP—-子网掩码与IP相与，得到的结果相同则在同一网段.否则不在，需要经过路由器转发。<br>IP和子网掩码必须一起配合使用。<br>网络号=IP&amp;&amp;子网掩码<br>广播地址：主机号全为1</p>
+<p>也就是说255.126.0.0也是子网掩码。</p>
+<h2 id="1-7-Linux网络基础之端口作用…-13-51"><a href="#1-7-Linux网络基础之端口作用…-13-51" class="headerlink" title="1-7 Linux网络基础之端口作用…(13:51)"></a>1-7 Linux网络基础之端口作用…(13:51)</h2><p>10000以内的端口多是给系统自己用，netstat -an查看本机启用的端口（无论TCP or UDP )<br>端口作用<br>1 IP确定服务器位置，端口号确定服务器上开启的哪一个服务<br>2 Telnet（23号端口） 远程登录 被禁用 因为其明文传递 不加密</p>
+<p>端口的作用：<br>传输层：差错控制和流量控制，传输层的协议，发送端的端口号和接收端的端口号</p>
+<h4 id="常见端口号"><a href="#常见端口号" class="headerlink" title="常见端口号"></a>常见端口号</h4><p>ftp（文件传输协议）20数据传递/21登录传输命令<br>ssh（安全shell协议）22<br>Telnet（远程登录协议）23（明文传递，禁用）<br>DNS（域名系统）53<br>http(超文本传输协议)80<br>SMTP（简单邮件传输协议）25（用来发信）<br>pop3（邮局协议3）110（用来收信）</p>
+<p>DNS既是TCP又是UDP<br>netstat-an<br>-a 查看所有连接和监听端口<br>-n 显示IP地址和端口号，而不是域名和服务名<br>listening 监听<br>established 已经存在连接<br>close_wait 连接超时<br>time_wait 连接超时<br>udp的状态列表为空。是因为UDP不需要监听。</p>
+<h2 id="1-8-Linux网络基础之DNS作用…-28-43"><a href="#1-8-Linux网络基础之DNS作用…-28-43" class="headerlink" title="1-8 Linux网络基础之DNS作用…(28:43)"></a>1-8 Linux网络基础之DNS作用…(28:43)</h2><p>DNS作用<br>1、域名、ip相互解析<br>—&gt;客户机向DNS服务器发送域名查询请求<br>—&gt;DNS服务器告知客户机web服务器的ip地址<br>—&gt;客户机与web服务器通信<br>2、DNS查询类型<br>1）从查询方式上分：<br>-递归查询，必须返回准确的值（本地域名服务器）<br>-迭代查询，允许返回类似的值（根DNS服务器）<br>2）从查询内容上分<br>-正向查询，由域名查找ip地址<br>-反向查询，由ip地址查找域名</p>
+<p>1.hosts文件做静态解析，优先级高于DNS解析。</p>
+<p>2.DNS负责将域名解析为IP地址，或者把IP地址转换为域名。<br>过程：客户机向DNS服务器发送查询IP请求——&gt;DNS服务器查询到web服务器的IP告知用户——&gt;用户访问web服务器。</p>
+<p>3.域名空间结构：<br>3.1根域：.<br>3.2顶级域(一级域)：包括组织域和地区域<br>gov 政府；edu 教育部门；com 商业部门；org 民间团体；net 网络服务机构；mil 军事部门…<br>cn 中国；hk 香港；jp 日本；Uk 英国；au 澳大利亚…<br>3.3二级域：企业或个人自行购买的(imooc /microsoft/ibm/sina)<br>主机名/三级域：申请完二级域后自己定义的(www/news)</p>
+<p>三级域+二级域+顶级域组成完整域名空间</p>
+<p>4.DNS查询过程(以www.imooc.com.cn为例)：<br>DNS客户机——&gt;本地域名服务器——&gt;根DNS服务器——&gt;cn服务器——&gt;com.cn服务器——&gt;imooc.com.cn——&gt;本地域名服务器——&gt;DNS客户机——&gt;web服务器www.imooc.com.cn<br>递归查询：客户机对本地域名服务器查询的机制，必须反馈准确值（要么成功要么失败）<br>迭代查询：本地域名服务器分别对各级域名服务器的查询机制，不一定反馈准确值</p>
+<p>DNS查询过程(以www.imooc.com.cn为例)：<br>DNS客户机——&gt;本地域名服务器——&gt;根DNS服务器——&gt;cn服务器——&gt;com.cn服务器——&gt;imooc.com.cn——&gt;本地域名服务器——&gt;DNS客户机——&gt;web服务器www.imooc.com.cn<br>递归查询：客户机对本地域名服务器查询的机制，必须反馈准确值（要么成功要么失败）<br>迭代查询：本地域名服务器分别对各级域名服务器的查询机制，不一定反馈准确值</p>
+<p>防范钓鱼网站：二级域名和三级域名结合。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img4.mukewang.com/59f322de0001487712800720.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>1-9 Linux网络基础之网关作用…(12:39)<br>第2章 Linux网络配置<br>2-1 Linux网络配置之IP地址配…(13:41)<br>2-2 Linux网络配置之使用文件…(20:50)<br>2-3 Linux网络配置之虚拟机网…(14:29)<br>第3章 Linux网络命令<br>3-1 Linux网络命令之网络环境…(21:30)<br>3-2 Linux网络命令之网络测试…(15:48)<br>第4章 远程登录工具<br>4-1 SSH协议原理(21:28)<br>4-2 linux远程登录工具SecureC…(06:21)<br>4-3 XShell和WinSCP工具(08:29)</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-14T17:12:21.950Z" itemprop="dateUpdated">2018-08-15 01:12:21</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/07/07/20180707InternetLinux/" target="_blank" rel="external">https://hankin2015.github.io/2018/07/07/20180707InternetLinux/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络编程/">网络编程</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/&title=《Linux网络管理(网络编程)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/&title=《Linux网络管理(网络编程)》 — HanKin的博客&source=第1章 网络基础
+                
+                    
+                    
+         ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux网络管理(网络编程)》 — HanKin的博客&url=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/27/20180717MySQL_Practice/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">MySQL实战</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/06/20180706hiho205/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hiho一下 第205周 Building Heap</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/&title=《Linux网络管理(网络编程)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/&title=《Linux网络管理(网络编程)》 — HanKin的博客&source=第1章 网络基础
+                
+                    
+                    
+         ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux网络管理(网络编程)》 — HanKin的博客&url=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/07/07/20180707InternetLinux/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

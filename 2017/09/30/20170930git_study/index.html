@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>git学习 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git">
+    <meta name="description" content="git                  学习网站：廖雪峰的网站 1、git简介Git是目前世界上最先进的分布式版本控制系统（没有之一）。 Git有什么特点？简单来说就是：高端大气上档次！ 这个软件用起来就应该像这">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git学习">
+<meta property="og:url" content="https://hankin2015.github.io/2017/09/30/20170930git_study/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="git                  学习网站：廖雪峰的网站 1、git简介Git是目前世界上最先进的分布式版本控制系统（没有之一）。 Git有什么特点？简单来说就是：高端大气上档次！ 这个软件用起来就应该像这">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.liaoxuefeng.com/files/attachments/0013848605496402772ffdb6ab448deb7eef7baa124171b000/0">
+<meta property="og:updated_time" content="2018-04-19T06:22:50.136Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git学习">
+<meta name="twitter:description" content="git                  学习网站：廖雪峰的网站 1、git简介Git是目前世界上最先进的分布式版本控制系统（没有之一）。 Git有什么特点？简单来说就是：高端大气上档次！ 这个软件用起来就应该像这">
+<meta name="twitter:image" content="https://www.liaoxuefeng.com/files/attachments/0013848605496402772ffdb6ab448deb7eef7baa124171b000/0">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git学习</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git学习</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-30T09:58:41.000Z" itemprop="datePublished" class="page-time">
+  2017-09-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、git简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、git简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、安装git"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、安装git</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、配置git"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、配置git</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、常规操作"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、常规操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特别提醒"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">特别提醒</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、时光机穿梭"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">4、时光机穿梭</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、工作区和暂存区"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">5、工作区和暂存区</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、撤销修改和删除文件"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">6、撤销修改和删除文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7、远程仓库配置（重要）"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">7、远程仓库配置（重要）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建SSH-Key"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">创建SSH Key</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#登陆GitHub，打开“Account-settings”，“SSH-Keys”页面"><span class="post-toc-number">4.5.2.</span> <span class="post-toc-text">登陆GitHub，打开“Account settings”，“SSH Keys”页面</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20170930git_study"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git学习</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-30 17:58:41" datetime="2017-09-30T09:58:41.000Z"  itemprop="datePublished">2017-09-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://www.liaoxuefeng.com/files/attachments/0013848605496402772ffdb6ab448deb7eef7baa124171b000/0" alt="git" title="">
+                </div>
+                <div class="image-caption">git</div>
+            </figure>
+<object width="340" height="86" data="http://music.163.com/style/swf/widget.swf?
+sid=445154960&type=2&auto=0&width=320&height=66" type="application/x-shockwave-flash"></object>  
+
+<p>学习网站：<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰的网站</a></p>
+<h1 id="1、git简介"><a href="#1、git简介" class="headerlink" title="1、git简介"></a>1、git简介</h1><p><strong>Git</strong>是目前世界上最先进的分布式版本控制系统（没有之一）。</p>
+<p>Git有什么特点？简单来说就是：高端大气上档次！</p>
+<p>这个软件用起来就应该像这个样子，能记录每次文件的改动：<br><a id="more"></a><br>版本  用户  说明  日期<br>1   张三  删除了软件服务条款5  7/12 10:38<br>2   张三  增加了License人数限制  7/12 18:09<br>3   李四  财务部门调整了合同金额 7/13 9:51<br>4   张三  延长了免费升级周期   7/14 15:17<br>这样，你就结束了手动管理多个“版本”的史前时代，进入到版本控制的20世纪。</p>
+<h1 id="2、安装git"><a href="#2、安装git" class="headerlink" title="2、安装git"></a>2、安装git</h1><ul>
+<li><p>用Debian或Ubuntu Linux，通过一条<code>sudo apt-get install git</code>就可以直接完成Git的安装，非常简单。</p>
+</li>
+<li><p>老一点的Debian或Ubuntu Linux，要把命令改为<code>sudo apt-get install git-core</code>，因为以前有个软件也叫GIT（GNU Interactive Tools），结果Git就只能叫git-core了。由于Git名气实在太大，后来就把GNU Interactive Tools改成gnuit，git-core正式改为git。</p>
+</li>
+<li><p>如果是其他Linux版本，可以直接通过源码安装。先从Git官网下载源码，然后解压，依次输入：./config，make，sudo make install这几个命令安装就好了。</p>
+</li>
+<li><p>Windows就忽略了。实话实说，Windows是最烂的开发平台，如果不是开发Windows游戏或者在IE里调试页面，一般不推荐用Windows。不过，既然已经上了微软的贼船，也是有办法安装Git的。</p>
+</li>
+</ul>
+<h1 id="3、配置git"><a href="#3、配置git" class="headerlink" title="3、配置git"></a>3、配置git</h1><p>（这一步意义不大，似乎不设置也没有影响）<br>安装完成后，还需要最后一步设置，在命令行输入：   </p>
+<pre><code>$ git config --global user.name &quot;Your Name&quot;
+$ git config --global user.email &quot;email@example.com&quot;
+</code></pre><p>注意git config命令的–global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。</p>
+<h1 id="4、常规操作"><a href="#4、常规操作" class="headerlink" title="4、常规操作"></a>4、常规操作</h1><p>$ mkdir learngit<br>$ cd learngit<br>$ git init<br>$ git add .   添加全部文件，也可以添加指定文件，多个用空格隔开<br>$ git commit -m “备注内容”<br>$ git status  查看结果，其中有颜色变化<br>$ git diff readme.txt   如果提示readme.txt文件被修改，命令查看具体修改内容<br>$ git log  查看提交的历史记录<br>$ git log –pretty=oneline  如果嫌输出信息太多，看得眼花缭乱的，可以试试加上–pretty=oneline参数<br>需要友情提示的是，你看到的一大串类似3628164…882e1e0的是commit id（版本号），和SVN不一样，Git的commit id不是1，2，3……递增的数字，而是一个SHA1计算出来的一个非常大的数字，用十六进制表示。</p>
+<p>瞬间Git就把仓库建好了，而且告诉你是一个空的仓库（empty Git repository），细心的读者可以发现当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，没事千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。</p>
+<p>如果你没有看到.git目录，那是因为这个目录默认是隐藏的，用ls -ah命令就可以看见。</p>
+<h2 id="特别提醒"><a href="#特别提醒" class="headerlink" title="特别提醒"></a>特别提醒</h2><p>首先这里再明确一下，所有的版本控制系统，其实只能跟踪文本文件的改动，比如TXT文件，网页，所有的程序代码等等，Git也不例外。版本控制系统可以告诉你每次的改动，比如在第5行加了一个单词“Linux”，在第8行删了一个单词“Windows”。而图片、视频这些二进制文件，虽然也能由版本控制系统管理，但没法跟踪文件的变化，只能把二进制文件每次改动串起来，也就是只知道图片从100KB改成了120KB，但到底改了啥，版本控制系统不知道，也没法知道。</p>
+<p>不幸的是，Microsoft的Word格式是二进制格式，因此，版本控制系统是没法跟踪Word文件的改动的，前面我们举的例子只是为了演示，如果要真正使用版本控制系统，就要以纯文本方式编写文件。</p>
+<p>因为文本是有编码的，比如中文有常用的GBK编码，日文有Shift_JIS编码，如果没有历史遗留问题，强烈建议使用标准的UTF-8编码，所有语言使用同一种编码，既没有冲突，又被所有平台所支持。</p>
+<p>使用Windows的童鞋要特别注意：</p>
+<p>千万不要使用Windows自带的记事本编辑任何文本文件。原因是Microsoft开发记事本的团队使用了一个非常弱智的行为来保存UTF-8编码的文件，他们自作聪明地在每个文件开头添加了0xefbbbf（十六进制）的字符，你会遇到很多不可思议的问题，比如，网页第一行可能会显示一个“?”，明明正确的程序一编译就报语法错误，等等，都是由记事本的弱智行为带来的。建议你下载Notepad++代替记事本，不但功能强大，而且免费！记得把Notepad++的默认编码设置为UTF-8 without BOM即可</p>
+<h2 id="4、时光机穿梭"><a href="#4、时光机穿梭" class="headerlink" title="4、时光机穿梭"></a>4、时光机穿梭</h2><p>首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交3628164…882e1e0，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。</p>
+<blockquote>
+<p>$ git reset –hard HEAD^  把当前版本“append GPL”回退到上一个版本</p>
+</blockquote>
+<p>最新的那个版本append GPL已经看不到了！好比你从21世纪坐时光穿梭机来到了19世纪，想再回去已经回不去了，肿么办？</p>
+<p>办法其实还是有的，只要上面的命令行窗口还没有被关掉，你就可以顺着往上找啊找啊，找到那个append GPL的commit id是3628164…，于是就可以指定回到未来的某个版本：</p>
+<p>$ git reset –hard 3628164<br>HEAD is now at 3628164 append GPL<br>版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了。</p>
+<p>Git的版本回退速度非常快，因为Git在内部有个指向当前版本的HEAD指针，当你回退版本的时候，Git仅仅是把HEAD从指向append GPL。</p>
+<p>现在，你回退到了某个版本，关掉了电脑，第二天早上就后悔了，想恢复到新版本怎么办？找不到新版本的commit id怎么办？</p>
+<p>在Git中，总是有后悔药可以吃的。当你用$ git reset –hard HEAD^回退到add distributed版本时，再想恢复到append GPL，就必须找到append GPL的commit id。Git提供了一个命令git reflog用来记录你的每一次命令。</p>
+<blockquote>
+<p>$ git reflog  查看命令历史</p>
+</blockquote>
+<h2 id="5、工作区和暂存区"><a href="#5、工作区和暂存区" class="headerlink" title="5、工作区和暂存区"></a>5、工作区和暂存区</h2><p>在电脑里能看到的目录，比如我的github文件夹就是一个工作区。<br>工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。</p>
+<p>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
+<p>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+<h2 id="6、撤销修改和删除文件"><a href="#6、撤销修改和删除文件" class="headerlink" title="6、撤销修改和删除文件"></a>6、撤销修改和删除文件</h2><p>git checkout – file<br>git reset HEAD file</p>
+<p>删除本地文件 rm test.txt</p>
+<ul>
+<li><p>一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit</p>
+</li>
+<li><p>二是误删，轻松恢复  git checkout – test.txt</p>
+</li>
+</ul>
+<h2 id="7、远程仓库配置（重要）"><a href="#7、远程仓库配置（重要）" class="headerlink" title="7、远程仓库配置（重要）"></a>7、远程仓库配置（重要）</h2><h3 id="创建SSH-Key"><a href="#创建SSH-Key" class="headerlink" title="创建SSH Key"></a>创建SSH Key</h3><p>$ ssh-keygen -t rsa -C “youremail@example.com”<br>然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。</p>
+<p>如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。</p>
+<h3 id="登陆GitHub，打开“Account-settings”，“SSH-Keys”页面"><a href="#登陆GitHub，打开“Account-settings”，“SSH-Keys”页面" class="headerlink" title="登陆GitHub，打开“Account settings”，“SSH Keys”页面"></a>登陆GitHub，打开“Account settings”，“SSH Keys”页面</h3><p>然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容。<br>Coding同样的道理。</p>
+<p><a href="http://blog.csdn.net/lincyang/article/details/21519333" target="_blank" rel="noopener">Git冲突：commit your changes or stash them before you can merge.</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">### 克隆下载</span><br><span class="line">pull</span><br><span class="line">fech</span><br><span class="line"></span><br><span class="line">执行git init初始化这个文件，在clone到你们本地</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### fork更新</span><br><span class="line">fork 版本的修改 pull 到原版本的方法，但无法把原版本的修改 pull 到我 fork 的版本中。</span><br><span class="line">new pull request</span><br><span class="line">[网络错误-未链接到互联网](http://www.cnblogs.com/linxinmeng/p/7070066.html)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### git base &amp; git merge</span><br><span class="line"></span><br><span class="line">### git rejected</span><br><span class="line"></span><br><span class="line">### [Git fetch和git pull的区别](http://blog.csdn.net/hudashi/article/details/7664457)</span><br><span class="line"></span><br><span class="line">http://blog.csdn.net/wh_19910525/article/details/7554489</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git是一种版本控制系统。跟svn、cvs是同级的概念。</span><br><span class="line">github是一个网站，给用户提供git服务。这样你就不用自己部署git系统，直接用注册个账号，用他们提供的git服务就可以。</span><br><span class="line"></span><br><span class="line"># 提交说明</span><br><span class="line"></span><br><span class="line">1. fork这个项目到自己的coding.net库</span><br><span class="line">2. pull这个项目到本地</span><br><span class="line">fatal: Not a git repository (or any of the parent directories): .git</span><br><span class="line">原因：你没有初始化git init</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3. 按照学生信息表.md的示例填写自己的相关信息</span><br><span class="line">4. push到自己的coding.net库</span><br><span class="line">5. 提PR到https://coding.net/u/greyzeng/p/WHU_SE_2017/git/tree/master</span><br><span class="line">http://overflowstack.github.io/</span><br><span class="line"></span><br><span class="line">进入数据库，导入sql文件，输入“source sql文件的路径”（注意你的文件路径要是复制来的，要将&quot;\&quot;全部换成“/”）</span><br><span class="line"></span><br><span class="line">输入“show tables”，你就会看到你导入的表了。</span><br><span class="line"></span><br><span class="line">ova （原创动画录影带） 编辑</span><br><span class="line">原创动画录影带（Original Video Animation）简称。一般指通过DVD，蓝光碟等影碟发行的方式为主的剧集，也指一些相较原著篇幅较小且内容不一的动画剧集，相较于电视动画、剧场版电视或者电影院播放的不同，OVA则是从发行渠道来划分的，一般通过DVD等影碟的形式发行。一般的OVA不见得广为人知，选材一般是应某个特定作品的爱好者的要求而出的，一般是将情节补完，以满足爱好者收藏的需要。也有的OVA是作为实验期的作品，如果反响不错，就很有可能做成电视动画。</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-19T06:22:50.136Z" itemprop="dateUpdated">2018-04-19 14:22:50</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/09/30/20170930git_study/" target="_blank" rel="external">https://hankin2015.github.io/2017/09/30/20170930git_study/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/09/30/20170930git_study/&title=《git学习》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/09/30/20170930git_study/&title=《git学习》 — HanKin的博客&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/09/30/20170930git_study/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git学习》 — HanKin的博客&url=https://hankin2015.github.io/2017/09/30/20170930git_study/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/09/30/20170930git_study/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/13/20171013STL-map&set&vector/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">STL容器之list、vector、map、set、stack、queue、deque</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/30/20170930JupyterTutorial/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JUpyter Notebook学习</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/09/30/20170930git_study/&title=《git学习》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/09/30/20170930git_study/&title=《git学习》 — HanKin的博客&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/09/30/20170930git_study/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git学习》 — HanKin的博客&url=https://hankin2015.github.io/2017/09/30/20170930git_study/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/09/30/20170930git_study/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/09/30/20170930git_study/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

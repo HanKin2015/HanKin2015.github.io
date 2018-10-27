@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>数据科学和大数据的区别 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Sublime">
+    <meta name="description" content="大数据定义大数据是指传统数据架构无法有效处理的一种新型数据集。对新型数据架构具有约束力的大数据特征是：  规模/Volume  数据集的大小；  多样性/Variety  数据来自多个数据仓库、多个业务领域，包含多种类型；  速度/Velocity  数据流动的速度；">
+<meta name="keywords" content="Sublime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据科学和大数据的区别">
+<meta property="og:url" content="https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="大数据定义大数据是指传统数据架构无法有效处理的一种新型数据集。对新型数据架构具有约束力的大数据特征是：  规模/Volume  数据集的大小；  多样性/Variety  数据来自多个数据仓库、多个业务领域，包含多种类型；  速度/Velocity  数据流动的速度；">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-20T08:43:28.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据科学和大数据的区别">
+<meta name="twitter:description" content="大数据定义大数据是指传统数据架构无法有效处理的一种新型数据集。对新型数据架构具有约束力的大数据特征是：  规模/Volume  数据集的大小；  多样性/Variety  数据来自多个数据仓库、多个业务领域，包含多种类型；  速度/Velocity  数据流动的速度；">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数据科学和大数据的区别</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数据科学和大数据的区别</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-31T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-10-31
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#大数据定义"><span class="post-toc-number">1.</span> <span class="post-toc-text">大数据定义</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171031DataScience&amp;BigData"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数据科学和大数据的区别</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-31 10:47:41" datetime="2017-10-31T02:47:41.000Z"  itemprop="datePublished">2017-10-31</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="大数据定义"><a href="#大数据定义" class="headerlink" title="大数据定义"></a>大数据定义</h1><p>大数据是指传统数据架构无法有效处理的一种新型数据集。对新型数据架构具有约束力的大数据特征是：</p>
+<ul>
+<li><p>规模/Volume  数据集的大小；</p>
+</li>
+<li><p>多样性/Variety  数据来自多个数据仓库、多个业务领域，包含多种类型；</p>
+</li>
+<li><p>速度/Velocity  数据流动的速度；</p>
+<a id="more"></a></li>
+<li>易变性/Variability  数据集其他特征方面的变化；(价值/Value)</li>
+</ul>
+<p>上述特性：规模、多样性、速度、易变性，通常被称为大数据的四个“V”。虽然大数据还能总结出其他“V”，但是，上述四个“V”是实现成本经济性模式、向新型并行架构转变的驱动力。这些大数据特性决定了大数据系统的整体设计，并形成不同的数据系统架构或者不同的数据处理生命周期，以实现所需的效能。</p>
+<p>大数据包含范围广泛的数据集——主要体现在规模、多样性、速度，和/或易变性等特征方面——需要一个可扩展的架构，实现高效存储、管理和分析。</p>
+<p>需要注意的是，上述定义中涉及到数据特征和系统架构需求之间的相互作用，以实现所要求的性能和成本经济性。对于系统功能扩展，有两种根本不同的方式，通常描述为“垂直”扩展或“水平”扩展。垂直扩展意味着增加处理速度、存储、内存等系统参数，从而达到更高的系统性能。垂直扩展方案受到物理能力的限制，物理能力的发展速度遵从摩尔定律。替代方案可以采用水平扩展，利用分布式个体资源，进行集成，形成单一系统。这种水平扩展方案，才是大数据变革的核心方式。</p>
+<p>大数据范式是指数据系统在水平方向上，基于各独立计算资源的分布处理，以实现对于大数据集进行高效处理的可扩展性需求。</p>
+<p>如上所述，大数据范式是数据系统架构从具有垂直扩展的单片系统向并行的、“水平扩展”的系统转变。并行、水平扩展系统能够充分利用松散的、并行的计算资源集合。这种类型的并行转换开始于20多年前、在仿真研究中采用的计算密集型应用程序，当时开始使用大规模并行处理（MPP）系统来进行科学仿真。</p>
+<p>大规模并行处理是指多个独立处理器并行工作，以执行同一个特定的程序。</p>
+<p>针对众多独立处理器进行代码和数据的拆分，基于该拆分结果进行不同类型的组合，计算科学家能够极大地扩展仿真能力。这种处理方式也带来了许多技术难题，诸如消息传递、数据移动、资源一致性调节、负载平衡、以及系统低效率，同时还需要等待其他计算资源完成各自的计算任务。</p>
+<p>同样，大数据范式正在向数据密集型应用程序的并行处理模式转换。数据系统需要一种与数据规模相匹配的扩展能力。为了获得这种扩展能力，需要建立多种机制来实现跨松散计算资源的数据配置和检索。</p>
+<p>大数据的数据规模大是由于相关数据集需要可扩展系统来处理。相反，具有更好扩展性的系统架构的出现，是由于处理大数据所必需。很难通过数据集的大小需求来定义大数据。如果新型可扩展架构的应用能够比传统垂直可扩展架构更为高效或成本低廉，该数据通常被认为“大”。这种数据特性和数据系统性能之间的循环关系就形成了大数据的各种不同的定义</p>
+<p>新型非关系型数据库范式，通常指NoSQL（不仅仅是或不是基于结构化查询[SQL]语言）系统。虽然NoSQL应用已经很常见，但是它仍被认为是在关系模型之外的一种新型数据模型。</p>
+<p>非关系模型，通常指NoSQL，是指那些不是基于关系代数来处理数据的存储和管理的逻辑数据模型。</p>
+<p>需要注意的是，对于系统处理和分析处理来说，大数据范式变革也会引起传统数据处理生命周期的变化。一些端到端数据生命周期模型把数据处理过程归类为：收集、预处理、分析和操作。不同的大数据用例可以基于大数据特征和端到端数据生命周期不同的时间窗进行归类。数据集特征以不同方式改变数据生命周期过程。在传统关系模型中，数据在预处理后（也即是，在ETL和数据清洗处理之后）进行存储。在规模用例中，数据通常以原始状态进行存储。数据以原始状态进行持久性处理，这就要求为了数据准备和分析而进行数据检索时，需要应用数据模式或模型。大数据概念将该模式定义为“读取模式”。</p>
+<p>读取模式是指在从数据库中读取数据时，需要应用数据模式来进行数据准备处理，诸如数据转换、清洗和整合。</p>
+<p>大数据的另一个概念通常被称为“把处理过程转向数据，而不是把数据转向处理过程”。</p>
+<p>计算的可移植性是指把计算移动到数据所在的位置。</p>
+<p>这就意味着，数据存储范围太广，难于有效查询，把数据移动到另一个计算资源处进行分析更加困难，因此把分析程序进行分布式设计，靠近存储数据。这种本地数据的概念就是并行数据架构的关键环节。另外的系统概念是互操作性（各种工具协同工作的能力）、复用性（工具在各种领域进行应用的能力），以及可扩展性（面对新领域增加或修改现有工具的能力）。这些系统概念不特指大数据，但是这些概念在大数据中应用，能够增强对于大数据参考架构的理解。</p>
+<p>1.2.    数据科学定义</p>
+<p>数据科学是第四个科学范畴，紧跟在实验科学、理论科学和计算科学之后。第四范畴是Jim Gray博士在2007年创造的一个术语。数据密集型科学，简写为数据科学，是指将数据分析执行作为经验科学，直接从数据本身进行学习。数据科学采用收集数据的形式，进行开放式分析，不做预先假定。在许多数据科学项目中，首先要浏览原始数据，形成一个假定，然后基于假定进行调查确认。这里的关键概念是，数据科学是一个经验科学，直接基于数据进行科学处理。</p>
+<p>数据科学是通过发现，或者假定设想以及假定验证等处理对数据进行分析，直接从数据中抽取出可执行的知识。</p>
+<p>数据科学可以理解为在系统架构的处理层中发生的活动，而不是在数据层中的数据存储，目的是从原始数据中抽取知识。</p>
+<p>术语“分析”是指在数据中探索有意义的模式，是数据生命周期中的一个步骤。数据生命周期包括：原始数据的收集、信息准备、模式分析并形成知识、创造价值的活动。</p>
+<p>数据生命周期是把原始数据转换成可操作知识应用的一系列过程。</p>
+<p>分析是指一些方法、方法实现工具、以及使用这些工具形成的结果，还包括实行人员的解析。</p>
+<p>分析过程是指从信息中推理知识。</p>
+<p>分析方法是为简单数据表而研发的。当存储成本高昂时，就研发出关系型数据库和方法。随着廉价存储和大数据的出现，应对数据规模的策略将不再需要使用关系型方法。现在，分析实现必须在数据分布式存储设计时同步进行设计。对于大规模数据，数据清洗、准备和分析作为单一过程进行实现。在进行分析查询数据时，遵照读取模式执行数据组织。分析是数据生命周期中一个具体的过程，而数据密集型科学包括生命周期中的所有过程。</p>
+<p>涵盖整个数据生命周期中的数据科学充分利用来自多个学科和领域的原则、技术和方法，包括数据清洗、数据管理、分析、可视化、工程技术，以及大数据环境，现在也包括大数据工程。</p>
+<p>数据科学应用程序在大数据工程背景下，实现数据生命周期中的数据转换过程。</p>
+<p>数据科学家和数据科学团队通过在一个或多个学科中、在商务策略背景下、以及在领域知识指导下，利用深厚的专业经验来解决复杂的数据问题。在大数据系统内部交互复杂性的情况下，个人在通信、展示和求知欲方面的技能也非常重要。</p>
+<p>数据科学家是指在业务需求、领域知识、分析技巧以及软件和系统工程方面拥有丰富知识，从而在数据生命周期中管理端到端数据过程的专业人员。</p>
+<p>虽然，单个人可能拥有所有这些技能，但是通常情况下，如图1所示技能通常是整个团队成员组合所拥有。Venn图通常用于描述数据科学所需要的相互有重叠的技能。在实验科学的早期阶段，特定领域的专家来实现数据分析。随着用于分析的计算机的出现，对于非常复杂的分析，就需要统计技能或者机器学习技能；或者，领域专家需要和软件及系统工程师一起工作，来构建定制化的分析程序。随着基于并行处理器的计算密集型仿真程序复杂性的提升，计算科学技术就需要在这些架构上进行算法实现。对于数据密集型程序来说，就需要利用所有这些技能在并行处理的资源系统上分布数据和计算能力。虽然数据科学家很难在所有领域都拥有强大的技能，但他们需要了解这些领域，从数据密集型程序中获得价值，并在横跨这些领域的团队中进行工作。</p>
+<p>数据科学所需的技能.jpg<br>图1.数据科学所需的技能</p>
+<p>数据科学不仅仅只是分析，还要涉及到整个端到端生命周期，在这里数据系统本质上是用于研发真实世界理解模型的科学设备。这就意味着数据科学家必须深刻理解数据的来源、数据转换的适用性和准确性、转换算法和过程之间的相互作用、以及数据存储机制。这个端到端概览的角色能够确保所有事物都能够正确执行，从而探索数据、创建并验证各项科学假设。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-20T08:43:28.641Z" itemprop="dateUpdated">2018-03-20 16:43:28</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/10/31/20171031DataScience&amp;BigData/" target="_blank" rel="external">https://hankin2015.github.io/2017/10/31/20171031DataScience&amp;BigData/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/&title=《数据科学和大数据的区别》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/&title=《数据科学和大数据的区别》 — HanKin的博客&source=大数据定义大数据是指传统数据架构无法有效处理的一种新型数据集。对新型数据架构具有约束力的大数据特征是：
+
+规模/Volume  数据集的大小；
+
+多样性/..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数据科学和大数据的区别》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/31/20171031KaoYan2017/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2017考研记录</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/25/20171025SNAP-C++-Detail/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SNAP for C++的基本操作</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/&title=《数据科学和大数据的区别》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/&title=《数据科学和大数据的区别》 — HanKin的博客&source=大数据定义大数据是指传统数据架构无法有效处理的一种新型数据集。对新型数据架构具有约束力的大数据特征是：
+
+规模/Volume  数据集的大小；
+
+多样性/..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数据科学和大数据的区别》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/10/31/20171031DataScience&BigData/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

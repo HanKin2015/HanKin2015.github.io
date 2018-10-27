@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>动手学深度学习[个人版] | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ML,DeepLearning,MXNet,Glunon">
+    <meta name="description" content="1、学习深度须知DL??? 纸上得来终觉浅，绝知此事要躬行。 通俗来说，机器学习是一门讨论各式各样适用于不同问题的函数形式，以及如何使用数据来有效地获取函数参数具体值的学科。深度学习是指机器学习中的一类函数，它们的形式通常为多层神经网络。 裁剪平均值的雏形：去掉最高分和最低分。 绝大多数神经网络的核心原则： 交替使用线性与非线性处理单元，经常被称为“层”。 使用链式法则（即反向传播）来更新网络的参">
+<meta name="keywords" content="ML,DeepLearning,MXNet,Glunon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动手学深度学习[个人版]">
+<meta property="og:url" content="https://hankin2015.github.io/2018/09/25/20180925MXNet/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1、学习深度须知DL??? 纸上得来终觉浅，绝知此事要躬行。 通俗来说，机器学习是一门讨论各式各样适用于不同问题的函数形式，以及如何使用数据来有效地获取函数参数具体值的学科。深度学习是指机器学习中的一类函数，它们的形式通常为多层神经网络。 裁剪平均值的雏形：去掉最高分和最低分。 绝大多数神经网络的核心原则： 交替使用线性与非线性处理单元，经常被称为“层”。 使用链式法则（即反向传播）来更新网络的参">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T02:38:06.722Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="动手学深度学习[个人版]">
+<meta name="twitter:description" content="1、学习深度须知DL??? 纸上得来终觉浅，绝知此事要躬行。 通俗来说，机器学习是一门讨论各式各样适用于不同问题的函数形式，以及如何使用数据来有效地获取函数参数具体值的学科。深度学习是指机器学习中的一类函数，它们的形式通常为多层神经网络。 裁剪平均值的雏形：去掉最高分和最低分。 绝大多数神经网络的核心原则： 交替使用线性与非线性处理单元，经常被称为“层”。 使用链式法则（即反向传播）来更新网络的参">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">动手学深度学习[个人版]</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">动手学深度学习[个人版]</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-25T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-09-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ML/">ML</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、学习深度须知"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、学习深度须知</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DL"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">DL???</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MXNet"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">MXNet???</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GPU【图像处理器】和CPU【中央处理器】的区别"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">GPU【图像处理器】和CPU【中央处理器】的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、数据操作"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、数据操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、深度学习基础"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、深度学习基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线性回归"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">线性回归</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模型"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模型训练三要素"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">模型训练三要素</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180925MXNet"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">动手学深度学习[个人版]</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-25 10:47:41" datetime="2018-09-25T02:47:41.000Z"  itemprop="datePublished">2018-09-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ML/">ML</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1、学习深度须知"><a href="#1、学习深度须知" class="headerlink" title="1、学习深度须知"></a>1、学习深度须知</h1><h2 id="DL"><a href="#DL" class="headerlink" title="DL???"></a>DL???</h2><ul>
+<li>纸上得来终觉浅，绝知此事要躬行。</li>
+<li>通俗来说，机器学习是一门讨论各式各样适用于不同问题的函数形式，以及如何使用数据来有效地获取函数参数具体值的学科。深度学习是指机器学习中的一类函数，它们的形式通常为多层神经网络。</li>
+<li>裁剪平均值的雏形：去掉最高分和最低分。</li>
+<li>绝大多数神经网络的核心原则：<ul>
+<li>交替使用线性与非线性处理单元，经常被称为“层”。</li>
+<li>使用链式法则（即反向传播）来更新网络的参数。<a id="more"></a>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="MXNet"><a href="#MXNet" class="headerlink" title="MXNet???"></a>MXNet???</h2><ul>
+<li>MXNet 是一个开源的<strong>深度学习框架</strong>。它是 AWS（亚马逊云计算服务）首选的深度学习框架，并且也许是最优秀的库【百度百科评价】。</li>
+<li>对 Python 的支持只是其冰山一角—MXNet 同样提供了对 R、Julia、C++、Scala、Matlab，和 Javascript 的接口。</li>
+<li>MXNet 的ndarray、autograd、gluon等模块的基础功能，所以gluon仅仅是一个模块，而不是框架。</li>
+</ul>
+<h2 id="GPU【图像处理器】和CPU【中央处理器】的区别"><a href="#GPU【图像处理器】和CPU【中央处理器】的区别" class="headerlink" title="GPU【图像处理器】和CPU【中央处理器】的区别"></a>GPU【图像处理器】和CPU【中央处理器】的区别</h2><ul>
+<li>CPU擅长逻辑控制和通用类型数据运算</li>
+<li>GPU擅长的是大规模并发计算</li>
+</ul>
+<p>深度学习训练通常需要大量的计算资源。GPU 目前是深度学习最常使用的计算加速硬件。相对于 CPU 来说，GPU 更便宜且计算更加密集。一方面，相同计算能力的 GPU 的价格一般是 CPU 价格的十分之一。另一方面，一台服务器通常可以搭载 8 块或者 16 块 GPU。因此，GPU 数量可以看作是衡量一台服务器的深度学习计算能力的一个标准。</p>
+<p>目前独立 GPU 主要有 AMD 和 Nvidia 两家厂商。其中 Nvidia 在深度学习布局较早，对深度学习框架支持更好。因此，目前大家主要会选择 Nvidia 的 GPU。</p>
+<h1 id="2、数据操作"><a href="#2、数据操作" class="headerlink" title="2、数据操作"></a>2、数据操作</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="http://zh.gluon.ai/chapter_prerequisite/install.html" target="_blank" rel="noopener">获取代码并安装运行环境</a><br>conda config –prepend channels <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</a><br>下载存储地址：’D:\Program Files\Anaconda\envs\gluon’</p>
+<p>小问题：我使用anaconda安装的，首先关于python和Linux的安装都需要先升级工具为最新版本。然而gluon模块安装完成后会有jupyter notebook版本，点击后闪退无果。<br>正确的打开方式：打开cmd=》激活gluon（activate gluon）=》jupyter notebook</p>
+<p>还可以直接安装pip install mxnet.</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>NDArray 和 NumPy 的多维数组非常类似。然而，NDArray 提供 GPU 计算和自动求梯度等更多功能，这些使得 NDArray 更加适合深度学习。</p>
+<p><a href="http://nbviewer.jupyter.org/github/HanKin2015/Machine_to_DeepingLearning/blob/master/Ipynb/MXNet1.ipynb" target="_blank" rel="noopener">mxnet的简单使用</a></p>
+<h1 id="3、深度学习基础"><a href="#3、深度学习基础" class="headerlink" title="3、深度学习基础"></a>3、深度学习基础</h1><p>单层神经网络：线性回归和 Softmax 回归。</p>
+<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>权重weight、偏差bias、参数parameter。<br>预测（估计）</p>
+<h3 id="模型训练三要素"><a href="#模型训练三要素" class="headerlink" title="模型训练三要素"></a>模型训练三要素</h3><p>训练数据：特征feature、标签label、样本sample、训练集<br>损失函数：平方误差函数也称平方损失（记得要乘以1/2，其中常数 1/2 使得对平方项求导后的常数系数为 1），然后求和后再取平均值。<br>优化算法：在求数值解的优化算法中，小批量随机梯度下降（mini-batch stochastic gradient descent）在深度学习中被广泛使用。</p>
+<p>当模型和损失函数形式较为简单时，上面的误差最小化问题的解可以直接用公式表达出来。这类解叫做解析解（analytical solution）。<br>只能通过优化算法有限次迭代模型参数来尽可能降低损失函数的值。这类解叫做数值解（numerical solution）。</p>
+<p>批量大小和学习率的值是人为设定的，并不是通过模型训练学出的，因此叫做超参数（hyperparameter）。我们通常所说的“调参”指的正是调节超参数，例如通过反复试错来找到合适的超参数。少数情况下，超参数也可以通过模型训练学出。</p>
+<p>这个网站主要还是讲的是深度学习，还是先入门机器学习为好。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-23T02:38:06.722Z" itemprop="dateUpdated">2018-10-23 10:38:06</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/09/25/20180925MXNet/" target="_blank" rel="external">https://hankin2015.github.io/2018/09/25/20180925MXNet/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DeepLearning/">DeepLearning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Glunon/">Glunon</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/">ML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MXNet/">MXNet</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/09/25/20180925MXNet/&title=《动手学深度学习[个人版]》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/09/25/20180925MXNet/&title=《动手学深度学习[个人版]》 — HanKin的博客&source=1、学习深度须知DL???
+纸上得来终觉浅，绝知此事要躬行。
+通俗来说，机器学习是一门讨论各式各样适用于不同问题的函数形式，以及如何使用数据来有效地获取函..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/09/25/20180925MXNet/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《动手学深度学习[个人版]》 — HanKin的博客&url=https://hankin2015.github.io/2018/09/25/20180925MXNet/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/09/25/20180925MXNet/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/09/29/20180929DA-Vasulize/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">数据分析之数据可视化</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/23/20180923DA/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">python数据分析【个人版】</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/09/25/20180925MXNet/&title=《动手学深度学习[个人版]》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/09/25/20180925MXNet/&title=《动手学深度学习[个人版]》 — HanKin的博客&source=1、学习深度须知DL???
+纸上得来终觉浅，绝知此事要躬行。
+通俗来说，机器学习是一门讨论各式各样适用于不同问题的函数形式，以及如何使用数据来有效地获取函..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/09/25/20180925MXNet/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《动手学深度学习[个人版]》 — HanKin的博客&url=https://hankin2015.github.io/2018/09/25/20180925MXNet/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/09/25/20180925MXNet/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/09/25/20180925MXNet/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

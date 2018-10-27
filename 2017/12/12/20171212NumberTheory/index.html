@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>数论及数论四大定理 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Math">
+    <meta name="description" content="数论 （数学分支）&amp;emsp;&amp;emsp;数论是纯粹数学的分支之一，主要研究整数的性质。整数可以是方程式的解（丢番图方程）。有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。按研究方法来看，数论大致可分为初等数论和高等数论。初等数论是用初等方法研究的数论，它的研究方法本质上">
+<meta name="keywords" content="Math">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数论及数论四大定理">
+<meta property="og:url" content="https://hankin2015.github.io/2017/12/12/20171212NumberTheory/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="数论 （数学分支）&amp;emsp;&amp;emsp;数论是纯粹数学的分支之一，主要研究整数的性质。整数可以是方程式的解（丢番图方程）。有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。按研究方法来看，数论大致可分为初等数论和高等数论。初等数论是用初等方法研究的数论，它的研究方法本质上">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20140613151829390">
+<meta property="og:image" content="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D146/sign=972114bf49a98226bcc12f23bc80b97a/f3d3572c11dfa9ecf6f6c0dd68d0f703908fc124.jpg">
+<meta property="og:image" content="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D211/sign=8a21a419ac18972ba73a07cbd7cd7b9d/f9198618367adab410da834e8cd4b31c8701e4b1.jpg">
+<meta property="og:image" content="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D140/sign=daa516337cec54e745ec1e1a89399bfd/bd3eb13533fa828b5d8406eefa1f4134970a5a1c.jpg">
+<meta property="og:image" content="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D96/sign=52a5c55ef1246b607f0ebe72eaf8e29d/8cb1cb134954092331f8f8739558d109b3de492e.jpg">
+<meta property="og:updated_time" content="2018-08-14T16:31:51.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数论及数论四大定理">
+<meta name="twitter:description" content="数论 （数学分支）&amp;emsp;&amp;emsp;数论是纯粹数学的分支之一，主要研究整数的性质。整数可以是方程式的解（丢番图方程）。有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。按研究方法来看，数论大致可分为初等数论和高等数论。初等数论是用初等方法研究的数论，它的研究方法本质上">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20140613151829390">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数论及数论四大定理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数论及数论四大定理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-12T06:47:41.000Z" itemprop="datePublished" class="page-time">
+  2017-12-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构算法/">数据结构算法</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数论-（数学分支）"><span class="post-toc-number">1.</span> <span class="post-toc-text">数论 （数学分支）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#费马大定理-费马定理-（数学史上著名的定理）"><span class="post-toc-number">2.</span> <span class="post-toc-text">费马大定理(费马定理) （数学史上著名的定理）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#同余定理-同余"><span class="post-toc-number">3.</span> <span class="post-toc-text">同余定理(同余)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#伪素数"><span class="post-toc-number">4.</span> <span class="post-toc-text">伪素数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#指数循环节"><span class="post-toc-number">5.</span> <span class="post-toc-text">指数循环节</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#质数和素数"><span class="post-toc-number">6.</span> <span class="post-toc-text">质数和素数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数论四大定理"><span class="post-toc-number">7.</span> <span class="post-toc-text">数论四大定理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、威尔逊定理"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">1、威尔逊定理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、欧拉定理"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">2、欧拉定理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#欧拉函数"><span class="post-toc-number">7.2.1.</span> <span class="post-toc-text">欧拉函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通式"><span class="post-toc-number">7.2.1.1.</span> <span class="post-toc-text">通式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#特例"><span class="post-toc-number">7.2.1.2.</span> <span class="post-toc-text">特例</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、孙子定理"><span class="post-toc-number">8.</span> <span class="post-toc-text">3、孙子定理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、费马小定理"><span class="post-toc-number">9.</span> <span class="post-toc-text">4、费马小定理</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171212NumberTheory"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数论及数论四大定理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-12 14:47:41" datetime="2017-12-12T06:47:41.000Z"  itemprop="datePublished">2017-12-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构算法/">数据结构算法</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="数论-（数学分支）"><a href="#数论-（数学分支）" class="headerlink" title="数论 （数学分支）"></a>数论 （数学分支）</h1><p>&emsp;&emsp;数论是纯粹数学的分支之一，主要研究整数的性质。整数可以是方程式的解（丢番图方程）。有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。<br>按研究方法来看，数论大致可分为初等数论和高等数论。初等数论是用初等方法研究的数论，它的研究方法本质上说，就是利用整数环的整除性质，主要包括整除理论、同余理论、连分数理论。高等数论则包括了更为深刻的数学研究工具。它大致包括代数数论、解析数论、计算数论等等。<br><a id="more"></a></p>
+<h1 id="费马大定理-费马定理-（数学史上著名的定理）"><a href="#费马大定理-费马定理-（数学史上著名的定理）" class="headerlink" title="费马大定理(费马定理) （数学史上著名的定理）"></a>费马大定理(费马定理) （数学史上著名的定理）</h1><p>费马大定理，又被称为“费马最后的定理”，由17世纪法国数学家皮耶·德·费玛提出。<br>它断言当整数n &gt;2时，关于x, y, z的方程 x^n + y^n = z^n 没有正整数解。<br>德国佛尔夫斯克曾宣布以10万马克作为奖金奖给在他逝世后一百年内，第一个证明该定理的人，吸引了不少人尝试并递交他们的“证明”。<br>被提出后，经历多人猜想辩证，历经三百多年的历史，最终在1995年被英国数学家安德鲁·怀尔斯彻底证明。</p>
+<h1 id="同余定理-同余"><a href="#同余定理-同余" class="headerlink" title="同余定理(同余)"></a>同余定理(同余)</h1><p>数论中的重要概念。给定一个正整数m，如果两个整数a和b满足a-b能够被m整除，即(a-b)/m得到一个整数，那么就称整数a与b对模m同余，记作a≡b(mod m)。对模m同余是整数的一个等价关系。</p>
+<h1 id="伪素数"><a href="#伪素数" class="headerlink" title="伪素数"></a>伪素数</h1><p>费马小定理: 假如p是质数，若p不能整除a，则 a^(p-1) ≡1 (mod p)，若p能整除a，则a^(p-1) ≡0 (mod p)。<br>伪素数，又叫做伪质数：它满足费马小定理，但其本身却不是素数。最小的伪素数是341。有人已经证明了伪素数的个数是无穷的。事实上，费马小定理给出的是关于素数判定的必要非充分条件。若n能整除2^(n-1)-1，并n是非偶数的合数，那么n就是伪素数。第一个伪素数341 是萨鲁斯（Sarrus)在1819年发现的。</p>
+<p>费马小定理也就是说如果一个数p满足gcd(a, p) = 1 并且a^(p-1) ≡0 (mod p), 则p是质数。但存在其特例，也就是说费马小定理有BUG，但也不能这么说。费马小定理只能正推，不能反推。所以说是p满足费马小定理，但p不是质数，而是另外一个称呼伪素数 (一定是奇数)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求伪素数</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsPrime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="built_in">sqrt</span>(n); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(n % i == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QuickPow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> mod)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">    a = a % mod;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>) ret =( ret * a )% mod;</span><br><span class="line">        a =( a * a )% mod;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; <span class="number">800000</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(QuickPow(<span class="number">2</span>, i - <span class="number">1</span>, i) == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!IsPrime(i)) &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="指数循环节"><a href="#指数循环节" class="headerlink" title="指数循环节"></a>指数循环节</h1><p>其实就是欧拉定理的一种推广。<br> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20140613151829390" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br> （其中Φ 为欧拉函数）</p>
+<h1 id="质数和素数"><a href="#质数和素数" class="headerlink" title="质数和素数"></a>质数和素数</h1><p>质数（prime number）又称素数，有无限个。质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数。</p>
+<h1 id="数论四大定理"><a href="#数论四大定理" class="headerlink" title="数论四大定理"></a>数论四大定理</h1><p>威尔逊定理、欧拉定理、孙子定理、费马小定理并称数论四大定理。</p>
+<h2 id="1、威尔逊定理"><a href="#1、威尔逊定理" class="headerlink" title="1、威尔逊定理"></a>1、威尔逊定理</h2><p>若p为质数，则p可整除(p-1)!+1。<br>如：7为质数，则7可整除(7 - 1)! + 1 = 721，即721 % 7 == 0。</p>
+<h2 id="2、欧拉定理"><a href="#2、欧拉定理" class="headerlink" title="2、欧拉定理"></a>2、欧拉定理</h2><p>在数论中，欧拉定理（Euler Theorem，也称费马-欧拉定理或欧拉函数定理）是一个关于同余的性质。欧拉定理得名于瑞士数学家莱昂哈德·欧拉，该定理被认为是数学世界中最美妙的定理之一。欧拉定理实际上是费马小定理的推广。此外还有平面几何中的欧拉定理、多面体欧拉定理(在一凸多面体中，顶点数-棱边数+面数=2)。西方经济学中欧拉定理又称为产量分配净尽定理，指在完全竞争的条件下，假设长期中规模收益不变，则全部产品正好足够分配给各个要素。另有欧拉公式。</p>
+<p>欧拉定理，也称费马-欧拉定理或欧拉函数定理。欧拉定理实际上是费马小定理的推广。<br>若n,a为正整数，且n,a互素，即gcd(a,n) = 1，则a^φ(n) ≡ 1 (mod n), 其中φ(n)为欧拉函数。<br>如：n = 5, a = 7. 因为与5互质的有1、2、3、4，即φ(5) = 4，则(7 ^ 4)  % 5 = 2401 % 5 = 1。</p>
+<h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><p>在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’so totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。</p>
+<h4 id="通式"><a href="#通式" class="headerlink" title="通式"></a>通式</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D146/sign=972114bf49a98226bcc12f23bc80b97a/f3d3572c11dfa9ecf6f6c0dd68d0f703908fc124.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>φ(x) = x <em> (1 - 1/p1) </em> … * (1 - 1/pn)</p>
+<p>其中p1, p2……pn为x的所有质因数，x是不为0的整数。<br>φ(1)=1（唯一和1互质的数(小于等于1)就是1本身）。<br>注意：每种质因数只一个。 比如12=2<em>2</em>3那么φ（12）=12<em>（1-1/2）</em>(1-1/3)=4</p>
+<h4 id="特例"><a href="#特例" class="headerlink" title="特例"></a>特例</h4><ul>
+<li>若n是质数p的k次幂，<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D211/sign=8a21a419ac18972ba73a07cbd7cd7b9d/f9198618367adab410da834e8cd4b31c8701e4b1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure> ，因为除了p的倍数外，其他数都跟n互质。</li>
+<li>设n为正整数，以 φ(n)表示不超过n且与n互素的正整数的个数，称为n的欧拉函数值<br>φ：N→N，n→φ(n)称为欧拉函数。</li>
+<li>欧拉函数是积性函数——若m,n互质， <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D140/sign=daa516337cec54e745ec1e1a89399bfd/bd3eb13533fa828b5d8406eefa1f4134970a5a1c.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>特殊性质：当n为奇数时，<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D96/sign=52a5c55ef1246b607f0ebe72eaf8e29d/8cb1cb134954092331f8f8739558d109b3de492e.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  , 证明与上述类似。</li>
+<li>若n为质数，则 φ(n) = n  - 1 ，如11，1、2、3、4、5、6、7、8、9、10都是与11互质的数。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//质数的快速求法</span></span><br><span class="line">[利用辛达拉姆筛进行素数判定](http:<span class="comment">//blog.csdn.net/han_kin/article/details/47685799)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//因数数的快速求法，时间复杂度根号n。</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n) &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="built_in">sqrt</span>(n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; temp; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(n % i == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">' '</span> &lt;&lt; n / i &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(temp * temp == n) <span class="built_in">cout</span> &lt;&lt; temp;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//质因数的快速求法</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n) &#123;</span><br><span class="line">        <span class="comment">//Pollard Rho因数分解，时间复杂度是n^0.25？不是n</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(n % i == <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">            <span class="keyword">while</span>(n % i == <span class="number">0</span>) n /= i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//欧拉函数</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b ? gcd(b, a % b) : a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">eular</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret=<span class="number">1</span>,i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i*i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n/=i,ret*=i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>) n/=i,ret*=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>) ret*=n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*线性筛O(n)时间复杂度内筛出maxn内欧拉函数值*/</span></span><br><span class="line"><span class="keyword">int</span> m[maxn],phi[maxn],p[maxn],pt;<span class="comment">//m[i]是i的最小素因数，p是素数，pt是素数个数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">make</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    phi[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> N=maxn;</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!m[i])<span class="comment">//i是素数</span></span><br><span class="line">            p[pt++]=m[i]=i,phi[i]=i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;pt&amp;&amp;(k=p[j]*i)&lt;N;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            m[k]=p[j];</span><br><span class="line">            <span class="keyword">if</span>(m[i]==p[j])<span class="comment">//为了保证以后的数不被再筛，要break</span></span><br><span class="line">            &#123;</span><br><span class="line">                phi[k]=phi[i]*p[j];</span><br><span class="line"><span class="comment">/*这里的phi[k]与phi[i]后面的∏(p[i]-1)/p[i]都一样（m[i]==p[j]）只差一个p[j]，就可以保证∏(p[i]-1)/p[i]前面也一样了*/</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                phi[k]=phi[i]*(p[j]<span class="number">-1</span>);<span class="comment">//积性函数性质，f(i*k)=f(i)*f(k)</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n) &#123;</span><br><span class="line">        <span class="comment">//小于n的正整数中与n互质的数的数目</span></span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(gcd(i, n) == <span class="number">1</span>) cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//根据通式计算</span></span><br><span class="line">        <span class="keyword">int</span> ans = n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(n % i == <span class="number">0</span>) &#123;</span><br><span class="line">                ans = (ans / i) * (i - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(n % i == <span class="number">0</span>) n /= i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3、孙子定理"><a href="#3、孙子定理" class="headerlink" title="3、孙子定理"></a>3、孙子定理</h1><p>孙子定理，又称中国剩余定理。<br>孙子定理是中国古代求解一次同余式组（见同余）的方法。是数论中一个重要定理。又称中国余数定理。一元线性同余方程组问题最早可见于中国南北朝时期（公元5世纪）的数学著作《孙子算经》卷下第二十六题，叫做“物不知数”问题，原文如下：<br>有物不知其数，三三数之剩二，五五数之剩三，七七数之剩二。问物几何？即，一个整数除以三余二，除以五余三，除以七余二，求这个整数。《孙子算经》中首次提到了同余方程组问题，以及以上具体问题的解法，因此在中文数学文献中也会将中国剩余定理称为孙子定理。<br>公元前后的《孙子算经》中有“物不知数”问题：“今有物不知其数，三三数之余二 ，五五数之余三 ，七七数之余二，问物几何？”答为“23”。<br>明朝程大位用歌谣给出了该题的解法：“三人同行七十稀，五树梅花廿一枝，七子团圆月正半，除百零五便得知。”<br>以现代的说法，是找出三个关键数70，21，15。解法的意思就是用70乘3除所得的余数，21乘5除所得的馀数，15乘7除所得的余数，然後总加起来，除以105的余数就是答案。</p>
+<h1 id="4、费马小定理"><a href="#4、费马小定理" class="headerlink" title="4、费马小定理"></a>4、费马小定理</h1><p>假如p是质数，若p不能整除a，则 a^(p-1) ≡1（mod p），若p能整除a，则a^(p-1) ≡0（mod p）。<br>若p是质数，且a,p互质，那么 a的(p-1)次方除以p的余数恒等于1。<br>证明：<br>因为p是质数，且（a，p)=1，所以φ(p)=p-1。由欧拉定理可得a^(p-1) ≡1（mod p）。证毕。对于该式又有a^p ≡a（mod p），所以，费马小定理的另一种表述为：假如p是质数，且gcd(a,p)=1，那么a^p ≡a（mod p）。<br>欧拉定理，也称费马-欧拉定理或欧拉函数定理。欧拉定理实际上是费马小定理的推广。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-14T16:31:51.453Z" itemprop="dateUpdated">2018-08-15 00:31:51</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/12/12/20171212NumberTheory/" target="_blank" rel="external">https://hankin2015.github.io/2017/12/12/20171212NumberTheory/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">Math</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/&title=《数论及数论四大定理》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/&title=《数论及数论四大定理》 — HanKin的博客&source=数论 （数学分支）&emsp;&emsp;数论是纯粹数学的分支之一，主要研究整数的性质。整数可以是方程式的解（丢番图方程）。有些解析函数（像黎曼ζ函数）中..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数论及数论四大定理》 — HanKin的博客&url=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/12/20171212hpp&h/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">hpp头文件与h头文件的区别</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/09/20171209ACM-EasyError/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">刷题中的易错点</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/&title=《数论及数论四大定理》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/&title=《数论及数论四大定理》 — HanKin的博客&source=数论 （数学分支）&emsp;&emsp;数论是纯粹数学的分支之一，主要研究整数的性质。整数可以是方程式的解（丢番图方程）。有些解析函数（像黎曼ζ函数）中..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数论及数论四大定理》 — HanKin的博客&url=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/12/12/20171212NumberTheory/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

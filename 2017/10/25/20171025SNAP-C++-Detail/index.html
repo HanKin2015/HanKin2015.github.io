@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SNAP for C++的基本操作 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,Snap">
+    <meta name="description" content="创建图形，即初始化undirected graphPUNGraph Graph = TUNGraph::New(); directed graphPNGraph Graph = TNGraph::New(); directed multi-graph with attributesPNEANet Graph = TNEANet::New();">
+<meta name="keywords" content="C++,Snap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SNAP for C++的基本操作">
+<meta property="og:url" content="https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="创建图形，即初始化undirected graphPUNGraph Graph = TUNGraph::New(); directed graphPNGraph Graph = TNGraph::New(); directed multi-graph with attributesPNEANet Graph = TNEANet::New();">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_file%20name.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_gviz_plot.png">
+<meta property="og:updated_time" content="2018-08-14T16:28:38.230Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SNAP for C++的基本操作">
+<meta name="twitter:description" content="创建图形，即初始化undirected graphPUNGraph Graph = TUNGraph::New(); directed graphPNGraph Graph = TNGraph::New(); directed multi-graph with attributesPNEANet Graph = TNEANet::New();">
+<meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_file%20name.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SNAP for C++的基本操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SNAP for C++的基本操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-25T13:40:41.000Z" itemprop="datePublished" class="page-time">
+  2017-10-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SNAP/">SNAP</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#创建图形，即初始化"><span class="post-toc-number">1.</span> <span class="post-toc-text">创建图形，即初始化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undirected-graph"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">undirected graph</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#directed-graph"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">directed graph</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#directed-multi-graph-with-attributes"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">directed multi-graph with attributes</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Q1-前面为何使用P开头的类？"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Q1:前面为何使用P开头的类？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Q2-PN-TN"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Q2:PN?? TN??</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#添加点和边"><span class="post-toc-number">2.</span> <span class="post-toc-text">添加点和边</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Graph-Traversal"><span class="post-toc-number">3.</span> <span class="post-toc-text">Graph Traversal</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Traverse-the-nodes"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Traverse the nodes</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Traverse-the-edges-globally"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Traverse the edges, globally</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Traverse-the-edges-per-node"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Traverse the edges, per node</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Node-and-Edge-Iterators"><span class="post-toc-number">4.</span> <span class="post-toc-text">Node and Edge Iterators</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Get-a-node-iterator-from-node-id"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Get a node iterator from node id:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Get-an-edge-iterator-from-node-ids"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Get an edge iterator from node ids:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Q-Src-Dst"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">Q:Src??  Dst??</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Loading-a-graph-in-the-edge-list-text-format"><span class="post-toc-number">5.</span> <span class="post-toc-text">Loading a graph in the edge list, text format</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Loading-Saving-of-Graphs"><span class="post-toc-number">6.</span> <span class="post-toc-text">Loading/Saving of Graphs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Saving-a-graph-in-the-edge-list-text-format"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">Saving a graph in the edge list, text format</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Loading-Saving-in-a-binary-format-–-faster-更快"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">Loading/Saving in a binary format – faster(更快)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Graph-Operations-Examples1"><span class="post-toc-number">7.</span> <span class="post-toc-text">Graph Operations(Examples1)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Example-file"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">Example file:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TSnap-T应该是SNAP重写的Typedef，如TInt"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">TSnap:T应该是SNAP重写的Typedef，如TInt</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Generating-graphs-SNAP中自带的图模型"><span class="post-toc-number">8.</span> <span class="post-toc-text">Generating graphs(SNAP中自带的图模型)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Generate-graphs-with-specific-properties"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">Generate graphs with specific properties</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Example"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">Example:</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Graph-Operations-Examples2"><span class="post-toc-number">9.</span> <span class="post-toc-text">Graph Operations(Examples2)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SNAP-Network-Types"><span class="post-toc-number">10.</span> <span class="post-toc-text">SNAP Network Types</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Example-Applications"><span class="post-toc-number">11.</span> <span class="post-toc-text">Example Applications</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SNAP-Data-Structures-and-Types"><span class="post-toc-number">12.</span> <span class="post-toc-text">SNAP Data Structures and Types</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#practice"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">practice</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Basic-SNAP-Types"><span class="post-toc-number">13.</span> <span class="post-toc-text">Basic SNAP Types</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#String-TStr"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">String: TStr</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SNAP-Data-Structure"><span class="post-toc-number">14.</span> <span class="post-toc-text">SNAP Data Structure</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pair"><span class="post-toc-number">14.1.</span> <span class="post-toc-text">Pair</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TPair"><span class="post-toc-number">14.1.1.</span> <span class="post-toc-text">TPair </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Predefined-types-in-ds-h"><span class="post-toc-number">14.1.2.</span> <span class="post-toc-text">Predefined types in ds.h</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Triple"><span class="post-toc-number">14.2.</span> <span class="post-toc-text">Triple</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SNAP-Vectors"><span class="post-toc-number">15.</span> <span class="post-toc-text">SNAP Vectors</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TVec"><span class="post-toc-number">15.1.</span> <span class="post-toc-text">TVec</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Example-1"><span class="post-toc-number">15.1.1.</span> <span class="post-toc-text">Example:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#“Type”-can-be-a-complex-type"><span class="post-toc-number">15.1.2.</span> <span class="post-toc-text">“Type” can be a complex type</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Predefined-types-in-ds-h-1"><span class="post-toc-number">15.1.3.</span> <span class="post-toc-text">Predefined types in ds.h</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SNAP-Hash-Tables"><span class="post-toc-number">16.</span> <span class="post-toc-text">SNAP Hash Tables</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#THash"><span class="post-toc-number">16.1.</span> <span class="post-toc-text">THash </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Example-2"><span class="post-toc-number">16.2.</span> <span class="post-toc-text">Example:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Predefined-types-in-hash-h"><span class="post-toc-number">16.3.</span> <span class="post-toc-text">Predefined types in hash.h</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Saving-and-Loading-Objects"><span class="post-toc-number">17.</span> <span class="post-toc-text">Saving and Loading Objects</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Binary-files"><span class="post-toc-number">17.1.</span> <span class="post-toc-text">Binary files</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Save"><span class="post-toc-number">17.2.</span> <span class="post-toc-text">Save():</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Load"><span class="post-toc-number">17.3.</span> <span class="post-toc-text">Load():</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Generating-Distributions"><span class="post-toc-number">18.</span> <span class="post-toc-text">Generating Distributions</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TRnd-class"><span class="post-toc-number">18.1.</span> <span class="post-toc-text">TRnd class</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Example-3"><span class="post-toc-number">18.2.</span> <span class="post-toc-text">Example:</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Calculating-Statics-计算静力学"><span class="post-toc-number">19.</span> <span class="post-toc-text">Calculating Statics(计算静力学)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#File-glib-core-xmath-h"><span class="post-toc-number">19.1.</span> <span class="post-toc-text">File glib-core/xmath.h</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Example-of-computing-moments-TMom"><span class="post-toc-number">19.2.</span> <span class="post-toc-text">Example of computing moments (TMom):</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Making-Plots-in-SNAP"><span class="post-toc-number">20.</span> <span class="post-toc-text">Making Plots in SNAP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#plt-file-includes-plotting-commands-for-gnuplot"><span class="post-toc-number">20.0.1.</span> <span class="post-toc-text">.plt file includes plotting commands for gnuplot</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tab-file-contains-the-tab-separated-data"><span class="post-toc-number">20.0.2.</span> <span class="post-toc-text">.tab file contains the tab separated data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#png-or-eps-is-the-plot"><span class="post-toc-number">20.0.3.</span> <span class="post-toc-text">.png or .eps is the plot</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Drawing-SNAP-Graphs"><span class="post-toc-number">21.</span> <span class="post-toc-text">Drawing SNAP Graphs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#practice-1"><span class="post-toc-number">21.1.</span> <span class="post-toc-text">practice</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#源代码CODE"><span class="post-toc-number">22.</span> <span class="post-toc-text">源代码CODE</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171025SNAP-C++-Detail"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SNAP for C++的基本操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-25 21:40:41" datetime="2017-10-25T13:40:41.000Z"  itemprop="datePublished">2017-10-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SNAP/">SNAP</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="创建图形，即初始化"><a href="#创建图形，即初始化" class="headerlink" title="创建图形，即初始化"></a>创建图形，即初始化</h1><h2 id="undirected-graph"><a href="#undirected-graph" class="headerlink" title="undirected graph"></a>undirected graph</h2><pre><code>PUNGraph Graph = TUNGraph::New();
+</code></pre><h2 id="directed-graph"><a href="#directed-graph" class="headerlink" title="directed graph"></a>directed graph</h2><pre><code>PNGraph Graph = TNGraph::New();
+</code></pre><h2 id="directed-multi-graph-with-attributes"><a href="#directed-multi-graph-with-attributes" class="headerlink" title="directed multi-graph with attributes"></a>directed multi-graph with attributes</h2><pre><code>PNEANet Graph = TNEANet::New();
+</code></pre><a id="more"></a>
+<h2 id="Q1-前面为何使用P开头的类？"><a href="#Q1-前面为何使用P开头的类？" class="headerlink" title="Q1:前面为何使用P开头的类？"></a>Q1:前面为何使用P开头的类？</h2><p>前面的PNGraph和PUNGraph是为了快速的访问：  </p>
+<pre><code>//Use smart-pointers
+typedef TPt&lt;TNGraph&gt; PNGraph
+</code></pre><h2 id="Q2-PN-TN"><a href="#Q2-PN-TN" class="headerlink" title="Q2:PN?? TN??"></a>Q2:PN?? TN??</h2><p>P应该代表的是Pointers,N不是很清楚，Nodes?T也不是很清楚，Typedef?</p>
+<h1 id="添加点和边"><a href="#添加点和边" class="headerlink" title="添加点和边"></a>添加点和边</h1><pre><code>Graph-&gt;AddNode(v1);
+Graph-&gt;AddNode(v2);
+Graph-&gt;AddEdge(v1, v2);
+//如果是有向图，则是v1指向v2,即v1-&gt;v2.
+</code></pre><h1 id="Graph-Traversal"><a href="#Graph-Traversal" class="headerlink" title="Graph Traversal"></a>Graph Traversal</h1><h2 id="Traverse-the-nodes"><a href="#Traverse-the-nodes" class="headerlink" title="Traverse the nodes"></a>Traverse the nodes</h2><pre><code>for (TNGraph::TNodeI NI = Graph-&gt;BegNI(); NI &lt; Graph-&gt;EndNI(); NI++)
+    printf(&quot;%d %d %d\n&quot;, NI.GetId(), NI.GetOutDeg(), NI.GetInDeg());
+//跟容器的迭代器一样，这里输出了点的ID，出度和入度。
+
+//输出结果
+v1 1 0
+v2 0 1
+</code></pre><h2 id="Traverse-the-edges-globally"><a href="#Traverse-the-edges-globally" class="headerlink" title="Traverse the edges, globally"></a>Traverse the edges, globally</h2><pre><code>for (TNGraph::TEdgeI EI = Graph-&gt;BegEI(); EI &lt; Graph-&gt;EndEI(); EI++)
+    printf(&quot;edge (%d, %d)\n&quot;, EI.GetSrcNId(), EI.GetDstNId());
+//应该是以边，输出一条边的头和尾
+</code></pre><h2 id="Traverse-the-edges-per-node"><a href="#Traverse-the-edges-per-node" class="headerlink" title="Traverse the edges, per node"></a>Traverse the edges, per node</h2><pre><code>for (TNGraph::TNodeI NI = Graph-&gt;BegNI(); NI &lt; Graph-&gt;EndNI(); NI++)
+    for (int e = 0; e &lt; NI.GetOutDeg(); e++)
+        printf(&quot;edge (%d %d)\n&quot;, NI.GetId(), NI.GetOutNId(e));
+//首先得到一个点，然后输出该点的所有出度点
+</code></pre><h1 id="Node-and-Edge-Iterators"><a href="#Node-and-Edge-Iterators" class="headerlink" title="Node and Edge Iterators"></a>Node and Edge Iterators</h1><h2 id="Get-a-node-iterator-from-node-id"><a href="#Get-a-node-iterator-from-node-id" class="headerlink" title="Get a node iterator from node id:"></a>Get a node iterator from node id:</h2><pre><code>TNGraph::TNodeI NI = Graph-&gt;GetNI(NId);
+//上面的指针指向的是开始的位置，这里则是NID的位置
+</code></pre><h2 id="Get-an-edge-iterator-from-node-ids"><a href="#Get-an-edge-iterator-from-node-ids" class="headerlink" title="Get an edge iterator from node ids:"></a>Get an edge iterator from node ids:</h2><pre><code>TNGraph::TEdgeI EI = Graph-&gt;GetEI(SrcNId,DstNId);
+printf(&quot;%d\n&quot;,NI.GetId());
+printf(&quot;%d\n&quot;,EI.GetId());
+printf(&quot;源节点%d\n&quot;, EI.GetSrcNId());
+printf(&quot;目标节点%d\n&quot;, EI.GetDstNId());
+</code></pre><h2 id="Q-Src-Dst"><a href="#Q-Src-Dst" class="headerlink" title="Q:Src??  Dst??"></a>Q:Src??  Dst??</h2><h1 id="Loading-a-graph-in-the-edge-list-text-format"><a href="#Loading-a-graph-in-the-edge-list-text-format" class="headerlink" title="Loading a graph in the edge list, text format"></a>Loading a graph in the edge list, text format</h1><pre><code>PNGraph G2 = TSnap::LoadEdgeList&lt;PNGraph&gt;(“as20graph.txt”,0,1);
+//0, 1 are the columns of source, target nodes
+//0，1表示源节点，目标节点在文件中所在的列号，即第0列为源节点，第1列是目标节点
+</code></pre><h1 id="Loading-Saving-of-Graphs"><a href="#Loading-Saving-of-Graphs" class="headerlink" title="Loading/Saving of Graphs"></a>Loading/Saving of Graphs</h1><h2 id="Saving-a-graph-in-the-edge-list-text-format"><a href="#Saving-a-graph-in-the-edge-list-text-format" class="headerlink" title="Saving a graph in the edge list, text format"></a>Saving a graph in the edge list, text format</h2><pre><code>TSnap::SaveEdgeList&lt;PNGraph&gt;(G2, &quot;as20graph.txt?, &quot;&quot;);
+</code></pre><h2 id="Loading-Saving-in-a-binary-format-–-faster-更快"><a href="#Loading-Saving-in-a-binary-format-–-faster-更快" class="headerlink" title="Loading/Saving in a binary format – faster(更快)"></a>Loading/Saving in a binary format – faster(更快)</h2><pre><code>{ TFIn FIn(&quot;test.graph&quot;);
+PNGraph G2 = TNGraph::Load(FIn); }
+{ TFOut FOut(&quot;test.graph&quot;); G2-&gt;Save(FOut); }
+//Note the parenthesis(圆括号) {}!
+</code></pre><h1 id="Graph-Operations-Examples1"><a href="#Graph-Operations-Examples1" class="headerlink" title="Graph Operations(Examples1)"></a>Graph Operations(Examples1)</h1><h2 id="Example-file"><a href="#Example-file" class="headerlink" title="Example file:"></a>Example file:</h2><p><a href="https://coding.net/s/ecda6461-9724-4cc5-8dea-f322422b1357" target="_blank" rel="noopener">as20graph.txt</a> in subfolder examples</p>
+<pre><code># Directed Node Graph
+# Autonomous systems …
+# Nodes: 6474 Edges: 26467
+# SrcNId DstNId
+1 3
+1 6
+1 32
+1 48
+1 63
+1 70
+…
+</code></pre><h2 id="TSnap-T应该是SNAP重写的Typedef，如TInt"><a href="#TSnap-T应该是SNAP重写的Typedef，如TInt" class="headerlink" title="TSnap:T应该是SNAP重写的Typedef，如TInt"></a>TSnap:T应该是SNAP重写的Typedef，如TInt</h2><pre><code>PNGraph G = TSnap::LoadEdgeList&lt;PNGraph&gt;(&quot;as20graph.txt&quot;, 0, 1);
+//CntV is a vector of pairs of integers :
+TVec &lt; TPair&lt;TInt, TInt&gt; &gt; CntV;
+//Get degree distribution(degree, count)
+TSnap::GetOutDegCnt(G, CntV);
+TSnap::GetInDegCnt(G, CntV);
+//Get distribution of connected components(component size, count)
+TSnap::GetWccSzCnt(G, CntV);
+//这里具体的含义是啥？有啥用？
+</code></pre><h1 id="Generating-graphs-SNAP中自带的图模型"><a href="#Generating-graphs-SNAP中自带的图模型" class="headerlink" title="Generating graphs(SNAP中自带的图模型)"></a>Generating graphs(SNAP中自带的图模型)</h1><h2 id="Generate-graphs-with-specific-properties"><a href="#Generate-graphs-with-specific-properties" class="headerlink" title="Generate graphs with specific properties"></a>Generate graphs with specific properties</h2><p>Use functions TSnap::Gen…</p>
+<pre><code>TSnap::GenRndGnm(): G_nm Erdős–Rényi graph
+TSnap::GenForestFire, Forest Fire Model
+TSnap::GenPrefAttach, Preferential Attachment
+</code></pre><p>PS:<br><a href="https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93R%C3%A9nyi_model" target="_blank" rel="noopener">Erdős–Rényi model</a>随机图模型（Random Graph Model）：一个有n个非连通节点的图，以概率p在每对节点间创建边。<br><a href="https://en.wikipedia.org/wiki/Forest-fire_model" target="_blank" rel="noopener">Forest Fire Model</a><br><a href="https://en.wikipedia.org/wiki/Preferential_attachment" target="_blank" rel="noopener">Preferential Attachment</a></p>
+<p>特征向量中心性（Eigenvector Centrality）：一个节点的特征向量中心性与其临近节点的中心性得分的总和成正比。与重要的节点连接的节点更重要。有少量有影响的联系人的节点其中心性可能超过拥有大量平庸的联系人的节点。这点与PR值类似。</p>
+<p>特征向量中心性的计算：</p>
+<ol>
+<li>计算图的成对临近矩阵的特征分解</li>
+<li>选择有最大特征值的特征向量</li>
+<li>第i个节点的中心性等于特征向量中的第i元素</li>
+</ol>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h2><pre><code>//Create a directed random graph on 100 nodes and 1k edges
+PNGraph Graph = TSnap::GenRndGnm&lt;PNGraph&gt;(100, 1000);
+for (TNGraph::TEdgeI EI = Graph-&gt;BegEI(); EI &lt; Graph-&gt;EndEI(); EI++)
+    printf(&quot;edge (%d, %d)\n&quot;, EI.GetSrcNId(), EI.GetDstNId());
+</code></pre><h1 id="Graph-Operations-Examples2"><a href="#Graph-Operations-Examples2" class="headerlink" title="Graph Operations(Examples2)"></a>Graph Operations(Examples2)</h1><pre><code>//Generate a network using Forest Fire model
+PNGraph G = TSnap::GenForestFire(1000, 0.35, 0.35);
+
+//Convert to undirected graph TUNGraph
+PUNGraph UG = TSnap::ConvertGraph&lt;PUNGraph, PNGraph&gt;(Graph2);
+for (TNGraph::TEdgeI EI = Graph2-&gt;BegEI(); EI &lt; Graph2-&gt;EndEI(); EI++)
+    printf(&quot;edge (%d, %d)\n&quot;, EI.GetSrcNId(), EI.GetDstNId());
+for (TUNGraph::TEdgeI EI = UG-&gt;BegEI(); EI &lt; UG-&gt;EndEI(); EI++)
+    printf(&quot;edge (%d, %d)\n&quot;, EI.GetSrcNId(), EI.GetDstNId());
+//将有向图转换为无向图
+
+//Get largest weakly connected component of G
+PNGraph Graph5 = TNGraph::New();
+Graph5-&gt;AddNode(7);
+Graph5-&gt;AddNode(8);
+Graph5-&gt;AddNode(1);
+Graph5-&gt;AddNode(2);
+Graph5-&gt;AddNode(3);
+Graph5-&gt;AddNode(5);
+Graph5-&gt;AddNode(11);
+Graph5-&gt;AddEdge(1, 5);
+//Graph5-&gt;AddEdge(2, 5);
+Graph5-&gt;AddEdge(7, 8);
+Graph5-&gt;AddEdge(3, 2);
+Graph5-&gt;AddEdge(3, 11);
+PNGraph WccG = TSnap::GetMxWcc(Graph5);
+for (TNGraph::TEdgeI EI = WccG-&gt;BegEI(); EI &lt; WccG-&gt;EndEI(); EI++)
+    printf(&quot;5edge (%d, %d)\n&quot;, EI.GetSrcNId(), EI.GetDstNId());
+//弱连接，最大的一个连通块，当最大长度有多个时，会输出值较大的。
+
+//Get a subgraph induced on nodes {0,1,2,3,4}
+PNGraph SubG = TSnap::GetSubGraph(G, TIntV::GetV(0,1,2,3,4));
+/*
+//Create a directed random graph on 100 nodes and 1k edges
+PNGraph Graph = TSnap::GenRndGnm&lt;PNGraph&gt;(100, 1000);
+//Get a subgraph induced on nodes {0,1,2,3,4}
+PNGraph SubG = TSnap::GetSubGraph(Graph, TIntV::GetV(0, 1, 2, 3, 4));
+for (TNGraph::TEdgeI EI = SubG-&gt;BegEI(); EI &lt; SubG-&gt;EndEI(); EI++)
+    printf(&quot;edge (%d, %d)\n&quot;, EI.GetSrcNId(), EI.GetDstNId());
+//输出的边只有0,1,2,3,4顶点连接的。
+*/
+</code></pre><h1 id="SNAP-Network-Types"><a href="#SNAP-Network-Types" class="headerlink" title="SNAP Network Types"></a>SNAP Network Types</h1><ul>
+<li>TNodeNet<tnodedata>: directed graph with TNodeData object for each node</tnodedata></li>
+<li>TNodeEDatNet<tnodedata, tedgedata="">: directed graph with TNodeData on each node and TEdgeData on each edge</tnodedata,></li>
+<li>TNodeEdgeNet<tnodedata, tedgedata="">: directed multi-edge graph with TNodeData on each node and TEdgeData on each edge</tnodedata,></li>
+</ul>
+<h1 id="Example-Applications"><a href="#Example-Applications" class="headerlink" title="Example Applications"></a>Example Applications</h1><p>In SNAP directory “examples”:</p>
+<ul>
+<li>TestGraph: Demonstrates basic functionality of the library, modify this example for your own project</li>
+<li>ForestFire: ForestFire graph generative model</li>
+<li>Cliques: Clique Percolation Method for detectingoverlapping communities</li>
+<li>Cascades: Simulate susceptible-infected model on a network</li>
+<li>AGMFit, BigClam, CODA, Cesna: Community detection methods</li>
+</ul>
+<h1 id="SNAP-Data-Structures-and-Types"><a href="#SNAP-Data-Structures-and-Types" class="headerlink" title="SNAP Data Structures and Types"></a>SNAP Data Structures and Types</h1><p>In directory glib-core:<br>Key files:</p>
+<ul>
+<li>dt.h: Data Types (TInt, TFlt)</li>
+<li>ds.h: Data Structures (TVec)</li>
+</ul>
+<p>Numbers:</p>
+<ul>
+<li>Integers: TInt</li>
+<li>Real numbers: TFlt</li>
+<li>Example:<br>  TInt A = 5;<br>  printf(“%d\n”, A.Val);</li>
+</ul>
+<h2 id="practice"><a href="#practice" class="headerlink" title="practice"></a>practice</h2><p>不用在文件中添加dt.h和ds.h头文件，否则会出现重定义错误。<br>错误  C4996   ‘strcpy’: This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.   TestSnap3   c:\users\administrator\desktop\communitynetwork\snap-4.0\glib-core\bd.h 521 </p>
+<h1 id="Basic-SNAP-Types"><a href="#Basic-SNAP-Types" class="headerlink" title="Basic SNAP Types"></a>Basic SNAP Types</h1><h2 id="String-TStr"><a href="#String-TStr" class="headerlink" title="String: TStr"></a>String: TStr</h2><p>Examples:</p>
+<pre><code>TStr A = &quot;abc&quot;;
+TStr B = &quot;ccc&quot;;
+printf(“string %s\n”, A.CStr()); // -- abc
+printf(“length %d\n”, A.Len()); // -- 3
+printf(“A[0] %c\n”, A[0]); // -- a
+printf(“A==B %d\n”, A == B); // -- 0
+</code></pre><h1 id="SNAP-Data-Structure"><a href="#SNAP-Data-Structure" class="headerlink" title="SNAP Data Structure"></a>SNAP Data Structure</h1><h2 id="Pair"><a href="#Pair" class="headerlink" title="Pair"></a>Pair</h2><h3 id="TPair"><a href="#TPair" class="headerlink" title="TPair "></a>TPair <type1, type2=""></type1,></h3><p>(Types can also be complex types like TVec, TPair…)</p>
+<pre><code>TPair&lt;TInt, TFlt&gt; A;
+A.Val1 = 3;
+A.Val2 = 3.14;
+</code></pre><h3 id="Predefined-types-in-ds-h"><a href="#Predefined-types-in-ds-h" class="headerlink" title="Predefined types in ds.h"></a>Predefined types in ds.h</h3><p>typedef TPair<tint, tint=""> TIntPr;<br>typedef TPair<tint, tintpr=""> TIntIntPrPr;</tint,></tint,></p>
+<h2 id="Triple"><a href="#Triple" class="headerlink" title="Triple"></a>Triple</h2><p>TTriple <type1, type2,="" type3=""></type1,></p>
+<h1 id="SNAP-Vectors"><a href="#SNAP-Vectors" class="headerlink" title="SNAP Vectors"></a>SNAP Vectors</h1><h2 id="TVec"><a href="#TVec" class="headerlink" title="TVec"></a>TVec<type></type></h2><h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example:"></a>Example:</h3><pre><code>TVec&lt;TInt&gt; A;
+A.Add(10);
+A.Add(20);
+A.Add(30);
+printf(“length %d\n”, A.Len()); // -- 3
+printf(“A[0] %d\n”, A[0].Val); // -- 10
+</code></pre><h3 id="“Type”-can-be-a-complex-type"><a href="#“Type”-can-be-a-complex-type" class="headerlink" title="“Type” can be a complex type"></a>“Type” can be a complex type</h3><pre><code>TVec&lt; TVec&lt; TVec&lt;TFlt&gt; &gt; &gt;
+</code></pre><h3 id="Predefined-types-in-ds-h-1"><a href="#Predefined-types-in-ds-h-1" class="headerlink" title="Predefined types in ds.h"></a>Predefined types in ds.h</h3><pre><code>typedef TVec&lt;TInt&gt; TIntV;
+Typedef TVec&lt;TFlt&gt; TFltV; 
+</code></pre><h1 id="SNAP-Hash-Tables"><a href="#SNAP-Hash-Tables" class="headerlink" title="SNAP Hash Tables"></a>SNAP Hash Tables</h1><h2 id="THash"><a href="#THash" class="headerlink" title="THash "></a>THash <key, value=""></key,></h2><ul>
+<li>Key: item key, provided by the caller(调用者)</li>
+<li>Value: item value, provided by the caller</li>
+<li>KeyId: integer, unique slot(唯一槽) in the table, calculated by SNAP</li>
+</ul>
+<h2 id="Example-2"><a href="#Example-2" class="headerlink" title="Example:"></a>Example:</h2><pre><code>THash&lt;TInt, TStr&gt; A;
+A.AddDat(100) = “David”;
+A.AddDat(89) = “Ann”;
+A.AddDat(95) = “Jason”;
+printf(“%s\n”, A.GetDat(89).CStr()); // -- Ann, Key to Value
+printf(“%d\n”, A.GetKeyId(95)); // -- 5, Key to KeyId
+printf(“%d\n”, A.GetKey(5).Val); // -- 95, KeyId to Key
+printf(“%s\n”, A[5].CStr()); // -- Jason, KeyId to Value
+</code></pre><h2 id="Predefined-types-in-hash-h"><a href="#Predefined-types-in-hash-h" class="headerlink" title="Predefined types in hash.h"></a>Predefined types in hash.h</h2><pre><code>typedef THash&lt;TInt, TInt&gt; TIntIntH;
+Typedef THash&lt;TInt, TFlt&gt; TIntFltH; 
+</code></pre><h1 id="Saving-and-Loading-Objects"><a href="#Saving-and-Loading-Objects" class="headerlink" title="Saving and Loading Objects"></a>Saving and Loading Objects</h1><h2 id="Binary-files"><a href="#Binary-files" class="headerlink" title="Binary files"></a>Binary files</h2><ul>
+<li>Fast save/load</li>
+<li>Memory efficient</li>
+</ul>
+<h2 id="Save"><a href="#Save" class="headerlink" title="Save():"></a>Save():</h2><pre><code>TIntStrH A;
+{ TFOut fout(&quot;a.bin&quot;);
+ A.Save(fout); }
+</code></pre><h2 id="Load"><a href="#Load" class="headerlink" title="Load():"></a>Load():</h2><pre><code>{ TFIn fin(&quot;a.bin&quot;); A.Load(fin); }
+</code></pre><h1 id="Generating-Distributions"><a href="#Generating-Distributions" class="headerlink" title="Generating Distributions"></a>Generating Distributions</h1><h2 id="TRnd-class"><a href="#TRnd-class" class="headerlink" title="TRnd class"></a>TRnd class</h2><p>Generate random numbers according to various probability distributions<br>根据各种概率分布生成随机数</p>
+<h2 id="Example-3"><a href="#Example-3" class="headerlink" title="Example:"></a>Example:</h2><pre><code>TRnd B;
+//sample from an exponential distribution
+for (int i = 0; i&lt;10; ++i) {
+    printf(&quot;%f\n&quot;, B.GetExpDev(1));
+}
+//来自指数分布的样本
+</code></pre><h1 id="Calculating-Statics-计算静力学"><a href="#Calculating-Statics-计算静力学" class="headerlink" title="Calculating Statics(计算静力学)"></a>Calculating Statics(计算静力学)</h1><h2 id="File-glib-core-xmath-h"><a href="#File-glib-core-xmath-h" class="headerlink" title="File glib-core/xmath.h"></a>File glib-core/xmath.h</h2><p>Useful for calculating moments, correlation coefficients, t-test, …<br>用于计算时刻，相关性系数，t检验</p>
+<h2 id="Example-of-computing-moments-TMom"><a href="#Example-of-computing-moments-TMom" class="headerlink" title="Example of computing moments (TMom):"></a>Example of computing moments (TMom):</h2><pre><code>TMom Mom;
+Mom.Add(5); Mom.Add(6); Mom.Add(8);
+Mom.Def();
+printf(&quot;Avg: %f\n&quot;, Mom.GetMean());
+printf(&quot;Min: %f\n&quot;, Mom.GetMn());
+printf(&quot;Max: %f\n&quot;, Mom.GetMx());
+</code></pre><h1 id="Making-Plots-in-SNAP"><a href="#Making-Plots-in-SNAP" class="headerlink" title="Making Plots in SNAP"></a>Making Plots in SNAP</h1><p><code>Gnuplot</code>是用于Linux，OS / 2，MS Windows，OSX，VMS和许多其他平台的便携式命令行驱动图形实用程序。源代码受版权保护，但免费分发（即，您不必为此支付费用）。它最初的创建是为了使科学家和学生能够以交互方式可视化数学函数和数据，但已经发展到支持许多非交互式使用，如Web脚本。它还被第三方应用程序（如八度）用作绘图引擎。自1986年以来，Gnuplot得到了支持和积极的发展。</p>
+<p>Gnuplot支持许多不同类型的输出<br>交互屏幕显示：     跨平台（Qt，wxWidgets，x11）或系统特定（MS Windows，OS / 2）<br>直接输出到文件：        后记（包括eps），pdf，png，gif，jpeg，LaTeX，metafont，emf，svg，…<br>鼠标网页显示格式：       HTML5，svg</p>
+<ol>
+<li>Install Gnuplot</li>
+<li>Add environmental variable $Path</li>
+<li>Use TGnuPlot (glib-core/gnuplot.h):   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//你没有给XY1、XY2赋值</span></span><br><span class="line">TVec&lt;TPair&lt;TFlt, TFlt &gt; &gt; XY1, XY2;</span><br><span class="line">TPair&lt;TFlt, TFlt&gt; temp;</span><br><span class="line">temp.Val1 = <span class="number">3</span>;</span><br><span class="line">temp.Val2 = <span class="number">3.14</span>;</span><br><span class="line">XY1.Add(temp);</span><br><span class="line">temp.Val1 = <span class="number">5</span>;</span><br><span class="line">temp.Val2 = <span class="number">2.14</span>;</span><br><span class="line">XY1.Add(temp);</span><br><span class="line">temp.Val1 = <span class="number">22</span>;</span><br><span class="line">temp.Val2 = <span class="number">23.14</span>;</span><br><span class="line">XY2.Add(temp);</span><br><span class="line">temp.Val1 = <span class="number">33</span>;</span><br><span class="line">temp.Val2 = <span class="number">36.14</span>;</span><br><span class="line">XY2.Add(temp);</span><br><span class="line"><span class="function">TGnuPlot <span class="title">Gp</span><span class="params">(<span class="string">"file name"</span>, <span class="string">"title name"</span>)</span></span>;</span><br><span class="line">Gp.AddPlot(XY1, gpwLinesPoints, <span class="string">"curve1"</span>);</span><br><span class="line">Gp.AddPlot(XY2, gpwPoints, <span class="string">"curve2"</span>);</span><br><span class="line"><span class="comment">//XY1中的点用线连接起来</span></span><br><span class="line"><span class="comment">//XY2中的数据以点形式显示</span></span><br><span class="line">Gp.SetXYLabel(<span class="string">"x - axis name"</span>, <span class="string">"y-axis name"</span>);</span><br><span class="line">Gp.SavePng(); <span class="comment">//or Gp.SaveEps();</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>##After executing, three files are generated</p>
+<h3 id="plt-file-includes-plotting-commands-for-gnuplot"><a href="#plt-file-includes-plotting-commands-for-gnuplot" class="headerlink" title=".plt file includes plotting commands for gnuplot"></a>.plt file includes plotting commands for gnuplot</h3><p>双击可以生成.png文件<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_file%20name.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="tab-file-contains-the-tab-separated-data"><a href="#tab-file-contains-the-tab-separated-data" class="headerlink" title=".tab file contains the tab separated data"></a>.tab file contains the tab separated data</h3><pre><code>#
+# title name (Thu Oct 26 23:00:38 2017)
+#
+# x - axis name curve2  x - axis name   curve1
+22  23.14   3   3.14
+33  36.14   5   2.14
+</code></pre><h3 id="png-or-eps-is-the-plot"><a href="#png-or-eps-is-the-plot" class="headerlink" title=".png or .eps is the plot"></a>.png or .eps is the plot</h3><h1 id="Drawing-SNAP-Graphs"><a href="#Drawing-SNAP-Graphs" class="headerlink" title="Drawing SNAP Graphs"></a>Drawing SNAP Graphs</h1><ol>
+<li>Use TGraphViz:Need to install <a href="http://www.graphviz.org/" target="_blank" rel="noopener">GraphViz</a> software first</li>
+<li>Add GraphViz path to environment variable添加环境变量路径记得添加到bin目录下</li>
+</ol>
+<h2 id="practice-1"><a href="#practice-1" class="headerlink" title="practice"></a>practice</h2><pre><code>PNGraph G = TNGraph::New();
+G-&gt;AddNode(1); G-&gt;AddNode(2);
+G-&gt;AddNode(3); G-&gt;AddNode(4);
+G-&gt;AddEdge(1, 2); G-&gt;AddEdge(2, 3);
+G-&gt;AddEdge(1, 3); G-&gt;AddEdge(2, 4);
+G-&gt;AddEdge(3, 4);
+TIntStrH Name;
+Name.AddDat(1) = &quot;David&quot;;
+Name.AddDat(2) = &quot;Emma&quot;;
+Name.AddDat(3) = &quot;Jim&quot;;
+Name.AddDat(4) = &quot;Sam&quot;;
+//TGraphViz::Plot&lt;PNGraph&gt;(G, gvlDot, &quot;gviz_plot.png&quot;, &quot;&quot;, Name);
+TSnap::DrawGViz&lt;PNGraph&gt;(G, gvlDot, &quot;gviz_plot.png&quot;, &quot;&quot;, Name);
+//郁闷，源代码是上面的CODE，但TGraphViz这个类找不到，然后在demo-gviz.cpp找到了答案
+</code></pre><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images.cnblogs.com/cnblogs_com/hankin2017/1078394/o_gviz_plot.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="源代码CODE"><a href="#源代码CODE" class="headerlink" title="源代码CODE"></a>源代码CODE</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TestSnap3.cpp : 定义控制台应用程序的入口点。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"Snap.h"</span></span></span><br><span class="line"><span class="comment">//#include "dt.h"</span></span><br><span class="line"><span class="comment">//#include "ds.h"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    PUNGraph Graph1 = TUNGraph::New();</span><br><span class="line">    Graph1-&gt;AddNode(<span class="number">1</span>);</span><br><span class="line">    Graph1-&gt;AddNode(<span class="number">5</span>);</span><br><span class="line">    Graph1-&gt;AddEdge(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    PNGraph Graph2 = TNGraph::New();</span><br><span class="line">    Graph2-&gt;AddNode(<span class="number">1</span>);</span><br><span class="line">    Graph2-&gt;AddNode(<span class="number">5</span>);</span><br><span class="line">    Graph2-&gt;AddEdge(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    PNEANet Graph3 = TNEANet::New();</span><br><span class="line">    Graph3-&gt;AddNode(<span class="number">1</span>);</span><br><span class="line">    Graph3-&gt;AddNode(<span class="number">5</span>);</span><br><span class="line">    Graph3-&gt;AddEdge(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    PNGraph Graph = TNGraph::New();</span></span><br><span class="line"><span class="comment">    Graph-&gt;AddNode(1);</span></span><br><span class="line"><span class="comment">    Graph-&gt;AddNode(5);</span></span><br><span class="line"><span class="comment">    Graph-&gt;AddEdge(1, 5);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    for (TNGraph::TNodeI NI = Graph-&gt;BegNI(); NI &lt; Graph-&gt;EndNI(); NI++)</span></span><br><span class="line"><span class="comment">        printf("%d %d %d\n", NI.GetId(), NI.GetOutDeg(), NI.GetInDeg());</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    for (TNGraph::TEdgeI EI = Graph-&gt;BegEI(); EI &lt; Graph-&gt;EndEI(); EI++)</span></span><br><span class="line"><span class="comment">        printf("edge (%d, %d)\n", EI.GetSrcNId(), EI.GetDstNId());</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    for (TNGraph::TNodeI NI = Graph-&gt;BegNI(); NI &lt; Graph-&gt;EndNI(); NI++)</span></span><br><span class="line"><span class="comment">        for (int e = 0; e &lt; NI.GetOutDeg(); e++)</span></span><br><span class="line"><span class="comment">            printf("edge (%d %d)\n", NI.GetId(), NI.GetOutNId(e));</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    //Get a node iterator from node id :</span></span><br><span class="line"><span class="comment">    TNGraph::TNodeI NI = Graph-&gt;GetNI(5);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    //Get an edge iterator from node ids :</span></span><br><span class="line"><span class="comment">    TNGraph::TEdgeI EI = Graph-&gt;GetEI(1, 5);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    printf("%d\n",NI.GetId());</span></span><br><span class="line"><span class="comment">    printf("%d\n",EI.GetId());</span></span><br><span class="line"><span class="comment">    printf("源节点%d\n", EI.GetSrcNId());</span></span><br><span class="line"><span class="comment">    printf("目标节点%d\n", EI.GetDstNId());</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    //Loading a graph in the edge list, text format</span></span><br><span class="line"><span class="comment">    PNGraph G2 = TSnap::LoadEdgeList&lt;PNGraph&gt;("as20graph.txt", 0, 1);</span></span><br><span class="line"><span class="comment">    //0, 1 are the columns of source, target nodes</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    //Saving a graph in the edge list, text format</span></span><br><span class="line"><span class="comment">    TSnap::SaveEdgeList&lt;PNGraph&gt;(Graph, "as20graph.txt", "");</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    //Loading / Saving in a binary format – faster</span></span><br><span class="line"><span class="comment">    &#123; TFIn FIn("test.graph");</span></span><br><span class="line"><span class="comment">    PNGraph G2 = TNGraph::Load(FIn); &#125;</span></span><br><span class="line"><span class="comment">    &#123; TFOut FOut("test.graph"); G2-&gt;Save(FOut); &#125;</span></span><br><span class="line"><span class="comment">    //Note the parenthesis&#123;&#125;!</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    PNGraph G = TSnap::LoadEdgeList&lt;PNGraph&gt;("as20graph.txt", 0, 1);</span></span><br><span class="line"><span class="comment">    //CntV is a vector of pairs of integers :</span></span><br><span class="line"><span class="comment">    TVec &lt; TPair&lt;TInt, TInt&gt; &gt; CntV;</span></span><br><span class="line"><span class="comment">    //Get degree distribution(degree, count)</span></span><br><span class="line"><span class="comment">    TSnap::GetOutDegCnt(G, CntV);</span></span><br><span class="line"><span class="comment">    TSnap::GetInDegCnt(G, CntV);</span></span><br><span class="line"><span class="comment">    //Get distribution of connected components(component size, count)</span></span><br><span class="line"><span class="comment">    TSnap::GetWccSzCnt(G, CntV);</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//Create a directed random graph on 100 nodes and 1k edges</span></span><br><span class="line">    PNGraph Graph = TSnap::GenRndGnm&lt;PNGraph&gt;(<span class="number">100</span>, <span class="number">1000</span>);</span><br><span class="line">    <span class="comment">//Convert to undirected graph TUNGraph</span></span><br><span class="line">    PUNGraph UG = TSnap::ConvertGraph&lt;PUNGraph, PNGraph&gt;(Graph2);</span><br><span class="line">    <span class="keyword">for</span> (TNGraph::TEdgeI EI = Graph2-&gt;BegEI(); EI &lt; Graph2-&gt;EndEI(); EI++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"edge (%d, %d)\n"</span>, EI.GetSrcNId(), EI.GetDstNId());</span><br><span class="line">    <span class="keyword">for</span> (TUNGraph::TEdgeI EI = UG-&gt;BegEI(); EI &lt; UG-&gt;EndEI(); EI++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"edge (%d, %d)\n"</span>, EI.GetSrcNId(), EI.GetDstNId());</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Get largest weakly connected component of G</span></span><br><span class="line">    PNGraph Graph5 = TNGraph::New();</span><br><span class="line">    Graph5-&gt;AddNode(<span class="number">7</span>);</span><br><span class="line">    Graph5-&gt;AddNode(<span class="number">8</span>);</span><br><span class="line">    Graph5-&gt;AddNode(<span class="number">1</span>);</span><br><span class="line">    Graph5-&gt;AddNode(<span class="number">2</span>);</span><br><span class="line">    Graph5-&gt;AddNode(<span class="number">3</span>);</span><br><span class="line">    Graph5-&gt;AddNode(<span class="number">5</span>);</span><br><span class="line">    Graph5-&gt;AddNode(<span class="number">11</span>);</span><br><span class="line">    Graph5-&gt;AddEdge(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line">    <span class="comment">//Graph5-&gt;AddEdge(2, 5);</span></span><br><span class="line">    Graph5-&gt;AddEdge(<span class="number">7</span>, <span class="number">8</span>);</span><br><span class="line">    Graph5-&gt;AddEdge(<span class="number">3</span>, <span class="number">2</span>);</span><br><span class="line">    Graph5-&gt;AddEdge(<span class="number">3</span>, <span class="number">11</span>);</span><br><span class="line">    PNGraph WccG = TSnap::GetMxWcc(Graph5);</span><br><span class="line">    <span class="keyword">for</span> (TNGraph::TEdgeI EI = WccG-&gt;BegEI(); EI &lt; WccG-&gt;EndEI(); EI++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"5edge (%d, %d)\n"</span>, EI.GetSrcNId(), EI.GetDstNId());</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Get a subgraph induced on nodes &#123;0,1,2,3,4&#125;</span></span><br><span class="line">    PNGraph SubG = TSnap::GetSubGraph(Graph, TIntV::GetV(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>));</span><br><span class="line">    <span class="keyword">for</span> (TNGraph::TEdgeI EI = SubG-&gt;BegEI(); EI &lt; SubG-&gt;EndEI(); EI++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"edge (%d, %d)\n"</span>, EI.GetSrcNId(), EI.GetDstNId());</span><br><span class="line">    </span><br><span class="line">    TInt A = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, A.Val);</span><br><span class="line"></span><br><span class="line">    TRnd B;</span><br><span class="line">    <span class="comment">//sample from an exponential distribution</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;<span class="number">10</span>; ++i) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%f\n"</span>, B.GetExpDev(<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    TMom Mom;</span><br><span class="line">    Mom.Add(<span class="number">5</span>); Mom.Add(<span class="number">6</span>); Mom.Add(<span class="number">8</span>);</span><br><span class="line">    Mom.Def();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Avg: %f\n"</span>, Mom.GetMean());</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Min: %f\n"</span>, Mom.GetMn());</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Max: %f\n"</span>, Mom.GetMx());</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//你没有给XY1、XY2赋值</span></span><br><span class="line">    TVec&lt;TPair&lt;TFlt, TFlt &gt; &gt; XY1, XY2;</span><br><span class="line">    TPair&lt;TFlt, TFlt&gt; temp;</span><br><span class="line">    temp.Val1 = <span class="number">3</span>;</span><br><span class="line">    temp.Val2 = <span class="number">3.14</span>;</span><br><span class="line">    XY1.Add(temp);</span><br><span class="line">    temp.Val1 = <span class="number">5</span>;</span><br><span class="line">    temp.Val2 = <span class="number">2.14</span>;</span><br><span class="line">    XY1.Add(temp);</span><br><span class="line">    temp.Val1 = <span class="number">22</span>;</span><br><span class="line">    temp.Val2 = <span class="number">23.14</span>;</span><br><span class="line">    XY2.Add(temp);</span><br><span class="line">    temp.Val1 = <span class="number">33</span>;</span><br><span class="line">    temp.Val2 = <span class="number">36.14</span>;</span><br><span class="line">    XY2.Add(temp);</span><br><span class="line">    <span class="function">TGnuPlot <span class="title">Gp</span><span class="params">(<span class="string">"file name"</span>, <span class="string">"title name"</span>)</span></span>;</span><br><span class="line">    Gp.AddPlot(XY1, gpwLinesPoints, <span class="string">"curve1"</span>);</span><br><span class="line">    Gp.AddPlot(XY2, gpwPoints, <span class="string">"curve2"</span>);</span><br><span class="line">    Gp.SetXYLabel(<span class="string">"x - axis name"</span>, <span class="string">"y-axis name"</span>);</span><br><span class="line">    Gp.SavePng(); <span class="comment">//or Gp.SaveEps();</span></span><br><span class="line"></span><br><span class="line">    PNGraph G = TNGraph::New();</span><br><span class="line">    G-&gt;AddNode(<span class="number">1</span>); G-&gt;AddNode(<span class="number">2</span>);</span><br><span class="line">    G-&gt;AddNode(<span class="number">3</span>); G-&gt;AddNode(<span class="number">4</span>);</span><br><span class="line">    G-&gt;AddEdge(<span class="number">1</span>, <span class="number">2</span>); G-&gt;AddEdge(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    G-&gt;AddEdge(<span class="number">1</span>, <span class="number">3</span>); G-&gt;AddEdge(<span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">    G-&gt;AddEdge(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    TIntStrH Name;</span><br><span class="line">    Name.AddDat(<span class="number">1</span>) = <span class="string">"David"</span>;</span><br><span class="line">    Name.AddDat(<span class="number">2</span>) = <span class="string">"Emma"</span>;</span><br><span class="line">    Name.AddDat(<span class="number">3</span>) = <span class="string">"Jim"</span>;</span><br><span class="line">    Name.AddDat(<span class="number">4</span>) = <span class="string">"Sam"</span>;</span><br><span class="line">    TSnap::DrawGViz&lt;PNGraph&gt;(G, gvlDot, <span class="string">"gviz_plot.png"</span>, <span class="string">""</span>, Name);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-14T16:28:38.230Z" itemprop="dateUpdated">2018-08-15 00:28:38</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/10/25/20171025SNAP-C++-Detail/" target="_blank" rel="external">https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Snap/">Snap</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/&title=《SNAP for C++的基本操作》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/&title=《SNAP for C++的基本操作》 — HanKin的博客&source=创建图形，即初始化undirected graphPUNGraph Graph = TUNGraph::New();
+directed graphPNGr..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SNAP for C++的基本操作》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/31/20171031DataScience&BigData/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">数据科学和大数据的区别</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/25/20171025k-truss1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">基于 k-truss 的图社区发现算法研究</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/&title=《SNAP for C++的基本操作》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/&title=《SNAP for C++的基本操作》 — HanKin的博客&source=创建图形，即初始化undirected graphPUNGraph Graph = TUNGraph::New();
+directed graphPNGr..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SNAP for C++的基本操作》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/10/25/20171025SNAP-C++-Detail/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

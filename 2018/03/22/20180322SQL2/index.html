@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SQL学习笔记2(中级) | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Sql">
+    <meta name="description" content="1、SQL SELECT TOP 子句SELECT TOP 子句用于规定要返回的记录的数目(前几条)。  SELECT column_name(s) FROM table_name LIMIT number;">
+<meta name="keywords" content="Sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL学习笔记2(中级)">
+<meta property="og:url" content="https://hankin2015.github.io/2018/03/22/20180322SQL2/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="1、SQL SELECT TOP 子句SELECT TOP 子句用于规定要返回的记录的数目(前几条)。  SELECT column_name(s) FROM table_name LIMIT number;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-14T16:17:21.572Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL学习笔记2(中级)">
+<meta name="twitter:description" content="1、SQL SELECT TOP 子句SELECT TOP 子句用于规定要返回的记录的数目(前几条)。  SELECT column_name(s) FROM table_name LIMIT number;">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SQL学习笔记2(中级)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SQL学习笔记2(中级)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-22T05:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-03-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SQL/">SQL</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、SQL-SELECT-TOP-子句"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、SQL SELECT TOP 子句</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、SQL-LIKE-操作符"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、SQL LIKE 操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-通配符"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">SQL 通配符</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、IN-与-的异同"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、IN 与 = 的异同</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、SQL-BETWEEN-操作符"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、SQL BETWEEN 操作符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、SQL-别名（AS语句）"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、SQL 别名（AS语句）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在下面的情况下，使用别名很有用"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">在下面的情况下，使用别名很有用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6、SQL-JOIN"><span class="post-toc-number">6.</span> <span class="post-toc-text">6、SQL JOIN</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7、SQL-UNION-操作符"><span class="post-toc-number">7.</span> <span class="post-toc-text">7、SQL UNION 操作符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8、SQL-SELECT-INTO-语句"><span class="post-toc-number">8.</span> <span class="post-toc-text">8、SQL SELECT INTO 语句</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9、创建表"><span class="post-toc-number">9.</span> <span class="post-toc-text">9、创建表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#10、SQL约束"><span class="post-toc-number">10.</span> <span class="post-toc-text">10、SQL约束</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ALTER-TABLE-时的-SQL-UNIQUE-约束"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">ALTER TABLE 时的 SQL UNIQUE 约束</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#11、SQL-PRIMARY-KEY-约束"><span class="post-toc-number">11.</span> <span class="post-toc-text">11、SQL PRIMARY KEY 约束</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#12、SQL-FOREIGN-KEY-约束"><span class="post-toc-number">12.</span> <span class="post-toc-text">12、SQL FOREIGN KEY 约束</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#13、SQL-CHECK-约束"><span class="post-toc-number">13.</span> <span class="post-toc-text">13、SQL CHECK 约束</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#14、SQL-DEFAULT-约束"><span class="post-toc-number">14.</span> <span class="post-toc-text">14、SQL DEFAULT 约束</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#15、SQL-CREATE-INDEX-语句（感觉和as相像）"><span class="post-toc-number">15.</span> <span class="post-toc-text">15、SQL CREATE INDEX 语句（感觉和as相像）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#16、ALTER-TABLE-语句用于在已有的表中添加、删除或修改列。"><span class="post-toc-number">16.</span> <span class="post-toc-text">16、ALTER TABLE 语句用于在已有的表中添加、删除或修改列。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#17、SQL-AUTO-INCREMENT-字段"><span class="post-toc-number">17.</span> <span class="post-toc-text">17、SQL AUTO INCREMENT 字段</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#18、SQL-视图（Views）"><span class="post-toc-number">18.</span> <span class="post-toc-text">18、SQL 视图（Views）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#19、MySQL-Date-函数"><span class="post-toc-number">19.</span> <span class="post-toc-text">19、MySQL Date 函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#20、SQL-NULL-值"><span class="post-toc-number">20.</span> <span class="post-toc-text">20、SQL NULL 值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#21、SQL-通用数据类型"><span class="post-toc-number">21.</span> <span class="post-toc-text">21、SQL 通用数据类型</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20180322SQL2"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SQL学习笔记2(中级)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-22 13:47:41" datetime="2018-03-22T05:47:41.000Z"  itemprop="datePublished">2018-03-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SQL/">SQL</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1、SQL-SELECT-TOP-子句"><a href="#1、SQL-SELECT-TOP-子句" class="headerlink" title="1、SQL SELECT TOP 子句"></a>1、SQL SELECT TOP 子句</h1><p>SELECT TOP 子句用于规定要返回的记录的数目(前几条)。</p>
+<blockquote>
+<p>SELECT column_name(s) FROM table_name LIMIT number;<br><a id="more"></a></p>
+</blockquote>
+<h1 id="2、SQL-LIKE-操作符"><a href="#2、SQL-LIKE-操作符" class="headerlink" title="2、SQL LIKE 操作符"></a>2、SQL LIKE 操作符</h1><p>LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。</p>
+<blockquote>
+<p>SELECT column_name(s) FROM table_name WHERE column_name LIKE pattern;</p>
+</blockquote>
+<h2 id="SQL-通配符"><a href="#SQL-通配符" class="headerlink" title="SQL 通配符"></a>SQL 通配符</h2><p>在 SQL 中，通配符与 SQL LIKE 操作符一起用于搜索表中的数据。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">通配符</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">%</td>
+<td style="text-align:center">替代 0 个或多个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">_</td>
+<td style="text-align:center">替代一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[charlist]</td>
+<td style="text-align:center">字符列中的任何单一字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[^charlist]或[!charlist]</td>
+<td style="text-align:center">不在字符列中的任何单一字符</td>
+</tr>
+</tbody>
+</table>
+<p>LIKE’[CK]ars[eo]n’ 将搜索下列字符串：Carsen、Karsen、Carson 和 Karson（如 Carson）。</p>
+<p>LIKE’[M-Z]inger’ 将搜索以字符串 inger 结尾、以从 M 到 Z 的任何单个字母开头的所有名称（如 Ringer）。</p>
+<p>LIKE’M[^c]%’ 将搜索以字母 M 开头，并且第二个字母不是 c 的所有名称（如MacFeather）。</p>
+<p>MySQL 中使用 REGEXP 或 NOT REGEXP 运算符 (或 RLIKE 和 NOT RLIKE) 来操作正则表达式。</p>
+<h1 id="3、IN-与-的异同"><a href="#3、IN-与-的异同" class="headerlink" title="3、IN 与 = 的异同"></a>3、IN 与 = 的异同</h1><p> 相同点：均在WHERE中使用作为筛选条件之一、均是等于的含义<br> 不同点：IN可以规定多个值，=规定一个值</p>
+<h1 id="4、SQL-BETWEEN-操作符"><a href="#4、SQL-BETWEEN-操作符" class="headerlink" title="4、SQL BETWEEN 操作符"></a>4、SQL BETWEEN 操作符</h1><p>BETWEEN 操作符选取介于两个值之间的数据范围内的值。这些值可以是数值、文本或者日期。</p>
+<p>选取alexa介于 1 和 20 之间但 country 不为 USA 和 IND 的所有网站</p>
+<blockquote>
+<p>SELECT * FROM Websites  WHERE (alexa BETWEEN 1 AND 20)  AND NOT country IN (‘USA’, ‘IND’);</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">请注意，在不同的数据库中，BETWEEN 操作符会产生不同的结果！</span><br><span class="line">在某些数据库中，BETWEEN 选取介于两个值之间但不包括两个测试值的字段。</span><br><span class="line">在某些数据库中，BETWEEN 选取介于两个值之间且包括两个测试值的字段。</span><br><span class="line">在某些数据库中，BETWEEN 选取介于两个值之间且包括第一个测试值但不包括最后一个测试值的字段。</span><br><span class="line"></span><br><span class="line">因此，请检查您的数据库是如何处理 BETWEEN 操作符！</span><br></pre></td></tr></table></figure>
+<h1 id="5、SQL-别名（AS语句）"><a href="#5、SQL-别名（AS语句）" class="headerlink" title="5、SQL 别名（AS语句）"></a>5、SQL 别名（AS语句）</h1><p>通过使用 SQL，可以为表名称或列名称指定别名。基本上，创建别名是为了让列名称的可读性更强。</p>
+<h2 id="在下面的情况下，使用别名很有用"><a href="#在下面的情况下，使用别名很有用" class="headerlink" title="在下面的情况下，使用别名很有用"></a>在下面的情况下，使用别名很有用</h2><ul>
+<li>在查询中涉及超过一个表</li>
+<li>在查询中使用了函数</li>
+<li>列名称很长或者可读性差</li>
+<li>需要把两个列或者多个列结合在一起</li>
+</ul>
+<blockquote>
+<p>SELECT w.name, w.url, a.count, a.date  FROM Websites AS  w, access_log  AS  a  WHERE a.site_id=w.id and w.name=”菜鸟教程”;<br>SELECT name, CONCAT(url, ‘, ‘, alexa, ‘, ‘, country) AS site_info   FROM Websites; 将三列合并到一列</p>
+</blockquote>
+<h1 id="6、SQL-JOIN"><a href="#6、SQL-JOIN" class="headerlink" title="6、SQL JOIN"></a>6、SQL JOIN</h1><p>SQL JOIN 子句用于把来自两个或多个表的行结合起来，基于这些表之间的共同字段。</p>
+<p>INNER JOIN：如果表中有至少一个匹配，则返回行。<code>注释：INNER JOIN 与 JOIN 是相同的。</code><br>LEFT JOIN：即使右表中没有匹配，也从左表返回所有的行。<code>注释：在某些数据库中，LEFT JOIN 称为 LEFT OUTER JOIN。</code><br>RIGHT JOIN：即使左表中没有匹配，也从右表返回所有的行。<code>注释：在某些数据库中，RIGHT JOIN 称为 RIGHT OUTER JOIN。</code><br>FULL OUTER JOIN：只要其中一个表中存在匹配，则返回行</p>
+<p>MySQL中不支持 FULL OUTER JOIN。<br>注释：FULL OUTER JOIN 关键字返回左表（Websites）和右表（access_log）中所有的行。如果 “Websites” 表中的行在 “access_log” 中没有匹配或者 “access_log” 表中的行在 “Websites” 表中没有匹配，也会列出这些行。</p>
+<blockquote>
+<p>SELECT Websites.id, Websites.name, access_log.count, access_log.date FROM Websites INNER JOIN access_log ON Websites.id=access_log.site_id;</p>
+</blockquote>
+<h1 id="7、SQL-UNION-操作符"><a href="#7、SQL-UNION-操作符" class="headerlink" title="7、SQL UNION 操作符"></a>7、SQL UNION 操作符</h1><p>UNION 操作符用于合并两个或多个 SELECT 语句的结果集。</p>
+<p>请注意，UNION 内部的每个 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每个 SELECT 语句中的列的顺序必须相同。</p>
+<blockquote>
+<p>SELECT column_name(s) FROM table1 UNION SELECT column_name(s) FROM table2;<br>注释：默认地，UNION 操作符选取不同的值。如果允许重复的值，请使用 UNION ALL。</p>
+<p>SELECT column_name(s) FROM table1 UNION ALL SELECT column_name(s) FROM table2;<br>注释：UNION 结果集中的列名总是等于 UNION 中第一个 SELECT 语句中的列名。</p>
+</blockquote>
+<p>使用UNION命令时需要注意，只能在最后使用一个ORDER BY命令，是将两个查询结果合在一起之后，再进行排序！绝对不能写两个ORDER BY命令。</p>
+<p>另外，在使用ORDER BY排序时，注意两个结果的别名保持一致，使用别名排序很方便。当然也可以使用列数。</p>
+<h1 id="8、SQL-SELECT-INTO-语句"><a href="#8、SQL-SELECT-INTO-语句" class="headerlink" title="8、SQL SELECT INTO 语句"></a>8、SQL SELECT INTO 语句</h1><p>SELECT INTO 语句从一个表复制数据，然后把数据插入到另一个新表中。</p>
+<blockquote>
+<p>MySQL 数据库不支持 SELECT … INTO 语句，但支持 INSERT INTO … SELECT 。</p>
+</blockquote>
+<p>当然你可以使用以下语句来拷贝表结构及数据：CREATE TABLE 新表 SELECT * FROM 旧表 SQL SELECT INTO 语法</p>
+<blockquote>
+<p>SELECT  <em> INTO newtable [IN externaldb]  FROM table1;<br>INSERT INTO table2  SELECT </em> FROM table1;</p>
+</blockquote>
+<h1 id="9、创建表"><a href="#9、创建表" class="headerlink" title="9、创建表"></a>9、创建表</h1><p>CREATE DATABASE dbname;</p>
+<p>CREATE TABLE table_name<br>(<br>column_name1 data_type(size),<br>column_name2 data_type(size),<br>column_name3 data_type(size),<br>….<br>);<br>data_type 参数规定列的<a href="http://www.runoob.com/sql/sql-datatypes.html" target="_blank" rel="noopener">数据类型</a>（例如 varchar、int、decimal、date 等等）。</p>
+<h1 id="10、SQL约束"><a href="#10、SQL约束" class="headerlink" title="10、SQL约束"></a>10、SQL约束</h1><p>约束可以在创建表时规定（通过 CREATE TABLE 语句），或者在表创建之后规定（通过 ALTER TABLE 语句）。</p>
+<ul>
+<li>NOT NULL - 指示某列不能存储 NULL 值。</li>
+<li>UNIQUE - 保证某列的每行必须有唯一的值。</li>
+<li>PRIMARY KEY - NOT NULL 和 UNIQUE 的结合。确保某列（或两个列多个列的结合）有唯一标识，有助于更容易更快速地找到表中的一个特定的记录。</li>
+<li>FOREIGN KEY - 保证一个表中的数据匹配另一个表中的值的参照完整性。</li>
+<li>CHECK - 保证列中的值符合指定的条件。</li>
+<li>DEFAULT - 规定没有给列赋值时的默认值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons</span><br><span class="line">(</span><br><span class="line">    Id_P int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Address varchar(255),</span><br><span class="line">    City varchar(255),</span><br><span class="line">    PRIMARY KEY (Id_P)  //PRIMARY KEY约束</span><br><span class="line">)</span><br><span class="line">CREATE TABLE Personss</span><br><span class="line">(</span><br><span class="line">    Id_P int NOT NULL PRIMARY KEY,   //PRIMARY KEY约束</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Address varchar(255),</span><br><span class="line">    City varchar(255)</span><br><span class="line">)</span><br><span class="line">两种写法在mysql上都能运行。unique关键字也可以这样做。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>UNIQUE 和 PRIMARY KEY 约束均为列或列集合提供了唯一性的保证。</p>
+<p>PRIMARY KEY 约束拥有自动定义的 UNIQUE 约束。</p>
+<p>请注意，每个表可以有多个 UNIQUE 约束，但是每个表只能有一个 PRIMARY KEY 约束。</p>
+<p>如需命名 UNIQUE 约束，并定义多个列的 UNIQUE 约束，请使用下面的 SQL 语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons</span><br><span class="line">(</span><br><span class="line">P_Id int NOT NULL,</span><br><span class="line">LastName varchar(255) NOT NULL,</span><br><span class="line">FirstName varchar(255),</span><br><span class="line">Address varchar(255),</span><br><span class="line">City varchar(255),</span><br><span class="line">CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)</span><br><span class="line">)</span><br><span class="line">//uc_PersonID是别名，也可以说是索引</span><br></pre></td></tr></table></figure></p>
+<h2 id="ALTER-TABLE-时的-SQL-UNIQUE-约束"><a href="#ALTER-TABLE-时的-SQL-UNIQUE-约束" class="headerlink" title="ALTER TABLE 时的 SQL UNIQUE 约束"></a>ALTER TABLE 时的 SQL UNIQUE 约束</h2><p>当表已被创建时，如需在 “P_Id” 列创建 UNIQUE 约束，请使用下面的 SQL：</p>
+<blockquote>
+<p>ALTER TABLE Persons  ADD UNIQUE (P_Id)</p>
+</blockquote>
+<p>如需命名 UNIQUE 约束，并定义多个列的 UNIQUE 约束，请使用下面的 SQL 语法：</p>
+<blockquote>
+<p>ALTER TABLE Persons  ADD CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)</p>
+</blockquote>
+<p>如需撤销 UNIQUE 约束，请使用下面的 SQL：</p>
+<blockquote>
+<p>ALTER TABLE Persons  DROP INDEX uc_PersonID</p>
+</blockquote>
+<h1 id="11、SQL-PRIMARY-KEY-约束"><a href="#11、SQL-PRIMARY-KEY-约束" class="headerlink" title="11、SQL PRIMARY KEY 约束"></a>11、SQL PRIMARY KEY 约束</h1><ul>
+<li>PRIMARY KEY 约束唯一标识数据库表中的每条记录。</li>
+<li>主键必须包含唯一的值。</li>
+<li>主键列不能包含 NULL 值。</li>
+<li>每个表都应该有一个主键，并且每个表只能有一个主键。</li>
+</ul>
+<h1 id="12、SQL-FOREIGN-KEY-约束"><a href="#12、SQL-FOREIGN-KEY-约束" class="headerlink" title="12、SQL FOREIGN KEY 约束"></a>12、SQL FOREIGN KEY 约束</h1><ul>
+<li>一个表中的 FOREIGN KEY 指向另一个表中的 PRIMARY KEY。</li>
+<li>FOREIGN KEY 约束用于预防破坏表之间连接的行为。</li>
+<li>FOREIGN KEY 约束也能防止非法数据插入外键列，因为它必须是它指向的那个表中的值之一。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Orders</span><br><span class="line">(</span><br><span class="line">O_Id int NOT NULL,</span><br><span class="line">OrderNo int NOT NULL,</span><br><span class="line">P_Id int,</span><br><span class="line">PRIMARY KEY (O_Id),</span><br><span class="line">FOREIGN KEY (P_Id) REFERENCES Persons(P_Id)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">ALTER TABLE Orders  ADD CONSTRAINT fk_PerOrders  FOREIGN KEY (P_Id)  REFERENCES Persons(P_Id)</span><br></pre></td></tr></table></figure>
+<h1 id="13、SQL-CHECK-约束"><a href="#13、SQL-CHECK-约束" class="headerlink" title="13、SQL CHECK 约束"></a>13、SQL CHECK 约束</h1><ul>
+<li>如果对单个列定义 CHECK 约束，那么该列只允许特定的值。</li>
+<li>如果对一个表定义 CHECK 约束，那么此约束会基于行中其他列的值在特定的列中对值进行限制。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons</span><br><span class="line">(</span><br><span class="line">P_Id int NOT NULL,</span><br><span class="line">LastName varchar(255) NOT NULL,</span><br><span class="line">FirstName varchar(255),</span><br><span class="line">Address varchar(255),</span><br><span class="line">City varchar(255),</span><br><span class="line">CHECK (P_Id&gt;0)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">ALTER TABLE Persons ADD CONSTRAINT chk_Person CHECK (P_Id&gt;0 AND City=&apos;Sandnes&apos;)</span><br><span class="line"></span><br><span class="line">ALTER TABLE Persons  DROP CHECK chk_Person</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="14、SQL-DEFAULT-约束"><a href="#14、SQL-DEFAULT-约束" class="headerlink" title="14、SQL DEFAULT 约束"></a>14、SQL DEFAULT 约束</h1><p>DEFAULT 约束用于向列中插入默认值。<br>如果没有规定其他的值，那么会将默认值添加到所有的新记录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Orders</span><br><span class="line">(</span><br><span class="line">O_Id int NOT NULL,</span><br><span class="line">OrderNo int NOT NULL,</span><br><span class="line">P_Id int,</span><br><span class="line">OrderDate date DEFAULT GETDATE()</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">ALTER TABLE Persons  ALTER City SET DEFAULT &apos;SANDNES&apos;</span><br><span class="line"></span><br><span class="line">ALTER TABLE Persons  ALTER City DROP DEFAULT</span><br></pre></td></tr></table></figure></p>
+<h1 id="15、SQL-CREATE-INDEX-语句（感觉和as相像）"><a href="#15、SQL-CREATE-INDEX-语句（感觉和as相像）" class="headerlink" title="15、SQL CREATE INDEX 语句（感觉和as相像）"></a>15、SQL CREATE INDEX 语句（感觉和as相像）</h1><p>在<code>不读取整个表</code>的情况下，索引使数据库应用程序可以更快地查找数据。</p>
+<p>注释：更新一个包含索引的表需要比更新一个没有索引的表花费更多的时间，这是由于索引本身也需要更新。因此，理想的做法是仅仅在常常被搜索的列（以及表）上面创建索引。</p>
+<p>CREATE INDEX index_name  ON table_name (column_name)</p>
+<p>CREATE UNIQUE INDEX index_name  ON table_name (column_name)</p>
+<p>ALTER TABLE table_name DROP INDEX index_name</p>
+<p>DROP TABLE table_name</p>
+<p>DROP DATABASE database_name</p>
+<p>TRUNCATE(把…截短；缩短；使成平面) TABLE table_name  如果我们仅仅需要删除表内的数据，但并不删除表本身</p>
+<h1 id="16、ALTER-TABLE-语句用于在已有的表中添加、删除或修改列。"><a href="#16、ALTER-TABLE-语句用于在已有的表中添加、删除或修改列。" class="headerlink" title="16、ALTER TABLE 语句用于在已有的表中添加、删除或修改列。"></a>16、ALTER TABLE 语句用于在已有的表中添加、删除或修改列。</h1><p>ALTER TABLE table_name ADD column_name datatype</p>
+<p>ALTER TABLE table_name DROP COLUMN column_name</p>
+<p>ALTER TABLE table_name MODIFY COLUMN column_name datatype</p>
+<h1 id="17、SQL-AUTO-INCREMENT-字段"><a href="#17、SQL-AUTO-INCREMENT-字段" class="headerlink" title="17、SQL AUTO INCREMENT 字段"></a>17、SQL AUTO INCREMENT 字段</h1><p>Auto-increment 会在新记录插入表中时生成一个唯一的数字。我们通常希望在每次插入新记录时，自动地创建主键字段的值。我们可以在表中创建一个 auto-increment 字段。</p>
+<p>下面的 SQL 语句把 “Persons” 表中的 “ID” 列定义为 auto-increment 主键字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons</span><br><span class="line">(</span><br><span class="line">ID int NOT NULL AUTO_INCREMENT,</span><br><span class="line">LastName varchar(255) NOT NULL,</span><br><span class="line">FirstName varchar(255),</span><br><span class="line">Address varchar(255),</span><br><span class="line">City varchar(255),</span><br><span class="line">PRIMARY KEY (ID)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>MySQL 使用 AUTO_INCREMENT 关键字来执行 auto-increment 任务。<br>默认地，AUTO_INCREMENT 的开始值是 1，每条新记录递增 1。<br>要让 AUTO_INCREMENT 序列以其他的值起始，请使用下面的 SQL 语法：</p>
+<blockquote>
+<p>ALTER TABLE Persons AUTO_INCREMENT=100</p>
+</blockquote>
+<p>要在 “Persons” 表中插入新记录，我们不必为 “ID” 列规定值（会自动添加一个唯一的值）：<br>INSERT INTO Persons (FirstName,LastName)<br>VALUES (‘Lars’,’Monsen’)</p>
+<p>给已经存在的colume添加自增语法：</p>
+<p>ALTER TABLE table_name CHANGE column_name column_name data_type(size) constraint_name AUTO_INCREMENT;<br>比如：</p>
+<p>ALTER TABLE student CHANGE id id INT( 11 ) NOT NULL AUTO_INCREMENT;</p>
+<h1 id="18、SQL-视图（Views）"><a href="#18、SQL-视图（Views）" class="headerlink" title="18、SQL 视图（Views）"></a>18、SQL 视图（Views）</h1><p>在 SQL 中，视图是基于 SQL 语句的结果集的可视化的表。<br>视图包含行和列，就像一个真实的表。视图中的字段就是来自一个或多个数据库中的真实的表中的字段。</p>
+<p>视图 “Current Product List” 会从 “Products” 表列出所有正在使用的产品（未停产的产品）。这个视图使用下面的 SQL 创建：</p>
+<p>CREATE VIEW [Current Product List] AS SELECT ProductID,ProductName FROM Products WHERE Discontinued=No<br>我们可以像这样查询上面这个视图：</p>
+<p>SELECT * FROM [Current Product List]</p>
+<blockquote>
+<p>SQL 更新视图<br>CREATE OR REPLACE VIEW view_name AS SELECT column_name(s) FROM table_name WHERE condition</p>
+</blockquote>
+<p>DROP VIEW view_name</p>
+<h1 id="19、MySQL-Date-函数"><a href="#19、MySQL-Date-函数" class="headerlink" title="19、MySQL Date 函数"></a>19、MySQL Date 函数</h1><p>下面的表格列出了 MySQL 中最重要的内建日期函数：</p>
+<p>函数  描述<br>NOW()   返回当前的日期和时间<br>CURDATE()   返回当前的日期<br>CURTIME()   返回当前的时间<br>DATE()  提取日期或日期/时间表达式的日期部分<br>EXTRACT()   返回日期/时间的单独部分<br>DATE_ADD()  向日期添加指定的时间间隔<br>DATE_SUB()  从日期减去指定的时间间隔<br>DATEDIFF()  返回两个日期之间的天数<br>DATE_FORMAT()   用不同的格式显示日期/时间</p>
+<h1 id="20、SQL-NULL-值"><a href="#20、SQL-NULL-值" class="headerlink" title="20、SQL NULL 值"></a>20、SQL NULL 值</h1><ul>
+<li>NULL 值代表遗漏的未知数据。</li>
+<li>默认地，表的列可以存放 NULL 值。</li>
+<li>NULL 用作未知的或不适用的值的占位符。</li>
+<li>无法使用比较运算符来测试 NULL 值，比如 =、&lt; 或 &lt;&gt;。我们必须使用 IS NULL 和 IS NOT NULL 操作符。</li>
+</ul>
+<p>–如果alexa列为null值，则赋予0，否则，取原值<br>select id,name,url,ifnull(alexa,0)from websites;<br>select id,name,url,COALESCE(alexa,0) from websites;</p>
+<h1 id="21、SQL-通用数据类型"><a href="#21、SQL-通用数据类型" class="headerlink" title="21、SQL 通用数据类型"></a>21、<a href="http://www.runoob.com/sql/sql-datatypes-general.html" target="_blank" rel="noopener">SQL 通用数据类型</a></h1><p>在 MySQL 中，有三种主要的类型：Text（文本）、Number（数字）和 Date/Time（日期/时间）类型。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-14T16:17:21.572Z" itemprop="dateUpdated">2018-08-15 00:17:21</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/03/22/20180322SQL2/" target="_blank" rel="external">https://hankin2015.github.io/2018/03/22/20180322SQL2/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sql/">Sql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/03/22/20180322SQL2/&title=《SQL学习笔记2(中级)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/03/22/20180322SQL2/&title=《SQL学习笔记2(中级)》 — HanKin的博客&source=1、SQL SELECT TOP 子句SELECT TOP 子句用于规定要返回的记录的数目(前几条)。
+
+SELECT column_name(s) FR..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/03/22/20180322SQL2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQL学习笔记2(中级)》 — HanKin的博客&url=https://hankin2015.github.io/2018/03/22/20180322SQL2/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/03/22/20180322SQL2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/03/22/20180322BUNOODC++/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">菜鸟教程之C++基础（下）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/03/20/20180320BUNOOD_C++/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">菜鸟教程之C++基础（上）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/03/22/20180322SQL2/&title=《SQL学习笔记2(中级)》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/03/22/20180322SQL2/&title=《SQL学习笔记2(中级)》 — HanKin的博客&source=1、SQL SELECT TOP 子句SELECT TOP 子句用于规定要返回的记录的数目(前几条)。
+
+SELECT column_name(s) FR..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/03/22/20180322SQL2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQL学习笔记2(中级)》 — HanKin的博客&url=https://hankin2015.github.io/2018/03/22/20180322SQL2/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/03/22/20180322SQL2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/03/22/20180322SQL2/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Microsoft Project | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Microsoft,Project">
+    <meta name="description" content="命里有时终须有，命里无时莫强求紫霞喜欢至尊宝，至尊宝喜欢白晶晶，白晶晶喜欢齐天大圣，齐天大圣喜欢紫霞。 简介Microsoft Project（或MSP）是由微软开发销售的项目管理软件程序。软件设计目的在于协助项目经理发展计划、为任务分配资源、跟踪进度、管理预算和分析工作量。 说真的，我个人觉得MS Project是一个门槛极低的应用软件。只要你懂什么是横道图（甘特图），基本上就会用它。">
+<meta name="keywords" content="Microsoft,Project">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Microsoft Project">
+<meta property="og:url" content="https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="命里有时终须有，命里无时莫强求紫霞喜欢至尊宝，至尊宝喜欢白晶晶，白晶晶喜欢齐天大圣，齐天大圣喜欢紫霞。 简介Microsoft Project（或MSP）是由微软开发销售的项目管理软件程序。软件设计目的在于协助项目经理发展计划、为任务分配资源、跟踪进度、管理预算和分析工作量。 说真的，我个人觉得MS Project是一个门槛极低的应用软件。只要你懂什么是横道图（甘特图），基本上就会用它。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-04T16:19:29.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Microsoft Project">
+<meta name="twitter:description" content="命里有时终须有，命里无时莫强求紫霞喜欢至尊宝，至尊宝喜欢白晶晶，白晶晶喜欢齐天大圣，齐天大圣喜欢紫霞。 简介Microsoft Project（或MSP）是由微软开发销售的项目管理软件程序。软件设计目的在于协助项目经理发展计划、为任务分配资源、跟踪进度、管理预算和分析工作量。 说真的，我个人觉得MS Project是一个门槛极低的应用软件。只要你懂什么是横道图（甘特图），基本上就会用它。">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Microsoft Project</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Microsoft Project</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-22T02:36:41.000Z" itemprop="datePublished" class="page-time">
+  2017-10-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#甘特图"><span class="post-toc-number">2.</span> <span class="post-toc-text">甘特图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#含义编辑"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">含义编辑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特点编辑"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">特点编辑</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20171022Microsoft-Project"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Microsoft Project</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-22 10:36:41" datetime="2017-10-22T02:36:41.000Z"  itemprop="datePublished">2017-10-22</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>命里有时终须有，命里无时莫强求<br>紫霞喜欢至尊宝，至尊宝喜欢白晶晶，白晶晶喜欢齐天大圣，齐天大圣喜欢紫霞。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Microsoft Project（或MSP）是由微软开发销售的项目管理软件程序。软件设计目的在于协助项目经理发展计划、为任务分配资源、跟踪进度、管理预算和分析工作量。</p>
+<p>说真的，我个人觉得MS Project是一个门槛极低的应用软件。<br>只要你懂什么是横道图（甘特图），基本上就会用它。<br><a id="more"></a></p>
+<h1 id="甘特图"><a href="#甘特图" class="headerlink" title="甘特图"></a>甘特图</h1><p>甘特图（Gantt chart）又称为横道图、条状图(Bar chart)。其通过条状图来显示项目，进度，和其他时间相关的系统进展的内在关系随着时间进展的情况。以提出者亨利·L·甘特（Henrry L. Ganntt）先生的名字命名[1]  。</p>
+<p>制定了甘特图——生产计划进度图（是当时管理思想的一次革命）</p>
+<h2 id="含义编辑"><a href="#含义编辑" class="headerlink" title="含义编辑"></a>含义编辑</h2><p>甘特图以图示通过活动列表和时间刻度表示出特定项目的顺序与持续时间。一条线条图，横轴表示时间，纵轴表示项目，线条表示期间计划和实际完成情况。直观表明计划何时进行，进展与要求的对比。便于管理者弄清项目的剩余人物，评估工作进度。<br>甘特图是以作业排序为目的，将活动与时间联系起来的最早尝试的工具之一，帮助企业描述工作中心、超时工作等资源的使用。<br>甘特图包含以下三个含义：<br>1、以图形或表格的形式显示活动；<br>2、通用的显示进度的方法；<br>3、构造时含日历天和持续时间，不将周末节假算在进度内。<br>简单、醒目、便于编制，在管理中广泛应用。<br>甘特图按内容不同，分为计划图表、负荷图表、机器闲置图表、人员闲置图表和进度表五种形式。</p>
+<h2 id="特点编辑"><a href="#特点编辑" class="headerlink" title="特点编辑"></a>特点编辑</h2><p>甘特图的特点是突出了生产管理中最重要的因素— 时间, 它的作用表现在三个方面：<br>1、计划产量与计划时间的对应关系。<br>2、每日的实际产量与预定计划产量的对比关系。<br>3、一定时间内实际累计产量与同时期计划累计产量的对比关系。</p>
+<p>Project使用了Metro风格的界面。</p>
+<p>#<br>首先打开软件，然后我们新建一个项目，这里有很多模板让我们使用。现在我们就新建一个空白项目。<br>可以看到它的工作界面与Office其他软件的界面极其相似。<br>标题栏、菜单栏、工具栏和工作区，这界面挺熟悉的，跟微软的excel软件差不多。<br>在视图菜单中我们切换右边将项目计划进度以什么视图显示出来，我们这里默认就选择了甘特图。</p>
+<p>1.编码之前（研究和分析）<br>    1.1摸索经验<br>        1.1.1了解用户<br>        1.1.2了解管理部门<br>        1.1.3了解环境<br>        1.1.4里程碑标记<br>    1.2制定蓝图和增强信心<br>        1.2.1定义产品<br>        1.2.2分析需求<br>        1.2.3创建计划<br>        1.2.4提出提议<br>        1.2.5里程碑标记<br>    1.3着手第一项工作计划<br>        1.3.1组建团队<br>        1.3.2提供培训<br>        1.3.3鼓励协作<br>        1.3.4里程碑标记<br>2开发期间（设计和构造）<br>    2.1以全面的视角看待问题<br>        2.1.1与用户协商<br>        2.1.2与管理部门的沟通<br>        2.1.3对培训和支持进行计划<br>        2.1.4里程碑标记<br>    2.2统治者和立法者：充当不同的角色<br>        2.2.1创建相应的测试计划<br>        2.2.2组织开工<br>        2.2.3跟踪程序变更<br>        2.2.4预演配置</p>
+<p>左边用工作表显示任务的详细数据，任务名称、开始时间和结束时间，以及分配任务的资源等。右边用条形图显示任务的信息，每一个条形图代表一项任务，通过条形图可以清除地表示出任务的开始和结束时间，各条形图之间的位置则表明任务是一个接一个进行的，还是相互重叠的。</p>
+<p>跟踪甘特图：显示两种任务条形图，一个条形图在另一个条形图的上方，下方的条形图显示任务的比较基准，另一条形图显示任务的当前计划，当计划发生变化时，可以通过比较基准任务与实际任务来分析项目偏移原始估计的程度。</p>
+<p>工作分解结构WBS：一种用于组织任务以便报告日程和跟踪成本的分层结构。<br>里程碑用于标识日程中的重要事项，其工期为零。要将某任务设置为里程碑，只需将该任务的工期设置为0即可。</p>
+<p>状态日期与当前日期（今天的日期）相同，除非指定了其他状态日期。<br>(状态期：用报告项目间、本或业绩条件设定期(前期))显示带进度线 (进度线：显示甘特图视图直观式表示项目进度进度线连接进行任务甘特图创建图表表示落于程工作尖峰表示超前于程工作)</p>
+<p>1.找本PMBOK了解一下项目管理，了解什么是WBS，甘特，关键路径，资源管理 …<br>2.Project作为项目管理工具，功能还是挺丰富，找本书边看边尝试功能<br>3.真正用它来计划一个项目，进度，资源，成本等，并且用它跟踪状态。<br>4.project server还涉及协助，实践一下就好</p>
+<p>什么什么？你需要知道怎样建WBS？怎样分配资源？怎样优化进度？<br>那么，你知道什么是项目分解？什么是资源规划？什么是关键路径么？</p>
+<p>简单来说：1。WBS. 根据项目要求，分解任务清单。细到周这个级别差不多。 设定几个(3-5个）关键里程碑，用来检验项目是否按时，按要求的完成工作；根据任务之间的关系，设定 先后关系（通常都是 A任务完成，B任务开始或者A任务开始，B任务同时开始，极少的情况，A完成，B完成）2.  Schedule. 制定时间计划。 给每一个任务设置工期。有的任务需要设定特殊日期开始，或者完成。 节假日设置成非工作日。 3.  Resourcing. 资源投入。 给每一个任务投入资源。 设置资源的可用性，人（哪天可以工作，哪天不可以工作，工时多少钱）；物（哪天可以用，哪天不可以用；使用费）4. 读懂项目干系人的要求和想法， 整合和平衡 项目要求， 时间，资源之间的关系。制定出项目计划，跟踪和调整项目计划。最后能够让项目干系人满意。 这就是项目经理的活。 Msproject是一个工具， 可以让你少花些时间做定量分析的工作。和人聊天，搞清楚老板，合作伙伴，客户，各个部门的要求和想法，分析，平衡，调整和努力实现的话，还是得靠项目经理自己。</p>
+<p>要学好Project，成为Project高手，多用肯定是最重要的，另外在使用的过程中，也要琢磨一下它背后的一些原理，PMBOK关于时间管理、资源管理和成本管理的知识对理解Project软件有很大帮助。因为工作的原因，接触了非常多的Project用户和项目管理的同行，但是真正能够系统地应用Project的不多，我觉得在使用Project的过程中，要仔细研究以下几个关键点：1. 日历设置（法定假日、6天/7天工作制，一周单休一周双休，一段时间内周末与工作日对调等）2. WBS3. 关键路径（关键路径是怎么定义的？如果里程碑有单独的完成时间节点，关键路径又是怎么计算的，总浮时是怎么计算出来的）4. 怎样压缩工期？5. 比较基准（Project 2013 叫做基线，基线是什么目的，包含哪些信息？多重关键路径是怎么计算和识别的？）6. 挣值分析（可以作为选修内容，但是通过Project中的挣值工具可以更深入地理解PMBOK的内容)</p>
+<p>1、网上下一个project的模板，可以修改里面的数据，观察变化。2、自己制作一个excel或者其他你熟悉的格式的计划表，然后做到project里面，可能有些数据会不正确，这时候需要用到升级、降级（shift+alt+方向键的左键或者右键）；还需要先输入资源，再输入标准工时，这样日期会自动计算。前置任务随意，看你项目的情况。3、把软件的每一个菜单项都自己试着用一下，体会一下。可能不是所有项都用的到，用不到的就不试，中文版的project的菜单选项字面意思是什么，就是什么功能，如果实在不清楚，可以网上搜搜名词解释。4、在你上班的状态下，朝九晚五，理论上一个月的时间，绝大部分常用的功能你都可以掌握，多用用就好。5、project功能很强大，但是包含的东西太多，所以一般就用他的基本功能就行了，现在项目信息讲究同步和及时，个人感觉project server 不好用，但是现在也没有更好用的（当然，我是从成本角度考虑）。6、软件再强大，也需要易用和便于培训、推广，所以我现在用的是excel。。。7、快速响应，信息通畅，重要的是人的意识、习惯、经验等和流程的建立、优化、调整等。</p>
+<ol>
+<li>项目计划</li>
+<li>项目信息-开始时间</li>
+<li>Project默认的工作时间一般周六、周日为非工作时间。而建筑工程中编制进度计划是不考虑周六、周日的。所以要将Project中的默认工作时间进行更改，将周六、周日改为非默认工作时间。</li>
+<li>任务菜单-甘特图</li>
+<li>添加任务-复制粘贴<br>任务撰写。<br>基本原则：先写项，在安排时间和逻辑关系等等。</li>
+<li>降级和升级-工作分解结构WBS</li>
+<li>里程碑不占用工作日，这里选择0。</li>
+<li>任务的开始时间和结束时间按，默认使用现在的时间为开始时间</li>
+<li>为项目创建任务–输入  从Excel工作表导入任务</li>
+</ol>
+<p>2018年1月1日开始-2018年1月31日结束</p>
+<p>1.编码之前（研究和分析）<br>1.1摸索经验<br>1.1.1了解用户<br>1.1.2了解管理部门<br>1.1.3了解环境<br>1.1.4里程碑标记<br>1.2制定蓝图和增强信心<br>1.2.1定义产品<br>1.2.2分析需求<br>1.2.3创建计划<br>1.2.4提出提议<br>1.2.5里程碑标记<br>1.3着手第一项工作计划<br>1.3.1组建团队<br>1.3.2提供培训<br>1.3.3鼓励协作<br>1.3.4里程碑标记<br>2开发期间（设计和构造）<br>2.1以全面的视角看待问题<br>2.1.1与用户协商<br>2.1.2与管理部门的沟通<br>2.1.3对培训和支持进行计划<br>2.1.4里程碑标记<br>2.2统治者和立法者：充当不同的角色<br>2.2.1创建相应的测试计划<br>2.2.2组织开工<br>2.2.3跟踪程序变更<br>2.2.4预演配置</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-04T16:19:29.903Z" itemprop="dateUpdated">2017-11-05 00:19:29</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2017/10/22/20171022Microsoft-Project/" target="_blank" rel="external">https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Microsoft/">Microsoft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Project/">Project</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/&title=《Microsoft Project》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/&title=《Microsoft Project》 — HanKin的博客&source=命里有时终须有，命里无时莫强求紫霞喜欢至尊宝，至尊宝喜欢白晶晶，白晶晶喜欢齐天大圣，齐天大圣喜欢紫霞。
+简介Microsoft Project（或MSP）..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Microsoft Project》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/22/20171022hot95/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">95后热词</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/21/20171021TODO-FIXME-XXX/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">代码中特殊的注释技术——TODO、FIXME和XXX的用处</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/&title=《Microsoft Project》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/&title=《Microsoft Project》 — HanKin的博客&source=命里有时终须有，命里无时莫强求紫霞喜欢至尊宝，至尊宝喜欢白晶晶，白晶晶喜欢齐天大圣，齐天大圣喜欢紫霞。
+简介Microsoft Project（或MSP）..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Microsoft Project》 — HanKin的博客&url=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2017/10/22/20171022Microsoft-Project/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
