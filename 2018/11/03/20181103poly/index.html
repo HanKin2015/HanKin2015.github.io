@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>判断一个点是否在一个多边形内 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="算法,凸包">
+    <meta name="description" content="判断一个点是不是在一个多边形内是很经典的计算几何问题。一般可以是凸多边形也可以是凹多边形。">
+<meta name="keywords" content="算法,凸包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断一个点是否在一个多边形内">
+<meta property="og:url" content="https://hankin2015.github.io/2018/11/03/20181103poly/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="判断一个点是不是在一个多边形内是很经典的计算几何问题。一般可以是凸多边形也可以是凹多边形。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-03T11:54:27.313Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="判断一个点是否在一个多边形内">
+<meta name="twitter:description" content="判断一个点是不是在一个多边形内是很经典的计算几何问题。一般可以是凸多边形也可以是凹多边形。">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">判断一个点是否在一个多边形内</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">判断一个点是否在一个多边形内</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-03T03:48:41.000Z" itemprop="datePublished" class="page-time">
+  2018-11-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/面试/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简单的特例：三角形"><span class="post-toc-number">1.</span> <span class="post-toc-text">简单的特例：三角形</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法一"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">方法一</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法二"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">方法二</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法三"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">方法三</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例子"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四边形特例：矩形"><span class="post-toc-number">2.</span> <span class="post-toc-text">四边形特例：矩形</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多边形代码（射线法和回转数法）"><span class="post-toc-number">3.</span> <span class="post-toc-text">多边形代码（射线法和回转数法）</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20181103poly"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">判断一个点是否在一个多边形内</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-03 11:48:41" datetime="2018-11-03T03:48:41.000Z"  itemprop="datePublished">2018-11-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/面试/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>判断一个点是不是在一个多边形内是很经典的计算几何问题。一般可以是凸多边形也可以是凹多边形。</p>
+<a id="more"></a>
+<h1 id="简单的特例：三角形"><a href="#简单的特例：三角形" class="headerlink" title="简单的特例：三角形"></a>简单的特例：三角形</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>比较常用的算法是射线法，以要判断的点为起点任作一射线，计算该射线与多边形的交点数目。<br>若有偶数个交点则在形外，否则在形内。<br>若与线段在端点处相交或重合，则要进行复杂的判断。此时可另取一射线。</p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>面积法：海伦公式、向量公式</p>
+<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>向量法</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><a href="http://hihocoder.com/contest/hiho225/problem/1" target="_blank" rel="noopener">http://hihocoder.com/contest/hiho225/problem/1</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">在三角形内部的点形成的都是钝角三角形</span><br><span class="line">点在x,y的中间并不能判断</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">#define LL long double</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const double eps = 1e-5;</span><br><span class="line">LL Heron(LL a, LL b, LL c)</span><br><span class="line">&#123;</span><br><span class="line">    return 0.25 * sqrt((a + b + c) * (a + b - c) * (a + c - b) * (b + c - a));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LL Distance(LL x1, LL y1, LL x2, LL y2)</span><br><span class="line">&#123;</span><br><span class="line">    return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    while (T--) &#123;</span><br><span class="line">        LL x[4], y[4];</span><br><span class="line">        for (int i = 0; i &lt; 4; i++) cin &gt;&gt; x[i] &gt;&gt; y[i];</span><br><span class="line">        LL s = 0;</span><br><span class="line">        for (int i = 1; i &lt;= 2; i++) &#123;</span><br><span class="line">            for (int j = i + 1; j &lt; 4; j++) &#123;</span><br><span class="line">                LL a = Distance(x[0], y[0], x[i], y[i]), b = Distance(x[0], y[0], x[j], y[j]), c = Distance(x[i], y[i], x[j], y[j]);</span><br><span class="line">                s += Heron(a, b, c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        LL a = Distance(x[1], y[1], x[2], y[2]), b = Distance(x[1], y[1], x[3], y[3]), c = Distance(x[2], y[2], x[3], y[3]);</span><br><span class="line">        //cout &lt;&lt; s &lt;&lt; &apos; &apos; &lt;&lt; Heron(a, b, c) &lt;&lt; endl;</span><br><span class="line">        if (abs(s - Heron(a, b, c)) &lt; eps) cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;</span><br><span class="line">        else cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">输入的都是整数，三角形面积计算s=0.5*(x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2));</span><br><span class="line">所有面积里都有这个0.5，去掉这个0.5对结果不影响，于是面积计算出来就是整数，没有精度问题了。</span><br><span class="line">向量法求面积。</span><br><span class="line">*/</span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define LL long long</span><br><span class="line">using namespace std;</span><br><span class="line">LL area(LL x1,LL y1,LL x2,LL y2,LL x3,LL y3)</span><br><span class="line">&#123;</span><br><span class="line">    return abs(x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    LL Px, Py, Ax, Ay, Bx, By, Cx, Cy;</span><br><span class="line">    LL S, S1, S2, S3;</span><br><span class="line">    LL t;</span><br><span class="line">    for(cin&gt;&gt;t;t&gt;0;t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;Px&gt;&gt;Py&gt;&gt;Ax&gt;&gt;Ay&gt;&gt;Bx&gt;&gt;By&gt;&gt;Cx&gt;&gt;Cy;</span><br><span class="line">        S  = area(Ax, Ay, Bx, By, Cx, Cy);</span><br><span class="line">        S1 = area(Px, Py, Ax, Ay, Bx, By);</span><br><span class="line">        S2 = area(Px, Py, Ax, Ay, Cx, Cy);</span><br><span class="line">        S3 = area(Px, Py, Bx, By, Cx, Cy);</span><br><span class="line">        if(S1+S2+S3&lt;=S)cout&lt;&lt;&quot;YES\n&quot;;else cout&lt;&lt;&quot;NO\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">还有个简单的方法，判断三条边的向量与P跟三个点连接的向量的叉积，如果三个叉积值同正负，则在三角形内。</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">#define G(v,_) scanf(&quot;%ld&quot;,&amp;v),v-=_;</span><br><span class="line">main(T)&#123;long p,P,a,A,b,B,c,C,x,y,z;for(G(T,0)T--;puts(((-x|-y|-z)&amp;(x|y|z))&lt;0?&quot;NO&quot;:&quot;YES&quot;))&#123;G(p,0)G(P,0)G(a,p)G(A,P)G(b,p)G(B,P)G(c,p)G(C,P)x=a*B-b*A;y=b*C-c*B;z=c*A-a*C;&#125;return 0;&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="四边形特例：矩形"><a href="#四边形特例：矩形" class="headerlink" title="四边形特例：矩形"></a>四边形特例：矩形</h1><p>（1）面积和判别法：判断目标点与多边形的每条边组成的三角形面积和是否等于该多边形，相等则在多边形内部。<br>（2）夹角和判别法：判断目标点与所有边的夹角和是否为360度，为360度则在多边形内部。<br>（3）引射线法：从目标点出发引一条射线，看这条射线和多边形所有边的交点数目。如果有奇数个交点，则说明在内部，如果有偶数个交点，则说明在外部。</p>
+<p><a href="https://blog.csdn.net/u283056051/article/details/53980832" target="_blank" rel="noopener">https://blog.csdn.net/u283056051/article/details/53980832</a><br>1、射线法理论：从这个点做一条射线，计算它跟多边形边界的交点个数，如果交点个数为奇数，那么点在多边形内部，否则点在多边形外。<br>2、特殊情况特殊处理：</p>
+<pre><code>1. 点在多边形的边上 ：判断点与边端点连线斜率是否相同。
+2. 点和多边形的顶点重合 ：直接hash。
+3. 射线经过多边形顶点：只需要规定被射线穿越的点都算作其中一侧。 
+4. 射线刚好经过多边形的一条边：上面的特例，经过两个顶点。射线连续经过的两个顶点显然都位于射线以上的一侧，因此这种情况看作没有发生穿越就可以了。
+</code></pre><h1 id="多边形代码（射线法和回转数法）"><a href="#多边形代码（射线法和回转数法）" class="headerlink" title="多边形代码（射线法和回转数法）"></a>多边形代码（射线法和回转数法）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">测试题：http://hihocoder.com/problemset/problem/1450?sid=1416458</span><br><span class="line">射线法没有过，回转数法连样例都不了，还弄不明白哪里错了。</span><br><span class="line">参考：https://blog.csdn.net/u283056051/article/details/53980832</span><br><span class="line">*/</span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int maxn = 1e3 + 5;</span><br><span class="line">const double eps = 1e-5;</span><br><span class="line">const double PI = atan(1) * 4;</span><br><span class="line"></span><br><span class="line">struct node &#123;</span><br><span class="line">    int x, y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 射线法</span><br><span class="line">string RayCasting(node p, node poly[], int n)</span><br><span class="line">&#123;</span><br><span class="line">    bool flag = false;</span><br><span class="line">    // 首尾相连n条边</span><br><span class="line">    for (int i = 0, j = n - 1; i &lt; n; j = i, i++) &#123;</span><br><span class="line">        int sx = poly[i].x, sy = poly[i].y;</span><br><span class="line">        int ex = poly[j].x, ey = poly[j].y;</span><br><span class="line">        // 1、判断p点和多边形顶点是否重合</span><br><span class="line">        if ((p.x == sx &amp;&amp; p.y == sy) || (p.x == ex &amp;&amp; p.y == ey)) return &quot;on&quot;;</span><br><span class="line">        // 2、做一条水平射线，判断边两断点是否在射线两侧，并令穿过顶点的点在上端</span><br><span class="line">        if ((sy &lt; p.y &amp;&amp; ey &gt;= p.y) || (sy &gt;= p.y &amp;&amp; ey &lt; p.y)) &#123;</span><br><span class="line">            // 3、判断p点是否在多边形边上，斜率公式或者三角形比例公式（方便）</span><br><span class="line">            double x = sx + (p.y - sy) * (ex - sx) * 1.0 / (ey - sy);</span><br><span class="line">            if (abs(x - p.x) &lt; eps) return &quot;on&quot;;</span><br><span class="line">            // 水平向右作的射线，穿过一次就变换</span><br><span class="line">            if (x &gt; p.x) flag = !flag;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return flag ? &quot;in&quot; : &quot;out&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 回转数法</span><br><span class="line">string WindingNumber(node p, node poly[], int n)</span><br><span class="line">&#123;</span><br><span class="line">    double sum = 0;  // 回转度数和</span><br><span class="line">    // 首尾相连n条边</span><br><span class="line">    for (int i = 0, j = n - 1; i &lt; n; j = i, i++) &#123;</span><br><span class="line">        int sx = poly[i].x, sy = poly[i].y;</span><br><span class="line">        int ex = poly[j].x, ey = poly[j].y;</span><br><span class="line">        // 1、判断p点和多边形顶点是否重合或在多边形边上</span><br><span class="line">        if ((p.x == sx &amp;&amp; p.y == sy) || (p.x == ex &amp;&amp; p.y == ey) || (p.x - sx) * (ey - sy) == (p.y - sy) * (ex - sx)) return &quot;on&quot;;</span><br><span class="line">        // 2、求夹角</span><br><span class="line">        double angle = atan((sy - p.y) * 1.0 / (sx - p.x)) - atan((ey - p.y) * 1.0 / (ex - p.x));</span><br><span class="line">        cout &lt;&lt; angle &lt;&lt; endl;</span><br><span class="line">        // 3、确保夹角不超过取值范围（-PI到PI）</span><br><span class="line">        if (angle &gt;= PI) angle -= 2 * PI;</span><br><span class="line">        else if (angle &lt;= -PI) angle += 2 * PI;</span><br><span class="line">        sum += angle;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; sum &lt;&lt; endl;</span><br><span class="line">    // 4、计算回转数</span><br><span class="line">    return round(sum / PI) == 0 ? &quot;out&quot; : &quot;in&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    node p, poly[maxn];</span><br><span class="line">    int n = 3, T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    while (T--) &#123;</span><br><span class="line">        cin &gt;&gt; p.x &gt;&gt; p.y;</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            cin &gt;&gt; poly[i].x &gt;&gt; poly[i].y;</span><br><span class="line">        &#125;</span><br><span class="line">        string res1 = RayCasting(p, poly, 3);</span><br><span class="line">        string res2 = WindingNumber(p, poly, 3);</span><br><span class="line">        if (res1 != res2) cout &lt;&lt; &quot;Wrong&quot; &lt;&lt; endl;</span><br><span class="line">        else if (res1 == &quot;out&quot;) cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;</span><br><span class="line">        else cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-03T11:54:27.313Z" itemprop="dateUpdated">2018-11-03 19:54:27</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/11/03/20181103poly/" target="_blank" rel="external">https://hankin2015.github.io/2018/11/03/20181103poly/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/凸包/">凸包</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/11/03/20181103poly/&title=《判断一个点是否在一个多边形内》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/11/03/20181103poly/&title=《判断一个点是否在一个多边形内》 — HanKin的博客&source=判断一个点是不是在一个多边形内是很经典的计算几何问题。一般可以是凸多边形也可以是凹多边形。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/11/03/20181103poly/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《判断一个点是否在一个多边形内》 — HanKin的博客&url=https://hankin2015.github.io/2018/11/03/20181103poly/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/11/03/20181103poly/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/15/20190427Deeping_ML_LiMo/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">动手学深度学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/31/20181031topo/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">拓扑排序</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/11/03/20181103poly/&title=《判断一个点是否在一个多边形内》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/11/03/20181103poly/&title=《判断一个点是否在一个多边形内》 — HanKin的博客&source=判断一个点是不是在一个多边形内是很经典的计算几何问题。一般可以是凸多边形也可以是凹多边形。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/11/03/20181103poly/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《判断一个点是否在一个多边形内》 — HanKin的博客&url=https://hankin2015.github.io/2018/11/03/20181103poly/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/11/03/20181103poly/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/11/03/20181103poly/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

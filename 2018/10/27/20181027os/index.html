@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>python中os模块 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python,Os,Groupby,Replace,stack,vstack,hstack">
+    <meta name="description" content="判读文件和文件夹是否存在文件能直接保存创建，但文件夹不行，需要先创建文件夹。123456import osif not os.path.exists(&amp;apos;name&amp;apos;):  # 能判断文件和文件夹	os.mkdir(&amp;apos;name&amp;apos;)os.path.isfile(&amp;apos;name&amp;apos;)  # 只能判断文件">
+<meta name="keywords" content="Python,Os,Groupby,Replace,stack,vstack,hstack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python中os模块">
+<meta property="og:url" content="https://hankin2015.github.io/2018/10/27/20181027os/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="判读文件和文件夹是否存在文件能直接保存创建，但文件夹不行，需要先创建文件夹。123456import osif not os.path.exists(&amp;apos;name&amp;apos;):  # 能判断文件和文件夹	os.mkdir(&amp;apos;name&amp;apos;)os.path.isfile(&amp;apos;name&amp;apos;)  # 只能判断文件">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-03T14:07:00.863Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python中os模块">
+<meta name="twitter:description" content="判读文件和文件夹是否存在文件能直接保存创建，但文件夹不行，需要先创建文件夹。123456import osif not os.path.exists(&amp;apos;name&amp;apos;):  # 能判断文件和文件夹	os.mkdir(&amp;apos;name&amp;apos;)os.path.isfile(&amp;apos;name&amp;apos;)  # 只能判断文件">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">python中os模块</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">python中os模块</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-27T03:48:41.000Z" itemprop="datePublished" class="page-time">
+  2018-10-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/PYTHON/">PYTHON</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#判读文件和文件夹是否存在"><span class="post-toc-number">1.</span> <span class="post-toc-text">判读文件和文件夹是否存在</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#获取当前文件夹下所有文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">获取当前文件夹下所有文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用os模块进行分类整理"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用os模块进行分类整理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#groupby"><span class="post-toc-number">4.</span> <span class="post-toc-text">groupby</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#nunique"><span class="post-toc-number">5.</span> <span class="post-toc-text">nunique</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#stack-、hstack-、vstack"><span class="post-toc-number">6.</span> <span class="post-toc-text">stack()、hstack()、vstack()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#stack"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">stack()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hstack"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">hstack()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vstack"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">vstack()</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#replace"><span class="post-toc-number">7.</span> <span class="post-toc-text">replace</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#This-is-beacause…"><span class="post-toc-number">8.</span> <span class="post-toc-text">This is beacause…</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#first和firstly的区别是什么"><span class="post-toc-number">9.</span> <span class="post-toc-text">first和firstly的区别是什么?</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20181027os"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">python中os模块</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-27 11:48:41" datetime="2018-10-27T03:48:41.000Z"  itemprop="datePublished">2018-10-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/PYTHON/">PYTHON</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="判读文件和文件夹是否存在"><a href="#判读文件和文件夹是否存在" class="headerlink" title="判读文件和文件夹是否存在"></a>判读文件和文件夹是否存在</h1><p>文件能直接保存创建，但文件夹不行，需要先创建文件夹。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">if not os.path.exists(&apos;name&apos;):  # 能判断文件和文件夹</span><br><span class="line">	os.mkdir(&apos;name&apos;)</span><br><span class="line"></span><br><span class="line">os.path.isfile(&apos;name&apos;)  # 只能判断文件</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>使用os.access()方法判断文件是否可进行读写操作。</p>
+<p>语法：os.access(path, mode)</p>
+<p>path为文件路径，mode为操作模式，有这么几种:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">os.F_OK: 检查文件是否存在;</span><br><span class="line">os.R_OK: 检查文件是否可读;</span><br><span class="line">os.W_OK: 检查文件是否可以写入;</span><br><span class="line">os.X_OK: 检查文件是否可以执行.</span><br><span class="line"></span><br><span class="line">if not os.access(&apos;name&apos;, os.F_OK):</span><br><span class="line">	os.mkdir(&apos;name&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>try语句也能，但尽量少用。<br>os.makedirs(path) 多层创建目录</p>
+<h1 id="获取当前文件夹下所有文件"><a href="#获取当前文件夹下所有文件" class="headerlink" title="获取当前文件夹下所有文件"></a>获取当前文件夹下所有文件</h1><p>使用os.walk()函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dataPath = &apos;./Unprocessed/&apos; </span><br><span class="line">def ListFile(fileDir):   </span><br><span class="line">    ret = []   </span><br><span class="line">    for root, dirs, files in os.walk(fileDir):  </span><br><span class="line">        for file in files:  </span><br><span class="line">            if os.path.splitext(file)[1] == &apos;.txt&apos;:   #其中os.path.splitext()函数将路径拆分为文件名+扩展名</span><br><span class="line">                ret.append(os.path.join(root, file))  </span><br><span class="line">    return ret</span><br><span class="line"></span><br><span class="line">files = ListFile(dataPath)</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用os模块进行分类整理"><a href="#使用os模块进行分类整理" class="headerlink" title="使用os模块进行分类整理"></a>使用os模块进行分类整理</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import shutil, os</span><br><span class="line"></span><br><span class="line">path = &apos;./&apos;</span><br><span class="line">files = os.listdir(path)</span><br><span class="line"></span><br><span class="line">for file in files:</span><br><span class="line">	folderName = &apos;./&apos; + file.split(&apos;.&apos;)[-1]</span><br><span class="line">	if not os.path.exists(folderName):</span><br><span class="line">		os.makedirs(folderName)</span><br><span class="line">	shutil.move(file, folderName)</span><br><span class="line"></span><br><span class="line">print(&apos;done&apos;)</span><br></pre></td></tr></table></figure>
+<h1 id="groupby"><a href="#groupby" class="headerlink" title="groupby"></a>groupby</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;&apos;key1&apos; : [&apos;a&apos;, &apos;a&apos;, &apos;b&apos;, &apos;b&apos;, &apos;a&apos;],</span><br><span class="line">    &apos;key2&apos; : [&apos;one&apos;, &apos;two&apos;, &apos;one&apos;, &apos;two&apos;, &apos;one&apos;],</span><br><span class="line">    &apos;data1&apos; : np.random.randint(0, 9),</span><br><span class="line">    &apos;data2&apos; : np.random.randint(0, 9)&#125;)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 使数据data1列按照key1进行分组</span><br><span class="line">grouped = df[&apos;data1&apos;].groupby(df[&apos;key1&apos;])  # 需要注意grouped的数据类型，它不在是一个数据框，而是一个GroupBy对象。</span><br><span class="line">grouped</span><br><span class="line"></span><br><span class="line"># 遍历</span><br><span class="line">for name, group in grouped:</span><br><span class="line">    print(name)</span><br><span class="line">    print(group)</span><br><span class="line"></span><br><span class="line"># 做其他计算</span><br><span class="line">grouped.mean()</span><br></pre></td></tr></table></figure>
+<h1 id="nunique"><a href="#nunique" class="headerlink" title="nunique"></a>nunique</h1><p>nuinque()是查看该序列(axis=0/1对应着列或行)的不同值的数量。用这个函数可以查看数据有多少个不同值。</p>
+<h1 id="stack-、hstack-、vstack"><a href="#stack-、hstack-、vstack" class="headerlink" title="stack()、hstack()、vstack()"></a>stack()、hstack()、vstack()</h1><h2 id="stack"><a href="#stack" class="headerlink" title="stack()"></a>stack()</h2><p>stack的意思是堆叠，堆积，unstack即“不要堆叠”，我对两个函数是这样理解和区分的。<br><a href="https://www.cnblogs.com/bambipai/p/7658311.html" target="_blank" rel="noopener">https://www.cnblogs.com/bambipai/p/7658311.html</a></p>
+<h2 id="hstack"><a href="#hstack" class="headerlink" title="hstack()"></a>hstack()</h2><p>水平(按列顺序)把数组给堆叠起来，vstack()函数正好和它相反。</p>
+<h2 id="vstack"><a href="#vstack" class="headerlink" title="vstack()"></a>vstack()</h2><p>垂直（按照行顺序）的把数组给堆叠起来。</p>
+<h1 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h1><p>str.replace(old, new[, max])<br>参数<br>old – 将被替换的子字符串。<br>new – 新字符串，用于替换old子字符串。<br>max – 可选字符串, 替换不超过 max 次</p>
+<h1 id="This-is-beacause…"><a href="#This-is-beacause…" class="headerlink" title="This is beacause…"></a>This is beacause…</h1><p> It/This/That is because……，该句型是because 引导的表语从句。</p>
+<p> 通俗来讲，它是一种二类分类模型，其基本模型定义为特征空间上的间隔最大的线性分类器，即支持向量机的学习策略便是间隔最大化，最终可转化为一个凸二次规划问题的求解。</p>
+<h1 id="first和firstly的区别是什么"><a href="#first和firstly的区别是什么" class="headerlink" title="first和firstly的区别是什么?"></a>first和firstly的区别是什么?</h1><p>first：可以做名词，副词，形容词，第一，首先。除了用于开场白，还有第一的意思 。firstly ：形容词，强调第一个（做完的），最先的。</p>
+<p>注意事项：<br>当first和firstly作副词用的时侯，如果“用于分开并依次列举所述各点”时，是没有什么区别的，可以替换。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-03T14:07:00.863Z" itemprop="dateUpdated">2018-11-03 22:07:00</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/10/27/20181027os/" target="_blank" rel="external">https://hankin2015.github.io/2018/10/27/20181027os/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Groupby/">Groupby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Os/">Os</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Replace/">Replace</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hstack/">hstack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stack/">stack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vstack/">vstack</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/10/27/20181027os/&title=《python中os模块》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/10/27/20181027os/&title=《python中os模块》 — HanKin的博客&source=判读文件和文件夹是否存在文件能直接保存创建，但文件夹不行，需要先创建文件夹。123456import osif not os.path.exists(&a..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/10/27/20181027os/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python中os模块》 — HanKin的博客&url=https://hankin2015.github.io/2018/10/27/20181027os/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/10/27/20181027os/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/31/20181031topo/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">拓扑排序</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/26/20181026DeleteSpace/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">删除字符串指针中空格和统计文章中的最频繁词</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/10/27/20181027os/&title=《python中os模块》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/10/27/20181027os/&title=《python中os模块》 — HanKin的博客&source=判读文件和文件夹是否存在文件能直接保存创建，但文件夹不行，需要先创建文件夹。123456import osif not os.path.exists(&a..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/10/27/20181027os/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python中os模块》 — HanKin的博客&url=https://hankin2015.github.io/2018/10/27/20181027os/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/10/27/20181027os/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/10/27/20181027os/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -193,6 +193,150 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="[default_layout]-20171119map&amp;pair"
+  class="article-card article-type-[default_layout]" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-11-19 21:25:41" datetime="2017-11-19T13:25:41.000Z"  itemprop="datePublished">2017-11-19</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Networks/">Networks</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/11/19/20171119map&pair/">图的高效存储</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        修正一辈子这么长，我不会就喜欢你一个人的。关于map和unordered_map还需要知道的map 与unordered_map的效率问题
+unordered_map的初始化比较耗时，我们都知道map是红黑树，unordered_map是哈希表，造成性能差异的原因在于，红黑树初始化时，节点只需要一个，后续的插入只是插入新的节点，但是哈希表初始化时就不是那么简单了，哈希表初始化时需要申请一个数组，数组的每个元素都指向一条链表，所以初始化时需要申请很多内存，相比于map，的确更耗时。unorder_map的插入效率随着数量的增加，基本是map的一点多倍以上,查找方面来说，跟map基本可以说差不多，而如果map中如果放string的话,查找效率明显比存int类型这种类型的消耗很多。因此，如果对排序没有什么要求的话，又要求key为string类型的，强烈要求使用unorder_map。
+    
+
+        <a href="/2017/11/19/20171119map&pair/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">Graph</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pair/">pair</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unordered-map/">unordered_map</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="[default_layout]-20171119inline"
+  class="article-card article-type-[default_layout]" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-11-19 21:23:41" datetime="2017-11-19T13:23:41.000Z"  itemprop="datePublished">2017-11-19</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/11/19/20171119inline/">inline</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        inlineC++关键字，在函数声明或定义中函数返回类型前加上关键字inline，即可以把函数指定为内联函数。关键字inline必须与函数定义放在一起才能使函数成为内联，仅仅将inline放在函数声明前面不起任何作用。inline是一种“用于实现的关键字”，而不是一种“用于声明的关键字”。一般的，用户可以阅读函数的声明，但是看不到函数的定义。
+内联函数内联函数是指用inline关键字修饰的函数。在类内定义的函数被默认成内联函数。内联函数从源代码层看，有函数的结构，而在编译后，却不具备函数的性质。内联函数不是在调用时发生控制转移，而是在编译时将函数体嵌入在每一个调用处。编译时，类似宏替换，使用函数体替换调用处的函数名。一般在代码中用inline修饰，但是能否形成内联函数，需要看编译器对该函数定义的具体处理。
+    
+
+        <a href="/2017/11/19/20171119inline/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/inline/">inline</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="[default_layout]-20171119MainFuction"
+  class="article-card article-type-[default_layout]" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-11-19 10:47:41" datetime="2017-11-19T02:47:41.000Z"  itemprop="datePublished">2017-11-19</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/11/19/20171119MainFuction/">main函数</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1、main函数main函数,又称主函数,是程序执行的起点，main是相对来说的,如同音学理论之主调于泛音,泛音即程序中的除main之外的其他函数，迎合人们的思考方式而生成的而非必定的模式.有主有次，执行起来条清缕析，既可将程序模块化又实现了一个闭合的整体。
+main()称之为主函数，是所有程序运行的入口。其余函数分为有参或无参两种，均由main()函数或其它一般函数调用，若调用的是有参函数，则参数在调用时传递。
+    
+
+        <a href="/2017/11/19/20171119MainFuction/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/main/">main</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="[default_layout]-20171116include"
   class="article-card article-type-[default_layout]" itemprop="blogPost">
 
@@ -240,101 +384,6 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="[default_layout]-20171119TypeConverse"
-  class="article-card article-type-[default_layout]" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-11-15 10:47:41" datetime="2017-11-15T02:47:41.000Z"  itemprop="datePublished">2017-11-15</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/11/15/20171119TypeConverse/">C++中常见的类型转换</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        1、C语言类型强制转换强制类型转换是通过类型转换运算来实现的。其一般形式为： （类型说明符） (表达式) 其功能是把表达式的运算结果强制转换成类型说明符所表示的类型。 如果一个运算符两边的运算数类型不同，先要将其转换为相同的类型，即较低类型转换为较高类型，然后再参加运算，转换规则如下图所示。
-    
-
-        <a href="/2017/11/15/20171119TypeConverse/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Char/">Char</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Int/">Int</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/String/">String</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="[default_layout]-20171120alpha&amp;beta"
-  class="article-card article-type-[default_layout]" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-11-15 10:47:41" datetime="2017-11-15T02:47:41.000Z"  itemprop="datePublished">2017-11-15</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/11/15/20171120alpha&beta/">alpha和beta测试</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        alpha测试 alpha测试是在用户组织模拟软件系统的运行环境下的一种验收测试,由用户或第三方测试公司进行的测试,模拟各类用户行为对即将面市的软件产品进行测试,试图发现并修改错误。    
-Beta测试 Beta测试是用户公司组织各方面的典型终端用户在日常工作中实际使用beta版本,并要求用户报告异常情况,提出批评意见。
-    
-
-        <a href="/2017/11/15/20171120alpha&beta/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/alpha/">alpha</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/beta/">beta</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件/">软件</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="[default_layout]-20171208iso64"
   class="article-card article-type-[default_layout]" itemprop="blogPost">
 
@@ -374,6 +423,107 @@ Beta测试 Beta测试是用户公司组织各方面的典型终端用户在日�
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="[default_layout]-20171201hiho-2"
+  class="article-card article-type-[default_layout]" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-11-15 10:47:41" datetime="2017-11-15T02:47:41.000Z"  itemprop="datePublished">2017-11-15</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/11/15/20171201hiho-2/">Sublime Text3</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        题目1 : Trie树时间限制:10000ms
+单点时限:1000ms
+内存限制:256MB
+描述小Hi和小Ho是一对好朋友，出生在信息化社会的他们对编程产生了莫大的兴趣，他们约定好互相帮助，在编程的学习道路上一同前进。
+这一天，他们遇到了一本词典，于是小Hi就向小Ho提出了那个经典的问题：“小Ho，你能不能对于每一个我给出的字符串，都在这个词典里面找到以这个字符串开头的所有单词呢？”
+身经百战的小Ho答道：“怎么会不能呢！你每给我一个字符串，我就依次遍历词典里的所有单词，检查你给我的字符串是不是这个单词的前缀不就是了？”
+小Hi笑道：“你啊，还是太年轻了！~假设这本词典里有10万个单词，我询问你一万次，你得要算到哪年哪月去？”
+小Ho低头算了一算，看着那一堆堆的0，顿时感觉自己这辈子都要花在上面了…
+    
+
+        <a href="/2017/11/15/20171201hiho-2/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="[default_layout]-20171119TypeConverse"
+  class="article-card article-type-[default_layout]" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-11-15 10:47:41" datetime="2017-11-15T02:47:41.000Z"  itemprop="datePublished">2017-11-15</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/11/15/20171119TypeConverse/">C++中常见的类型转换</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1、C语言类型强制转换强制类型转换是通过类型转换运算来实现的。其一般形式为： （类型说明符） (表达式) 其功能是把表达式的运算结果强制转换成类型说明符所表示的类型。 如果一个运算符两边的运算数类型不同，先要将其转换为相同的类型，即较低类型转换为较高类型，然后再参加运算，转换规则如下图所示。
+    
+
+        <a href="/2017/11/15/20171119TypeConverse/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Char/">Char</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Int/">Int</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/String/">String</a></li></ul>
 
     </div>
     
@@ -483,7 +633,7 @@ Beta测试 Beta测试是用户公司组织各方面的典型终端用户在日�
         </li>
     
         <li class="post-list-item fade">
-            <article id="[default_layout]-20171201hiho-2"
+            <article id="[default_layout]-20171120alpha&amp;beta"
   class="article-card article-type-[default_layout]" itemprop="blogPost">
 
     <div class="post-meta">
@@ -501,7 +651,7 @@ Beta测试 Beta测试是用户公司组织各方面的典型终端用户在日�
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/11/15/20171201hiho-2/">Sublime Text3</a>
+      <a class="post-title-link" href="/2017/11/15/20171120alpha&beta/">alpha和beta测试</a>
     </h3>
   
 
@@ -511,171 +661,18 @@ Beta测试 Beta测试是用户公司组织各方面的典型终端用户在日�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        题目1 : Trie树时间限制:10000ms
-单点时限:1000ms
-内存限制:256MB
-描述小Hi和小Ho是一对好朋友，出生在信息化社会的他们对编程产生了莫大的兴趣，他们约定好互相帮助，在编程的学习道路上一同前进。
-这一天，他们遇到了一本词典，于是小Hi就向小Ho提出了那个经典的问题：“小Ho，你能不能对于每一个我给出的字符串，都在这个词典里面找到以这个字符串开头的所有单词呢？”
-身经百战的小Ho答道：“怎么会不能呢！你每给我一个字符串，我就依次遍历词典里的所有单词，检查你给我的字符串是不是这个单词的前缀不就是了？”
-小Hi笑道：“你啊，还是太年轻了！~假设这本词典里有10万个单词，我询问你一万次，你得要算到哪年哪月去？”
-小Ho低头算了一算，看着那一堆堆的0，顿时感觉自己这辈子都要花在上面了…
+        alpha测试 alpha测试是在用户组织模拟软件系统的运行环境下的一种验收测试,由用户或第三方测试公司进行的测试,模拟各类用户行为对即将面市的软件产品进行测试,试图发现并修改错误。    
+Beta测试 Beta测试是用户公司组织各方面的典型终端用户在日常工作中实际使用beta版本,并要求用户报告异常情况,提出批评意见。
     
 
-        <a href="/2017/11/15/20171201hiho-2/" class="post-more waves-effect waves-button">
+        <a href="/2017/11/15/20171120alpha&beta/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="[default_layout]-20171110Attribute-Driven"
-  class="article-card article-type-[default_layout]" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-11-10 14:47:41" datetime="2017-11-10T06:47:41.000Z"  itemprop="datePublished">2017-11-10</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Social-Network/">Social Network</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/11/10/20171110Attribute-Driven/">Attribute-Driven Community Search</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        十九大心得体会：“雄关漫道真如铁，而今漫步从头越”。不忘初心，牢记使命。新的时代、新的思想、新的征程，更需要新的作为。不忘初心，方得始终。“空谈误国、实干兴邦”，比实绩不比态度。敢于担当、勇于担当、善于担当，在工作学习当中做出实绩，成为一名老师放心、同学信任、组织满意的中国共产党人。
-    
-
-        <a href="/2017/11/10/20171110Attribute-Driven/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Search/">Search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Social-Network/">Social Network</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="[default_layout]-20171108ktruss2"
-  class="article-card article-type-[default_layout]" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-11-08 17:47:41" datetime="2017-11-08T09:47:41.000Z"  itemprop="datePublished">2017-11-08</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/11/08/20171108ktruss2/">Truss-based Community Search:a Truss-equivalence Based Indexing Approach</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        ABSTRACT
-given a query vertex q in G, to find as outputall the densely connected subgraphs of G, each of whichcontains the query v. 
-
-community detection problem, community search.
-
-In this paper, we study the community searchproblem in the truss-based model aimed at discovering alldense and cohesive k-truss communities to which the query vertex q belongs. 
-    
-
-        <a href="/2017/11/08/20171108ktruss2/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Community/">Community</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Search/">Search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Truss/">Truss</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="[default_layout]-20171108Network-flows"
-  class="article-card article-type-[default_layout]" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-11-08 09:47:41" datetime="2017-11-08T01:47:41.000Z"  itemprop="datePublished">2017-11-08</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Data-Structure/">Data Structure</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/11/08/20171108Network-flows/">网络流</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        始于颜值，陷于才华，忠于人品
-网络流网络流(network-flows)是一种类比水流的解决问题方法，与线性规划密切相关。网络流的理论和应用在不断发展，出现了具有增益的流、多终端流、多商品流以及网络流的分解与合成等新课题。网络流的应用已遍及通讯、运输、电力、工程规划、任务分派、设备更新以及计算机辅助设计等众多领域。图论中的一种理论与方法，研究网络上的一类最优化问题 ，运筹学中的最优化问题。
-    
-
-        <a href="/2017/11/08/20171108Network-flows/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network-flows/">Network-flows</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/alpha/">alpha</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/beta/">beta</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件/">软件</a></li></ul>
 
     </div>
     
