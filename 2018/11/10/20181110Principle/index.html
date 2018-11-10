@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>容斥原理 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="容斥原理">
+    <meta name="description" content="容斥原理在计数时，必须注意没有重复，没有遗漏。为了使重叠部分不被重复计算，人们研究出一种新的计数方法，这种方法的基本思想是：先不考虑重叠的情况，把包含于某内容中的所有对象的数目先计算出来，然后再把计数时重复计算的数目排斥出去，使得计算的结果既无遗漏又无重复，这种计数的方法称为容斥原理。《程序设计中的组合数学》——容斥定理容斥定理">
+<meta name="keywords" content="容斥原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="容斥原理">
+<meta property="og:url" content="https://hankin2015.github.io/2018/11/10/20181110Principle/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="容斥原理在计数时，必须注意没有重复，没有遗漏。为了使重叠部分不被重复计算，人们研究出一种新的计数方法，这种方法的基本思想是：先不考虑重叠的情况，把包含于某内容中的所有对象的数目先计算出来，然后再把计数时重复计算的数目排斥出去，使得计算的结果既无遗漏又无重复，这种计数的方法称为容斥原理。《程序设计中的组合数学》——容斥定理容斥定理">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-10T13:30:41.775Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="容斥原理">
+<meta name="twitter:description" content="容斥原理在计数时，必须注意没有重复，没有遗漏。为了使重叠部分不被重复计算，人们研究出一种新的计数方法，这种方法的基本思想是：先不考虑重叠的情况，把包含于某内容中的所有对象的数目先计算出来，然后再把计数时重复计算的数目排斥出去，使得计算的结果既无遗漏又无重复，这种计数的方法称为容斥原理。《程序设计中的组合数学》——容斥定理容斥定理">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">容斥原理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">容斥原理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-10T14:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-11-10
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algrithm/">Algrithm</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#容斥原理"><span class="post-toc-number">1.</span> <span class="post-toc-text">容斥原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#描述"><span class="post-toc-number">2.</span> <span class="post-toc-text">描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码实现"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码实现</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#两个同一个问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">两个同一个问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#另外一个缠绕我很久的问题，居然是容斥原理"><span class="post-toc-number">5.</span> <span class="post-toc-text">另外一个缠绕我很久的问题，居然是容斥原理</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20181110Principle"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">容斥原理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-10 22:47:41" datetime="2018-11-10T14:47:41.000Z"  itemprop="datePublished">2018-11-10</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algrithm/">Algrithm</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h1><p>在计数时，必须注意没有重复，没有遗漏。为了使重叠部分不被重复计算，人们研究出一种新的计数方法，这种方法的基本思想是：先不考虑重叠的情况，把包含于某内容中的所有对象的数目先计算出来，然后再把计数时重复计算的数目排斥出去，使得计算的结果既无遗漏又无重复，这种计数的方法称为容斥原理。<br><a href="https://www.cnblogs.com/rhythmic/p/5503272.html" target="_blank" rel="noopener">《程序设计中的组合数学》——容斥定理</a><br><a href="http://blog.csdn.net/han_kin/article/details/47662801" target="_blank" rel="noopener">容斥定理</a><br><a id="more"></a></p>
+<p>韦恩图能够鲜明的解释这个原理。</p>
+<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>要计算几个集合并集的大小，我们要先将所有单个集合的大小计算出来，然后减去所有两个集合相交的部分，再加回所有三个集合相交的部分，再减去所有四个集合相交的部分，依此类推，一直计算到所有集合相交的部分。</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>时间复杂度：2^n （n集合个数）<br>总共就2^n种组合（子串），然后判断每种可能中有多少集合来判断正负。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">int solve (int n, int r)</span><br><span class="line">&#123;</span><br><span class="line">    /*求质数*/</span><br><span class="line">    vector&lt;int&gt; p;</span><br><span class="line">    for (int i = 2; i * i &lt;= n; ++i) &#123;</span><br><span class="line">        if (n % i == 0) &#123;</span><br><span class="line">            p.push_back (i);</span><br><span class="line">            while (n % i == 0) n /= i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (n &gt; 1) p.push_back (n);</span><br><span class="line"></span><br><span class="line">    int sum = 0;   // 非互质的个数</span><br><span class="line">    for (int msk = 1; msk &lt; (1 &lt;&lt; (int)p.size()); msk++) &#123;  // 子串有2^k种可能</span><br><span class="line">        int mult = 1, bits = 0;</span><br><span class="line">        /*每种可能用bit位表示，最多k位，然后看bit位上是否形成组合*/</span><br><span class="line">        for (int i = 0; i &lt; (int)p.size(); ++i) &#123;</span><br><span class="line">            if (msk &amp; (1 &lt;&lt; i)) &#123;</span><br><span class="line">                ++bits;</span><br><span class="line">                mult *= p[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        int cur = r / mult;</span><br><span class="line">        //cout &lt;&lt; cur &lt;&lt; endl;</span><br><span class="line">        if (bits % 2 == 1) sum += cur;</span><br><span class="line">        else sum -= cur;</span><br><span class="line">    &#125;</span><br><span class="line">    return r - sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="两个同一个问题"><a href="#两个同一个问题" class="headerlink" title="两个同一个问题"></a>两个同一个问题</h1><ol>
+<li>给出整数n和r。求区间[1;r]中与n互素的数的个数。</li>
+<li>给定一个区间[A,B],找出在这个区间内与给定的n互质的整数的个数。</li>
+</ol>
+<p>两个问题解决方案一样，去解决它的逆问题，求不与n互素的数的个数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">#define LL long long</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">// 求n的质因数</span><br><span class="line">void FindPrimeFactor(int n, int a[], int &amp;cnt)</span><br><span class="line">&#123;</span><br><span class="line">    for (int i = 2; i * i &lt;= n; i++) &#123;</span><br><span class="line">        if (n % i == 0) &#123;</span><br><span class="line">            a[cnt++] = i;</span><br><span class="line">            while (n % i == 0) n /= i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (n &gt; 1) a[cnt++] = n;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 复杂度也是2^k</span><br><span class="line">LL Solve2(LL n, int a[], int cnt)</span><br><span class="line">&#123;</span><br><span class="line">    LL res = 0;</span><br><span class="line">    int t = 1, que[1005] = &#123; -1&#125;; // 依据容斥原理，que[0]的值是-1</span><br><span class="line">    for (int i = 0; i &lt; cnt; i++) &#123;  // 比如2 3 4，形成-1 2 3 -6 4 -8 -12 24</span><br><span class="line">        int k = t;</span><br><span class="line">        for (int j = 0; j &lt; k; j++) &#123;</span><br><span class="line">            que[t++] = que[j] * a[i] * (-1);  // 难点</span><br><span class="line">            /*乘以-1和-1^k是一样的效果</span><br><span class="line">            重点在第一个for循环，新加进去的数和前面形成组合子串*/</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; &quot;t = &quot; &lt;&lt; t &lt;&lt; endl;</span><br><span class="line">    for (int i = 1; i &lt; t; i++) &#123;</span><br><span class="line">        cout &lt;&lt; que[i] &lt;&lt; endl;</span><br><span class="line">        res += n / que[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int solve (int n, int r)</span><br><span class="line">&#123;</span><br><span class="line">    /*求质数*/</span><br><span class="line">    vector&lt;int&gt; p;</span><br><span class="line">    for (int i = 2; i * i &lt;= n; ++i) &#123;</span><br><span class="line">        if (n % i == 0) &#123;</span><br><span class="line">            p.push_back (i);</span><br><span class="line">            while (n % i == 0) n /= i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (n &gt; 1) p.push_back (n);</span><br><span class="line"></span><br><span class="line">    int sum = 0;   // 非互质的个数</span><br><span class="line">    for (int msk = 1; msk &lt; (1 &lt;&lt; (int)p.size()); msk++) &#123;  // 子串有2^k种可能</span><br><span class="line">        int mult = 1, bits = 0;</span><br><span class="line">        /*每种可能用bit位表示，最多k位，然后看bit位上是否形成组合*/</span><br><span class="line">        for (int i = 0; i &lt; (int)p.size(); ++i) &#123;</span><br><span class="line">            if (msk &amp; (1 &lt;&lt; i)) &#123;</span><br><span class="line">                ++bits;</span><br><span class="line">                mult *= p[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        int cur = r / mult;</span><br><span class="line">        //cout &lt;&lt; cur &lt;&lt; endl;</span><br><span class="line">        if (bits % 2 == 1) sum += cur;</span><br><span class="line">        else sum -= cur;</span><br><span class="line">    &#125;</span><br><span class="line">    return r - sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">题目：给定一个区间[A,B],找出在这个区间内与给定的N互质的整数的个数。</span><br><span class="line">T(0 &lt; T &lt;= 100)the number of test cases</span><br><span class="line">each of the next T lines contains three integers A, B, N where (1 &lt;= A &lt;= B &lt;= 10^15) and (1 &lt;=N &lt;= 10^9).</span><br><span class="line"></span><br><span class="line">直接求互质复杂度高，可以用素数筛选法求非互质的数。</span><br><span class="line">求[1,B]-[1,A-1]。</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">// 直接算一定有错误，必须使用容斥原理</span><br><span class="line">LL Solve(LL n, int a[], int cnt)</span><br><span class="line">&#123;</span><br><span class="line">    LL res = 0;</span><br><span class="line">    for (int i = 0; i &lt; cnt; i++) &#123;</span><br><span class="line">        for (int j = 1; ; j++) &#123;</span><br><span class="line">            if (j * a[i] &gt; n) &#123;</span><br><span class="line">                res += j - 1;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">N = 12 --- 2 3</span><br><span class="line">18  2 4 6 8 10 12 14 16 18</span><br><span class="line">    3 6 9 12 15 18</span><br><span class="line">会返回结果为15.</span><br><span class="line">正确答案是12.</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    const int maxn = 1005;</span><br><span class="line">    int a[maxn] = &#123;2, 3, 4&#125;, cnt = 3;</span><br><span class="line">    //FindPrimeFactor(12, a, cnt);</span><br><span class="line">    //cout &lt;&lt; Solve2(18, a, cnt) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; solve(12, 18) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    __int64 i, T, x, y, n, sum;</span><br><span class="line">    while(scanf(&quot;%I64d&quot;, &amp;T) != EOF) &#123;</span><br><span class="line">        for(i = 1; i &lt;= T; i++) &#123;</span><br><span class="line">            scanf(&quot;%I64d%I64d%I64d&quot;, &amp;x, &amp;y, &amp;n);</span><br><span class="line">            //sum = y - haha(y) - (x - 1 - haha(x - 1)); //由于区间是[x,y],求出[1,y]的互质个数，再减去[1,x-1]的互质个数</span><br><span class="line">            printf(&quot;Case #%I64d: &quot;, i);</span><br><span class="line">            printf(&quot;%I64d\n&quot;, sum);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="另外一个缠绕我很久的问题，居然是容斥原理"><a href="#另外一个缠绕我很久的问题，居然是容斥原理" class="headerlink" title="另外一个缠绕我很久的问题，居然是容斥原理"></a>另外一个缠绕我很久的问题，居然是容斥原理</h1><p><a href="https://hankin2015.github.io/2017/12/18/20171218NEUQ1021/">NEUQ1027：谷学长的童年（概率问题）</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-10T13:30:41.775Z" itemprop="dateUpdated">2018-11-10 21:30:41</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/11/10/20181110Principle/" target="_blank" rel="external">https://hankin2015.github.io/2018/11/10/20181110Principle/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/容斥原理/">容斥原理</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/11/10/20181110Principle/&title=《容斥原理》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/11/10/20181110Principle/&title=《容斥原理》 — HanKin的博客&source=容斥原理在计数时，必须注意没有重复，没有遗漏。为了使重叠部分不被重复计算，人们研究出一种新的计数方法，这种方法的基本思想是：先不考虑重叠的情况，把包含于某..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/11/10/20181110Principle/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《容斥原理》 — HanKin的博客&url=https://hankin2015.github.io/2018/11/10/20181110Principle/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/11/10/20181110Principle/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/15/20190427Deeping_ML_LiMo/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">动手学深度学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/09/20181109NEUQ1021/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">NEUQ1027：谷学长的童年（概率问题）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/11/10/20181110Principle/&title=《容斥原理》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/11/10/20181110Principle/&title=《容斥原理》 — HanKin的博客&source=容斥原理在计数时，必须注意没有重复，没有遗漏。为了使重叠部分不被重复计算，人们研究出一种新的计数方法，这种方法的基本思想是：先不考虑重叠的情况，把包含于某..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/11/10/20181110Principle/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《容斥原理》 — HanKin的博客&url=https://hankin2015.github.io/2018/11/10/20181110Principle/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/11/10/20181110Principle/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/11/10/20181110Principle/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
