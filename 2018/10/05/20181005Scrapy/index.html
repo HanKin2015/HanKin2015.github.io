@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="HanKin的博客">
 <meta property="og:description" content="0、个人曾经的爬虫Requests库、Beautiful Soup。本科毕业设计：微博爬虫。 1、Scrapy&amp;emsp;&amp;emsp;Python开发的一个快速、高层次的屏幕抓取和web抓取框架，用于抓取web站点并从页面中提取结构化的数据。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。&amp;emsp;&amp;emsp;Scrapy吸引人的地方在于它是一个框架，任何人都可以根据需求方便的修改。它">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-03T02:53:00.781Z">
+<meta property="og:updated_time" content="2018-11-23T10:03:39.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="精通Python爬虫框架Scrapy">
 <meta name="twitter:description" content="0、个人曾经的爬虫Requests库、Beautiful Soup。本科毕业设计：微博爬虫。 1、Scrapy&amp;emsp;&amp;emsp;Python开发的一个快速、高层次的屏幕抓取和web抓取框架，用于抓取web站点并从页面中提取结构化的数据。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。&amp;emsp;&amp;emsp;Scrapy吸引人的地方在于它是一个框架，任何人都可以根据需求方便的修改。它">
@@ -202,7 +202,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#0、个人曾经的爬虫"><span class="post-toc-number">1.</span> <span class="post-toc-text">0、个人曾经的爬虫</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、Scrapy"><span class="post-toc-number">2.</span> <span class="post-toc-text">1、Scrapy</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、前言"><span class="post-toc-number">3.</span> <span class="post-toc-text">2、前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、认识Scrapy"><span class="post-toc-number">4.</span> <span class="post-toc-text">3、认识Scrapy</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#0、个人曾经的爬虫"><span class="post-toc-number">1.</span> <span class="post-toc-text">0、个人曾经的爬虫</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、Scrapy"><span class="post-toc-number">2.</span> <span class="post-toc-text">1、Scrapy</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、前言"><span class="post-toc-number">3.</span> <span class="post-toc-text">2、前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、认识Scrapy"><span class="post-toc-number">4.</span> <span class="post-toc-text">3、认识Scrapy</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4、安装Scrapy"><span class="post-toc-number">5.</span> <span class="post-toc-text">4、安装Scrapy</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5、UR2IM流程"><span class="post-toc-number">6.</span> <span class="post-toc-text">5、UR2IM流程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6、看到第三章发现真的全程用框架，放弃20181123"><span class="post-toc-number">7.</span> <span class="post-toc-text">6、看到第三章发现真的全程用框架，放弃20181123</span></a></li></ol>
         </nav>
     </aside>
 
@@ -234,7 +234,13 @@
 <p>Beautiful Soup、lxml、XPath、selectors。<br><a href="https://stackoverflow.com/questions/tagged/scrapy" target="_blank" rel="noopener">https://stackoverflow.com/questions/tagged/scrapy</a><br><a href="https://scrapy.org/community/" target="_blank" rel="noopener">https://scrapy.org/community/</a></p>
 <p>最小可行产品(Minimum Viable Product, MVP)<br>初创公司、精益创业</p>
 <h1 id="3、认识Scrapy"><a href="#3、认识Scrapy" class="headerlink" title="3、认识Scrapy"></a>3、认识Scrapy</h1><p>数据清晰、格式化、装饰以及存储到数据库。</p>
-
+<p>XPath选择HTML元素：$x工具函数。（在浏览器console中使用）<br>使用//语法去的某一指定类型的元素。使用/语法即前一个父类下的最近子集。<br>符号@（选择属性）、text()函数、符号* 等等。</p>
+<p>一个特殊的网站：example.com</p>
+<h1 id="4、安装Scrapy"><a href="#4、安装Scrapy" class="headerlink" title="4、安装Scrapy"></a>4、安装Scrapy</h1><blockquote>
+<p>pip install scrapy<br>import scrapy</p>
+</blockquote>
+<h1 id="5、UR2IM流程"><a href="#5、UR2IM流程" class="headerlink" title="5、UR2IM流程"></a>5、UR2IM流程</h1><p>U：URL<br>R：Request<br>R：Response<br>I：Item<br>M：More URL</p>
+<h1 id="6、看到第三章发现真的全程用框架，放弃20181123"><a href="#6、看到第三章发现真的全程用框架，放弃20181123" class="headerlink" title="6、看到第三章发现真的全程用框架，放弃20181123"></a>6、看到第三章发现真的全程用框架，放弃20181123</h1>
         </div>
 
         <blockquote class="post-copyright">
@@ -242,7 +248,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-03T02:53:00.781Z" itemprop="dateUpdated">2018-10-03 10:53:00</time>
+    最后更新时间：<time datetime="2018-11-23T10:03:39.530Z" itemprop="dateUpdated">2018-11-23 18:03:39</time>
 </span><br>
 
 
