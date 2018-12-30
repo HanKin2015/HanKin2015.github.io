@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>EOJ Monthly 2018.12 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,EOJ,月赛">
+    <meta name="description" content="比赛地址：https://acm.ecnu.edu.cn/contest/125/ 收获 新的运行时间认识，1E8？ 随机数题 蒙特卡洛模拟算法 多次询问记得避免重复计算">
+<meta name="keywords" content="C++,EOJ,月赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EOJ Monthly 2018.12">
+<meta property="og:url" content="https://hankin2015.github.io/2018/12/08/20181208EOJ201812/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="比赛地址：https://acm.ecnu.edu.cn/contest/125/ 收获 新的运行时间认识，1E8？ 随机数题 蒙特卡洛模拟算法 多次询问记得避免重复计算">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-18T07:59:31.131Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EOJ Monthly 2018.12">
+<meta name="twitter:description" content="比赛地址：https://acm.ecnu.edu.cn/contest/125/ 收获 新的运行时间认识，1E8？ 随机数题 蒙特卡洛模拟算法 多次询问记得避免重复计算">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">EOJ Monthly 2018.12</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">EOJ Monthly 2018.12</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-08T03:48:41.000Z" itemprop="datePublished" class="page-time">
+  2018-12-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#收获"><span class="post-toc-number">1.</span> <span class="post-toc-text">收获</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#A-仰望星空"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">A. 仰望星空</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#思路"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AC"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">AC</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#B-清点星辰"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">B. 清点星辰</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#思路-1"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AC-1"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">AC</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-她的名字"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">C. 她的名字</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#思路-2"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AC-2"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">AC</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20181208EOJ201812"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">EOJ Monthly 2018.12</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-08 11:48:41" datetime="2018-12-08T03:48:41.000Z"  itemprop="datePublished">2018-12-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>比赛地址：<a href="https://acm.ecnu.edu.cn/contest/125/" target="_blank" rel="noopener">https://acm.ecnu.edu.cn/contest/125/</a></p>
+<h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><ul>
+<li>新的运行时间认识，1E8？</li>
+<li>随机数题</li>
+<li>蒙特卡洛模拟算法</li>
+<li>多次询问记得避免重复计算</li>
+</ul>
+<a id="more"></a>
+<h2 id="A-仰望星空"><a href="#A-仰望星空" class="headerlink" title="A. 仰望星空"></a>A. 仰望星空</h2><p>单测试点时限: 2.0 秒</p>
+<p>内存限制: 512 MB</p>
+<p>你就这样静坐在草地上，离我稍远的地方。<br>我用眼角瞅着你，你什么话也别说。<br>语言是误会的根源。<br>但是，每天，你可以坐得离我近一些……</p>
+<p>你和她一起仰头仰望着布满星辰的天空。你的星星对她而言只不过是众星中的一颗。</p>
+<p>她会喜欢仰望天际所有的繁星，他们都会是她的朋友。但你深信你不会是万众中一颗毫不起眼的星星。</p>
+<p>于是你默默地记录着每天你们仰望星空时的距离，你发现每天你们的距离或许减少、或许不变，但一定不会增加。</p>
+<p>可是你们在一起仰望星空的日子太长了，长到你只记得你们第一天在星空下的距离。</p>
+<p>今天，你们的距离是 A；你们又在一起仰望星空了。你却突然想知道一起仰望星空 N 天来，你们之间的距离之和。</p>
+<p>由于你已经不记得每天的距离，只能依稀记起第一天的距离是 B，所以你只想知道你们这么多天来的距离之和有多少种不同的可能性。</p>
+<p>输入<br>输入数据包含一行，包含三个整数 N,A,B (2≤N≤109,1≤A≤B≤109)，分别表示你们一起仰望星空的天数、今天你们之间的距离以及第一天你们之间的距离。</p>
+<p>输出<br>输出数据包含一行一个整数，表示不同可能和的个数。</p>
+<p>样例<br>input<br>3 1 2<br>output<br>2<br>提示<br>对于样例有以下几种不同的距离情况：{2,1,1},{2,2,1}；他们的和分别是 4 和 5，所以有两种不同的和。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>已知最大的和最小的，那么和最大的情况一定是除了一个最小的，其余全部是最大的；相反地，和最小的情况一定是除了一个最大的，其余全部都是最小的。<br>显然，我们可以通过一些调整，取到从和的最小到最大这整个区间里所有的数。</p>
+<h3 id="AC"><a href="#AC" class="headerlink" title="AC"></a>AC</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#define LL long long</span><br><span class="line">#define maxn 10005</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line"></span><br><span class="line">    LL N, A, B;</span><br><span class="line">    cin &gt;&gt; N &gt;&gt; A &gt;&gt; B;</span><br><span class="line">    LL maxSum = B * (N - 1) + A;</span><br><span class="line">    LL minSum = A * (N - 1) + B;</span><br><span class="line">    cout &lt;&lt; maxSum - minSum + 1 &lt;&lt; endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="B-清点星辰"><a href="#B-清点星辰" class="headerlink" title="B. 清点星辰"></a>B. 清点星辰</h2><p>单测试点时限: 2.0 秒</p>
+<p>内存限制: 512 MB</p>
+<p>“夜里，<br>你要抬头仰望满天的星星。<br>我那颗实在太小了，<br>我都没法指给你看它在哪儿。”</p>
+<p>这样倒也好，我的星星，对你来说就是满天星星中的一颗。</p>
+<p>所以，你会爱这满天的星星…所有的星星都会是你的朋友。</p>
+<p>即使只能通过狭小的洞口，在楼宇的夹缝中仰望布满星辰的天空，你还是无法割舍对它的期待。</p>
+<p>星星数不胜数，但你还是不厌其烦地清点他们。日复一日，终于在今天，你把他们都数清楚了。</p>
+<p>于是你又开始找别的事情做了。你开始计算他们两两之间的最近距离。</p>
+<p>你仰望星空的洞口是一个 1×1 的正方形，每天，星辰的位置都会发生变化，具体地说，每天都会有 n 个星辰随机地散落在这个正方形内的某个坐标上（每个点横纵坐标满足独立同分布 U(0,1)）。</p>
+<p>每天的距离都在变化，所以现在你只想知道他们两两之间最近距离的期望是多少。</p>
+<p>输入<br>输入一个整数 n (2≤n≤109) ，表示星辰的数量。</p>
+<p>输出<br>一行一个小数，输出答案。绝对误差在 10−3 内会被视为正确。</p>
+<p>样例<br>input<br>2<br>output<br>0.521405<br>input<br>3<br>output<br>0.3055302430</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>蒙特卡洛模拟算法。<br>精度要求只有 10−3，显然大的时候可以直接输出 0。<br>对不是 0 的部分，显然 n 越大答案的方差越小，所以 n 越大需要的生成次数就越小，所以可以直接控制复杂度 1E8 或者运行时间。<br>那么 n 要多大才可以输出 0 了呢？可以试一试：好像 700 多一点点就可以输出 0 了……</p>
+<p>第一次WA了1发，在测试样例的时候误差也超出了1E3的范围，尽量把单次的运行时间卡在边缘，即n越小的时候要模拟次数越多。</p>
+<h3 id="AC-1"><a href="#AC-1" class="headerlink" title="AC"></a>AC</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int seed = time(0);</span><br><span class="line">    srand(seed);</span><br><span class="line">    int n;</span><br><span class="line">    const double eps = 1e-3;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    if (n &gt; 900) &#123;</span><br><span class="line">        cout &lt;&lt; 0 &lt;&lt; endl;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    double sumDis = 0;</span><br><span class="line">    int cnt = 1e8 / (n * n);</span><br><span class="line">    for (int i = 0; i &lt; cnt; i++) &#123;</span><br><span class="line">        double x[1005], y[1005];</span><br><span class="line">        for (int j = 0; j &lt; n; j++) &#123;</span><br><span class="line">            x[j] = rand() / (RAND_MAX + 1.0);;</span><br><span class="line">            y[j] = rand() / (RAND_MAX + 1.0);;</span><br><span class="line">            //cout &lt;&lt; x[j] &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        double minDis = 100;</span><br><span class="line">        for (int j = 0; j &lt; n; j++) &#123;</span><br><span class="line">            for (int k = j + 1; k &lt; n; k++) &#123;</span><br><span class="line">                double dis = sqrt((x[j] - x[k]) * (x[j] - x[k]) + (y[j] - y[k]) * (y[j] - y[k]));</span><br><span class="line">                if (dis &lt; minDis) minDis = dis;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        sumDis += minDis;</span><br><span class="line">    &#125;</span><br><span class="line">    sumDis /= cnt;</span><br><span class="line">    cout &lt;&lt; sumDis &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="C-她的名字"><a href="#C-她的名字" class="headerlink" title="C. 她的名字"></a>C. 她的名字</h2><p>单测试点时限: 4.0 秒</p>
+<p>内存限制: 512 MB</p>
+<p>“他走过一个又一个星球，<br>却始终放不下对她的思念。“<br>”深情终究是一趟孤独的旅程，<br>她是他永远的牵绊。”</p>
+<p>我们每个人心中都有一只小狐狸。我们渴望被自己喜欢的人驯服。</p>
+<p>爱情是彼此之间至为甜蜜的臣服。我们都是傻痴痴的小狐狸，徒具一副精明的外表。</p>
+<p>就像你走到哪都挂念着她，想把她写进自己的歌里，成为你们共同的记忆。</p>
+<p>你想从她全部由数字构成的名字里取出其中的 N 个数字，维持原来的顺序，组成结尾为数字 XY 的新词。</p>
+<p>你自然希望自己的歌能够很长很长，歌词的每一句都能饱含甜蜜。</p>
+<p>所以你想知道，她的名字能够组成多少个长度为 N 且结尾为数字 XY 的新词（如果从她名字中取出的任意一个数字位置不同，两个词就被认为是不同的）。</p>
+<p>输入<br>第一行包含一个由数字构成的字符串 S (1≤|S|≤2 000)。</p>
+<p>第二行包含一个整数 Q (1≤Q≤5⋅105)，表示需要选择的不同结尾数量。</p>
+<p>接下来的 Q 行，每行包含了一个整数 N (1≤N≤5⋅105) 和两个数字 XY，用空格隔开，表示需要选择的歌词的长度和结尾。</p>
+<p>输出<br>对于每一个询问，输出一个整数，表示答案。</p>
+<p>答案可能会很大，你只需要输出对于 109+7 取模后的结果。</p>
+<p>样例<br>input<br>312121<br>4<br>2 21<br>3 31<br>4 22<br>3 22<br>output<br>3<br>0<br>1<br>2<br>提示<br>样例中第一个询问：312121, 312121, 312121.</p>
+<p>第二个询问：无。</p>
+<p>第三个询问：312121.</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>可以发现，询问很多，但是主串 S 的长度并不长。考虑预处理所有的结尾情况。<br>我们可以枚举第一个位置 X ，预处理出 X 后面分别接 10 个数字的时候，可以组成字符串的数量。<br>假设当前枚举到的一个位置 i 满足 Si=X 。题目需要组成新字符串的长度为 N ，假设位置 i 后面有 Ay 个 Y ，则他对答案的贡献就是 (i−1n−2)Ay 。<br>显然，Ay 是可以先处理掉的，然后再继续暴力预处理所有结尾情况下新字符串的数量。<br>预处理完成以后，对于所有的询问都可以 O(1) 出结果。<br>但是我们发现询问给出的 N 很大，但可以显然地发现，当 N&gt;|S| 很大的时候是没有解的。</p>
+<p>暴力时间复杂度：2000×2000×100<br>但还是卡了TLE，首先一直错找不出原因，花了一天多才发现是组合数算错了。然后TLE，优化<code>避免重复的询问</code>，存储答案。</p>
+<h3 id="AC-2"><a href="#AC-2" class="headerlink" title="AC"></a>AC</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">#define LL long long</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    const int mod = 1e9 + 7;</span><br><span class="line"></span><br><span class="line">    string str;</span><br><span class="line">    cin &gt;&gt; str;</span><br><span class="line">    LL cnt[10][10][2005];   // 两个位置形成末尾共有多少的前缀</span><br><span class="line">    memset(cnt, 0, sizeof(cnt));</span><br><span class="line"></span><br><span class="line">    int len = str.size();</span><br><span class="line">    for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">        for (int j = i + 1; j &lt; len; j++) &#123;</span><br><span class="line">            int head = str[i] - &apos;0&apos;;</span><br><span class="line">            int tail = str[j] - &apos;0&apos;;</span><br><span class="line">            cnt[head][tail][i]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static LL C[2005][2005];  // 组合数</span><br><span class="line">    for(int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">        C[i][i] = C[i][0] = 1;</span><br><span class="line">        for(int j = 1; j &lt; i; j++) &#123;</span><br><span class="line">            C[i][j] = C[i - 1][j - 1] + C[i - 1][j];</span><br><span class="line">            C[i][j] %= mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int Q, N, X, Y;</span><br><span class="line">    char A, B;</span><br><span class="line">    cin &gt;&gt; Q;</span><br><span class="line"></span><br><span class="line">    // 优化</span><br><span class="line">    static LL ret[10][10][2005]; // 存储结果，如果是相同的询问避免重复计算</span><br><span class="line">    bool vis[10][10][2005];</span><br><span class="line">    while (Q--) &#123;</span><br><span class="line">        cin &gt;&gt; N &gt;&gt; A &gt;&gt; B;  // 不能写成一个数的输入，可能有前缀0</span><br><span class="line">        //cout &lt;&lt; A &lt;&lt; B &lt;&lt; endl;</span><br><span class="line">        X = A - &apos;0&apos;;</span><br><span class="line">        Y = B - &apos;0&apos;;</span><br><span class="line">        LL ans = 0;</span><br><span class="line">        if (N &gt; 1 &amp;&amp; N &lt;= len) &#123;</span><br><span class="line">            if (vis[X][Y][N]) ans = ret[X][Y][N];</span><br><span class="line">            else &#123;</span><br><span class="line">                int M = N - 2;</span><br><span class="line">                for (int i = 0; i &lt; len; i++) &#123;  // 时间复杂度O(5*10^5*10^3=10^8)</span><br><span class="line">                    if (cnt[X][Y][i] &amp;&amp; i &gt;= M) &#123; // 一定要满足组合数条件</span><br><span class="line">                        ans += C[i][M] * cnt[X][Y][i];</span><br><span class="line">                        ans %= mod;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                ret[X][Y][N] = ans;</span><br><span class="line">                vis[X][Y][N] = true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">输入：</span><br><span class="line">312121</span><br><span class="line">4</span><br><span class="line">2 21</span><br><span class="line">3 31</span><br><span class="line">4 22</span><br><span class="line">3 22</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">3</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line"></span><br><span class="line">提交WA了9次，提交AC了才能看别人的代码。</span><br><span class="line"></span><br><span class="line">居然是组合数求错了。。。。。</span><br><span class="line">不可能啊。。。。。。</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">输入：</span><br><span class="line">312121</span><br><span class="line">4</span><br><span class="line">2 21</span><br><span class="line">3 31</span><br><span class="line">4 22</span><br><span class="line">3 22</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">3</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line"></span><br><span class="line">提交WA了9次，提交AC了才能看别人的代码。</span><br><span class="line">居然是组合数求错了。。。。。</span><br><span class="line">不可能啊。。。。。。</span><br><span class="line"></span><br><span class="line">原来是没有计算C(0,0)=1。而是写成了默认值C(0,0)=0。</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-18T07:59:31.131Z" itemprop="dateUpdated">2018-12-18 15:59:31</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/12/08/20181208EOJ201812/" target="_blank" rel="external">https://hankin2015.github.io/2018/12/08/20181208EOJ201812/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EOJ/">EOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/月赛/">月赛</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/&title=《EOJ Monthly 2018.12》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/&title=《EOJ Monthly 2018.12》 — HanKin的博客&source=比赛地址：https://acm.ecnu.edu.cn/contest/125/
+收获
+新的运行时间认识，1E8？
+随机数题
+蒙特卡洛模拟算法
+多次询问..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《EOJ Monthly 2018.12》 — HanKin的博客&url=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/15/20190427Deeping_ML_LiMo/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">动手学深度学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/10/20181110Principle/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">容斥原理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/&title=《EOJ Monthly 2018.12》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/&title=《EOJ Monthly 2018.12》 — HanKin的博客&source=比赛地址：https://acm.ecnu.edu.cn/contest/125/
+收获
+新的运行时间认识，1E8？
+随机数题
+蒙特卡洛模拟算法
+多次询问..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《EOJ Monthly 2018.12》 — HanKin的博客&url=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/12/08/20181208EOJ201812/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
