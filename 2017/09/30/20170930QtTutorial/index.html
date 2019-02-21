@@ -384,18 +384,18 @@ connect(signalmapper1,SIGNAL(mapped(int)),this,SLOT(JoinBtnClicked(int)));
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/09/30/20170930JupyterTutorial/" id="post-prev" class="post-nav-link">
+      <a href="/2017/10/13/20171013STL-map&set&vector/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JUpyter Notebook学习</h4>
+        <h4 class="title">STL容器之list、vector、map、set、stack、queue、deque</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/09/29/20170929hiho-169/" id="post-next" class="post-nav-link">
+      <a href="/2017/09/30/20170930git_study/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">hiho一下 第169周 简单计算器</h4>
+        <h4 class="title">git学习</h4>
       </a>
     </div>
   
@@ -498,7 +498,7 @@ connect(signalmapper1,SIGNAL(mapped(int)),this,SLOT(JoinBtnClicked(int)));
         </p>
     </div>
     <div class="bottom">
-        <p><span>HanKin &copy; 2015 - 2018</span>
+        <p><span>HanKin &copy; 2015 - 2019</span>
             <span>
                 
                 <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
@@ -593,6 +593,27 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
