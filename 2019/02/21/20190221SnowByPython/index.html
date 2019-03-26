@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>python画图之雪花 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python,Turtle,科赫曲线">
+    <meta name="description" content="科赫曲线科赫曲线是一种像雪花的几何曲线，所以又称为雪花曲线，它是de Rham曲线的特例。科赫曲线是出现在海里格·冯·科赫的论文中，是分形曲线中的一种。 正整数n代表科赫曲线的阶数，表示生成科赫曲线过程的操作次数。科赫曲线初始化阶数为0，表示一个长度为L的直线。对于直线L将其等分为3段，中间一段用边长为L/3的等边三角形的两个边替代，得到1阶科赫曲线，它包含4条线段。进一步对每条线段重复同样的操作">
+<meta name="keywords" content="Python,Turtle,科赫曲线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python画图之雪花">
+<meta property="og:url" content="https://hankin2015.github.io/2019/02/21/20190221SnowByPython/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="科赫曲线科赫曲线是一种像雪花的几何曲线，所以又称为雪花曲线，它是de Rham曲线的特例。科赫曲线是出现在海里格·冯·科赫的论文中，是分形曲线中的一种。 正整数n代表科赫曲线的阶数，表示生成科赫曲线过程的操作次数。科赫曲线初始化阶数为0，表示一个长度为L的直线。对于直线L将其等分为3段，中间一段用边长为L/3的等边三角形的两个边替代，得到1阶科赫曲线，它包含4条线段。进一步对每条线段重复同样的操作">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://hankin2015.github.io/2019/02/21/20190221SnowByPython/images/1550805143573.png">
+<meta property="og:image" content="https://hankin2015.github.io/2019/02/21/20190221SnowByPython/images/20190222115629.jpg">
+<meta property="og:updated_time" content="2019-03-20T06:46:34.351Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python画图之雪花">
+<meta name="twitter:description" content="科赫曲线科赫曲线是一种像雪花的几何曲线，所以又称为雪花曲线，它是de Rham曲线的特例。科赫曲线是出现在海里格·冯·科赫的论文中，是分形曲线中的一种。 正整数n代表科赫曲线的阶数，表示生成科赫曲线过程的操作次数。科赫曲线初始化阶数为0，表示一个长度为L的直线。对于直线L将其等分为3段，中间一段用边长为L/3的等边三角形的两个边替代，得到1阶科赫曲线，它包含4条线段。进一步对每条线段重复同样的操作">
+<meta name="twitter:image" content="https://hankin2015.github.io/2019/02/21/20190221SnowByPython/images/1550805143573.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">python画图之雪花</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">python画图之雪花</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-02-21T12:48:41.000Z" itemprop="datePublished" class="page-time">
+  2019-02-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/随记/">随记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#科赫曲线"><span class="post-toc-number">1.</span> <span class="post-toc-text">科赫曲线</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#turtle"><span class="post-toc-number">2.</span> <span class="post-toc-text">turtle</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#小猪佩奇"><span class="post-toc-number">3.</span> <span class="post-toc-text">小猪佩奇</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20190221SnowByPython"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">python画图之雪花</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-02-21 20:48:41" datetime="2019-02-21T12:48:41.000Z"  itemprop="datePublished">2019-02-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/随记/">随记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="科赫曲线"><a href="#科赫曲线" class="headerlink" title="科赫曲线"></a>科赫曲线</h1><p>科赫曲线是一种像雪花的几何曲线，所以又称为雪花曲线，它是de Rham曲线的特例。科赫曲线是出现在海里格·冯·科赫的论文中，是分形曲线中的一种。</p>
+<p>正整数n代表科赫曲线的阶数，表示生成科赫曲线过程的操作次数。科赫曲线初始化阶数为0，表示一个长度为L的直线。对于直线L将其等分为3段，中间一段用边长为L/3的等边三角形的两个边替代，得到1阶科赫曲线，它包含4条线段。进一步对每条线段重复同样的操作后得到的2阶科赫曲线。重复操作N次可以得到N阶科赫曲线。<br>&lt;–more–&gt;</p>
+<h1 id="turtle"><a href="#turtle" class="headerlink" title="turtle"></a>turtle</h1><p>turtle 是 python 内置的一个比较有趣味的模块，俗称 海龟绘图，它是基于 tkinter 模块打造，提供一些简单的绘图工具。<br>官方文档：<a href="https://docs.python.org/3/library/turtle.html" target="_blank" rel="noopener">https://docs.python.org/3/library/turtle.html</a></p>
+<p><a href="https://mp.weixin.qq.com/s/RqY6vL36HkI6OWOHVnpDWg" target="_blank" rel="noopener">骚操作：用Python来一场人工造雪</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Created on Thu Feb 21 21:08:54 2019</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">@author: HanKin</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"><span class="keyword">from</span> turtle <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">koch</span><span class="params">(size,n)</span>:</span>  <span class="comment"># 科赫曲线</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        turtle.fd(size)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> angle <span class="keyword">in</span> [<span class="number">0</span>, <span class="number">60</span>, <span class="number">-120</span>, <span class="number">60</span>]:</span><br><span class="line">            turtle.left(angle)</span><br><span class="line">            koch(size/<span class="number">3</span>, n<span class="number">-1</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    turtle.setup(<span class="number">600</span>, <span class="number">600</span>)</span><br><span class="line">    turtle.pen(speed = <span class="number">0</span>, pencolor = <span class="string">'blue'</span>)</span><br><span class="line">    turtle.penup()</span><br><span class="line">    turtle.goto(<span class="number">-200</span>, <span class="number">100</span>)</span><br><span class="line">    turtle.pendown()</span><br><span class="line">    turtle.pensize(<span class="number">1</span>)</span><br><span class="line">    level = <span class="number">5</span>   <span class="comment"># 阶数</span></span><br><span class="line">    </span><br><span class="line">    koch(<span class="number">400</span>, level)</span><br><span class="line">    turtle.right(<span class="number">120</span>)  <span class="comment"># 向右旋转120°</span></span><br><span class="line">    koch(<span class="number">400</span>, level)</span><br><span class="line">    turtle.right(<span class="number">120</span>)</span><br><span class="line">    koch(<span class="number">400</span>, level)</span><br><span class="line">    </span><br><span class="line">    turtle.hideturtle()</span><br><span class="line">    done()  <span class="comment"># turtle.done()用来停止画笔绘制，但绘图窗体不关闭</span></span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./images/1550805143573.png" alt="enter description here" title="">
+                </div>
+                <div class="image-caption">enter description here</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./images/20190222115629.jpg" alt="enter description here" title="20190222115629">
+                </div>
+                <div class="image-caption">20190222115629</div>
+            </figure>
+<h1 id="小猪佩奇"><a href="#小猪佩奇" class="headerlink" title="小猪佩奇"></a>小猪佩奇</h1><p><a href="https://mp.weixin.qq.com/s/xUte5wKpYrO8PpoXXITSdA" target="_blank" rel="noopener">Python20秒画完小猪佩奇“社会人”，程序猿的手法是你想不到的独特</a></p>
+<figure class="highlight plain"><figcaption><span>-*- coding: utf-8 -*-</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">Created on Thu Feb 21 22:08:12 2019</span><br><span class="line"></span><br><span class="line">@author: HanKin</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">from turtle import*</span><br><span class="line"></span><br><span class="line">def nose(x,y):#鼻子</span><br><span class="line">   penup()#提起笔</span><br><span class="line">   goto(x,y)#定位</span><br><span class="line">   pendown()#落笔，开始画</span><br><span class="line">   setheading(-30)#将乌龟的方向设置为to_angle/为数字（0-东、90-北、180-西、270-南）</span><br><span class="line">   begin_fill()#准备开始填充图形</span><br><span class="line">   a=0.4</span><br><span class="line">   for i in range(120):</span><br><span class="line">       if 0&lt;=i&lt;30 or 60&lt;=i&lt;90:</span><br><span class="line">           a=a+0.08</span><br><span class="line">           left(3) #向左转3度</span><br><span class="line">           forward(a) #向前走a的步长</span><br><span class="line">       else:</span><br><span class="line">           a=a-0.08</span><br><span class="line">           left(3)</span><br><span class="line">           forward(a)</span><br><span class="line">   end_fill()#填充完成</span><br><span class="line"></span><br><span class="line">   penup()</span><br><span class="line">   setheading(90)</span><br><span class="line">   forward(25)</span><br><span class="line">   setheading(0)</span><br><span class="line">   forward(10)</span><br><span class="line">   pendown()</span><br><span class="line">   pencolor(255,155,192)#画笔颜色</span><br><span class="line">   setheading(10)</span><br><span class="line">   begin_fill()</span><br><span class="line">   circle(5)</span><br><span class="line">   color(160,82,45)#返回或设置pencolor和fillcolor</span><br><span class="line">   end_fill()</span><br><span class="line"></span><br><span class="line">   penup()</span><br><span class="line">   setheading(0)</span><br><span class="line">   forward(20)</span><br><span class="line">   pendown()</span><br><span class="line">   pencolor(255,155,192)</span><br><span class="line">   setheading(10)</span><br><span class="line">   begin_fill()</span><br><span class="line">   circle(5)</span><br><span class="line">   color(160,82,45)</span><br><span class="line">   end_fill()</span><br><span class="line"></span><br><span class="line">def head(x,y):#头</span><br><span class="line">   color((255,155,192),&quot;pink&quot;)</span><br><span class="line">   penup()</span><br><span class="line">   goto(x,y)</span><br><span class="line">   setheading(0)</span><br><span class="line">   pendown()</span><br><span class="line">   begin_fill()</span><br><span class="line">   setheading(180)</span><br><span class="line">   circle(300,-30)</span><br><span class="line">   circle(100,-60)</span><br><span class="line">   circle(80,-100)</span><br><span class="line">   circle(150,-20)</span><br><span class="line">   circle(60,-95)</span><br><span class="line">   setheading(161)</span><br><span class="line">   circle(-300,15)</span><br><span class="line">   penup()</span><br><span class="line">   goto(-100,100)</span><br><span class="line">   pendown()</span><br><span class="line">   setheading(-30)</span><br><span class="line">   a=0.4</span><br><span class="line">   for i in range(60):</span><br><span class="line">       if 0&lt;=i&lt;30 or 60&lt;=i&lt;90:</span><br><span class="line">           a=a+0.08</span><br><span class="line">           lt(3) #向左转3度</span><br><span class="line">           fd(a) #向前走a的步长</span><br><span class="line">       else:</span><br><span class="line">           a=a-0.08</span><br><span class="line">           lt(3)</span><br><span class="line">           fd(a)</span><br><span class="line">   end_fill()</span><br><span class="line"></span><br><span class="line">def ears(x,y): #耳朵</span><br><span class="line">   color((255,155,192),&quot;pink&quot;)</span><br><span class="line">   penup()</span><br><span class="line">   goto(x,y)</span><br><span class="line">   pendown()</span><br><span class="line">   begin_fill()</span><br><span class="line">   setheading(100)</span><br><span class="line">   circle(-50,50)</span><br><span class="line">   circle(-10,120)</span><br><span class="line">   circle(-50,54)</span><br><span class="line">   end_fill()</span><br><span class="line"></span><br><span class="line">   penup()</span><br><span class="line">   setheading(90)</span><br><span class="line">   forward(-12)</span><br><span class="line">   setheading(0)</span><br><span class="line">   forward(30)</span><br><span class="line">   pendown()</span><br><span class="line">   begin_fill()</span><br><span class="line">   setheading(100)</span><br><span class="line">   circle(-50,50)</span><br><span class="line">   circle(-10,120)</span><br><span class="line">   circle(-50,56)</span><br><span class="line">   end_fill()</span><br><span class="line"></span><br><span class="line">def eyes(x,y):#眼睛</span><br><span class="line">   color((255,155,192),&quot;white&quot;)</span><br><span class="line">   penup()</span><br><span class="line">   setheading(90)</span><br><span class="line">   forward(-20)</span><br><span class="line">   setheading(0)</span><br><span class="line">   forward(-95)</span><br><span class="line">   pendown()</span><br><span class="line">   begin_fill()</span><br><span class="line">   circle(15)</span><br><span class="line">   end_fill()</span><br><span class="line"></span><br><span class="line">   color(&quot;black&quot;)</span><br><span class="line">   penup()</span><br><span class="line">   setheading(90)</span><br><span class="line">   forward(12)</span><br><span class="line">   setheading(0)</span><br><span class="line">   forward(-3)</span><br><span class="line">   pendown()</span><br><span class="line">   begin_fill()</span><br><span class="line">   circle(3)</span><br><span class="line">   end_fill()</span><br><span class="line"></span><br><span class="line">   color((255,155,192),&quot;white&quot;)</span><br><span class="line">   penup()</span><br><span class="line">   seth(90)</span><br><span class="line">   forward(-25)</span><br><span class="line">   seth(0)</span><br><span class="line">   forward(40)</span><br><span class="line">   pendown()</span><br><span class="line">   begin_fill()</span><br><span class="line">   circle(15)</span><br><span class="line">   end_fill()</span><br><span class="line"></span><br><span class="line">   color(&quot;black&quot;)</span><br><span class="line">   penup()</span><br><span class="line">   setheading(90)</span><br><span class="line">   forward(12)</span><br><span class="line">   setheading(0)</span><br><span class="line">   forward(-3)</span><br><span class="line">   pendown()</span><br><span class="line">   begin_fill()</span><br><span class="line">   circle(3)</span><br><span class="line">   end_fill()</span><br><span class="line"></span><br><span class="line">def cheek(x,y):#腮</span><br><span class="line">   color((255,155,192))</span><br><span class="line">   penup()</span><br><span class="line">   goto(x,y)</span><br><span class="line">   pendown()</span><br><span class="line">   setheading(0)</span><br><span class="line">   begin_fill()</span><br><span class="line">   circle(30)</span><br><span class="line">   end_fill()</span><br><span class="line"></span><br><span class="line">def mouth(x,y): #嘴</span><br><span class="line">   color(239,69,19)</span><br><span class="line">   penup()</span><br><span class="line">   goto(x,y)</span><br><span class="line">   pendown()</span><br><span class="line">   setheading(-80)</span><br><span class="line">   circle(30,40)</span><br><span class="line">   circle(40,80)</span><br><span class="line"></span><br><span class="line">def setting():          #参数设置</span><br><span class="line">   pensize(4)</span><br><span class="line">   hideturtle()        #使乌龟无形（隐藏）</span><br><span class="line">   colormode(255)      #将其设置为1.0或255.随后 颜色三元组的r，g，b值必须在0 .. cmode范围内</span><br><span class="line">   color((255,155,192),&quot;pink&quot;)</span><br><span class="line">   setup(840,500)</span><br><span class="line">   speed(10)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">   setting()           #画布、画笔设置</span><br><span class="line">   nose(-100,100)      #鼻子</span><br><span class="line">   head(-69,167)       #头</span><br><span class="line">   ears(0,160)         #耳朵</span><br><span class="line">   eyes(0,140)         #眼睛</span><br><span class="line">   cheek(80,10)        #腮</span><br><span class="line">   mouth(-20,30)       #嘴</span><br><span class="line">   done()</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-20T06:46:34.351Z" itemprop="dateUpdated">2019-03-20 14:46:34</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/02/21/20190221SnowByPython/" target="_blank" rel="external">https://hankin2015.github.io/2019/02/21/20190221SnowByPython/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Turtle/">Turtle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科赫曲线/">科赫曲线</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/&title=《python画图之雪花》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/&title=《python画图之雪花》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python画图之雪花》 — HanKin的博客&url=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/21/20190421ML_HungLiLee/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">李宏毅的机器学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/17/20190117emplace_back/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">新技能GET--emplace_back函数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/&title=《python画图之雪花》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/&title=《python画图之雪花》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python画图之雪花》 — HanKin的博客&url=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2019/02/21/20190221SnowByPython/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
