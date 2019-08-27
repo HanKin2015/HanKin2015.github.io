@@ -10,10 +10,13 @@ password:
 comments: true
 toc: true                  
 tags:                        
-- Sublime
+- 分布式
+- 并行
+- Hadoop
+- Spark
 
 categories:                  
-- others
+- OTHER
 
 ---
 [超级详细的Hadoop和Spark 开发环境搭建](https://www.jianshu.com/p/e84d0973099f)

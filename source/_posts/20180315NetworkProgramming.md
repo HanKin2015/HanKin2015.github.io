@@ -12,7 +12,8 @@ toc: true
 tags:                        
 - 网络编程
 - Linux
-- C/C++
+- C++
+- C
 
 categories:                  
 - C++研发工程师
@@ -26,12 +27,12 @@ vim 是vi的升级版本，它不仅兼容vi的所有指令，而且还有一些
 
 ### shell （计算机壳层）
 在计算机科学中，Shell俗称壳（用来区别于核），是指“提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command.com和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。
+<!--more-->
 
 ## 安装软件
 >sudo apt-get update  更新安装包资源的下载地址（建议安装软件前更新一下）
 ### sudo
 sudo是linux系统管理指令，是允许系统管理员让普通用户执行一些或者全部的root命令的一个工具，如halt，reboot，su等等。这样不仅减少了root用户的登录 和管理时间，同样也提高了安全性。sudo不是对shell的一个代替，它是面向每个命令的。
-<!--more-->
 
 ## cc （cc 编译器）
 linux下cc和gcc是同一个东西. cc 是 unix 上 C 编译器 传统 名字。linux 仿 unix，你可以用 名字 cc . linux 上 C 编译器 就是 GNU C 编译器 gcc。 unix 上 可以另装 gcc， 但 unix 自带的 cc 编译器 不是 gcc。cc是以前在unix上的编译器，gcc是GNU组织开发的编译器，功能和cc相同，甚至更强大。

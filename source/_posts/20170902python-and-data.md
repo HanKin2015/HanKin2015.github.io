@@ -1,13 +1,13 @@
----
+﻿---
 layout: '[default_layout]'
 title: 利用python进行数据分析
 date: 2017-09-02 12:58:41
 toc: true
 tags:
-- python
-- data
+- Python
+- Data
 categories: 
-- 
+- 机器学习
 ---
 
 在进行多方尝试后，我最后的选择是Anaconda + Pycharm，用anaconda集成的ipython做工作台，做一些分析和小段程序调试的工作，用Pycharm写相应脚本和程序包的开发。这两个工具都是跨平台的，也都有免费版本。

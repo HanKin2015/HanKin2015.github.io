@@ -6,7 +6,7 @@ toc: true
 tags:
 - 标签
 categories: 
-- 类别
+- HEXO
 ---
 
 我终于利用hexo在coding上搭建起了我的博客网站。

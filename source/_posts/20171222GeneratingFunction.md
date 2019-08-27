@@ -7,7 +7,7 @@ tags:
 - C++
 
 categories:                  
-- Math
+- 数据结构算法
 
 ---
 # 母函数

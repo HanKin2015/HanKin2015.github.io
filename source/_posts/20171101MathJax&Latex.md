@@ -8,8 +8,9 @@ tags:
 - MathJax
 
 categories:                  
-- 
+- HEXO
 
+mathjax: true
 ---
 # 介绍
 MathJax允许你在你的网页中包含公式，无论是使用LaTeX、MathML或者AsciiMath符号，这些公式都会被javascript处理为HTML、SVG或者MathML符号。MathJax是一款相当强悍的在网页显示数学公式的插件。MathJax常使用LaTeX语法编写数学公式。
@@ -19,6 +20,18 @@ MathJax允许你在你的网页中包含公式，无论是使用LaTeX、MathML�
 [MathJax中文文档](http://mathjax-chinese-doc.readthedocs.io/en/latest/start.html)
 [在线Latex公式编辑器](http://www.codecogs.com/latex/eqneditor.php)
 [Latex公式编辑器](http://zh.numberempire.com/texequationeditor/equationeditor.php)
+<!--more-->
+
+# 简单的tex文档
+```
+\documentstyle{article}
+
+\begin{document}
+
+my example content
+
+\end{document}
+```
 
 # 如何插入公式
 LaTeX的数学公式有两种：行中(间)公式和独立(行内)公式。行中公式放在文中与其它文字混编，独立公式单独成行。
@@ -33,19 +46,19 @@ LaTeX的数学公式有两种：行中(间)公式和独立(行内)公式。行�
 
     \[数学公式\]　或　$$数学公式$$
 
-例子：`\\[J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}\\]`
+例子：`\[J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}]`
 
-显示：\\[J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}\\]
+显示效果：\[J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}]
 
 # 特别是文字之间的公式, 有时需要将公式的下标放在正下方。
 
 1. 如果是数学符号，那么直接用\limits命令放在正下方，如Max函数下面的取值范围，需要放在Max的正下方。可以如下实现：
-`$\max \limits_{a<x<b}\{f(x)\}$`
-$\max \limits_{a<x<b}\{f(x)\}$
+代码：`$\max \limits_{a<x<b}\{f(x)\}$`
+显示效果：$\max \limits_{a<x<b}\{f(x)\}$
 
 2. 若是普通符号，那么要用\mathop先转成数学符号再用\limits，如
-`$ \mathop{a}\limits_{i=1}$` 
-$ \mathop{a}\limits_{i=1}$
+代码：`$ \mathop{a}\limits_{i=1}$` 
+显示效果：$ \mathop{a}\limits_{i=1}$
 
 3. 对于双美元符之间的公式，Latex默认下标是放在正下方。所以就不需要加\limits。[栗子](http://jingyan.baidu.com/article/cb5d610502a2f8005d2fe062.html)
 
@@ -54,7 +67,7 @@ $ \mathop{a}\limits_{i=1}$
 另外，如果要在左右两边都有上下标，可以用\sideset命令。
 例子：\sideset{^1_2}{^3_4}\bigotimes
 
-显示：$\sideset{^1_2}{^3_4}\bigotimes$
+显示效果：$\sideset{^1_2}{^3_4}\bigotimes$
 
 # [Markdown中插入数学公式的方法](http://blog.csdn.net/xiahouzuoxin/article/details/26478179)
 Markdown自由书写的特性很好，唯独遇到数学公式时就要煞费苦心——每次都是先使用Latex书写(在线的Latex编辑器)，然后保存为图片，使用img标签进行引用，当公式很多的时候稍显复杂。
@@ -72,6 +85,7 @@ Markdown自由书写的特性很好，唯独遇到数学公式时就要煞费苦
 
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
+两个单行效果：
 $$\phi$$
 
 $$\in$$

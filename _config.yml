@@ -7,12 +7,12 @@ title: HanKin的博客  #填写网站名，会在标签页上显示
 subtitle: 聪明出于勤奋，天才在于积累。  #网站副标题
 description: 幸福是奋斗出来的。 #网站描述
 author: HanKin  #作者
-language: zh-Hans #网站使用的语言，中文
+language: zh-CN #网站使用的语言，中文
 timezone:   #网站时区。Hexo 默认使用您电脑的时区
 
 # URL 网址
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'   如果您的网站存放在子目录中，例如 http://yoursite.com/blog，则请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。
-url: http://yoursite.com
+url: https://hankin2015.github.io/
 root: /
 permalink: :year/:month/:day/:title/    #生成文件名字的格式我改成blog/:title:year:month:day/
 permalink_defaults:
@@ -72,7 +72,8 @@ pagination_dir: page   #分页目录
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: indigo
+#theme: yilia
 
 feed:
   type: atom       #feed 类型 (atom/rss2)

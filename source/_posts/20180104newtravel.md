@@ -1,13 +1,14 @@
 ﻿---
 layout: '[default_layout]'   
 title: C++新特性---支持foreach循环语句       
-date: 2017-11-15 10:47:41  
+date: 2018-01-04 10:47:41  
 toc: true                  
 tags:                        
-- Sublime
+- C++
+- Foreach
 
 categories:                  
-- others
+- C/C++
 
 ---
 # 新特性：支持for(int i : arr)语句

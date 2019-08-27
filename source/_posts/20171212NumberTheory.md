@@ -7,7 +7,7 @@ tags:
 - Math
 
 categories:                  
-- Math
+- 数据结构算法
 
 ---
 # 数论 （数学分支）

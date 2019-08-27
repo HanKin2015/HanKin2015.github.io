@@ -10,10 +10,11 @@ password:
 comments: true
 toc: true                  
 tags:                        
-- Sublime
+- 数据科学
+- BigData
 
 categories:                  
-- others
+- OTHER
 
 ---
 # 大数据定义

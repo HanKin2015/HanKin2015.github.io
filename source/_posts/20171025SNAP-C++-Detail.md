@@ -4,11 +4,11 @@ title: SNAP for C++的基本操作
 date: 2017-10-25 21:40:41  
 toc: true                  
 tags:                        
-- SNAP
+- Snap
 - C++
 
 categories:                  
-- Network
+- SNAP
 
 ---
 

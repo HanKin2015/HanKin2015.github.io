@@ -1,4 +1,4 @@
----
+﻿---
 layout: '[default_layout]'   
 title: 数据结构和算法总结[置顶]           
 date: 2222-04-24 10:47:41  
@@ -10,13 +10,13 @@ password:
 comments: true
 toc: true                  
 tags:                        
-- algorithm
+- Algorithm
 
 categories:                  
-- algorithm
+- 数据结构算法
 
 ---
-![](http://img4.imgtn.bdimg.com/it/u=911868193,3799576369&fm=27&gp=0.jpg)
+![](https://github.com/HanKin2015/Storage/blob/master/img1.jpg?raw=true)
 <!--more-->
 [参考：@移动开发小冉](https://github.com/nonstriater/Learn-Algorithms)
 

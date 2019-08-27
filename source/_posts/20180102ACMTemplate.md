@@ -7,7 +7,7 @@ tags:
 - C++
 
 categories:                  
-- others
+- C/C++
 
 ---
 ```C++
@@ -38,6 +38,67 @@ remote: :*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*
 remote:
 ```
 <!--more-->
+```
+#include <bits/stdc++.h>
+using namespace std;
+using LL = long long;
+#define FOR(i, x, y) for (decay<decltype(y)>::type i = (x), _##i = (y); i < _##i; ++i)
+#define FORD(i, x, y) for (decay<decltype(x)>::type i = (x), _##i = (y); i > _##i; --i)
+#ifdef zerol
+#define dbg(x...) do { cout << "\033[32;1m" << #x << " -> "; err(x); } while (0)
+void err() { cout << "\033[39;0m" << endl; }
+template<template<typename...> class T, typename t, typename... A>
+void err(T<t> a, A... x) { for (auto v: a) cout << v << ' '; err(x...); }
+template<typename T, typename... A>
+void err(T a, A... x) { cout << a << ' '; err(x...); }
+#else
+#define dbg(...)
+#endif
+// -----------------------------------------------------------------------------
+const int N = 1E6 + 100;
+char s[N];
+int main() {
+    int T; cin >> T;
+    while (T--) {
+        scanf("%s", s);
+        FOR (i, 1, strlen(s))
+            if (s[i] == s[i - 1]) putchar('C'); else putchar('D');
+        puts("");
+    }
+}
+```
+
+```
+#include<stdio.h>
+#include<iostream>
+#include<string.h>
+#include<string>
+#include<ctype.h>
+#include<math.h>
+#include<set>
+#include<map>
+#include<vector>
+#include<queue>
+#include<bitset>
+#include<algorithm>
+#include<time.h>
+using namespace std;
+void fre() { freopen("c://test//input.in", "r", stdin); freopen("c://test//output.out", "w", stdout); }
+#define MS(x, y) memset(x, y, sizeof(x))
+#define ls o<<1
+#define rs o<<1|1
+typedef long long LL;
+typedef unsigned long long UL;
+typedef unsigned int UI;
+template <class T1, class T2>inline void gmax(T1 &a, T2 b) { if (b > a)a = b; }
+template <class T1, class T2>inline void gmin(T1 &a, T2 b) { if (b < a)a = b; }
+const int N = 0, M = 0, Z = 1e9 + 7, inf = 0x3f3f3f3f;
+template <class T1, class T2>inline void gadd(T1 &a, T2 b) { a = (a + b) % Z; }
+int casenum, casei;
+int n;
+int f[100010][3][4], ans[100010];
+```
+
 ```C++
 #include<bits/stdc++.h>
 
@@ -181,4 +242,99 @@ int main(){
 #ifdef LOCAL
     freopen("F.in","r",stdin);freopen("F.out","w",stdout);
 #endif
+```
+
+```
+// #pragma GCC optimize("no-stack-protector")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+// #pragma vector temporal
+// #pragma simd
+// #pragma GCC diagnostic ignored "-W"
+
+#include<cassert>
+#include<cstdio>
+#include<cstdlib>
+#include<cstring>
+#include<cmath>
+#include<ctime>
+#include<algorithm>
+#include<iostream>
+#include<iomanip>
+#include<sstream>
+#include<deque>
+#include<queue>
+#include<stack>
+#include<map>
+#include<set>
+#include<bitset>
+#include<vector>
+#include<utility>
+#include<functional>
+#include<complex>
+#include<climits>
+
+// #include<ext/pb_ds/assoc_container.hpp>
+// #include<ext/pb_ds/tree_policy.hpp>
+
+using namespace std;
+// using namespace __gnu_pbds;
+
+#define ll long long
+#define ld long double
+#define X first
+#define Y second
+#define pb push_back
+#define eb emplace_back
+#define pii pair<int,int>
+#define vint vector<int>
+#define SS stringstream
+#define PQ priority_queue
+#define MS(x,v) memset((x),(v),sizeof(x))
+#define RZUNI(x) sort(x.begin(),x.end()), x.resize(unique(x.begin(),x.end())-x.begin())
+#define FLH fflush(stdout)
+#define CPPinput ios_base::sync_with_stdio(0); cin.tie(0)
+#define FIN(fname) freopen(fname,"r",stdin)
+#define FOUT(fname) freopen(fname,"w",stdout)
+
+#define tm Ovuvuevuevue
+#define y1 Enyetuenwuevue
+#define left Ugbemugbem
+#define ws Osas
+#define dec tetteterette
+#define exp expexpexpexp
+#define expl explexplexpl
+
+#define YES cout<<"YES"<<endl
+#define NO cout<<"NO"<<endl
+#define Yes cout<<"Yes"<<endl
+#define No cout<<"No"<<endl
+
+#ifdef WEAK
+#include"/home/edison/Coding/cpp/template/debug.cpp"
+#define DEB(...) printf(__VA_ARGS__),fflush(stdout)
+#define WHR() printf("%s: Line %d",__PRETTY_FUNCTION__,__LINE__),fflush(stdout)
+#define LOG(...) printf("%s: Line %d ",__PRETTY_FUNCTION__,__LINE__),printf(__VA_ARGS__),fflush(stdout)
+#define DEBUG 1
+#define exit(x) cout<<"exit code "<<x<<endl, exit(0)
+#else
+#define PDE(...) ;
+#define DEB(...) ;
+#define WHR() ;
+#define LOG(...) ;
+#define DEBUG 0
+#endif
+
+#define lowbit(x) ((x)&(-(x)))
+
+#if __cplusplus >= 201103L
+#include<unordered_map>
+#include<unordered_set>
+#include<tuple>
+#endif
+
+void JIZZ(string output=""){cout<<output; exit(0);}
+
+const ld PI=3.14159265358979323846264338327950288;
+const ld eps=1e-13;
+const ll mod=1e9+7;
 ```

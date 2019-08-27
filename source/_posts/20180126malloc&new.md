@@ -10,10 +10,13 @@ password:
 comments: true
 toc: true                  
 tags:                        
-- Sublime
+- C++
+- C
+- malloc
+- new
 
 categories:                  
-- others
+- OTHER
 
 ---
 # malloc函数

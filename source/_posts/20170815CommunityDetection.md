@@ -10,10 +10,11 @@ password:
 comments: true
 toc: true                  
 tags:                        
-- Sublime
+- 社交网络
+- 数据挖掘
 
 categories:                  
-- others
+- OTHER
 
 ---
 # [google pagerank](https://baike.baidu.com/item/google%20pagerank/2465380?fr=aladdin&fromid=111004&fromtitle=pagerank)   
