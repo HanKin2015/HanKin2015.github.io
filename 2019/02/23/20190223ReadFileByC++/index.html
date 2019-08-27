@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>C/C++的读取文件内容和python启动另一个py文件 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数据集,DBLP">
+    <meta name="description" content="C语言的文件操作   模式 描述     r 打开一个已有的文本文件，允许读取文件。   w 打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会从文件的开头写入内容。如果文件存在，则该会被截断为零长度，重新写入。   a 打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会在已有的文件内容中追加内容。   r+ 打开一个文">
+<meta name="keywords" content="数据集,DBLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C&#x2F;C++的读取文件内容和python启动另一个py文件">
+<meta property="og:url" content="https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="C语言的文件操作   模式 描述     r 打开一个已有的文本文件，允许读取文件。   w 打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会从文件的开头写入内容。如果文件存在，则该会被截断为零长度，重新写入。   a 打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会在已有的文件内容中追加内容。   r+ 打开一个文">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-27T08:38:13.229Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C&#x2F;C++的读取文件内容和python启动另一个py文件">
+<meta name="twitter:description" content="C语言的文件操作   模式 描述     r 打开一个已有的文本文件，允许读取文件。   w 打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会从文件的开头写入内容。如果文件存在，则该会被截断为零长度，重新写入。   a 打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会在已有的文件内容中追加内容。   r+ 打开一个文">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C/C++的读取文件内容和python启动另一个py文件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">C/C++的读取文件内容和python启动另一个py文件</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-02-23T13:48:41.000Z" itemprop="datePublished" class="page-time">
+  2019-02-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/园园工作室/">园园工作室</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C语言的文件操作"><span class="post-toc-number">1.</span> <span class="post-toc-text">C语言的文件操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-的文件操作"><span class="post-toc-number">2.</span> <span class="post-toc-text">C++的文件操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#python启动另一个py文件"><span class="post-toc-number">3.</span> <span class="post-toc-text">python启动另一个py文件</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20190223ReadFileByC++"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C/C++的读取文件内容和python启动另一个py文件</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-02-23 21:48:41" datetime="2019-02-23T13:48:41.000Z"  itemprop="datePublished">2019-02-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/园园工作室/">园园工作室</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="C语言的文件操作"><a href="#C语言的文件操作" class="headerlink" title="C语言的文件操作"></a>C语言的文件操作</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">模式</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">r</td>
+<td style="text-align:left">打开一个已有的文本文件，允许读取文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会从文件的开头写入内容。如果文件存在，则该会被截断为零长度，重新写入。</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:left">打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会在已有的文件内容中追加内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">r+</td>
+<td style="text-align:left">打开一个文本文件，允许读写文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">w+</td>
+<td style="text-align:left">打开一个文本文件，允许读写文件。如果文件已存在，则文件会被截断为零长度，如果文件不存在，则会创建一个新文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">a+</td>
+<td style="text-align:left">打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。读取会从文件的开头开始，写入则只能是追加模式。</td>
+</tr>
+</tbody>
+</table>
+<p>如果处理的是二进制文件，则需使用下面的访问模式来取代上面的访问模式：</p>
+<blockquote>
+<p>“rb”, “wb”, “ab”, “rb+”, “r+b”, “wb+”, “w+b”, “ab+”, “a+b”</p>
+</blockquote>
+<h1 id="C-的文件操作"><a href="#C-的文件操作" class="headerlink" title="C++的文件操作"></a>C++的文件操作</h1><p>参考地址：<a href="https://www.cnblogs.com/yongpan/p/8026489.html" target="_blank" rel="noopener">https://www.cnblogs.com/yongpan/p/8026489.html</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">格式</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ios::in</td>
+<td style="text-align:left">以输入方式打开文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::out</td>
+<td style="text-align:left">以输出方式打开文件，如果文件不存在则新建，如果文件存在就将其原有内容全部清空</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::app</td>
+<td style="text-align:left">输出的数据追加到文件末尾</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::ate</td>
+<td style="text-align:left">打开一个文件，并将指针定位到文件末尾</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::trunc</td>
+<td style="text-align:left">打开一个文件，如果文件不存在则新建，如果存在，则清空原有文件中的内容</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::binary</td>
+<td style="text-align:left">以二进制方式打开文件，如果不指定则默认采用文本方式打开文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::in</td>
+<td style="text-align:left">ios::out</td>
+<td>以输出和输入方式打开文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::in</td>
+<td style="text-align:left">ios::binary</td>
+<td>以输入方式打开一个二进制文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::out</td>
+<td style="text-align:left">ios::binary</td>
+<td>以输出方式打开一个二进制文件</td>
+</tr>
+</tbody>
+</table>
+<h1 id="python启动另一个py文件"><a href="#python启动另一个py文件" class="headerlink" title="python启动另一个py文件"></a>python启动另一个py文件</h1><p>最简单的方法：</p>
+<p>import os<br>os.system(“python filename”)<br>filename最好是全路径+文件名；</p>
+<p>其他方法：</p>
+<p>execfile(‘xx.py’)，括号内为py文件路径；</p>
+<p>如果需要传参数，就用os.system()那种方法；</p>
+<p>如果还想获得这个文件的输出，那就得用os.popen（）；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">#os.system(&apos;python testB.py&apos;)</span><br><span class="line">#os.system(&apos;python testC.py&apos;)</span><br><span class="line">#execfile(&apos;./testB.py&apos;)  python3中淘汰</span><br><span class="line">exec(open(&apos;./testB.py&apos;, encoding = &apos;utf-8&apos;).read())</span><br><span class="line">exec(open(&apos;./testC.py&apos;, encoding = &apos;utf-8&apos;).read())</span><br></pre></td></tr></table></figure>
+<p><a href="https://tianchi.aliyun.com/notebook-ai/?spm=5176.12281988.0.0.30674dd1bSompw" target="_blank" rel="noopener">https://tianchi.aliyun.com/notebook-ai/?spm=5176.12281988.0.0.30674dd1bSompw</a><br><a href="https://tianchi.aliyun.com/forum/postDetail?spm=5176.12281988.0.0.30674dd1bSompw&amp;postId=3192" target="_blank" rel="noopener">https://tianchi.aliyun.com/forum/postDetail?spm=5176.12281988.0.0.30674dd1bSompw&amp;postId=3192</a><br><a href="https://blog.csdn.net/ArrowYL/article/details/81094837" target="_blank" rel="noopener">https://blog.csdn.net/ArrowYL/article/details/81094837</a><br>gcc, g++编译时消除特定警告的方法](<a href="https://blog.csdn.net/li_wen01/article/details/71171413" target="_blank" rel="noopener">https://blog.csdn.net/li_wen01/article/details/71171413</a>)</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-27T08:38:13.229Z" itemprop="dateUpdated">2019-03-27 16:38:13</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/02/23/20190223ReadFileByC++/" target="_blank" rel="external">https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DBLP/">DBLP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据集/">数据集</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/&title=《C/C++的读取文件内容和python启动另一个py文件》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/&title=《C/C++的读取文件内容和python启动另一个py文件》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C/C++的读取文件内容和python启动另一个py文件》 — HanKin的博客&url=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/01/20190301hiho241/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">hiho一下 第241周 区间价值</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/02/21/20190221SnowByPython/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">python画图之雪花</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/&title=《C/C++的读取文件内容和python启动另一个py文件》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/&title=《C/C++的读取文件内容和python启动另一个py文件》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C/C++的读取文件内容和python启动另一个py文件》 — HanKin的博客&url=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2019/02/23/20190223ReadFileByC++/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

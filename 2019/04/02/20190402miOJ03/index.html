@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>小米 OJ 编程比赛 03 月常规赛 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C,C++">
+    <meta name="description" content="小米 OJ 编程比赛 03 月常规赛 &amp;lt;–more–&amp;gt; 1、数学等式给出5个系数，求等式的另外5个未知数，问有多少解？巧枚举。123456789101112131415161718192021222324252627282930313233343536#include &amp;lt;bits/stdc++.h&amp;gt;//#include &amp;lt;unordered_map&amp;gt;using">
+<meta name="keywords" content="C,C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小米 OJ 编程比赛 03 月常规赛">
+<meta property="og:url" content="https://hankin2015.github.io/2019/04/02/20190402miOJ03/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="小米 OJ 编程比赛 03 月常规赛 &amp;lt;–more–&amp;gt; 1、数学等式给出5个系数，求等式的另外5个未知数，问有多少解？巧枚举。123456789101112131415161718192021222324252627282930313233343536#include &amp;lt;bits/stdc++.h&amp;gt;//#include &amp;lt;unordered_map&amp;gt;using">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-09T12:37:03.046Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小米 OJ 编程比赛 03 月常规赛">
+<meta name="twitter:description" content="小米 OJ 编程比赛 03 月常规赛 &amp;lt;–more–&amp;gt; 1、数学等式给出5个系数，求等式的另外5个未知数，问有多少解？巧枚举。123456789101112131415161718192021222324252627282930313233343536#include &amp;lt;bits/stdc++.h&amp;gt;//#include &amp;lt;unordered_map&amp;gt;using">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">小米 OJ 编程比赛 03 月常规赛</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">小米 OJ 编程比赛 03 月常规赛</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-02T02:47:41.000Z" itemprop="datePublished" class="page-time">
+  2019-04-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-C/">C/C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、数学等式"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、数学等式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、贪吃的细胞"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、贪吃的细胞</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3、小爱密码-2-0"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、小爱密码 2.0</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20190402miOJ03"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">小米 OJ 编程比赛 03 月常规赛</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-02 10:47:41" datetime="2019-04-02T02:47:41.000Z"  itemprop="datePublished">2019-04-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-C/">C/C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><a href="https://code.mi.com/contest/list/view?id=9" target="_blank" rel="noopener">小米 OJ 编程比赛 03 月常规赛</a></p>
+<p>&lt;–more–&gt;</p>
+<h1 id="1、数学等式"><a href="#1、数学等式" class="headerlink" title="1、数学等式"></a>1、数学等式</h1><p>给出5个系数，求等式的另外5个未知数，问有多少解？<br>巧枚举。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">//#include &lt;unordered_map&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int cal(int n)</span><br><span class="line">&#123;</span><br><span class="line">	return n * n * n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a, b, c, d, e;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d &gt;&gt; e;</span><br><span class="line">	map&lt;int, int&gt; cnt;</span><br><span class="line">	for (int i = -50; i &lt;= 50; i++) &#123;</span><br><span class="line">		for (int j = -50; j &lt;= 50; j++) &#123;</span><br><span class="line">			for (int k = -50; k &lt;= 50; k++) &#123;</span><br><span class="line">				if (i * k * j != 0) &#123;</span><br><span class="line">					int tmp = cal(i) * a + cal(j) * b + cal(k) * c;</span><br><span class="line">					cnt[tmp]++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	long long ans = 0;</span><br><span class="line">	for (int i = -50; i &lt;= 50; i++) &#123;</span><br><span class="line">		for (int j = -50; j &lt;= 50; j++) &#123;</span><br><span class="line">			if (i * j != 0) &#123;</span><br><span class="line">				int tmp = cal(i) * d + cal(j) * e;</span><br><span class="line">				ans += cnt[tmp];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="2、贪吃的细胞"><a href="#2、贪吃的细胞" class="headerlink" title="2、贪吃的细胞"></a>2、贪吃的细胞</h1><p>多点宽搜BFS，但是不明白哪里错了，自己感觉没有问题，错的也莫名其妙（后来终于有解答了）。<br>下面是别人AC的代码，感觉小米这个oj能看别人的代码这个功能不错。</p>
+<p>针对 03 月 29 日晚「三月常规赛」第二题“贪吃的细胞”出错的情况，现给出如下说明：</p>
+<p>由于题目“贪吃的细胞”出题、审题人及我们团队的疏忽，此题的数据及标程出现问题却未被发现，导致「三月常规赛」中第二题无法 AC，严重影响比赛体验。</p>
+<p>在此，我们向所有参赛同学真诚道歉。我们深知，本次事件的原因在于尚不完善的志愿者机制及录题流程；我们将重新审视此机制，并尽我们最大努力保证题目的正确性及质量。</p>
+<p>作为补偿，对于比赛期间已提交过第二题的同学，我们将补偿一定数量的 OJ 币，同时比赛奖品将正常发出，锦鲤奖也将按流程抽取。</p>
+<p>最后，再次向同学们表示歉意。</p>
+<p>小米 Online Judge 团队<br>2019 年 04 月 09 日<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 输入、输出结果中的换行符，已使用 &quot;;&quot; 代替</span><br><span class="line"></span><br><span class="line">用例输入: &quot;40;7 31;5.#s#.6..#1.#.#..85#1#..17#4##8;9##.76##8.#.5.2##9.##3###.67.9.;#14.#1.##...8#8...8.###.#.#....&quot;</span><br><span class="line">期望输出: &quot;-1;-1;3476;-1;-1;-1;-1;-1;-1;-1;-1;763;-1;-1;-1;-1;-1;-1;-1;-1;-1;405;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;...&quot;</span><br><span class="line">你的输出: &quot;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-...&quot;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">/*</span><br><span class="line">struct Node &#123;</span><br><span class="line">	int x, y;</span><br><span class="line">	Node(int a=0, int b=0) : x(a), y(b) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">第三题打个表输出 第n个数对应的斐波那契数列的下标 2 3 5 13 89 分别对应3 4 5 7 11 除了4 后面都是连续的素数 然后矩阵快速幂就可以了</span><br><span class="line"></span><br><span class="line">https://www.flyai.com/?s=pmgO8ng7J</span><br><span class="line">http://latex.91maths.com/</span><br><span class="line">*/</span><br><span class="line">typedef pair&lt;int, int&gt; Node;</span><br><span class="line">int maxn = 1e8;</span><br><span class="line">bool visited[105][105];</span><br><span class="line">map&lt;Node, Node&gt; befor;</span><br><span class="line">int dir[4][2] = &#123;0, 1, 1, 0, 0, -1, -1, 0&#125;;</span><br><span class="line">int n, m;</span><br><span class="line">char mat[105][105];</span><br><span class="line">int dis[105][105];</span><br><span class="line">int cell[105][105];</span><br><span class="line">int ans;</span><br><span class="line">queue&lt;Node&gt; Q;</span><br><span class="line"></span><br><span class="line">bool bfs()</span><br><span class="line">&#123;</span><br><span class="line">	while (!Q.empty()) &#123;</span><br><span class="line">		Node cur = Q.front();</span><br><span class="line">		Q.pop();</span><br><span class="line">		for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">			int next_x = cur.first + dir[i][0], next_y = cur.second + dir[i][1];</span><br><span class="line">			if (next_x &gt;= 0 &amp;&amp; next_y &gt;= 0 &amp;&amp; next_y &lt; m &amp;&amp; next_x &lt; n &amp;&amp; !visited[next_x][next_y] &amp;&amp; mat[next_x][next_y] != &apos;#&apos;) &#123;</span><br><span class="line">				Q.push(make_pair(next_x, next_y));</span><br><span class="line">				visited[next_x][next_y] = 1;</span><br><span class="line">				if (dis[next_x][next_y] &gt; dis[cur.first][cur.second] + 1) &#123;</span><br><span class="line">					dis[next_x][next_y] = dis[cur.first][cur.second] + 1;</span><br><span class="line">					befor[make_pair(next_x, next_y)] = befor[cur];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	int x, y, d = maxn;</span><br><span class="line">	//cout &lt;&lt; &quot;--------------------&quot; &lt;&lt; endl;</span><br><span class="line">	for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">		for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">            //cout &lt;&lt; mat[i][j];</span><br><span class="line">			if (mat[i][j] &gt;= &apos;0&apos; &amp;&amp; mat[i][j] &lt;= &apos;9&apos;) &#123;   // 当前有培养液</span><br><span class="line">				if (dis[i][j] &lt; d) &#123;</span><br><span class="line">					d = dis[i][j];</span><br><span class="line">					x = i;</span><br><span class="line">					y = j;</span><br><span class="line">				&#125;</span><br><span class="line"> 			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		//cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	/*</span><br><span class="line">	for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">            cout &lt;&lt; cell[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; d &lt;&lt; &apos; &apos; &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	*/</span><br><span class="line">	if (d == maxn) return false;</span><br><span class="line">	ans += d;</span><br><span class="line">	int xx = befor[Node(x, y)].first, yy = befor[Node(x, y)].second;</span><br><span class="line">	cell[xx][yy]--;</span><br><span class="line">	cell[x][y] += mat[x][y] - &apos;0&apos; + 1;</span><br><span class="line">	mat[x][y] = &apos;.&apos;;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int T;</span><br><span class="line">	cin &gt;&gt; T;</span><br><span class="line">	while (T--) &#123;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">		ans = 0;</span><br><span class="line">		int liquid_cnt = 0;</span><br><span class="line">		memset(cell, 0, sizeof(cell));</span><br><span class="line">		memset(mat, 0, sizeof(mat));</span><br><span class="line">		for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">			for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">				cin &gt;&gt; mat[i][j];</span><br><span class="line">				if (mat[i][j] &gt;= &apos;0&apos; &amp;&amp; mat[i][j] &lt;= &apos;9&apos;) liquid_cnt++;</span><br><span class="line">				if (mat[i][j] == &apos;S&apos;) &#123;</span><br><span class="line">					cell[i][j]++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt; liquid_cnt; i++) &#123;</span><br><span class="line">			memset(visited, 0, sizeof(visited));</span><br><span class="line">			befor.clear();</span><br><span class="line">			for (int j = 0; j &lt; n; j++) &#123;</span><br><span class="line">				for (int k = 0; k &lt; m; k++) &#123;</span><br><span class="line">                    dis[j][k] = maxn;</span><br><span class="line">					if (cell[j][k] &gt; 0) &#123;</span><br><span class="line">						Q.push(Node(j, k));</span><br><span class="line">						visited[j][k] = 1;</span><br><span class="line">						dis[j][k] = 0;</span><br><span class="line">						befor[Node(j, k)] = Node(j, k);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			bool flag = bfs();</span><br><span class="line">			if (!flag) &#123;</span><br><span class="line">				ans = -1;</span><br><span class="line">				break;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	//pair&lt;int, int&gt;(2, 3) == make_pair(2, 3);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">1</span><br><span class="line">7 10</span><br><span class="line">2342312323</span><br><span class="line">..........</span><br><span class="line">S#########</span><br><span class="line">..........</span><br><span class="line">123.......</span><br><span class="line">..........</span><br><span class="line">123.......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1 </span><br><span class="line">5 3 </span><br><span class="line">#1# </span><br><span class="line">1S1 </span><br><span class="line">#.# </span><br><span class="line">#.# </span><br><span class="line">#1#</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;cstdlib&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#define max(a,b) (a&gt;b?a:b)</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn=250005;</span><br><span class="line">struct node &#123;</span><br><span class="line">    int x,y,l;</span><br><span class="line">&#125;k[maxn];</span><br><span class="line">int t,m,n,lm,d[4][2]=&#123;1,0,-1,0,0,1,0,-1&#125;;</span><br><span class="line">char mm[105][105];</span><br><span class="line">void add(int u,int v,int w)&#123;</span><br><span class="line">    k[lm].x=u;</span><br><span class="line">    k[lm].y=v;</span><br><span class="line">    k[lm].l=w;</span><br><span class="line">    lm++;</span><br><span class="line">&#125;</span><br><span class="line">void bfs(int s,int x,int y)&#123;</span><br><span class="line">    node a,b;</span><br><span class="line">    a.x=x,a.y=y,a.l=0;</span><br><span class="line">    int vis[105][105]=&#123;0&#125;;</span><br><span class="line">    vis[a.x][a.y]=1;</span><br><span class="line">    queue&lt;node&gt;qu;</span><br><span class="line">    qu.push(a);</span><br><span class="line">    while(!qu.empty())&#123;</span><br><span class="line">        a=qu.front();</span><br><span class="line">        qu.pop();</span><br><span class="line">        if((mm[a.x][a.y]&gt;=&apos;1&apos;&amp;&amp;mm[a.x][a.y]&lt;=&apos;9&apos;)||mm[a.x][a.y]==&apos;S&apos;)&#123;</span><br><span class="line">            if(a.l)add(s,a.x*100+a.y,a.l);</span><br><span class="line">        &#125;</span><br><span class="line">        b.l=a.l+1;</span><br><span class="line">        for(int i=0;i&lt;4;i++)&#123;</span><br><span class="line">            b.x=a.x+d[i][0];</span><br><span class="line">            b.y=a.y+d[i][1];</span><br><span class="line">            if(b.x&gt;=0&amp;&amp;b.x&lt;n&amp;&amp;b.y&gt;=0&amp;&amp;b.y&lt;m&amp;&amp;!vis[b.x][b.y]&amp;&amp;mm[b.x][b.y]!=&apos;#&apos;)&#123;</span><br><span class="line">                vis[b.x][b.y]=1;</span><br><span class="line">                qu.push(b);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void make_adge()&#123;</span><br><span class="line">    for(int i=0;i&lt;n;i++)</span><br><span class="line">        for(int j=0;j&lt;m;j++)</span><br><span class="line">            if(mm[i][j]!=&apos;#&apos;&amp;&amp;mm[i][j]!=&apos;.&apos;)</span><br><span class="line">                bfs(i*100+j,i,j);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int r[10005];</span><br><span class="line">int fi(int n)&#123;</span><br><span class="line">    return r[n]=r[n]==n?n:fi(r[n]);</span><br><span class="line">&#125;</span><br><span class="line">int cmp(node x,node y)&#123;</span><br><span class="line">    return x.l&lt;y.l;</span><br><span class="line">&#125;</span><br><span class="line">void solve()&#123;</span><br><span class="line">    int vis[10005];</span><br><span class="line">    for(int i=0;i&lt;10000;i++)&#123;</span><br><span class="line">        r[i]=i;</span><br><span class="line">        vis[i]=0;</span><br><span class="line">		if(mm[i / 100][i % 100] == &apos;S&apos;) mm[i / 100][i % 100] = 47;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(k,k+lm,cmp);</span><br><span class="line">    int out=0;</span><br><span class="line">    for(int i=0;i&lt;lm;i++)&#123;</span><br><span class="line">        int fx=fi(k[i].x);</span><br><span class="line">        int fy=fi(k[i].y);</span><br><span class="line">        if((mm[k[i].x/100][k[i].x%100]-&apos;0&apos;)+2==vis[k[i].x])continue ;</span><br><span class="line">        if((mm[k[i].y/100][k[i].y%100]-&apos;0&apos;)+2==vis[k[i].y])continue ;</span><br><span class="line">        if(fx!=fy)&#123;</span><br><span class="line">            r[fx]=fy;</span><br><span class="line">            vis[k[i].x]++;</span><br><span class="line">            vis[k[i].y]++;</span><br><span class="line">			//printf(&quot;[%d,%d] -&gt; [%d,%d]\n&quot;, k[i].x / 100, k[i].x % 100, k[i].y / 100, k[i].y % 100);</span><br><span class="line">            out+=k[i].l;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int ans=0;</span><br><span class="line">    for(int i=0;i&lt;10000;i++)&#123;</span><br><span class="line">        if((mm[i/100][i%100]&gt;=&apos;1&apos;&amp;&amp;mm[i/100][i%100]&lt;=&apos;9&apos;)||mm[i/100][i%100]==47)&#123;</span><br><span class="line">            if(fi(i)==i)&#123;</span><br><span class="line">                ans++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(ans!=1)out=-1;</span><br><span class="line">    cout&lt;&lt;out&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">//    freopen(&quot;test0.in&quot;,&quot;r&quot;,stdin);</span><br><span class="line">  //  freopen(&quot;test0.out&quot;,&quot;w&quot;,stdout);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;t);</span><br><span class="line">    while(t--)&#123;</span><br><span class="line">        scanf(&quot;%d%d&quot;,&amp;n,&amp;m);</span><br><span class="line">        memset(mm,0,sizeof(mm));</span><br><span class="line">        for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">            scanf(&quot;%s&quot;,mm[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        lm=0;</span><br><span class="line">        make_adge();</span><br><span class="line">        solve();</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3、小爱密码-2-0"><a href="#3、小爱密码-2-0" class="headerlink" title="3、小爱密码 2.0"></a>3、小爱密码 2.0</h1><p>不明白什么斐波那契质数应该做不出来。<br>还需要求出第n个质数，需要埃拉托斯特尼筛法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Fibonacci质数的定义：</span><br><span class="line"></span><br><span class="line">若某Fibonacci数与任何比它小的Fibonacci数互质，那么它就是Fibonacci质数。</span><br><span class="line">1</span><br><span class="line">这里有一个结论是：</span><br><span class="line">1.F(3)和F(4)是Fibonacci质数；从F(5)开始，某项为Fibonacci质数当且仅当它的项数为质数</span><br><span class="line">2.第k小的Fibonacci质数是以质数数列中的第k个数为项数的Fibonacci数( 除F(3)和F(4)之外 )</span><br><span class="line">证明戳这里：https://www.cnblogs.com/allensun/archive/2011/01/27/1946282.html</span><br><span class="line">问题就变成了求第n个质数p，然后求F( p )/3 模m的结果，因为3和m互质，所以可以扩展欧几里得求出3的逆元，矩阵快速幂求出F( p )，就得到答案了。</span><br><span class="line">--------------------- </span><br><span class="line">作者：_ 泛白 </span><br><span class="line">来源：CSDN </span><br><span class="line">原文：https://blog.csdn.net/qq_43202683/article/details/88903027 </span><br><span class="line">版权声明：本文为博主原创文章，转载请附上博文链接！</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-09T12:37:03.046Z" itemprop="dateUpdated">2019-04-09 20:37:03</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/04/02/20190402miOJ03/" target="_blank" rel="external">https://hankin2015.github.io/2019/04/02/20190402miOJ03/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2019/04/02/20190402miOJ03/&title=《小米 OJ 编程比赛 03 月常规赛》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2019/04/02/20190402miOJ03/&title=《小米 OJ 编程比赛 03 月常规赛》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2019/04/02/20190402miOJ03/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《小米 OJ 编程比赛 03 月常规赛》 — HanKin的博客&url=https://hankin2015.github.io/2019/04/02/20190402miOJ03/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2019/04/02/20190402miOJ03/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/21/20190421ML_HungLiLee/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">李宏毅的机器学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/01/20190301hiho241/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hiho一下 第241周 区间价值</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2019/04/02/20190402miOJ03/&title=《小米 OJ 编程比赛 03 月常规赛》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2019/04/02/20190402miOJ03/&title=《小米 OJ 编程比赛 03 月常规赛》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2019/04/02/20190402miOJ03/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《小米 OJ 编程比赛 03 月常规赛》 — HanKin的博客&url=https://hankin2015.github.io/2019/04/02/20190402miOJ03/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2019/04/02/20190402miOJ03/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2019/04/02/20190402miOJ03/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

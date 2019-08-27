@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>DBLP数据集提取 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C,C++">
+    <meta name="description" content="问题 数据集出现一个顶点有重复属性：词形还原后没有去重 异常的home和pag：查看xml发现会有作者的home page出现在title块中，page变成pag是因为我去掉了最后一个字符  #  官网下载dblp网站：https://dblp.uni-trier.de/数据集网站：https://dblp.org/xml/数据集：dblp-2018-04-01.xml.gz 仔细看看会发现dbl">
+<meta name="keywords" content="C,C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DBLP数据集提取">
+<meta property="og:url" content="https://hankin2015.github.io/2019/06/18/20190621DBLP/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="问题 数据集出现一个顶点有重复属性：词形还原后没有去重 异常的home和pag：查看xml发现会有作者的home page出现在title块中，page变成pag是因为我去掉了最后一个字符  #  官网下载dblp网站：https://dblp.uni-trier.de/数据集网站：https://dblp.org/xml/数据集：dblp-2018-04-01.xml.gz 仔细看看会发现dbl">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-25T10:24:16.275Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DBLP数据集提取">
+<meta name="twitter:description" content="问题 数据集出现一个顶点有重复属性：词形还原后没有去重 异常的home和pag：查看xml发现会有作者的home page出现在title块中，page变成pag是因为我去掉了最后一个字符  #  官网下载dblp网站：https://dblp.uni-trier.de/数据集网站：https://dblp.org/xml/数据集：dblp-2018-04-01.xml.gz 仔细看看会发现dbl">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">DBLP数据集提取</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">DBLP数据集提取</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-18T13:47:41.000Z" itemprop="datePublished" class="page-time">
+  2019-06-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-C/">C/C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#官网下载"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">官网下载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、解压后用snap的库解析程序"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1、解压后用snap的库解析程序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、去重边去自环边"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">2、去重边去自环边</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、词形还原"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">3、词形还原</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查词形还原后的结果"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">检查词形还原后的结果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行，建立超图和属性关键字索引"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">运行，建立超图和属性关键字索引</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20190621DBLP"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">DBLP数据集提取</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-18 21:47:41" datetime="2019-06-18T13:47:41.000Z"  itemprop="datePublished">2019-06-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C-C/">C/C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul>
+<li>数据集出现一个顶点有重复属性：词形还原后没有去重</li>
+<li>异常的home和pag：查看xml发现会有作者的home page出现在title块中，page变成pag是因为我去掉了最后一个字符</li>
+</ul>
+<p># </p>
+<h2 id="官网下载"><a href="#官网下载" class="headerlink" title="官网下载"></a>官网下载</h2><p>dblp网站：<a href="https://dblp.uni-trier.de/" target="_blank" rel="noopener">https://dblp.uni-trier.de/</a><br>数据集网站：<a href="https://dblp.org/xml/" target="_blank" rel="noopener">https://dblp.org/xml/</a><br>数据集：dblp-2018-04-01.xml.gz</p>
+<p>仔细看看会发现dblp数据集网站会添加每天的数据，所以会实时更新数据。所以在下载资料的时候不要下载实时更新的数据集。查看release/文件夹发现，一般会把一个月的稳定版本在1-3日，最好是下载release版本，实时更新的数据集会被覆盖，再也下载不到那种独一无二的数据集。所以推荐下载release版本，方便后面找回。我就遇到了这种问题，当初我用的版本是实时版本，再也找不回数据集了。</p>
+<p>由于我的版本数据集找不到xml了，决定使用师姐的数据集dblp-2018-04-01.xml.gz。</p>
+<h2 id="1、解压后用snap的库解析程序"><a href="#1、解压后用snap的库解析程序" class="headerlink" title="1、解压后用snap的库解析程序"></a>1、解压后用snap的库解析程序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br></pre></td><td class="code"><pre><span class="line">/*************************************************************************************************</span><br><span class="line">函 数 名: SplitStr</span><br><span class="line">功能描述: 将字符串按指定分隔符进行分割</span><br><span class="line">输入参数:</span><br><span class="line">输出参数:</span><br><span class="line">返 回 值:</span><br><span class="line">调用函数:</span><br><span class="line">被调函数:</span><br><span class="line">修改历史:</span><br><span class="line">	1.日期: 2017年11月11日</span><br><span class="line">	  作者: 何健</span><br><span class="line">      修改: 创建文件</span><br><span class="line">	2.日期: 2019年01月07日</span><br><span class="line">	  作者: 何健</span><br><span class="line">	  修改: 忽略了以“-”等分隔的单词</span><br><span class="line">*************************************************************************************************/</span><br><span class="line">inline void SplitStr(string&amp; s, vector&lt;string&gt;&amp; v, const string&amp; c)</span><br><span class="line">&#123;</span><br><span class="line">	string title;</span><br><span class="line">	transform(s.begin(), s.end(), back_inserter(title), ::tolower);  // 全部变为小写字母</span><br><span class="line">	s = &quot;&quot;;</span><br><span class="line">	for (int i = 0; i &lt; title.size(); i++) &#123;</span><br><span class="line">		if (title[i] &gt;= &apos;a&apos; &amp;&amp; title[i] &lt;= &apos;z&apos;) &#123;  </span><br><span class="line">			s += title[i];</span><br><span class="line">		&#125;</span><br><span class="line">		else s += c;</span><br><span class="line">	&#125;</span><br><span class="line">	string::size_type pos1, pos2;</span><br><span class="line">	pos2 = s.find(c);</span><br><span class="line">	pos1 = 0;</span><br><span class="line">	while (string::npos != pos2) &#123;</span><br><span class="line">		string str = s.substr(pos1, pos2 - pos1);</span><br><span class="line">		string word = &quot;&quot;;</span><br><span class="line">		for (int i = 0; i &lt; str.size(); i++) &#123;  // 去掉非法字符</span><br><span class="line">			if (str[i] &gt;= &apos;a&apos; &amp;&amp; str[i] &lt;= &apos;z&apos;) word += str[i];</span><br><span class="line">		&#125;</span><br><span class="line">		if (word.size() != 0) v.push_back(word);  // 不能为空</span><br><span class="line"></span><br><span class="line">		pos1 = pos2 + c.size();</span><br><span class="line">		pos2 = s.find(c, pos1);</span><br><span class="line">	&#125;</span><br><span class="line">	if (pos1 != s.length()) &#123;</span><br><span class="line">		string str = s.substr(pos1);</span><br><span class="line">		string word = &quot;&quot;;</span><br><span class="line">		for (int i = 0; i &lt; str.size(); i++) &#123;</span><br><span class="line">			if (str[i] &gt;= &apos;a&apos; &amp;&amp; str[i] &lt;= &apos;z&apos;) word += str[i];</span><br><span class="line">		&#125;</span><br><span class="line">		if (word.size() != 0) v.push_back(word);</span><br><span class="line">	&#125;</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extern map&lt;string, int&gt; keyword_in;</span><br><span class="line"></span><br><span class="line">inline void InvalidKeyword()</span><br><span class="line">&#123;</span><br><span class="line">	string stopwords[] = &#123; &quot;i&quot;, &quot;me&quot;, &quot;my&quot;, &quot;myself&quot;, &quot;we&quot;, &quot;our&quot;, &quot;ours&quot;, &quot;ourselves&quot;, &quot;you&quot;, &quot;you’re&quot;,\</span><br><span class="line">		&quot;you&apos;ve&quot;, &quot;you&apos;ll&quot;, &quot;you&apos;d&quot;, &quot;your&quot;, &quot;yours&quot;, &quot;yourself&quot;, &quot;yourselves&quot;, &quot;he&quot;, &quot;him&quot;, &quot;his&quot;, &quot;himself&quot;,\</span><br><span class="line">		&quot;she&quot;, &quot;she&apos;s&quot;, &quot;her&quot;, &quot;hers&quot;, &quot;herself&quot;, &quot;it&quot;, &quot;it&apos;s&quot;, &quot;its&quot;, &quot;itself&quot;, &quot;they&quot;, &quot;them&quot;, &quot;their&quot;,\</span><br><span class="line">		&quot;theirs&quot;, &quot;themselves&quot;, &quot;what&quot;, &quot;which&quot;, &quot;who&quot;, &quot;whom&quot;, &quot;this&quot;, &quot;that&quot;, &quot;that&apos;ll&quot;, &quot;these&quot;,\</span><br><span class="line">		&quot;those&quot;, &quot;am&quot;, &quot;is&quot;, &quot;are&quot;, &quot;was&quot;, &quot;were&quot;, &quot;be&quot;, &quot;been&quot;, &quot;being&quot;, &quot;have&quot;, &quot;has&quot;, &quot;had&quot;, &quot;having&quot;,\</span><br><span class="line">		&quot;do&quot;, &quot;does&quot;, &quot;did&quot;, &quot;doing&quot;, &quot;a&quot;, &quot;an&quot;, &quot;the&quot;, &quot;and&quot;, &quot;but&quot;, &quot;if&quot;, &quot;or&quot;, &quot;because&quot;, &quot;as&quot;, &quot;until&quot;,\</span><br><span class="line">		&quot;while&quot;, &quot;of&quot;, &quot;at&quot;, &quot;by&quot;, &quot;for&quot;, &quot;with&quot;, &quot;about&quot;, &quot;against&quot;, &quot;between&quot;, &quot;into&quot;, &quot;through&quot;, &quot;during&quot;,\</span><br><span class="line">		&quot;before&quot;, &quot;after&quot;, &quot;above&quot;, &quot;below&quot;, &quot;to&quot;, &quot;from&quot;, &quot;up&quot;, &quot;down&quot;, &quot;in&quot;, &quot;out&quot;, &quot;on&quot;, &quot;off&quot;, &quot;over&quot;,\</span><br><span class="line">		&quot;under&quot;, &quot;again&quot;, &quot;further&quot;, &quot;then&quot;, &quot;once&quot;, &quot;here&quot;, &quot;there&quot;, &quot;when&quot;, &quot;where&quot;, &quot;why&quot;, &quot;how&quot;, &quot;all&quot;,\</span><br><span class="line">		&quot;any&quot;, &quot;both&quot;, &quot;each&quot;, &quot;few&quot;, &quot;more&quot;, &quot;most&quot;, &quot;other&quot;, &quot;some&quot;, &quot;such&quot;, &quot;no&quot;, &quot;nor&quot;, &quot;not&quot;, &quot;only&quot;, &quot;own&quot;,\</span><br><span class="line">		&quot;same&quot;, &quot;so&quot;, &quot;than&quot;, &quot;too&quot;, &quot;very&quot;, &quot;s&quot;, &quot;t&quot;, &quot;can&quot;, &quot;will&quot;, &quot;just&quot;, &quot;don&quot;, &quot;don&apos;t&quot;, &quot;should&quot;, &quot;should&apos;ve&quot;,\</span><br><span class="line">		&quot;now&quot;, &quot;d&quot;, &quot;ll&quot;, &quot;m&quot;, &quot;o&quot;, &quot;re&quot;, &quot;ve&quot;, &quot;y&quot;, &quot;ain&quot;, &quot;aren&quot;, &quot;aren&apos;t&quot;, &quot;couldn&quot;, &quot;couldn&apos;t&quot;, &quot;didn&quot;,\</span><br><span class="line">		&quot;didn&apos;t&quot;, &quot;doesn&quot;, &quot;doesn&apos;t&quot;, &quot;hadn&quot;, &quot;hadn&apos;t&quot;, &quot;hasn&quot;, &quot;hasn&apos;t&quot;, &quot;haven&quot;, &quot;haven&apos;t&quot;, &quot;isn&quot;, &quot;isn&apos;t&quot;,\</span><br><span class="line">		&quot;ma&quot;, &quot;mightn&quot;, &quot;mightn&apos;t&quot;, &quot;mustn&quot;, &quot;mustn&apos;t&quot;, &quot;needn&quot;, &quot;needn&apos;t&quot;, &quot;shan&quot;, &quot;shan&apos;t&quot;, &quot;shouldn&quot;, &quot;shouldn&apos;t&quot;,\</span><br><span class="line">		&quot;wasn&quot;, &quot;wasn&apos;t&quot;, &quot;weren&quot;, &quot;weren&apos;t&quot;, &quot;won&quot;, &quot;won&apos;t&quot;, &quot;wouldn&quot;, &quot;wouldn&apos;t&quot;, &quot;without&quot; &#125;;</span><br><span class="line">	int len = sizeof(stopwords) / sizeof(string);</span><br><span class="line">	for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">		keyword_in[stopwords[i]] = 1;</span><br><span class="line">	&#125;</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline bool Check(string keyword)</span><br><span class="line">&#123;</span><br><span class="line">	if (keyword_in[keyword] == 1) return false;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline void DblpGenerate(char* file_in, char* ungraph_out, char* vertex_out, char* original_out)</span><br><span class="line">&#123;</span><br><span class="line">	/*</span><br><span class="line">	PWgtNet Net = TWgtNet::New();</span><br><span class="line">	TWgtNet DBL;</span><br><span class="line">	const TStr db = &quot;./DataSets/dblp.xml&quot;;</span><br><span class="line">	DBL.LoadDblpCoAuth(&quot;ds&quot;);</span><br><span class="line">	DBL.LoadDblpCoAuth(db);</span><br><span class="line">	TDblpLoader *dblp = new TDblpLoader(TStr(&quot;./DataSets/dblp.xml&quot;));</span><br><span class="line">	*/</span><br><span class="line">	cout &lt;&lt; &quot;Start Process dblp Dataset.....&quot; &lt;&lt; endl;</span><br><span class="line">	TDblpLoader dblp(file_in);</span><br><span class="line">	dblp.GetFPosStr();</span><br><span class="line">	int authorCount = 1;</span><br><span class="line">	map&lt;string, int&gt; author_vertex;  //方便hash查找，从1开始，默认是0.  存储作者对应的顶点</span><br><span class="line">	map&lt;string, vector&lt;string&gt; &gt; author_attributes;  //存储作者的全部属性</span><br><span class="line"></span><br><span class="line">	int cnt = 0;</span><br><span class="line">	InvalidKeyword();</span><br><span class="line">	FILE* fout_ungraph = fopen(ungraph_out, &quot;w&quot;);</span><br><span class="line">	vector&lt;string&gt; keywords;</span><br><span class="line">	vector&lt;int&gt; nodes;</span><br><span class="line">	PUNGraph graph = PUNGraph::New();  //添加图是为了去重边</span><br><span class="line">	while (dblp.Next()) &#123;</span><br><span class="line">		if (cnt++ % 10000 == 0) cout &lt;&lt; cnt &lt;&lt; endl;</span><br><span class="line">		//cout &lt;&lt; dblp.Year &lt;&lt; endl;</span><br><span class="line">		string titleName = dblp.Title.CStr();</span><br><span class="line">		</span><br><span class="line">		// 20190619改：利用最后是否为句号来去掉home page字段</span><br><span class="line">		if (titleName[titleName.size() - 1] != &apos;.&apos;) continue;</span><br><span class="line">		</span><br><span class="line">		titleName[titleName.size() - 1] = &apos;\0&apos;;  //去掉末尾的句号</span><br><span class="line">		//cout &lt;&lt; titleName &lt;&lt; endl;</span><br><span class="line">		keywords.clear();</span><br><span class="line">		SplitStr(titleName, keywords, &quot; &quot;);</span><br><span class="line"></span><br><span class="line">		nodes.clear();</span><br><span class="line">		for (int i = 0; i &lt; dblp.AuthorV.Len(); i++) &#123;    //当前文章的所有作者</span><br><span class="line">			string authorName = dblp.AuthorV[i].CStr();</span><br><span class="line">			//cout &lt;&lt; authorName &lt;&lt; endl;</span><br><span class="line">			if (author_vertex[authorName] == 0) &#123;  //如果当前作者第一次出现，给他分配一个顶点值</span><br><span class="line">				graph-&gt;AddNode(authorCount);</span><br><span class="line">				author_vertex[authorName] = authorCount++;</span><br><span class="line">			&#125;</span><br><span class="line">			nodes.push_back(author_vertex[authorName]);</span><br><span class="line">			for (string keyword : keywords) &#123;</span><br><span class="line">				if (keyword != &quot; &quot; &amp;&amp; keyword != &quot;&quot;) &#123;</span><br><span class="line">					if (Check(keyword)) &#123;</span><br><span class="line">						//cout &lt;&lt; keyword &lt;&lt; endl;</span><br><span class="line">						author_attributes[authorName].push_back(keyword);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		if (nodes.size() &gt; 1) &#123;</span><br><span class="line">			for (int i : nodes) &#123;</span><br><span class="line">				for (int j : nodes) &#123;</span><br><span class="line">					if (i != j) &#123;  // 去掉自环边</span><br><span class="line">						//if (!graph-&gt;IsEdge(i, j)) &#123;   // 去掉了重边</span><br><span class="line">							fprintf(fout_ungraph, &quot;%d\t%d\n&quot;, i, j);</span><br><span class="line">						//	graph-&gt;AddEdge(i, j);</span><br><span class="line">						//&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	graph.Clr();</span><br><span class="line">	cout &lt;&lt; &quot;作者数量 = &quot; &lt;&lt; author_vertex.size() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; author_attributes.size() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; &quot;dblp_author_ungraph.txt over!&quot; &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	FILE* fout = fopen(vertex_out, &quot;w&quot;);</span><br><span class="line">	map&lt;string, int&gt;::iterator it = author_vertex.begin();</span><br><span class="line">	for (; it != author_vertex.end(); it++) &#123;</span><br><span class="line">		fprintf(fout, &quot;%s&quot;, it-&gt;first.data());</span><br><span class="line">		fprintf(fout, &quot;\t&quot;);</span><br><span class="line">		fprintf(fout, &quot;%d\n&quot;, it-&gt;second);</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; &quot;dblp_author_vertex.txt over!&quot; &lt;&lt; endl;</span><br><span class="line">	/*</span><br><span class="line">	map&lt;string, int&gt; topAttributes;</span><br><span class="line">	map&lt;string, vector&lt;string&gt; &gt; author_attrs;  //最好筛选出来的前20属性数据集</span><br><span class="line">	for (map&lt;string, vector&lt;string&gt; &gt;::iterator it = author_attributes.begin(); it != author_attributes.end(); it++) &#123;</span><br><span class="line">	//if (it-&gt;second.size() &lt;= 20) &#123;   //可能里面有重复的</span><br><span class="line">	//	author_attrs[it-&gt;first].assign(it-&gt;second.begin(), it-&gt;second.end());</span><br><span class="line">	//	continue;</span><br><span class="line">	//&#125;</span><br><span class="line">	topAttributes.clear();</span><br><span class="line">	for (string attr : it-&gt;second) &#123;</span><br><span class="line">	topAttributes[attr]++;</span><br><span class="line">	&#125;</span><br><span class="line">	//把map中元素转存到vector中</span><br><span class="line">	vector&lt;PAIR&gt; topAttributes_vec(topAttributes.begin(), topAttributes.end());</span><br><span class="line"></span><br><span class="line">	//对vector排序</span><br><span class="line">	sort(topAttributes_vec.begin(), topAttributes_vec.end(), CmpByValue());</span><br><span class="line">	for (int i = 0; i &lt; topAttributes_vec.size() &amp;&amp; i &lt; 20; i++) &#123;  //限制条件前20条，问题在于没有做词形还原，有点无意义</span><br><span class="line">	author_attrs[it-&gt;first].push_back(topAttributes_vec[i].first);</span><br><span class="line">	&#125;</span><br><span class="line">	topAttributes_vec.clear();</span><br><span class="line">	&#125;</span><br><span class="line">	*/</span><br><span class="line">	//对上面注释进行修改，先做词形还原，然后进行频繁排序，所以会把所有的属性存储下来，会很大</span><br><span class="line">	FILE* fout_attrs = fopen(original_out, &quot;w&quot;);</span><br><span class="line">	//map&lt;string, vector&lt;string&gt; &gt;::iterator itor = author_attrs.begin();</span><br><span class="line">	map&lt;string, vector&lt;string&gt; &gt;::iterator itor = author_attributes.begin();</span><br><span class="line">	for (; itor != author_attributes.end(); itor++) &#123;</span><br><span class="line">		string authorName = itor-&gt;first;</span><br><span class="line">		fprintf(fout_attrs, &quot;%d&quot;, author_vertex[authorName]);  // %-20s字符串左对齐占20个字符位置</span><br><span class="line">		fprintf(fout_attrs, &quot;\t&quot;);</span><br><span class="line">		bool flag = false;</span><br><span class="line">		for (string str : itor-&gt;second) &#123;</span><br><span class="line">			//if (str == &quot;&quot; || str == &quot; &quot;) continue;</span><br><span class="line">			if (!flag) &#123;</span><br><span class="line">				flag = true;</span><br><span class="line">				fprintf(fout_attrs, &quot;%s&quot;, str.data());</span><br><span class="line">			&#125;</span><br><span class="line">			else fprintf(fout_attrs, &quot;,%s&quot;, str.data());</span><br><span class="line">		&#125;</span><br><span class="line">		fprintf(fout_attrs, &quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; &quot;dblp_author_attr_original.txt over!&quot; &lt;&lt; endl;</span><br><span class="line">	fclose(fout);</span><br><span class="line">	fclose(fout_ungraph);</span><br><span class="line">	fclose(fout_attrs);</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">6160001</span><br><span class="line">6170001</span><br><span class="line">作者数量 = 2081308</span><br><span class="line">2081295</span><br><span class="line">dblp_author_ungraph.txt over!</span><br><span class="line">dblp_author_vertex.txt over!</span><br><span class="line">dblp_author_attr_original.txt over!</span><br><span class="line">Generate Time:892.714000 s</span><br><span class="line"></span><br><span class="line">请按任意键继续. . .</span><br></pre></td></tr></table></figure>
+<p>dblp_attr_original.txt   759M<br>dblp_ungraph.txt         504M<br>dblp_vertex.txt            47.3M</p>
+<h2 id="2、去重边去自环边"><a href="#2、去重边去自环边" class="headerlink" title="2、去重边去自环边"></a>2、去重边去自环边</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char* input = &quot;dblp_ungraph.txt&quot;;</span><br><span class="line">    char* output = &quot;dblp100%_vertices.txt&quot;;</span><br><span class="line">    FILE* fin = fopen(input, &quot;r&quot;);</span><br><span class="line">    FILE* fout = fopen(output, &quot;w&quot;);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;input = &quot; &lt;&lt; input &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;output = &quot; &lt;&lt; output &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;Process Data....&quot; &lt;&lt; endl &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    set&lt;pair&lt;int, int&gt; &gt; edges;</span><br><span class="line">    int maxn_vertex = -1;</span><br><span class="line">    int u, v, cnt = 0;</span><br><span class="line">	while(!feof(fin)) &#123;</span><br><span class="line">        cnt++;</span><br><span class="line">		fscanf(fin, &quot;%d\t%d\n&quot;, &amp;u, &amp;v);</span><br><span class="line">		if(u &gt; v) swap(u, v);</span><br><span class="line">		if(u != v) &#123;</span><br><span class="line">            edges.insert(make_pair(u, v));</span><br><span class="line">            if(v &gt; maxn_vertex) maxn_vertex = v;</span><br><span class="line">		&#125;</span><br><span class="line">		if(cnt % 1000000 == 0) cout &lt;&lt; &quot;已完成&quot; &lt;&lt; cnt &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	for(auto edge : edges) &#123;</span><br><span class="line">        fprintf(fout, &quot;%d\t%d\n&quot;, edge.first, edge.second);</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; &quot;原来图边的数量 = &quot; &lt;&lt; cnt &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; &quot;处理后边的数量 = &quot; &lt;&lt; edges.size() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; &quot;最大的顶点值 = &quot; &lt;&lt; maxn_vertex &lt;&lt; endl;</span><br><span class="line">	fclose(fin);</span><br><span class="line">	fclose(fout);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正如题目，处理过后效果明显，504M-&gt;141M<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">已完成34000000</span><br><span class="line">已完成35000000</span><br><span class="line">原来图边的数量 = 35205510</span><br><span class="line">处理后边的数量 = 9735108</span><br><span class="line">最大的顶点值 = 2081308</span><br></pre></td></tr></table></figure></p>
+<h2 id="3、词形还原"><a href="#3、词形还原" class="headerlink" title="3、词形还原"></a>3、词形还原</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">Created on Mon Apr  9 22:02:33 2018</span><br><span class="line"></span><br><span class="line">@author: HanKin</span><br><span class="line"></span><br><span class="line">[Python nltk.WordNetLemmatizer() Examples](https://www.programcreek.com/python/example/81649/nltk.WordNetLemmatizer)</span><br><span class="line">词干提取和词形还原</span><br><span class="line">[在线词形还原](http://text-processing.com/demo/stem/)</span><br><span class="line">[nltk教程](http://textminingonline.com/dive-into-nltk-part-iv-stemming-and-lemmatization)</span><br><span class="line">https://www.cnblogs.com/itdyb/p/5914467.html</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">import nltk</span><br><span class="line">from nltk.stem import WordNetLemmatizer </span><br><span class="line">from nltk.corpus import stopwords</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">def crawl_lemmas(vocab):</span><br><span class="line">        &quot;&quot;&quot;Add Wordnet lemmas as definitions.&quot;&quot;&quot;</span><br><span class="line">        spwords=stopwords.words(&apos;english&apos;)</span><br><span class="line">        lemmatizer = nltk.WordNetLemmatizer()</span><br><span class="line">        ret = []</span><br><span class="line">        for word in vocab:</span><br><span class="line">            if len(word) &lt; 2:</span><br><span class="line">                continue</span><br><span class="line">            definitions = []</span><br><span class="line">            word = word.lower() # 变小写</span><br><span class="line">            try:</span><br><span class="line">                for part_of_speech in [&apos;a&apos;, &apos;s&apos;, &apos;r&apos;, &apos;n&apos;, &apos;v&apos;]:</span><br><span class="line">                    lemma = lemmatizer.lemmatize(word, part_of_speech)</span><br><span class="line">                    if lemma != word and not lemma in definitions:</span><br><span class="line">                        if lemma not in spwords:</span><br><span class="line">                            definitions.append(lemma)</span><br><span class="line">                            #print(lemma)</span><br><span class="line">                if len(definitions) == 0:</span><br><span class="line">                    #print(word)</span><br><span class="line">                    definitions.append(word)</span><br><span class="line">            except:</span><br><span class="line">                print(&apos;lemmatizer crashed&apos;)</span><br><span class="line">            if definitions:</span><br><span class="line">                #self._data[word] = definitions</span><br><span class="line">                for num in definitions:</span><br><span class="line">                    ret.append(num)</span><br><span class="line">        return ret</span><br><span class="line">        #self.save()</span><br><span class="line">        </span><br><span class="line">def file_open(filename):</span><br><span class="line">    with open(filename, &apos;r&apos;) as file_to_read:</span><br><span class="line">        #print(file_to_read.encoding) #文件编码</span><br><span class="line">        #print(file_to_read.mode) #打开模式</span><br><span class="line">        print(file_to_read.name) #文件名</span><br><span class="line">        while True:</span><br><span class="line">            line = file_to_read.readline()</span><br><span class="line">            if not line: break</span><br><span class="line">            content = line.split(&apos;\t&apos;)</span><br><span class="line">            print(content)</span><br><span class="line">        pass #Python pass是空语句，是为了保持程序结构的完整性。pass 不做任何事情，一般用做占位语句。</span><br><span class="line">    #当你在编写一个程序时，执行语句部分思路还没有完成，这时你可以用pass语句来占位，也可以当做是一个标记，是要过后来完成的代码。</span><br><span class="line">    #file_to_read.close()  python的with语句能处理异常并且会自动关闭文件句柄</span><br><span class="line">    </span><br><span class="line">def dblp_process(file_in, file_out):</span><br><span class="line">    with open(file_out, &apos;w&apos;) as fout:</span><br><span class="line">        with open(file_in, &apos;r&apos;) as fin:</span><br><span class="line">            print(&apos;fin: &apos; + fin.name)</span><br><span class="line">            print(&apos;fout: &apos; + fout.name)</span><br><span class="line">            print(&apos;start lemmas......&apos;)</span><br><span class="line">            schedule = 0;</span><br><span class="line">            while True:</span><br><span class="line">                line = fin.readline()</span><br><span class="line">                if not line: break</span><br><span class="line">                #print(line)</span><br><span class="line">                content = line.split(&apos;\t&apos;)</span><br><span class="line">                fout.write(content[0] + &apos;\t&apos;)  # content[0]表示顶点</span><br><span class="line">                #print(len(content))</span><br><span class="line">                #print(content[1])</span><br><span class="line">                #print(content[1][:-1])</span><br><span class="line">                content[1] = content[1][:-1]</span><br><span class="line">                content = content[1].split(&apos;,&apos;)</span><br><span class="line">                #print(&apos;hejian&apos;)</span><br><span class="line">                content = crawl_lemmas(content)</span><br><span class="line">                #print(type(content))</span><br><span class="line">                #print(content)</span><br><span class="line">                </span><br><span class="line">                dic = &#123;&#125;</span><br><span class="line">                for attr in content:</span><br><span class="line">                    if attr in dic:</span><br><span class="line">                        dic[attr] += 1</span><br><span class="line">                    else:</span><br><span class="line">                        dic[attr] = 1</span><br><span class="line">                dic = sorted(dic.items(),key = lambda x:x[1],reverse = True)</span><br><span class="line">                </span><br><span class="line">                flag = True  #处理末尾不添加逗号</span><br><span class="line">                cnt = 0</span><br><span class="line">                for key, val in dic:</span><br><span class="line">                    if cnt == 20: break    #选取前20频繁属性</span><br><span class="line">                    cnt += 1</span><br><span class="line">                    if flag:</span><br><span class="line">                        fout.write(key)</span><br><span class="line">                        flag = False</span><br><span class="line">                    else:</span><br><span class="line">                        fout.write(&apos;,&apos; + key)</span><br><span class="line">                fout.write(&apos;\n&apos;)</span><br><span class="line">                schedule += 1</span><br><span class="line">                if schedule % 10000 == 0: </span><br><span class="line">                    print(schedule)      #显示进度</span><br><span class="line"> </span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">2019.1.10 添加进度条</span><br><span class="line">          去掉长度为1的属性单词(crawl_lemmas函数)  </span><br><span class="line">&apos;&apos;&apos;               </span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    lis = [&apos;a&apos;, &apos;b&apos;, &apos;a&apos;, &apos;c&apos;, &apos;d&apos;, &apos;c&apos;, &apos;a&apos;]</span><br><span class="line">    dic = &#123;&#125;</span><br><span class="line">    for elem in lis:</span><br><span class="line">        if elem in dic:</span><br><span class="line">            dic[elem] += 1</span><br><span class="line">        else:</span><br><span class="line">            dic[elem] = 1</span><br><span class="line">    print(sorted(dic.items(),key = lambda x:x[1],reverse = True))</span><br><span class="line">    dic = sorted(dic.items(),key = lambda x:x[1],reverse = True)</span><br><span class="line">    for key, val in dic:</span><br><span class="line">        print(key + &apos; &apos; + str(val))</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    </span><br><span class="line">    sestence = &apos;Stemming is funnier than a bummer says the sushi loving computer scientist doing nets are crying parsing problem affix grammars best better does were&apos;</span><br><span class="line">    words = sestence.split(&apos; &apos;)</span><br><span class="line">    #words = [&apos;stemming&apos;]</span><br><span class="line">    #print(words)</span><br><span class="line">    #crawl_lemmas(words)</span><br><span class="line">    </span><br><span class="line">    #NLTK词性tag含义https://blog.csdn.net/john159151/article/details/50255101</span><br><span class="line">    #print(nltk.help.upenn_tagset())</span><br><span class="line">    </span><br><span class="line">    start_time = time.time()</span><br><span class="line">    dblp_process(&apos;dblp_attr_original.txt&apos;, &apos;dblp_nltk_attributes.txt&apos;)</span><br><span class="line">    #dblp_process(&apos;fin.txt&apos;, &apos;fout.txt&apos;)</span><br><span class="line">    print(&apos;total time = %lf s&apos; %(time.time() - start_time)) </span><br><span class="line">    </span><br><span class="line">    #nltk.WordNetLemmatizer().lemmatize(&apos;mapping&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2060000</span><br><span class="line">2070000</span><br><span class="line">2080000</span><br><span class="line">total time = 2029.313343 s</span><br></pre></td></tr></table></figure>
+<h2 id="检查词形还原后的结果"><a href="#检查词形还原后的结果" class="headerlink" title="检查词形还原后的结果"></a>检查词形还原后的结果</h2><p>包含自建字典，修改python没有修正过来的单词，如subfigures。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void SplitString(const string&amp; s, vector&lt;string&gt;&amp; v, const string&amp; c)</span><br><span class="line">&#123;</span><br><span class="line">	string::size_type pos1, pos2;</span><br><span class="line">	pos2 = s.find(c);</span><br><span class="line">	pos1 = 0;</span><br><span class="line">	while (string::npos != pos2) &#123;</span><br><span class="line">		v.push_back(s.substr(pos1, pos2 - pos1));</span><br><span class="line">		pos1 = pos2 + c.size();</span><br><span class="line">		pos2 = s.find(c, pos1);</span><br><span class="line">	&#125;</span><br><span class="line">	if (pos1 != s.length()) v.push_back(s.substr(pos1));</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void GetPostfix(const char* fileName)</span><br><span class="line">&#123;</span><br><span class="line">	int index = 1;</span><br><span class="line">	FILE *attributeF = fopen(fileName, &quot;r&quot;);</span><br><span class="line">	FILE *out = fopen(&quot;out.txt&quot;, &quot;w&quot;);</span><br><span class="line">	while (!feof(attributeF)) &#123;</span><br><span class="line">	    index++;</span><br><span class="line">        if (index % 10000 == 0) cout &lt;&lt; index &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">		int node;</span><br><span class="line">		char attr[20005];</span><br><span class="line">		fscanf(attributeF, &quot;%d\t%s\n&quot;, &amp;node, &amp;attr);</span><br><span class="line">		fprintf(out, &quot;%d\t&quot;, node);</span><br><span class="line"></span><br><span class="line">		vector&lt;string&gt; vec;</span><br><span class="line">		string str = string(attr);</span><br><span class="line">		if (str.size() == 0) continue;</span><br><span class="line">		SplitString(str, vec, &quot;,&quot;);</span><br><span class="line">		for (int i = 0; i &lt; vec.size(); i++) &#123;</span><br><span class="line">            int len = vec[i].size();</span><br><span class="line">            if (vec[i][len - 1] == &apos;s&apos;) &#123;</span><br><span class="line">                fprintf(out, &quot;%s,&quot;, vec[i].data());</span><br><span class="line">            &#125;</span><br><span class="line">            else if (len &gt; 1 &amp;&amp; vec[i][len - 1] == &apos;d&apos; &amp;&amp; vec[i][len - 2] == &apos;e&apos;) &#123;</span><br><span class="line">                fprintf(out, &quot;%s,&quot;, vec[i].data());</span><br><span class="line">            &#125;</span><br><span class="line">            else if (len &gt; 2 &amp;&amp; vec[i][len - 1] == &apos;g&apos; &amp;&amp; vec[i][len - 2] == &apos;n&apos; &amp;&amp; vec[i][len - 3] == &apos;i&apos;) &#123;</span><br><span class="line">                fprintf(out, &quot;%s,&quot;, vec[i].data());</span><br><span class="line">            &#125;</span><br><span class="line">		&#125;</span><br><span class="line">		fprintf(out, &quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	fclose(attributeF);</span><br><span class="line">	fclose(out);</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">map&lt;string, int&gt; attrCnt;</span><br><span class="line"></span><br><span class="line">void Vertex_Attribute(const char* fileName, const char* outFileName)</span><br><span class="line">&#123;</span><br><span class="line">    int index = 1;</span><br><span class="line">	FILE *attributeF = fopen(fileName, &quot;r&quot;);</span><br><span class="line">	while (!feof(attributeF)) &#123;</span><br><span class="line">        index++;</span><br><span class="line">        if (index % 10000 == 0) cout &lt;&lt; index &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">		int node;</span><br><span class="line">		char attr[20005];</span><br><span class="line">		fscanf(attributeF, &quot;%d\t%s\n&quot;, &amp;node, &amp;attr);</span><br><span class="line"></span><br><span class="line">		vector&lt;string&gt; vec;</span><br><span class="line">		string str = string(attr);</span><br><span class="line">		if (str.size() == 0) continue;</span><br><span class="line">		SplitString(str, vec, &quot;,&quot;);</span><br><span class="line">		for (int i = 0; i &lt; vec.size(); i++) &#123;</span><br><span class="line">            attrCnt[vec[i]]++;   // 计数</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    index = 1;</span><br><span class="line">	FILE *in = fopen(fileName, &quot;r&quot;);</span><br><span class="line">	FILE *out = fopen(outFileName, &quot;w&quot;);</span><br><span class="line">	while (!feof(in)) &#123;</span><br><span class="line">	    index++;</span><br><span class="line">        if (index % 10000 == 0) cout &lt;&lt; &quot;进度=&quot; &lt;&lt; index &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">		int node;</span><br><span class="line">		char attr[20005];</span><br><span class="line">		fscanf(in, &quot;%d\t%s\n&quot;, &amp;node, &amp;attr);</span><br><span class="line">		fprintf(out, &quot;%d\t&quot;, node);</span><br><span class="line"></span><br><span class="line">		vector&lt;string&gt; vec;</span><br><span class="line">		string str = string(attr);</span><br><span class="line">		if (str.size() == 0) continue;</span><br><span class="line">		SplitString(str, vec, &quot;,&quot;);</span><br><span class="line"></span><br><span class="line">		set&lt;string&gt; ss;</span><br><span class="line">		for (int i = 0; i &lt; vec.size(); i++) &#123;</span><br><span class="line">            int len = vec[i].size();</span><br><span class="line">            string tmp = vec[i];</span><br><span class="line">            if (vec[i][len - 1] == &apos;s&apos;) &#123;  // 自建字典，如果去掉s的2倍数量大于加s的单词就删除s</span><br><span class="line">                string s = vec[i].substr(0, len - 1);</span><br><span class="line">                if (attrCnt[s] * 2 &gt; attrCnt[vec[i]]) tmp = s;</span><br><span class="line">            &#125;</span><br><span class="line">            else if (len &gt; 1 &amp;&amp; vec[i][len - 1] == &apos;d&apos; &amp;&amp; vec[i][len - 2] == &apos;e&apos;) &#123;</span><br><span class="line">                string s = vec[i].substr(0, len - 2);</span><br><span class="line">                if (attrCnt[s] * 2 &gt; attrCnt[vec[i]]) tmp = s;</span><br><span class="line">            &#125;</span><br><span class="line">            else if (len &gt; 2 &amp;&amp; vec[i][len - 1] == &apos;g&apos; &amp;&amp; vec[i][len - 2] == &apos;n&apos; &amp;&amp; vec[i][len - 3] == &apos;i&apos;) &#123;</span><br><span class="line">                string s = vec[i].substr(0, len - 3);</span><br><span class="line">                if (attrCnt[s] * 2 &gt; attrCnt[vec[i]]) tmp = s;</span><br><span class="line">            &#125;</span><br><span class="line">            ss.insert(tmp);</span><br><span class="line">		&#125;</span><br><span class="line">		bool flag = true;</span><br><span class="line">		for (string i : ss) &#123;</span><br><span class="line">            if (flag) &#123;</span><br><span class="line">                flag = false;</span><br><span class="line">                fprintf(out, &quot;%s&quot;, i.data());</span><br><span class="line">            &#125;</span><br><span class="line">            else fprintf(out, &quot;,%s&quot;, i.data());</span><br><span class="line">		&#125;</span><br><span class="line">		fprintf(out, &quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	fclose(in);</span><br><span class="line">	fclose(out);</span><br><span class="line">	fclose(attributeF);</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ComputeFrequency(const char* fileName, const char* outFileName)</span><br><span class="line">&#123;</span><br><span class="line">    int sum = 0;</span><br><span class="line">    double tmp;</span><br><span class="line">    int index = 0;</span><br><span class="line">	FILE *attributeF = fopen(fileName, &quot;r&quot;);</span><br><span class="line">	while (!feof(attributeF)) &#123;</span><br><span class="line">        index++;</span><br><span class="line">        if (index % 10000 == 0) cout &lt;&lt; index &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">		int node;</span><br><span class="line">		char attr[20005];</span><br><span class="line">		fscanf(attributeF, &quot;%d\t%s\n&quot;, &amp;node, &amp;attr);</span><br><span class="line"></span><br><span class="line">		vector&lt;string&gt; vec;</span><br><span class="line">		string str = string(attr);</span><br><span class="line">		if (str.size() == 0) continue;</span><br><span class="line">		SplitString(str, vec, &quot;,&quot;);</span><br><span class="line">		int len = vec.size();</span><br><span class="line">		sum += len;</span><br><span class="line"></span><br><span class="line">		// ???单个顶点有重复的属性</span><br><span class="line">		map&lt;string, int&gt; flag;</span><br><span class="line">		for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">            attrCnt[vec[i]]++;   // 计数</span><br><span class="line">            flag[vec[i]]++;</span><br><span class="line">            if (flag[vec[i]] &gt;= 2) &#123;</span><br><span class="line">                cout &lt;&lt; &quot;顶点出现重复属性：&quot; &lt;&lt; index &lt;&lt; endl;</span><br><span class="line">            &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    set&lt;pair&lt;int, string&gt;, greater&lt;pair&lt;int, string&gt; &gt; &gt; SET;</span><br><span class="line">    for (map&lt;string, int&gt;::iterator it = attrCnt.begin(); it != attrCnt.end(); it++) &#123;</span><br><span class="line">        SET.emplace(make_pair(it-&gt;second, it-&gt;first));</span><br><span class="line">    &#125;</span><br><span class="line">    int cnt = SET.size();</span><br><span class="line">    FILE *out = fopen(outFileName, &quot;w&quot;);</span><br><span class="line">    tmp = sum * 1.0 / index;</span><br><span class="line">    cout &lt;&lt; tmp &lt;&lt; endl;</span><br><span class="line">    fprintf(out, &quot;顶点数量=%d\t属性总数量=%d\t平均数量=%.3f\t属性数量=%d\n&quot;, index, sum, tmp, cnt);</span><br><span class="line">    fprintf(out, &quot;\n属性\t出现次数\t占比例\n&quot;);</span><br><span class="line">    for (set&lt;pair&lt;int, string&gt; &gt;::iterator it = SET.begin(); it != SET.end(); it++) &#123;</span><br><span class="line">        //cout &lt;&lt; it-&gt;second &lt;&lt; &apos; &apos; &lt;&lt; it-&gt;first &lt;&lt; endl;</span><br><span class="line">        tmp = it-&gt;first * 1.0 / index;</span><br><span class="line">        fprintf(out, &quot;%s\t%d\t%.3f\n&quot;, (it-&gt;second).data(), it-&gt;first, tmp);</span><br><span class="line">    &#125;</span><br><span class="line">	fclose(out);</span><br><span class="line">	fclose(attributeF);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Transform2Int(const char* fileName, const char* outFileName1, const char* outFileName2)</span><br><span class="line">&#123;</span><br><span class="line">    int index = 1, attr_index = 1;  // 从1开始好些，0可以当作无</span><br><span class="line">    map&lt;string, int&gt; attribute_index;</span><br><span class="line">	FILE *attributeF = fopen(fileName, &quot;r&quot;);</span><br><span class="line">	FILE *out1 = fopen(outFileName1, &quot;w&quot;);</span><br><span class="line">	while (!feof(attributeF)) &#123;</span><br><span class="line">        index++;</span><br><span class="line">        if (index % 100000 == 0) cout &lt;&lt; index &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">		int node;</span><br><span class="line">		char attr[20005];</span><br><span class="line">		fscanf(attributeF, &quot;%d\t%s\n&quot;, &amp;node, &amp;attr);</span><br><span class="line"></span><br><span class="line">		vector&lt;string&gt; vec;</span><br><span class="line">		string str = string(attr);</span><br><span class="line">		if (str.size() == 0) continue;</span><br><span class="line">		SplitString(str, vec, &quot;,&quot;);</span><br><span class="line">		int len = vec.size();</span><br><span class="line">		for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">            //把str转换成int</span><br><span class="line">            if (attribute_index[vec[i]] == 0) &#123;</span><br><span class="line">                attribute_index[vec[i]] = attr_index;</span><br><span class="line">                fprintf(out1, &quot;%s\t%d\n&quot;, vec[i].data(), attr_index);</span><br><span class="line">                attr_index++;</span><br><span class="line">            &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    index = 1;</span><br><span class="line">	FILE *in = fopen(fileName, &quot;r&quot;);</span><br><span class="line">	FILE *out2 = fopen(outFileName2, &quot;w&quot;);</span><br><span class="line">	while (!feof(in)) &#123;</span><br><span class="line">	    index++;</span><br><span class="line">        if (index % 10000 == 0) cout &lt;&lt; &quot;进度=&quot; &lt;&lt; index &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">		int node;</span><br><span class="line">		char attr[20005];</span><br><span class="line">		fscanf(in, &quot;%d\t%s\n&quot;, &amp;node, &amp;attr);</span><br><span class="line">		fprintf(out2, &quot;%d\t&quot;, node);</span><br><span class="line"></span><br><span class="line">		vector&lt;string&gt; vec;</span><br><span class="line">		string str = string(attr);</span><br><span class="line">		if (str.size() == 0) continue;</span><br><span class="line">		SplitString(str, vec, &quot;,&quot;);</span><br><span class="line">		bool flag = true;</span><br><span class="line">		for (int i = 0; i &lt; vec.size(); i++) &#123;</span><br><span class="line">            if (flag) &#123;</span><br><span class="line">                flag = false;</span><br><span class="line">                fprintf(out2, &quot;%d&quot;, attribute_index[vec[i]]);</span><br><span class="line">            &#125;</span><br><span class="line">            else fprintf(out2, &quot;,%d&quot;, attribute_index[vec[i]]);</span><br><span class="line">		&#125;</span><br><span class="line">		fprintf(out2, &quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	fclose(in);</span><br><span class="line">	fclose(out1);</span><br><span class="line">	fclose(out2);</span><br><span class="line">	fclose(attributeF);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">typedef pair&lt;string, int&gt; psi;</span><br><span class="line">ostream&amp; operator&lt;&lt;(ostream&amp; out, const psi&amp; p) &#123;</span><br><span class="line">  return out &lt;&lt; p.first &lt;&lt; &quot;\t&quot; &lt;&lt; p.second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool cmp(psi a, psi b)</span><br><span class="line">&#123;</span><br><span class="line">    return a.second &gt; b.second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Debug(const char* inFileName, const char* outFileName)</span><br><span class="line">&#123;</span><br><span class="line">    int index = 0;</span><br><span class="line">	FILE *in = fopen(inFileName, &quot;r&quot;);</span><br><span class="line">	FILE *out = fopen(outFileName, &quot;w&quot;);</span><br><span class="line"></span><br><span class="line">	while (!feof(in)) &#123;</span><br><span class="line">        index++;</span><br><span class="line">        if (index % 10000 == 0) cout &lt;&lt; index &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">		int node;</span><br><span class="line">		char attr[20005];</span><br><span class="line">		fgets(attr, 20005, in);</span><br><span class="line">		//cout &lt;&lt; attr &lt;&lt; &apos; &apos; &lt;&lt; strlen(attr) &lt;&lt; endl;  // 长度包含空格和换行符</span><br><span class="line">		if (strlen(attr) &gt; 9) &#123;   // 本身顶点长度为7，空格，换行符</span><br><span class="line">            fputs(attr, out);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">            cout &lt;&lt; index &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	fclose(in);</span><br><span class="line">	fclose(out);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    // 去掉无属性的顶点</span><br><span class="line">    //const char* fileName1 = &quot;dblp_nltk_attributes.txt&quot;;</span><br><span class="line">    //const char* fileName2 = &quot;out.txt&quot;;</span><br><span class="line">    //Debug(fileName1, fileName2);</span><br><span class="line">    //return 0;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    const char* fileName = &quot;dblp_nltk_attributes.txt&quot;;</span><br><span class="line">    const char* outFileName = &quot;dblp_attributes.txt&quot;;</span><br><span class="line">    const char* freFileName = &quot;frequency.txt&quot;;</span><br><span class="line">    const char* transFileName1 = &quot;dblp_String2Int.txt&quot;;</span><br><span class="line">    const char* transFileName2 = &quot;dblp_attributes_int.txt&quot;;</span><br><span class="line">    Vertex_Attribute(fileName, outFileName);   // 自建字典检查s、ed、ing（20190623注意要去重复）</span><br><span class="line">    ComputeFrequency(outFileName, freFileName);   // 计算顶点属性频繁性</span><br><span class="line">    Transform2Int(outFileName, transFileName1, transFileName2);  // 转换int</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>出现文件读不完情况？？？居然是有个顶点没有一个属性造成的。<br>使用fgets和fputs判断字符长度不超过9的删除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">void Debug(const char* inFileName, const char* outFileName)</span><br><span class="line">&#123;</span><br><span class="line">    int index = 0;</span><br><span class="line">	FILE *in = fopen(inFileName, &quot;r&quot;);</span><br><span class="line">	FILE *out = fopen(outFileName, &quot;w&quot;);</span><br><span class="line"></span><br><span class="line">	while (!feof(in)) &#123;</span><br><span class="line">        index++;</span><br><span class="line">        if (index % 10000 == 0) cout &lt;&lt; index &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">		int node;</span><br><span class="line">		char attr[20005];</span><br><span class="line">		fgets(attr, 20005, in);</span><br><span class="line">		//cout &lt;&lt; attr &lt;&lt; &apos; &apos; &lt;&lt; strlen(attr) &lt;&lt; endl;  // 长度包含空格和换行符</span><br><span class="line">		if (strlen(attr) &gt; 9) &#123;   // 本身顶点长度为7，空格，换行符</span><br><span class="line">            fputs(attr, out);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">            cout &lt;&lt; index &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	fclose(in);</span><br><span class="line">	fclose(out);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">进度=2070000</span><br><span class="line">进度=2080000</span><br><span class="line"></span><br><span class="line">Process returned 0 (0x0)   execution time : 414.761 s</span><br><span class="line">Press any key to continue.</span><br></pre></td></tr></table></figure>
+<p>发现一个顶点有重复的属性在自建字典词形还原的时候出现这种情况。但处理的还不是完美，应该在python词形还原的时候不应该取前20，在这里取前20。时间紧迫，python处理大概需要半小时。</p>
+<h2 id="运行，建立超图和属性关键字索引"><a href="#运行，建立超图和属性关键字索引" class="headerlink" title="运行，建立超图和属性关键字索引"></a>运行，建立超图和属性关键字索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">[hejian@sklse ETAttriOnLinux]$ ./main_by_hejian </span><br><span class="line">HanKin.build: 16:16:09, Jun 23 2019. Time: 16:16:29 [Dec 13 2017]</span><br><span class="line">=================================================================</span><br><span class="line">usage: main_by_hejian</span><br><span class="line"></span><br><span class="line">		&lt;&lt;紧密子图查询(基于k-truss的属性网络社区发现和搜索)&gt;&gt;</span><br><span class="line"></span><br><span class="line">###选择数据集###:</span><br><span class="line"> 1.dblp</span><br><span class="line"> 2.dbpedia</span><br><span class="line"> 3.yago</span><br><span class="line"> 4.tencent</span><br><span class="line"> 5.test </span><br><span class="line"></span><br><span class="line">请输入: 1</span><br><span class="line">*************预处理*************</span><br><span class="line">1、计算数据集的顶点平均度</span><br><span class="line">2、随机生成数据集的查询点</span><br><span class="line">3、随机生成数据集的顶点伸缩性</span><br><span class="line">4、随机生成数据集的属性伸缩性</span><br><span class="line">5、查看图数据信息</span><br><span class="line">6、其他(跳过)</span><br><span class="line">请输入: 23</span><br><span class="line">aRate =     1.00 vRate =     0.20</span><br><span class="line"> attrNumMax =          5 kValue = 6 </span><br><span class="line"></span><br><span class="line">请输入点占的范围比例(0-100):100</span><br><span class="line"></span><br><span class="line">==========1.Read Local Data File（建图）==========</span><br><span class="line">DataSet: ./DataSets/Graph/dblp100%_vertices.txt</span><br><span class="line">nodes = 1981567</span><br><span class="line">edges = 9735108</span><br><span class="line">Run Time:5.020000 s</span><br><span class="line"></span><br><span class="line">==========Start EquiTrussIndex==========</span><br><span class="line">==========2.Compute the Support of Edges==========</span><br><span class="line">Run Time:48.290000 s</span><br><span class="line"></span><br><span class="line">==========3.Compute the Trussness of Edges==========</span><br><span class="line">kMax = 287</span><br><span class="line">Node = 2 287</span><br><span class="line">Edge = 2 287</span><br><span class="line">Run Time:169.820000 s</span><br><span class="line"></span><br><span class="line">==========4.Index Construction for EquiTruss==========</span><br><span class="line">superNode&apos;s size:972699</span><br><span class="line">超点存储到本地完成！！！</span><br><span class="line">superEdge&apos;s size:1461225</span><br><span class="line">超边存储到本地完成！！！</span><br><span class="line">全局trussness存储到本地完成!!!</span><br><span class="line">超图点数 = 972699</span><br><span class="line">超图边数 = 1461225</span><br><span class="line">EquiTruss索引创建时间:359.810000 s</span><br><span class="line"></span><br><span class="line">顶点包含在超点映射时间:367.950000 s</span><br><span class="line"></span><br><span class="line">==========5.Community Search Based on AttributeSearch（准备搜索）==========</span><br><span class="line">==========5-1.Read Attribute Dataset File（读取属性到内存）==========</span><br><span class="line">DataSet: ./DataSets/Attribute/dblp_attributes_int.txt</span><br><span class="line">Run Time:585.270000 s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">========5-2start find attribute truss（建立属性索引）...=====</span><br><span class="line">attr_max_id = 259969</span><br><span class="line">time = 2548.5s</span><br><span class="line"></span><br><span class="line">属性索引创建时间:2548.500000 s</span><br></pre></td></tr></table></figure>
+<p>#<br>难受，以前因为没有后面的两种方法，所以选取设计的ATCImprove方法进行比较，想改缺没有时间了，就这样吧。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-25T10:24:16.275Z" itemprop="dateUpdated">2019-06-25 18:24:16</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/06/18/20190621DBLP/" target="_blank" rel="external">https://hankin2015.github.io/2019/06/18/20190621DBLP/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2019/06/18/20190621DBLP/&title=《DBLP数据集提取》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2019/06/18/20190621DBLP/&title=《DBLP数据集提取》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2019/06/18/20190621DBLP/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《DBLP数据集提取》 — HanKin的博客&url=https://hankin2015.github.io/2019/06/18/20190621DBLP/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2019/06/18/20190621DBLP/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/08/28/20180805SegmentTree/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/03/ruijie2019/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2019“锐捷网络杯”华中区高校研究生程序设计大赛</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2019/06/18/20190621DBLP/&title=《DBLP数据集提取》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2019/06/18/20190621DBLP/&title=《DBLP数据集提取》 — HanKin的博客&source=幸福是奋斗出来的。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2019/06/18/20190621DBLP/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《DBLP数据集提取》 — HanKin的博客&url=https://hankin2015.github.io/2019/06/18/20190621DBLP/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2019/06/18/20190621DBLP/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2019/06/18/20190621DBLP/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>初识生成对抗网络GAN | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ML,机器学习,GAN">
+    <meta name="description" content="参考白话生成对抗网络 GAN，50 行代码玩转 GAN 模型！【附源码】">
+<meta name="keywords" content="ML,机器学习,GAN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识生成对抗网络GAN">
+<meta property="og:url" content="https://hankin2015.github.io/2018/08/11/20180811GAN/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="参考白话生成对抗网络 GAN，50 行代码玩转 GAN 模型！【附源码】">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-29T06:32:53.508Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识生成对抗网络GAN">
+<meta name="twitter:description" content="参考白话生成对抗网络 GAN，50 行代码玩转 GAN 模型！【附源码】">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">初识生成对抗网络GAN</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">初识生成对抗网络GAN</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-11T13:47:41.000Z" itemprop="datePublished" class="page-time">
+  2018-08-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/机器学习/">机器学习</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="[default_layout]-20180811GAN"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">初识生成对抗网络GAN</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-11 21:47:41" datetime="2018-08-11T13:47:41.000Z"  itemprop="datePublished">2018-08-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/机器学习/">机器学习</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>参考<a href="https://mp.weixin.qq.com/s?__biz=MzIwOTc2MTUyMg==&amp;mid=2247484810&amp;idx=1&amp;sn=dcd5c526aa4157f7520c2d02589989ec&amp;chksm=976fa017a0182901fff00ff5554d8105765a62a8d312b8486a30388fe3b6aa8dac9a0fd7640c&amp;mpshare=1&amp;scene=23&amp;srcid=07238xlzpZ7uyCMDAhQremxo#rd" target="_blank" rel="noopener">白话生成对抗网络 GAN，50 行代码玩转 GAN 模型！【附源码】</a><br><a id="more"></a></p>
+<p>(2014微软实习生笔试题)2.K-th string </p>
+<p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><br>$$\phi$$</p>
+<p>$$\in$$</p>
+<p>// 判断有向图中是否存在环，存在输出YES，不存在输出NO</p>
+<p>#include <bits stdc++.h=""></bits></p>
+<p>#define DEBUG<br>using namespace std;</p>
+<p>const int maxn = 1e5 + 5;<br>int N, M;<br>vector<int> edge[maxn];<br>int state[maxn]; // 0表示未访问，1表示未访问完子节点，2表示访问完子节点<br>bool flag;</int></p>
+<p>void dfs(int node)<br>{<br>    if (flag) return;<br>    state[node] = 1;<br>    for (int nextNode : edge[node]) {<br>        if (1 == state[nextNode]) {<br>            flag = true;<br>            return;<br>        }<br>        if (2 != state[nextNode]) dfs(nextNode);<br>    }<br>    state[node] = 2;<br>    return;<br>}</p>
+<p>int main()<br>{</p>
+<pre><code>#ifdef DEBUG
+    freopen(&quot;./data.in&quot;, &quot;r&quot;, stdin);
+    //freopen(&quot;./data.out&quot;,&quot;w&quot;,stdout);
+#endif // DEBUG
+int T; cin &gt;&gt; T;
+while (T--) {
+    for (int i = 0; i &lt; maxn; i++) edge[i].clear();
+    cin &gt;&gt; N &gt;&gt; M;
+    for (int i = 0; i &lt; M; i++) {
+        int u, v;
+        cin &gt;&gt; u &gt;&gt; v;
+        edge[u].push_back(v);
+    }
+    memset(state, 0, sizeof(state));
+    flag = false;
+    for (int i = 1; i &lt;= N; i++) {
+        dfs(i);
+        if (true == flag) break;
+    }
+    if (flag) cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;
+    else cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
+}
+return 0;
+</code></pre><p>}</p>
+<p>/*<br>2<br>5 5<br>1 2<br>2 3<br>4 5<br>5 4<br>4 2<br>3 2<br>1 2<br>2 3</p>
+<p>YES<br>NO<br>*/</p>
+<p>#include <bits stdc++.h=""></bits></p>
+<p>#define DEBUG<br>using namespace std;</p>
+<p>const int maxn = 1e5 + 5;</p>
+<p>int main()<br>{</p>
+<pre><code>#ifdef DEBUG2
+    freopen(&quot;./data.in&quot;, &quot;r&quot;, stdin);
+    //freopen(&quot;./data.out&quot;,&quot;w&quot;,stdout);
+#endif // DEBUG
+vector&lt;int&gt; v(5);
+v[2] = 23;
+cout &lt;&lt; v[2] &lt;&lt; endl;
+
+v.clear();
+cout &lt;&lt; v[2] &lt;&lt; endl;
+
+// 忘记了，好像需要一个函数赋值的功能，记得总结
+int n1 = 7, n2 = 7, n3 = 7;
+n1 &gt;&gt;= 1;
+n2 &gt;= 1;
+n3 = (n3 &gt; 1);
+cout &lt;&lt; n1 &lt;&lt; &apos; &apos; &lt;&lt; n2 &lt;&lt; &apos; &apos; &lt;&lt; n3 &lt;&lt; endl;
+return 0;
+</code></pre><p>}</p>
+<p>// 判断有向连通图中的起点和终点</p>
+<p>#include <bits stdc++.h=""></bits></p>
+<p>#define DEBUG<br>using namespace std;</p>
+<p>const int maxn = 1e5 + 5;</p>
+<p>int main()<br>{</p>
+<pre><code>#ifdef DEBUG
+    freopen(&quot;./data.in&quot;, &quot;r&quot;, stdin);
+    //freopen(&quot;./data.out&quot;,&quot;w&quot;,stdout);
+#endif // DEBUG
+
+int N; cin &gt;&gt; N;
+map&lt;string, int&gt; inDegree, outDegree; // 出度和入度
+string s, e;            // 答案起点和终点
+set&lt;string&gt; all;        // 所有的城市
+
+for (int i = 0; i &lt; N; i++) {
+    string s1, s2;
+    cin &gt;&gt; s1 &gt;&gt; s2;
+    outDegree[s1]++;
+    inDegree[s2]++;
+    all.insert(s1);
+    all.insert(s2);
+}
+for (string city : all) {
+    if (1 == inDegree[city] - outDegree[city]) e = city;
+    if (1 == outDegree[city] - inDegree[city]) s = city;
+}
+cout &lt;&lt; s &lt;&lt; &apos; &apos; &lt;&lt; e &lt;&lt; endl;
+return 0;
+</code></pre><p>}</p>
+<p>// 有M种物品，每种物品有数量A和价值P，S是每种物品最大值放在N的一个存储槽中</p>
+<p>#include <bits stdc++.h=""></bits></p>
+<p>#define DEBUG<br>using namespace std;</p>
+<p>const int maxn = 1e4 + 5;</p>
+<p>int main()<br>{</p>
+<pre><code>#ifdef DEBUG
+    freopen(&quot;./data.in&quot;, &quot;r&quot;, stdin);
+    //freopen(&quot;./data.out&quot;,&quot;w&quot;,stdout);
+#endif // DEBUG
+
+int N, M;
+int A[maxn], P[maxn], S[maxn];
+cin &gt;&gt; N &gt;&gt; M;
+for (int i = 0; i &lt; M; i++) cin &gt;&gt; A[i];
+for (int i = 0; i &lt; M; i++) cin &gt;&gt; P[i];
+for (int i = 0; i &lt; M; i++) cin &gt;&gt; S[i];
+
+long long value[maxn * 10], cnt = 0; // 注意这里的内存大小
+for (int i = 0; i &lt; M; i++) {
+    int quo = A[i] / S[i];
+    int rem = A[i] % S[i];
+    for (int j = 0; j &lt; quo; j++) {
+        value[cnt++] = S[i] * P[i];
+    }
+    if (rem) value[cnt++] = rem * P[i];
+}
+sort(value, value + cnt);
+long long ans = 0;
+for (int i = cnt - 1; i &gt;= cnt - N; i--) ans += value[i];
+cout &lt;&lt; ans &lt;&lt; endl;
+return 0;
+</code></pre><p>}</p>
+<p>// 计算所有两个数对之间的二进制位不同的总个数</p>
+<p>#include <bits stdc++.h=""></bits></p>
+<p>#define DEBUG<br>using namespace std;</p>
+<p>const int maxn = 1e5 + 5;</p>
+<p>int main()<br>{</p>
+<pre><code>#ifdef DEBUG
+    freopen(&quot;./data.in&quot;, &quot;r&quot;, stdin);
+    //freopen(&quot;./data.out&quot;,&quot;w&quot;,stdout);
+#endif // DEBUG
+
+int N, arr[maxn];
+cin &gt;&gt; N;
+for (int i = 0; i &lt; N; i++) cin &gt;&gt; arr[i];
+long long ans = 0;
+for (int i = 0; i &lt; 32; i++) {
+    int x = 0, y = 0;
+    for (int j = 0; j &lt; N; j++) {
+        if (arr[j] &amp; 1) x++;
+        else y++;
+        arr[j] &gt;&gt;= 1;
+    }
+    ans += x * y;
+}
+cout &lt;&lt; ans &lt;&lt; endl;
+return 0;
+</code></pre><p>}</p>
+<p>#include <bits stdc++.h=""><br>using namespace std;</bits></p>
+<p>const int maxn = 1e5 + 5;</p>
+<p>int main()<br>{<br>    int N, arr[maxn];<br>    cin &gt;&gt; N;<br>    for (int i = 0; i &lt; N; i++) cin &gt;&gt; arr[i];</p>
+<pre><code>int l = *min_element(arr, arr + N), r = *max_element(arr, arr + N);
+while (l &lt; r) {
+    int mid = (l + r) / 2;
+    int small = 0, large = 0;
+    for (int i = 0; i &lt; N; i++) {
+        if (arr[i] &gt; mid) {
+            large += (arr[i] - mid) / 2;
+        }
+        else if (arr[i] &lt; mid) {
+            small += mid - arr[i];
+        }
+    }
+    if (small &lt;= large) {
+
+        break;
+    }
+    else {
+        r = mid;
+    }
+}
+return 0;
+</code></pre><p>}</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-29T06:32:53.508Z" itemprop="dateUpdated">2018-09-29 14:32:53</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/08/11/20180811GAN/" target="_blank" rel="external">https://hankin2015.github.io/2018/08/11/20180811GAN/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GAN/">GAN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/">ML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/08/11/20180811GAN/&title=《初识生成对抗网络GAN》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/08/11/20180811GAN/&title=《初识生成对抗网络GAN》 — HanKin的博客&source=参考白话生成对抗网络 GAN，50 行代码玩转 GAN 模型！【附源码】" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/08/11/20180811GAN/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《初识生成对抗网络GAN》 — HanKin的博客&url=https://hankin2015.github.io/2018/08/11/20180811GAN/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/08/11/20180811GAN/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/12/20180812AcmInput/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">编程题中各式各样的输入格式(黑科技)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/28/20180728MulLanguage/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">多种语言实现求最大值(排序)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2018/08/11/20180811GAN/&title=《初识生成对抗网络GAN》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2018/08/11/20180811GAN/&title=《初识生成对抗网络GAN》 — HanKin的博客&source=参考白话生成对抗网络 GAN，50 行代码玩转 GAN 模型！【附源码】" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2018/08/11/20180811GAN/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《初识生成对抗网络GAN》 — HanKin的博客&url=https://hankin2015.github.io/2018/08/11/20180811GAN/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2018/08/11/20180811GAN/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2018/08/11/20180811GAN/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>hiho一下 第241周 区间价值 | HanKin的博客 | 聪明出于勤奋，天才在于积累。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,Hiho,二分,区间,尺取法">
+    <meta name="description" content="题目: 区间价值描述给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。 例如1 1 1 2 2这五个数所组成的区间的价值为4。 现在小Ho想知道在所有的的vL,R中，第k小的值是多少。">
+<meta name="keywords" content="C++,Hiho,二分,区间,尺取法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hiho一下 第241周 区间价值">
+<meta property="og:url" content="https://hankin2015.github.io/2019/03/01/20190301hiho241/index.html">
+<meta property="og:site_name" content="HanKin的博客">
+<meta property="og:description" content="题目: 区间价值描述给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。 例如1 1 1 2 2这五个数所组成的区间的价值为4。 现在小Ho想知道在所有的的vL,R中，第k小的值是多少。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-27T08:55:26.907Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hiho一下 第241周 区间价值">
+<meta name="twitter:description" content="题目: 区间价值描述给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。 例如1 1 1 2 2这五个数所组成的区间的价值为4。 现在小Ho想知道在所有的的vL,R中，第k小的值是多少。">
+    
+        <link rel="alternate" type="application/atom+xml" title="HanKin的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon-32x32.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HanKin</h5>
+          <a href="mailto:1058198502@qq.com" title="1058198502@qq.com" class="mail">1058198502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hankin2015" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://hankin2017.coding.me/"  >
+                <i class="icon icon-lg icon-link"></i>
+                Coding博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zhihu.com/people/he-jian-81/activities" target="_blank" >
+                <i class="icon icon-lg icon-知乎"></i>
+                知乎
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/1846766142/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.sina.com.cn/s/articlelist_1846766142_0_1.html" target="_blank" >
+                <i class="icon icon-lg icon-新浪博客"></i>
+                新浪博客
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/Han_kin" target="_blank" >
+                <i class="icon icon-lg icon-CSDN"></i>
+                CSDN
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.cnblogs.com/hankin2017/" target="_blank" >
+                <i class="icon icon-lg icon-博客园"></i>
+                博客园
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">hiho一下 第241周 区间价值</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">hiho一下 第241周 区间价值</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-01T13:48:41.000Z" itemprop="datePublished" class="page-time">
+  2019-03-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hihoCoder/">hihoCoder</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目-区间价值"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目: 区间价值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#描述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">输入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">输出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#样例输入"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">样例输入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#样例输出"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">样例输出</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#思路"><span class="post-toc-number">2.</span> <span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#离散化"><span class="post-toc-number">3.</span> <span class="post-toc-text">离散化</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二分"><span class="post-toc-number">4.</span> <span class="post-toc-text">二分</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#尺取法"><span class="post-toc-number">5.</span> <span class="post-toc-text">尺取法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题"><span class="post-toc-number">5.0.1.</span> <span class="post-toc-text">例题</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="[default_layout]-20190301hiho241"
+  class="post-article article-type-[default_layout] fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">hiho一下 第241周 区间价值</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-01 21:48:41" datetime="2019-03-01T13:48:41.000Z"  itemprop="datePublished">2019-03-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hihoCoder/">hihoCoder</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目-区间价值"><a href="#题目-区间价值" class="headerlink" title="题目: 区间价值"></a>题目: 区间价值</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。</p>
+<p>例如1 1 1 2 2这五个数所组成的区间的价值为4。</p>
+<p>现在小Ho想知道在所有的的v<a href="1 &lt;= L &lt;= R &lt;= n">L,R</a>中，第k小的值是多少。<br><a id="more"></a></p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行一个数T(T&lt;=10)，表示数据组数。</p>
+<p>对于每一组数据：</p>
+<p>第一行两个数n，k（1&lt;=n&lt;=200,000,1&lt;=k&lt;=n*(n+1)/2）</p>
+<p>第二行n个数A1…An(1&lt;=Ai&lt;=1,000,000,000)</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>一个数表示答案。</p>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>2<br>4 7<br>1 1 2 3<br>3 6<br>100 100 100</p>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><p>0<br>3</p>
+</blockquote>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>暴力枚举求出n*(n+1)/2区间不同的值，然后排序求第k小的值，明显TLE。<br>我们先分析发现区间越大，价值肯定越大，并且呈单调性。我们就可以用二分去查找第k小的值。<br>对于每次二分的check，这里利用尺取的思想，尺取从左往右扫一遍最大区间[L,R]里的价值都是小于二分的mid,O(n)时间内在n个数里求出比mid价值小的区间个数。<br>总的时间复杂度就变成O(nlogn)。</p>
+<p>消费排行榜：少女》小孩、老人、狗》男人</p>
+<p>11<br>好基友可以基到什么程度?</p>
+<p>“该发生的都发生了不该发生的都尽力了”</p>
+<p>“真正的兄弟是在对方需要女人的时候.<br>做他的女人”</p>
+<p>ob1 = ‘abc’<br>ob2 = iter(‘abc’)<br>ob3 = iter(‘abc’)</p>
+<p>for i in ob1:<br>    print(i, end=’,’)<br>》a,b,c,</p>
+<p>ob1.<strong>next</strong>()  # AttributeError: ‘str’ object has no attribute ‘<strong>next</strong>‘</p>
+<p>for i in ob2:<br>    print(i, end=’ ‘)    # a b c<br>ob2.<strong>next</strong>()  # StopIteration: </p>
+<p>ob3.<strong>next</strong>()  # a<br>ob3.<strong>next</strong>()  # b<br>ob3.<strong>next</strong>()  # c<br>ob3.<strong>next</strong>()  #  StopIteration: </p>
+<p>通过_上述例子可看出，迭代器的优势在于支持自遍历，同时，它的特点是单向非循环的，一旦完成遍历，再次调用就会报错。</p>
+<p>男上加男<br>迎男而上<br>强人锁男<br>左右为男<br>在劫男逃<br>男终羞涩<br>一女男求</p>
+<p>世界上有两种人有话不直说，一种是中国人，一种是女人。我们面对的是中国女人。</p>
+<p>“昨天他给我讲他小时候的故事，讲到一半突然不讲了，他说：“你嫁给我吧让我妈妈给你讲”。</p>
+<h1 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a>离散化</h1><p>离散化，把无限空间中有限的个体映射到有限的空间中去，以此提高算法的时空效率。<br>通俗的说，离散化是在不改变数据相对大小的条件下，对数据进行相应的缩小。例如：<br>原数据：1,999,100000,15；处理后：1,3,4,2；<br>原数据：{100,200}，{20,50000}，{1,400}；<br>处理后：{3,4}，{2,6}，{1,5}；</p>
+<h1 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h1><p>不解释</p>
+<h1 id="尺取法"><a href="#尺取法" class="headerlink" title="尺取法"></a>尺取法</h1><p>顾名思义，像尺子一样取一段，借用挑战书上面的话说，尺取法通常是对数组保存一对下标，即所选取的区间的左右端点，然后根据实际情况不断地推进区间左右端点以得出答案。尺取法比直接暴力枚举区间效率高很多，尤其是数据量大的时候，所以说尺取法是一种高效的枚举区间的方法，是一种技巧，一般用于求取有一定限制的区间个数或最短的区间等等。当然任何技巧都存在其不足的地方，有些情况下尺取法不可行，无法得出正确答案，所以要先判断是否可以使用尺取法再进行计算。</p>
+<p>使用尺取法时应清楚以下四点：</p>
+<ul>
+<li>1、什么情况下能使用尺取法?  </li>
+<li>2、何时推进区间的端点？ </li>
+<li>3、如何推进区间的端点？ </li>
+<li>4、何时结束区间的枚举？</li>
+</ul>
+<p>尺取法通常适用于选取区间有一定规律，或者说所选取的区间有一定的变化趋势的情况，通俗地说，在对所选取区间进行判断之后，我们可以明确如何进一步有方向地推进区间端点以求解满足条件的区间，如果已经判断了目前所选取的区间，但却无法确定所要求解的区间如何进一步得到根据其端点得到，那么尺取法便是不可行的。首先，明确题目所需要求解的量之后，区间左右端点一般从最整个数组的起点开始，之后判断区间是否符合条件在根据实际情况变化区间的端点求解答案。</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p>1、  Poj3061<br>题意：给定一个序列，使得其和大于或等于S，求最短的子序列长度。<br>输入：n=10, S=15, array={5,1,3,5,10,7,4,9,2,8}</p>
+<p>个人理解：设置两个指针，首先右指针不断的+1向右，直到满足条件。如果到结尾了就没有答案。否则就停止右指针进行左指针+1，首先判断当前是否满足条件，满足就继续左指针，不满足就右指针。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 100005  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line">LL a[<span class="number">100010</span>];  </span><br><span class="line"><span class="keyword">int</span> n, t, ans = INF;  </span><br><span class="line">LL sum, s;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);  </span><br><span class="line">    <span class="keyword">while</span> (t--)&#123;  </span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %I64d"</span>, &amp;n, &amp;s);  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">scanf</span>(<span class="string">"%I64d"</span>, a+i);  </span><br><span class="line">        <span class="keyword">int</span> st = <span class="number">0</span>, en = <span class="number">0</span>;  </span><br><span class="line">        ans = INF; sum = <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>)&#123;  </span><br><span class="line">            <span class="keyword">while</span> (en&lt;n &amp;&amp; sum&lt;s) sum += a[en++];  </span><br><span class="line">            <span class="keyword">if</span> (sum &lt; s) <span class="keyword">break</span>;  </span><br><span class="line">            ans = min(ans, en-st);  </span><br><span class="line">            sum -= a[st++];  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">if</span> (ans == INF) ans = <span class="number">0</span>;  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p># </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-27T08:55:26.907Z" itemprop="dateUpdated">2019-03-27 16:55:26</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2019/03/01/20190301hiho241/" target="_blank" rel="external">https://hankin2015.github.io/2019/03/01/20190301hiho241/</a></br>版权声明： 本站所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！
+        
+    </div>
+    
+    <footer>
+        <a href="https://hankin2015.github.io">
+            <img src="/img/avatar.jpg" alt="HanKin">
+            HanKin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hiho/">Hiho</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间/">区间</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/尺取法/">尺取法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2019/03/01/20190301hiho241/&title=《hiho一下 第241周 区间价值》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2019/03/01/20190301hiho241/&title=《hiho一下 第241周 区间价值》 — HanKin的博客&source=题目: 区间价值描述给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2019/03/01/20190301hiho241/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hiho一下 第241周 区间价值》 — HanKin的博客&url=https://hankin2015.github.io/2019/03/01/20190301hiho241/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2019/03/01/20190301hiho241/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/02/20190402miOJ03/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">小米 OJ 编程比赛 03 月常规赛</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/02/23/20190223ReadFileByC++/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">C/C++的读取文件内容和python启动另一个py文件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "5PSlFbHUS2S5raMdDvNpy2NQ-gzGzoHsz",
+            appKey: "nCO1l5gwuu3sN0FdViygh7Fp",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏个糖吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HanKin &copy; 2015 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备1314520号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hankin2015.github.io/2019/03/01/20190301hiho241/&title=《hiho一下 第241周 区间价值》 — HanKin的博客&pic=https://hankin2015.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hankin2015.github.io/2019/03/01/20190301hiho241/&title=《hiho一下 第241周 区间价值》 — HanKin的博客&source=题目: 区间价值描述给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hankin2015.github.io/2019/03/01/20190301hiho241/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hiho一下 第241周 区间价值》 — HanKin的博客&url=https://hankin2015.github.io/2019/03/01/20190301hiho241/&via=https://hankin2015.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hankin2015.github.io/2019/03/01/20190301hiho241/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hankin2015.github.io/2019/03/01/20190301hiho241/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1274378743&web_id=1274378743')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
